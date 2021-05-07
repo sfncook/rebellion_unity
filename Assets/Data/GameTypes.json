@@ -1,0 +1,155 @@
+{
+	"spaceShipTypes": [
+		{
+			"name": "Bireme",
+			"shipCarrierCapacity": 0,
+			"personnelCapacity": 2,
+			"attackStrength": 2,
+			"defenseStrength": 1,
+			"isStealth": false
+		},
+		{
+			"name": "Trireme",
+			"shipCarrierCapacity": 0,
+			"personnelCapacity": 3,
+			"attackStrength": 3,
+			"defenseStrength": 1,
+			"isStealth": false
+		},
+		{
+			"name": "Quadreme",
+			"shipCarrierCapacity": 0,
+			"personnelCapacity": 4,
+			"attackStrength": 4,
+			"defenseStrength": 3,
+			"isStealth": false
+		},
+		{
+			"name": "Stealth",
+			"shipCarrierCapacity": 0,
+			"personnelCapacity": 2,
+			"attackStrength": 1,
+			"defenseStrength": 2,
+			"isStealth": true
+		},
+		{
+			"name": "Small Carrier",
+			"shipCarrierCapacity": 2,
+			"personnelCapacity": 6,
+			"attackStrength": 4,
+			"defenseStrength": 4,
+			"isStealth": false
+		},
+		{
+			"name": "Large Carrier",
+			"shipCarrierCapacity": 4,
+			"personnelCapacity": 10,
+			"attackStrength": 6,
+			"defenseStrength": 6,
+			"isStealth": false
+		}
+	],
+	"starSectors": [
+		{
+			"name": "Arilia",
+			"planets": [
+				{"name": "Baphauhines"},
+				{"name": "Ilrichi"},
+				{"name": "Phuitov"},
+				{"name": "Sion"},
+				{"name": "Thion"}
+			]
+		},
+		{
+			"name": "Bilrizuno",
+			"planets": [
+				{"name": "Ucholla"},
+				{"name": "Vaiclite"},
+				{"name": "Xelia"},
+				{"name": "Yiventune"},
+				{"name": "Chulmonoe"}
+			]
+		},
+		{
+			"name": "Cheginda",
+			"planets": [
+				{"name": "Generth"},
+				{"name": "Tranitania"},
+				{"name": "Yeonus"},
+				{"name": "Zaovis"},
+				{"name": "Ater"}
+			]
+		},
+		{
+			"name": "Crov",
+			"planets": [
+				{"name": "Bivore"},
+				{"name": "Brohavis"},
+				{"name": "Crilles"},
+				{"name": "Dion"},
+				{"name": "Regoulia"}
+			]
+		},
+		{
+			"name": "Lustea",
+			"planets": [
+				{"name": "Cravis"},
+				{"name": "Doatis"},
+				{"name": "Doguvis"},
+				{"name": "Nilagawa"},
+				{"name": "Ochiter"}
+			]
+		},
+		{
+			"name": "Meovis",
+			"planets": [
+				{"name": "Othiunerth"},
+				{"name": "Sanvides"},
+				{"name": "Vebolla"},
+				{"name": "Zadus"},
+				{"name": "Zinov"}
+			]
+		},
+		{
+			"name": "Sudovis",
+			"planets": [
+				{"name": "Cheturilia"},
+				{"name": "Chinreahines"},
+				{"name": "Cichi"},
+				{"name": "Dichi"},
+				{"name": "Einides"}
+			]
+		},
+		{
+			"name": "Thurus",
+			"planets": [
+				{"name": "Ibos"},
+				{"name": "Nageron"},
+				{"name": "Thaguria"},
+				{"name": "Ubaonerth"},
+				{"name": "Croria"}
+			]
+		},
+		{
+			"name": "Veshan",
+			"planets": [
+				{"name": "Cuiphus"},
+				{"name": "Demuna"},
+				{"name": "Dugrogawa"},
+				{"name": "Gnuater"},
+				{"name": "Nanov"}
+			]
+		},
+		{
+			"name": "Xobaethea",
+			"planets": [
+				{"name": "Nolanope"},
+				{"name": "Obiemia"},
+				{"name": "Theon"},
+				{"name": "Xasyria"},
+				{"name": "Cedawei"}
+			]
+		}
+	]
+}
+
