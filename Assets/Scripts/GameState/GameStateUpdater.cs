@@ -27,13 +27,13 @@ public class GameStateUpdater : MonoBehaviour
                 gameTimeLabel.text = "Day: " + gameDayStr.PadLeft(3, '0');
                 timerSec = SEC_PER_GAMEDAY;
 
-                Planet planet = mainGameState.getPlanetByName("Baphauhines");
-                planet.loyalty += 5.0f;
-                if(planet.loyalty >= 100)
-                {
-                    planet.loyalty = 0.0f;
-                }
-                gameStateUpdateEvent.Invoke();
+                //Planet planet = mainGameState.getPlanetByName("Baphauhines");
+                //planet.loyalty += 5.0f;
+                //if(planet.loyalty >= 100)
+                //{
+                //    planet.loyalty = 0.0f;
+                //}
+                //gameStateUpdateEvent.Invoke();
             }
             else
             {
@@ -51,6 +51,7 @@ public class GameStateUpdater : MonoBehaviour
         }
         else
         {
+            timerSec = SEC_PER_GAMEDAY;
             btnStartStop.GetComponentInChildren<TextMeshProUGUI>().text = "Start";
         }
     }
