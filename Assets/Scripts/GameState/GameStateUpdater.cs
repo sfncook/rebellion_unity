@@ -21,14 +21,14 @@ public class GameStateUpdater : MonoBehaviour
                 ++gameState.gameTime;
                 timerSec = SEC_PER_GAMEDAY;
 
-                //Planet planet = mainGameState.getPlanetByName("Baphauhines");
-                //planet.loyalty += 5.0f;
-                //if(planet.loyalty >= 100)
-                //{
-                //    planet.loyalty = 0.0f;
-                //}
+                Planet planet = gameState.getPlanetByName("Ater");
+                planet.loyalty += 5.0f;
+                if (planet.loyalty >= 100)
+                {
+                    planet.loyalty = 0.0f;
+                }
 
-                gameState.gameStateUpdateEvent.Invoke();
+                gameState.gameUpdateNotification();
             }
             else
             {

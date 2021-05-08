@@ -41,6 +41,11 @@ public class MainGameState : MonoBehaviour
         gameStateUpdateEvent.AddListener(call);
     }
 
+    public void gameUpdateNotification()
+    {
+        gameStateUpdateEvent.Invoke();
+    }
+
     public void initializeGameState()
     {
         Planet ater = new Planet("Ater", Random.Range(1, 10), Random.Range(0.0f, 99.0f));
