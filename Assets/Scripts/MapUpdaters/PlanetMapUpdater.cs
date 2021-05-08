@@ -23,6 +23,8 @@ public class PlanetMapUpdater : MonoBehaviour
             Transform energySquare = gameObject.transform.Find("Resources").Find("Square" + strI);
             energySquare.gameObject.SetActive(false);
         }
+
+        onGameStateUpdate();
     }
 
     void onGameStateUpdate()
