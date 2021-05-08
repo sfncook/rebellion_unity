@@ -8,8 +8,13 @@ public class MainGameState : MonoBehaviour
 
     public List<Planet> planets;
     public int gameTime = 0;
-    public UnityEvent gameStateUpdateEvent = new UnityEvent();
     public bool isTimerRunning = false;
+
+    // Game Events
+    public UnityEvent gameStateUpdateEvent = new UnityEvent(); // UI is updated
+    public UnityEvent gameStatePreUpdateEvent = new UnityEvent(); // Pieces make decisions where to move
+    public UnityEvent gameStatePostUpdateEvent = new UnityEvent(); // Battles takes place, pieces take damage
+    public UnityEvent gameStateCleanUpUpdateEvent = new UnityEvent(); // Dead pieces are removed
 
     void Awake()
     {
@@ -41,6 +46,22 @@ public class MainGameState : MonoBehaviour
         gameStateUpdateEvent.AddListener(call);
     }
 
+    public void addListenerGameStatePreUpdateEvent(UnityAction call)
+    {
+        gameStateUpdateEvent.AddListener(call);
+    }
+
+    public void addListenerGameStatePostUpdateEvent(UnityAction call)
+    {
+        gameStateUpdateEvent.AddListener(call);
+    }
+
+
+    public void removeListenerGameStateUpdateEvent(UnityAction call)
+    {
+        gameStateUpdateEvent.RemoveListener(call);
+    }
+
     public void gameUpdateNotification()
     {
         gameStateUpdateEvent.Invoke();
@@ -58,15 +79,5 @@ public class MainGameState : MonoBehaviour
         planets.Add(ucholla);
         planets.Add(obiemia);
         planets.Add(ibos);
-    }
-
-    public void startGameTimer()
-    {
-
-    }
-
-    public void stopGameTimer()
-    {
-
     }
 }

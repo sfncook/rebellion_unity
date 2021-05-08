@@ -56,4 +56,9 @@ public class PlanetMapUpdater : MonoBehaviour
         imgConflict.color = loyaltyColor;
         imgShip.color = loyaltyColor;
     }
+
+    private void OnDestroy()
+    {
+        gameState.removeListenerGameStateUpdateEvent(onGameStateUpdate);
+    }
 }

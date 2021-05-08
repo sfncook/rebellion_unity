@@ -5,7 +5,7 @@ public class TextGameTime : MonoBehaviour
 {
     private MainGameState gameState;
 
-    void Start()
+    private void Start()
     {
         gameState = MainGameState.gameState;
         gameState.addListenerGameStateUpdateEvent(onGameStateUpdate);
@@ -15,5 +15,10 @@ public class TextGameTime : MonoBehaviour
     {
         string gameDayStr = gameState.gameTime.ToString();
         gameObject.GetComponentInChildren<TextMeshProUGUI>().text = "Day: " + gameDayStr.PadLeft(3, '0');
+    }
+
+    private void OnDestroy()
+    {
+        gameState.removeListenerGameStateUpdateEvent(onGameStateUpdate);
     }
 }
