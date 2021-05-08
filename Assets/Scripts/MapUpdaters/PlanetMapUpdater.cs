@@ -2,6 +2,12 @@ using UnityEngine;
 
 public class PlanetMapUpdater : MonoBehaviour
 {
+    public SpriteRenderer imgFactory;
+    public SpriteRenderer imgHq;
+    public SpriteRenderer imgDefense;
+    public SpriteRenderer imgConflict;
+    public SpriteRenderer imgShip;
+
     private const float LOYALTY_BAR_TOTAL_WIDTH = 25.0f;
     private MainGameState gameState;
     private Planet planet;
@@ -29,7 +35,7 @@ public class PlanetMapUpdater : MonoBehaviour
 
     void onGameStateUpdate()
     {
-        float scaleX = (planet.loyalty / 100.0f) * LOYALTY_BAR_TOTAL_WIDTH;
+        float scaleX = (1.0f - planet.loyalty) * LOYALTY_BAR_TOTAL_WIDTH;
         float scaleY = teamALoyaltyBar.localScale.y;
         float scaleZ = teamALoyaltyBar.localScale.z;
         teamALoyaltyBar.localScale = new Vector3(scaleX, scaleY, scaleZ);
@@ -38,5 +44,16 @@ public class PlanetMapUpdater : MonoBehaviour
         float posY = teamALoyaltyBar.localPosition.y;
         float posZ = teamALoyaltyBar.localPosition.z;
         teamALoyaltyBar.localPosition= new Vector3(posX, posY, posZ);
+
+        Color loyaltyColor = Color.green;
+        if(planet.loyalty > 0.5f)
+        {
+            loyaltyColor = Color.red;
+        }
+        imgFactory.color = loyaltyColor;
+        imgHq.color = loyaltyColor;
+        imgDefense.color = loyaltyColor;
+        imgConflict.color = loyaltyColor;
+        imgShip.color = loyaltyColor;
     }
 }

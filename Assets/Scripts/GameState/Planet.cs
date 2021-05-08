@@ -10,7 +10,7 @@ public class Planet
     public int energyCapacity;
 
     // Mutable state:
-    public float loyalty;
+    public float loyalty; // 0=TeamA & 1=TeamB
     public List<SpaceShip> shipsInOrbit;
     public List<SpaceShip> shipsInTransit;
     public List<Personnel> personnelsOnSurface;

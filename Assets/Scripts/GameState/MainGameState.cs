@@ -48,11 +48,11 @@ public class MainGameState : MonoBehaviour
 
     public void initializeGameState()
     {
-        Planet ater = new Planet("Ater", Random.Range(1, 10), Random.Range(0.0f, 99.0f));
-        Planet nageron = new Planet("Nageron", Random.Range(1, 10), Random.Range(0.0f, 99.0f));
-        Planet ucholla = new Planet("Ucholla", Random.Range(1, 10), Random.Range(0.0f, 99.0f));
-        Planet obiemia = new Planet("Obiemia", Random.Range(1, 10), Random.Range(0.0f, 99.0f));
-        Planet ibos = new Planet("Ibos", Random.Range(1, 10), Random.Range(0.0f, 99.0f));
+        Planet ater = new Planet("Ater", Random.Range(1, 10), Random.Range(0.0f, 0.999f));
+        Planet nageron = new Planet("Nageron", Random.Range(1, 10), Random.Range(0.0f, 0.999f));
+        Planet ucholla = new Planet("Ucholla", Random.Range(1, 10), Random.Range(0.0f, 0.999f));
+        Planet obiemia = new Planet("Obiemia", Random.Range(1, 10), Random.Range(0.0f, 0.999f));
+        Planet ibos = new Planet("Ibos", Random.Range(1, 10), Random.Range(0.0f, 0.999f));
         planets.Add(ater);
         planets.Add(nageron);
         planets.Add(ucholla);

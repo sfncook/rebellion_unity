@@ -962,6 +962,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c517977ec76e54bf78fb9c8961fd25a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  imgFactory: {fileID: 8378100329664327356}
+  imgHq: {fileID: 5749002975327382333}
+  imgDefense: {fileID: 8257236247407480816}
+  imgConflict: {fileID: 8048139336862298429}
+  imgShip: {fileID: 1224129430512399504}
 --- !u!1 &7120346521191004983
 GameObject:
   m_ObjectHideFlags: 0

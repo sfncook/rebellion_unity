@@ -22,8 +22,8 @@ public class GameStateUpdater : MonoBehaviour
                 timerSec = SEC_PER_GAMEDAY;
 
                 Planet planet = gameState.getPlanetByName("Ater");
-                planet.loyalty += 5.0f;
-                if (planet.loyalty >= 100)
+                planet.loyalty += 0.05f;
+                if (planet.loyalty >= 1.0)
                 {
                     planet.loyalty = 0.0f;
                 }
