@@ -10,9 +10,15 @@ public class Planet
     public int energyCapacity;
 
     // Mutable state:
-    public bool discovered = true;
     public float loyalty;
     public List<SpaceShip> shipsInOrbit;
     public List<SpaceShip> shipsInTransit;
     public List<Personnel> personnelsOnSurface;
+
+    public Planet(string name, int energyCapacity, float loyalty)
+    {
+        this.name = name;
+        this.energyCapacity = energyCapacity;
+        this.loyalty = loyalty;
+    }
 }

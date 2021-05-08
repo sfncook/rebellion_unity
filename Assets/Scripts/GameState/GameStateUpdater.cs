@@ -7,7 +7,7 @@ public class GameStateUpdater : MonoBehaviour
 {
     private const float SEC_PER_GAMEDAY = 1.0f;
 
-    public MainGameState mainGameState;
+    public MainGameState gameState;
     public TextMeshProUGUI gameTimeLabel;
     public Button btnStartStop;
 
@@ -21,8 +21,8 @@ public class GameStateUpdater : MonoBehaviour
         {
             if (timerSec <= 0.0f)
             {
-                ++mainGameState.gameTime;
-                string gameDayStr = mainGameState.gameTime.ToString();
+                ++gameState.gameTime;
+                string gameDayStr = gameState.gameTime.ToString();
                 gameTimeLabel.text = "Day: " + gameDayStr.PadLeft(3, '0');
                 timerSec = SEC_PER_GAMEDAY;
 

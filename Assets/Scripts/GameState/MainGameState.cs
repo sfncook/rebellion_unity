@@ -1,44 +1,50 @@
 using UnityEngine;
 using System.Collections.Generic;
-using System.Linq;
 
 public class MainGameState : MonoBehaviour
 {
-    public static MainGameState mainGameState;
+    public static MainGameState gameState;
 
-    public List<StarSector> starSectors;
+    public List<Planet> planets;
     public int gameTime = 0;
 
     void Awake()
     {
-        if(mainGameState == null) {
+        if(gameState == null) {
             DontDestroyOnLoad(gameObject);
-            mainGameState = this;
+            gameState = this;
+            initializeGameState();
         }
-        else if(mainGameState != this)
+        else if(gameState != this)
         {
             Destroy(gameObject);
         }
     }
 
-    public StarSector getStarSectorByName(string sectorName)
-    {
-        return (from sec in mainGameState.starSectors where sec.name == sectorName select sec).SingleOrDefault();
-    }
-
     public Planet getPlanetByName(string planetName)
     {
-        foreach (StarSector sector in mainGameState.starSectors)
+        foreach (Planet planet in planets)
         {
-            foreach (Planet planet in sector.planets)
+            if (planet.name.Equals(planetName))
             {
-                if (planet.name.Equals(planetName))
-                {
-                    return planet;
-                }
+                return planet;
             }
         }
         return null;
+    }
+
+    public void initializeGameState()
+    {
+        Planet ater = new Planet("Ater", Random.Range(1, 10), Random.Range(0.0f, 99.0f));
+        Planet nageron = new Planet("Nageron", Random.Range(1, 10), Random.Range(0.0f, 99.0f));
+        Planet ucholla = new Planet("Ucholla", Random.Range(1, 10), Random.Range(0.0f, 99.0f));
+        Planet obiemia = new Planet("Obiemia", Random.Range(1, 10), Random.Range(0.0f, 99.0f));
+        Planet ibos = new Planet("Ibos", Random.Range(1, 10), Random.Range(0.0f, 99.0f));
+        planets.Add(ater);
+        planets.Add(nageron);
+        planets.Add(ucholla);
+        planets.Add(obiemia);
+        planets.Add(ibos);
     }
 
 }
