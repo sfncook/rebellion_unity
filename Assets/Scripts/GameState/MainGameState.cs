@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections.Generic;
+using UnityEngine.Events;
 
 public class MainGameState : MonoBehaviour
 {
@@ -7,6 +8,8 @@ public class MainGameState : MonoBehaviour
 
     public List<Planet> planets;
     public int gameTime = 0;
+    public UnityEvent gameStateUpdateEvent = new UnityEvent();
+    public bool isTimerRunning = false;
 
     void Awake()
     {
@@ -33,6 +36,11 @@ public class MainGameState : MonoBehaviour
         return null;
     }
 
+    public void addListenerGameStateUpdateEvent(UnityAction call)
+    {
+        gameStateUpdateEvent.AddListener(call);
+    }
+
     public void initializeGameState()
     {
         Planet ater = new Planet("Ater", Random.Range(1, 10), Random.Range(0.0f, 99.0f));
@@ -47,4 +55,13 @@ public class MainGameState : MonoBehaviour
         planets.Add(ibos);
     }
 
+    public void startGameTimer()
+    {
+
+    }
+
+    public void stopGameTimer()
+    {
+
+    }
 }

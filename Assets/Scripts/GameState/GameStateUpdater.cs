@@ -1,7 +1,6 @@
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
-using UnityEngine.Events;
 
 public class GameStateUpdater : MonoBehaviour
 {
@@ -11,13 +10,11 @@ public class GameStateUpdater : MonoBehaviour
     public TextMeshProUGUI gameTimeLabel;
     public Button btnStartStop;
 
-    private bool isTimerRunning = false;
     private float timerSec = 0.0f;
-    private UnityEvent gameStateUpdateEvent = new UnityEvent();
 
-    private void Update()
+    private void updateGameState()
     {
-        if(isTimerRunning)
+        if(gameState.isTimerRunning)
         {
             if (timerSec <= 0.0f)
             {
@@ -33,7 +30,7 @@ public class GameStateUpdater : MonoBehaviour
                 //    planet.loyalty = 0.0f;
                 //}
 
-                gameStateUpdateEvent.Invoke();
+                gameState.gameStateUpdateEvent.Invoke();
             }
             else
             {
@@ -44,8 +41,8 @@ public class GameStateUpdater : MonoBehaviour
 
     public void onClickStartStop()
     {
-        isTimerRunning = !isTimerRunning;
-        if (isTimerRunning)
+        gameState.isTimerRunning = !gameState.isTimerRunning;
+        if (gameState.isTimerRunning)
         {
             btnStartStop.GetComponentInChildren<TextMeshProUGUI>().text = "Stop";
         }
@@ -54,10 +51,5 @@ public class GameStateUpdater : MonoBehaviour
             timerSec = SEC_PER_GAMEDAY;
             btnStartStop.GetComponentInChildren<TextMeshProUGUI>().text = "Start";
         }
-    }
-
-    public void AddListenerGameStateUpdateEvent(UnityAction call)
-    {
-        gameStateUpdateEvent.AddListener(call);
     }
 }
