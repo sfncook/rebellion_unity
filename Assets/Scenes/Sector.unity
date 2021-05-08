@@ -450,6 +450,7 @@ GameObject:
   - component: {fileID: 612947930}
   - component: {fileID: 612947929}
   - component: {fileID: 612947928}
+  - component: {fileID: 612947931}
   m_Layer: 5
   m_Name: Btn Start Stop
   m_TagString: Untagged
@@ -521,9 +522,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 815677948}
-        m_TargetAssemblyTypeName: GameStateUpdater, Assembly-CSharp
-        m_MethodName: onClickStartStop
+      - m_Target: {fileID: 612947931}
+        m_TargetAssemblyTypeName: BtnStartStop, Assembly-CSharp
+        m_MethodName: onClick
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -571,6 +572,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 612947926}
   m_CullTransparentMesh: 1
+--- !u!114 &612947931
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 612947926}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 01f18a907b08a46fa982208c592c9b89, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &689697557
 GameObject:
   m_ObjectHideFlags: 0
@@ -639,6 +652,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   planets: []
   gameTime: 0
+  gameStateUpdateEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  isTimerRunning: 0
 --- !u!4 &815677947
 Transform:
   m_ObjectHideFlags: 0
@@ -665,9 +682,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 60115907ef95d4d9e973aac54511b47d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameState: {fileID: 0}
-  gameTimeLabel: {fileID: 1569334281}
-  btnStartStop: {fileID: 612947928}
 --- !u!1 &957036237
 GameObject:
   m_ObjectHideFlags: 0

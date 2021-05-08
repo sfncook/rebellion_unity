@@ -1,26 +1,24 @@
 using UnityEngine;
-using TMPro;
-using UnityEngine.UI;
 
 public class GameStateUpdater : MonoBehaviour
 {
     private const float SEC_PER_GAMEDAY = 1.0f;
 
-    public MainGameState gameState;
-    public TextMeshProUGUI gameTimeLabel;
-    public Button btnStartStop;
-
+    private MainGameState gameState;
     private float timerSec = 0.0f;
 
-    private void updateGameState()
+    private void Start()
+    {
+        gameState = MainGameState.gameState;
+    }
+
+    private void Update()
     {
         if(gameState.isTimerRunning)
         {
             if (timerSec <= 0.0f)
             {
                 ++gameState.gameTime;
-                string gameDayStr = gameState.gameTime.ToString();
-                gameTimeLabel.text = "Day: " + gameDayStr.PadLeft(3, '0');
                 timerSec = SEC_PER_GAMEDAY;
 
                 //Planet planet = mainGameState.getPlanetByName("Baphauhines");
@@ -36,20 +34,10 @@ public class GameStateUpdater : MonoBehaviour
             {
                 timerSec -= Time.deltaTime;
             }
-        }
-    }
-
-    public void onClickStartStop()
-    {
-        gameState.isTimerRunning = !gameState.isTimerRunning;
-        if (gameState.isTimerRunning)
+        } else
         {
-            btnStartStop.GetComponentInChildren<TextMeshProUGUI>().text = "Stop";
-        }
-        else
-        {
+            // Reset timer
             timerSec = SEC_PER_GAMEDAY;
-            btnStartStop.GetComponentInChildren<TextMeshProUGUI>().text = "Start";
         }
     }
 }
