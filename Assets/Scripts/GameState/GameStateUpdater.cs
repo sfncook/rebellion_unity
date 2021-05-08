@@ -13,7 +13,6 @@ public class GameStateUpdater : MonoBehaviour
 
     private bool isTimerRunning = false;
     private float timerSec = 0.0f;
-    private int gameDay = 0;
     private UnityEvent gameStateUpdateEvent = new UnityEvent();
 
     private void Update()
@@ -22,8 +21,8 @@ public class GameStateUpdater : MonoBehaviour
         {
             if (timerSec <= 0.0f)
             {
-                ++gameDay;
-                string gameDayStr = gameDay.ToString();
+                ++mainGameState.gameTime;
+                string gameDayStr = mainGameState.gameTime.ToString();
                 gameTimeLabel.text = "Day: " + gameDayStr.PadLeft(3, '0');
                 timerSec = SEC_PER_GAMEDAY;
 
@@ -33,7 +32,8 @@ public class GameStateUpdater : MonoBehaviour
                 //{
                 //    planet.loyalty = 0.0f;
                 //}
-                //gameStateUpdateEvent.Invoke();
+
+                gameStateUpdateEvent.Invoke();
             }
             else
             {

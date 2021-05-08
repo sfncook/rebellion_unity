@@ -7,6 +7,7 @@ public class MainGameState : MonoBehaviour
     public static MainGameState mainGameState;
 
     public List<StarSector> starSectors;
+    public int gameTime = 0;
 
     void Awake()
     {
