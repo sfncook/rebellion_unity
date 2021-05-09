@@ -650,12 +650,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7754a3ee3b5134b19a25fa40f578fe99, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  planets: []
   gameTime: 0
-  gameStateUpdateEvent:
+  isTimerRunning: 0
+  playerTeam: 0
+  uiUpdateEvent:
     m_PersistentCalls:
       m_Calls: []
-  isTimerRunning: 0
+  agentPlanEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  agentActionEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  postCleanupEvent:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!4 &815677947
 Transform:
   m_ObjectHideFlags: 0
@@ -1114,7 +1123,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1500608670}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 90}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1703336361}
@@ -1535,7 +1544,7 @@ GameObject:
   - component: {fileID: 1991297519}
   - component: {fileID: 1991297518}
   m_Layer: 5
-  m_Name: UI Canvas
+  m_Name: Buttons
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

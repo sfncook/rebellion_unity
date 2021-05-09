@@ -90,4 +90,11 @@ public class PlanetUpdater : MonoBehaviour
     {
         gameState.removeListenerGameStateUpdateEvent(onGameStateUpdate);
     }
+
+    void OnMouseDown()
+    {
+        Debug.Log("Click Planet:" + name);
+        //sectorDialog.gameObject.SetActive(true);
+        //updateIconImg();
+    }
 }
