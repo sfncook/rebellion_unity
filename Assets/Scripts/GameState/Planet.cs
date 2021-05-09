@@ -14,8 +14,15 @@ public class Planet
     public bool isInConflict = false;
     public readonly List<Ship> shipsInOrbit = new List<Ship>();
     public readonly List<Ship> shipsInTransit = new List<Ship>();
+
     public readonly List<Personnel> personnelsOnSurface = new List<Personnel>();
+    public readonly List<Personnel> personnelsInTransit = new List<Personnel>();
+
     public readonly List<Factory> factories = new List<Factory>();
+    public readonly List<Factory> factoriesInTransit = new List<Factory>();
+
+    public readonly List<Defense> defenses = new List<Defense>();
+    public readonly List<Defense> defensesInTransit = new List<Defense>();
 
     public Planet(string name, int energyCapacity, float loyalty)
     {

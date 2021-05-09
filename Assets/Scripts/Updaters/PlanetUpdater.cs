@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Linq;
+using System.Collections.Generic;
 
 public class PlanetUpdater : MonoBehaviour
 {
@@ -66,6 +67,23 @@ public class PlanetUpdater : MonoBehaviour
 
         imgHq.gameObject.SetActive(planet.isHq);
         imgConflict.gameObject.SetActive(planet.isInConflict);
+        imgDefense.gameObject.SetActive(planet.defenses.Count > 0);
+
+        int manyFacilities = planet.factories.Count + planet.defenses.Count;
+        for (int i = 1; i<= manyFacilities; i++)
+        {
+            string strI = i.ToString().PadLeft(2, '0');
+            Transform energySquare = gameObject.transform.Find("Resources").Find("Square" + strI);
+            energySquare.GetComponent<SpriteRenderer>().color = Color.blue;
+        }
+
+        for(int i=manyFacilities+1; i<=planet.energyCapacity; i++)
+        {
+            string strI = i.ToString().PadLeft(2, '0');
+            Transform energySquare = gameObject.transform.Find("Resources").Find("Square" + strI);
+            energySquare.GetComponent<SpriteRenderer>().color = Color.white;
+        }
+
     }
 
     private void OnDestroy()
