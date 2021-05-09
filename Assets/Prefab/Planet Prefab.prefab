@@ -330,6 +330,7 @@ Transform:
   - {fileID: 1286899806063431418}
   - {fileID: 2380081260912263639}
   - {fileID: 4507342253116730213}
+  - {fileID: 6780104157364097122}
   m_Father: {fileID: 953713034868056822}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -923,7 +924,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 953713034868056822}
-  - component: {fileID: 2906795028412658366}
+  - component: {fileID: 7003419486003058425}
   m_Layer: 0
   m_Name: Planet Prefab
   m_TagString: Untagged
@@ -950,7 +951,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2906795028412658366
+--- !u!114 &7003419486003058425
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -959,14 +960,97 @@ MonoBehaviour:
   m_GameObject: {fileID: 6401557664925239674}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c517977ec76e54bf78fb9c8961fd25a9, type: 3}
+  m_Script: {fileID: 11500000, guid: 37db8cfceb857421398e269db8eae871, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   imgFactory: {fileID: 8378100329664327356}
   imgHq: {fileID: 5749002975327382333}
   imgDefense: {fileID: 8257236247407480816}
   imgConflict: {fileID: 8048139336862298429}
-  imgShip: {fileID: 1224129430512399504}
+  imgShipTeamA: {fileID: 1224129430512399504}
+  imgShipTeamB: {fileID: 0}
+--- !u!1 &6599963989701067789
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6780104157364097122}
+  - component: {fileID: 1938283074447107474}
+  m_Layer: 0
+  m_Name: Img Ship TeamB
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6780104157364097122
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6599963989701067789}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 10.5, y: 13.46, z: 0}
+  m_LocalScale: {x: -20, y: 20, z: 1}
+  m_Children: []
+  m_Father: {fileID: 3110919626092854530}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!212 &1938283074447107474
+SpriteRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6599963989701067789}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_Sprite: {fileID: 21300000, guid: ac3c33629e32d4aa0a25ac248d7960e6, type: 3}
+  m_Color: {r: 1, g: 0, b: 0, a: 1}
+  m_FlipX: 0
+  m_FlipY: 0
+  m_DrawMode: 0
+  m_Size: {x: 0.41, y: 0.16}
+  m_AdaptiveModeThreshold: 0.5
+  m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
+  m_MaskInteraction: 0
+  m_SpriteSortPoint: 0
 --- !u!1 &7120346521191004983
 GameObject:
   m_ObjectHideFlags: 0
@@ -978,7 +1062,7 @@ GameObject:
   - component: {fileID: 4507342253116730213}
   - component: {fileID: 1224129430512399504}
   m_Layer: 0
-  m_Name: Img Ship
+  m_Name: Img Ship TeamA
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -992,7 +1076,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7120346521191004983}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -10.39, y: 13.46, z: 0}
+  m_LocalPosition: {x: -10.5, y: 13.46, z: 0}
   m_LocalScale: {x: 20, y: 20, z: 1}
   m_Children: []
   m_Father: {fileID: 3110919626092854530}
@@ -1039,7 +1123,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: ac3c33629e32d4aa0a25ac248d7960e6, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0, g: 1, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0

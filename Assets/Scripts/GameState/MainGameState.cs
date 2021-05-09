@@ -93,5 +93,11 @@ public class MainGameState : MonoBehaviour
         planetsCopy.Remove(teamAhq);
         int teamBHq = Random.Range(0, planetsCopy.Count);
         Planet teamBhq = planetsCopy[teamBHq];
+
+        Ship initShipA = new Ship(ShipType.Bireme, Team.TeamA);
+        Ship initShipB = new Ship(ShipType.Bireme, Team.TeamB);
+
+        teamAhq.shipsInOrbit.Add(initShipA);
+        teamBhq.shipsInOrbit.Add(initShipB);
     }
 }
