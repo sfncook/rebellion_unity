@@ -89,15 +89,24 @@ public class MainGameState : MonoBehaviour
         // Pick Team HQ Planets
         List<Planet> planetsCopy = planets.GetRange(0, planets.Count);
         int teamAHq = Random.Range(0, planetsCopy.Count);
-        Planet teamAhq = planetsCopy[teamAHq];
-        planetsCopy.Remove(teamAhq);
+        Planet planetTeamA = planetsCopy[teamAHq];
+        planetsCopy.Remove(planetTeamA);
         int teamBHq = Random.Range(0, planetsCopy.Count);
-        Planet teamBhq = planetsCopy[teamBHq];
+        Planet planetTeamB = planetsCopy[teamBHq];
+
+        planetTeamA.isHq = true;
+        planetTeamB.isHq = true;
+
+        planetTeamA.loyalty = 0.1f;
+        planetTeamB.loyalty = 0.9f;
 
         Ship initShipA = new Ship(ShipType.Bireme, Team.TeamA);
         Ship initShipB = new Ship(ShipType.Bireme, Team.TeamB);
 
-        teamAhq.shipsInOrbit.Add(initShipA);
-        teamBhq.shipsInOrbit.Add(initShipB);
+        planetTeamA.shipsInOrbit.Add(initShipA);
+        planetTeamB.shipsInOrbit.Add(initShipB);
+
+        planetTeamA.factories.Add(new Factory(FactoryType.ctorYard));
+        planetTeamB.factories.Add(new Factory(FactoryType.ctorYard));
     }
 }

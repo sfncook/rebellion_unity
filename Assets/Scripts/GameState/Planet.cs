@@ -7,6 +7,7 @@ public class Planet
 
     // Randomized-then-immutable attributes:
     public readonly int energyCapacity;
+    public bool isHq = false;
 
     // Mutable state:
     public float loyalty; // 0=TeamA & 1=TeamB

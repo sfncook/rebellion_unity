@@ -61,6 +61,10 @@ public class PlanetUpdater : MonoBehaviour
         bool planetHasShipsTeamB = planet.shipsInOrbit.Exists(ship => ship.team == Team.TeamB);
         imgShipTeamA.gameObject.SetActive(planetHasShipsTeamA);
         imgShipTeamB.gameObject.SetActive(planetHasShipsTeamB);
+
+        imgFactory.gameObject.SetActive(planet.factories.Count > 0);
+
+        imgHq.gameObject.SetActive(planet.isHq);
     }
 
     private void OnDestroy()
