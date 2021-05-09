@@ -6,7 +6,7 @@ public class MainGameState : MonoBehaviour
 {
     public static MainGameState gameState;
 
-    public List<Planet> planets;
+    public readonly List<Planet> planets = new List<Planet>();
     public int gameTime = 0;
     public bool isTimerRunning = false;
 

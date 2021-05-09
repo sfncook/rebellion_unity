@@ -13,6 +13,7 @@ public class Planet
     public readonly List<Ship> shipsInOrbit = new List<Ship>();
     public readonly List<Ship> shipsInTransit = new List<Ship>();
     public readonly List<Personnel> personnelsOnSurface = new List<Personnel>();
+    public readonly List<Factory> factories = new List<Factory>();
 
     public Planet(string name, int energyCapacity, float loyalty)
     {

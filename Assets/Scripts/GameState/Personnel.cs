@@ -1,4 +1,6 @@
-﻿public class Personnel
+﻿public class Personnel : AbstractUnit
 {
-    public PersonnelType personnelType;
+    public Personnel(FactoryType factoryType) : base(factoryType)
+    {
+    }
 }
