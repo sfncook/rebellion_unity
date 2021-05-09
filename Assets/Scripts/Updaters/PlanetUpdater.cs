@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Linq;
 
 public class PlanetUpdater : MonoBehaviour
 {
@@ -55,6 +56,11 @@ public class PlanetUpdater : MonoBehaviour
         imgHq.color = loyaltyColor;
         imgDefense.color = loyaltyColor;
         imgConflict.color = loyaltyColor;
+
+        bool planetHasShipsTeamA = planet.shipsInOrbit.Exists(ship => ship.team == Team.TeamA);
+        bool planetHasShipsTeamB = planet.shipsInOrbit.Exists(ship => ship.team == Team.TeamB);
+        imgShipTeamA.gameObject.SetActive(planetHasShipsTeamA);
+        imgShipTeamB.gameObject.SetActive(planetHasShipsTeamB);
     }
 
     private void OnDestroy()

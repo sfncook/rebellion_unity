@@ -968,7 +968,7 @@ MonoBehaviour:
   imgDefense: {fileID: 8257236247407480816}
   imgConflict: {fileID: 8048139336862298429}
   imgShipTeamA: {fileID: 1224129430512399504}
-  imgShipTeamB: {fileID: 0}
+  imgShipTeamB: {fileID: 1938283074447107474}
 --- !u!1 &6599963989701067789
 GameObject:
   m_ObjectHideFlags: 0
