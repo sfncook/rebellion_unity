@@ -65,6 +65,7 @@ public class PlanetUpdater : MonoBehaviour
         imgFactory.gameObject.SetActive(planet.factories.Count > 0);
 
         imgHq.gameObject.SetActive(planet.isHq);
+        imgConflict.gameObject.SetActive(planet.isInConflict);
     }
 
     private void OnDestroy()

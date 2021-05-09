@@ -11,6 +11,7 @@ public class Planet
 
     // Mutable state:
     public float loyalty; // 0=TeamA & 1=TeamB
+    public bool isInConflict = false;
     public readonly List<Ship> shipsInOrbit = new List<Ship>();
     public readonly List<Ship> shipsInTransit = new List<Ship>();
     public readonly List<Personnel> personnelsOnSurface = new List<Personnel>();
