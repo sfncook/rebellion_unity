@@ -4,16 +4,16 @@
 public class Planet
 {
     // Immutable attributes:
-    public string name;
+    public readonly string name;
 
     // Randomized-then-immutable attributes:
-    public int energyCapacity;
+    public readonly int energyCapacity;
 
     // Mutable state:
     public float loyalty; // 0=TeamA & 1=TeamB
-    public List<SpaceShip> shipsInOrbit;
-    public List<SpaceShip> shipsInTransit;
-    public List<Personnel> personnelsOnSurface;
+    public readonly List<Ship> shipsInOrbit = new List<Ship>();
+    public readonly List<Ship> shipsInTransit = new List<Ship>();
+    public readonly List<Personnel> personnelsOnSurface = new List<Personnel>();
 
     public Planet(string name, int energyCapacity, float loyalty)
     {

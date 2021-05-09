@@ -10,11 +10,12 @@ public class MainGameState : MonoBehaviour
     public int gameTime = 0;
     public bool isTimerRunning = false;
 
-    // Game Events
-    public UnityEvent gameStateUpdateEvent = new UnityEvent(); // UI is updated
-    public UnityEvent gameStatePreUpdateEvent = new UnityEvent(); // Pieces make decisions where to move
-    public UnityEvent gameStatePostUpdateEvent = new UnityEvent(); // Battles takes place, pieces take damage
-    public UnityEvent gameStateCleanUpUpdateEvent = new UnityEvent(); // Dead pieces are removed
+    // Game Loop Events
+    public UnityEvent uiUpdateEvent = new UnityEvent();     // 1. UI is updated
+                                                            // 2. Pause waiting for user action
+    public UnityEvent agentPlanEvent = new UnityEvent();    // 3. Pieces make decisions where to move
+    public UnityEvent agentActionEvent = new UnityEvent();  // 4. Battles takes place, pieces take damage
+    public UnityEvent postCleanupEvent = new UnityEvent();  // 5. Dead pieces are removed and gameState updated in response to decisions
 
     void Awake()
     {
@@ -41,30 +42,35 @@ public class MainGameState : MonoBehaviour
         return null;
     }
 
-    public void addListenerGameStateUpdateEvent(UnityAction call)
+    public void addListenerUiUpdateEvent(UnityAction call)
     {
-        gameStateUpdateEvent.AddListener(call);
+        uiUpdateEvent.AddListener(call);
     }
 
-    public void addListenerGameStatePreUpdateEvent(UnityAction call)
+    public void addListenerAgentPlanEvent(UnityAction call)
     {
-        gameStateUpdateEvent.AddListener(call);
+        agentPlanEvent.AddListener(call);
     }
 
-    public void addListenerGameStatePostUpdateEvent(UnityAction call)
+    public void addListenerAgentActionEvent(UnityAction call)
     {
-        gameStateUpdateEvent.AddListener(call);
+        agentActionEvent.AddListener(call);
+    }
+
+    public void addListenerPostCleanupEvent(UnityAction call)
+    {
+        postCleanupEvent.AddListener(call);
     }
 
 
     public void removeListenerGameStateUpdateEvent(UnityAction call)
     {
-        gameStateUpdateEvent.RemoveListener(call);
+        uiUpdateEvent.RemoveListener(call);
     }
 
     public void gameUpdateNotification()
     {
-        gameStateUpdateEvent.Invoke();
+        uiUpdateEvent.Invoke();
     }
 
     public void initializeGameState()
@@ -79,5 +85,13 @@ public class MainGameState : MonoBehaviour
         planets.Add(ucholla);
         planets.Add(obiemia);
         planets.Add(ibos);
+
+        // Pick Team HQ Planets
+        List<Planet> planetsCopy = planets.GetRange(0, planets.Count);
+        int teamAHq = Random.Range(0, planetsCopy.Count);
+        Planet teamAhq = planetsCopy[teamAHq];
+        planetsCopy.Remove(teamAhq);
+        int teamBHq = Random.Range(0, planetsCopy.Count);
+        Planet teamBhq = planetsCopy[teamBHq];
     }
 }

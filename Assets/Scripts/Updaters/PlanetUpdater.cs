@@ -19,7 +19,7 @@ public class PlanetMapUpdater : MonoBehaviour
     {
         gameState = MainGameState.gameState;
         planet = gameState.getPlanetByName(gameObject.name);
-        gameState.addListenerGameStateUpdateEvent(onGameStateUpdate);
+        gameState.addListenerUiUpdateEvent(onGameStateUpdate);
         teamALoyaltyBar = gameObject.transform.Find("Loyalty").Find("Offset").Find("TeamA");
 
         // Hide unused energy squares
