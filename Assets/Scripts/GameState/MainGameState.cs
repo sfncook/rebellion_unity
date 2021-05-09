@@ -6,17 +6,29 @@ public class MainGameState : MonoBehaviour
 {
     public static MainGameState gameState;
 
+    [HideInInspector]
     public readonly List<Planet> planets = new List<Planet>();
+    [HideInInspector]
     public int gameTime = 0;
+    [HideInInspector]
     public bool isTimerRunning = false;
+    [HideInInspector]
     public Team playerTeam = Team.TeamA;
 
     // Game Loop Events
+    [HideInInspector]
     public UnityEvent uiUpdateEvent = new UnityEvent();     // 1. UI is updated
                                                             // 2. Pause waiting for user action
+    [HideInInspector]
     public UnityEvent agentPlanEvent = new UnityEvent();    // 3. Pieces make decisions where to move
+    [HideInInspector]
     public UnityEvent agentActionEvent = new UnityEvent();  // 4. Battles takes place, pieces take damage
+    [HideInInspector]
     public UnityEvent postCleanupEvent = new UnityEvent();  // 5. Dead pieces are removed and gameState updated in response to decisions
+
+    // Scene parameters
+    [HideInInspector]
+    public Planet planetForDetail;
 
     void Awake()
     {

@@ -836,7 +836,7 @@ GameObject:
   - component: {fileID: 968812796}
   - component: {fileID: 968812794}
   m_Layer: 0
-  m_Name: BG Image
+  m_Name: Galaxy BG
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

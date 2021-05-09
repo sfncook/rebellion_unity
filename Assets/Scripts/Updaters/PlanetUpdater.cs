@@ -1,6 +1,5 @@
 using UnityEngine;
-using System.Linq;
-using System.Collections.Generic;
+using UnityEngine.SceneManagement;
 
 public class PlanetUpdater : MonoBehaviour
 {
@@ -93,8 +92,7 @@ public class PlanetUpdater : MonoBehaviour
 
     void OnMouseDown()
     {
-        Debug.Log("Click Planet:" + name);
-        //sectorDialog.gameObject.SetActive(true);
-        //updateIconImg();
+        gameState.planetForDetail = planet;
+        SceneManager.LoadScene("Planet");
     }
 }
