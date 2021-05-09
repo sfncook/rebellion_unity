@@ -9,6 +9,7 @@ public class MainGameState : MonoBehaviour
     public readonly List<Planet> planets = new List<Planet>();
     public int gameTime = 0;
     public bool isTimerRunning = false;
+    public Team playerTeam = Team.TeamA;
 
     // Game Loop Events
     public UnityEvent uiUpdateEvent = new UnityEvent();     // 1. UI is updated
