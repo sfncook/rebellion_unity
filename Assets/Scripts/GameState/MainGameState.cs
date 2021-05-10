@@ -26,9 +26,10 @@ public class MainGameState : MonoBehaviour
     [HideInInspector]
     public UnityEvent postCleanupEvent = new UnityEvent();  // 5. Dead pieces are removed and gameState updated in response to decisions
 
-    // Scene parameters
+    // Planet Dialog
     [HideInInspector]
     public Planet planetForDetail;
+    public TabType selectedTab = TabType.Personnel;
 
     void Awake()
     {

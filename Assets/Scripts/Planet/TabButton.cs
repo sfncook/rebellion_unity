@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class TabButton : MonoBehaviour
 {
+    private MainGameState gameState;
     public PlanetDialog planetDialog;
     public TabType tabType;
 
@@ -10,26 +11,31 @@ public class TabButton : MonoBehaviour
 
     void Start()
     {
-        //energySquare.GetComponent<SpriteRenderer>().color = Color.blue;
-
+        gameState = MainGameState.gameState;
+        updateTabColor();
     }
 
     void OnMouseDown()
     {
-        planetDialog.selectedTab = tabType;
+        gameState.selectedTab = tabType;
     }
 
     private void OnGUI()
     {
-        if(planetDialog.selectedTab != lastTabType)
+        if(gameState.selectedTab != lastTabType)
         {
-            Color tabColor = Color.white;
-            if(planetDialog.selectedTab == tabType)
-            {
-                tabColor = Color.blue;
-            }
-            gameObject.GetComponent<SpriteRenderer>().color = tabColor;
-            lastTabType = planetDialog.selectedTab;
+            updateTabColor();
+            lastTabType = gameState.selectedTab;
         }
+    }
+
+    private void updateTabColor()
+    {
+        Color tabColor = Color.white;
+        if (gameState.selectedTab == tabType)
+        {
+            tabColor = Color.blue;
+        }
+        gameObject.GetComponent<SpriteRenderer>().color = tabColor;
     }
 }
