@@ -1,17 +1,21 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class TabButton : MonoBehaviour
 {
-    // Start is called before the first frame update
+    public PlanetDialog planetDialog;
+
     void Start()
     {
-        
+        //energySquare.GetComponent<SpriteRenderer>().color = Color.blue;
+
     }
 
-    // Update is called once per frame
-    void Update()
+    void OnMouseDown()
+    {
+        //SceneManager.LoadScene("Sector");
+    }
+
+    private void OnGUI()
     {
         
     }

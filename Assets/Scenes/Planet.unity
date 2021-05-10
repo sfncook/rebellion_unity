@@ -281,6 +281,7 @@ GameObject:
   - component: {fileID: 412003684}
   - component: {fileID: 412003685}
   - component: {fileID: 412003686}
+  - component: {fileID: 412003687}
   m_Layer: 0
   m_Name: Tab Ship
   m_TagString: Untagged
@@ -374,6 +375,19 @@ CircleCollider2D:
   m_Offset: {x: -0.00000023841858, y: -0.0000009536743}
   serializedVersion: 2
   m_Radius: 1.4
+--- !u!114 &412003687
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 412003683}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 053569674939a48cba9f0a0c13419904, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  planetDialog: {fileID: 1867130523}
 --- !u!1 &1062678451
 GameObject:
   m_ObjectHideFlags: 0
@@ -385,6 +399,7 @@ GameObject:
   - component: {fileID: 1062678452}
   - component: {fileID: 1062678453}
   - component: {fileID: 1062678454}
+  - component: {fileID: 1062678455}
   m_Layer: 0
   m_Name: Tab Defense
   m_TagString: Untagged
@@ -478,6 +493,19 @@ CircleCollider2D:
   m_Offset: {x: -0.000000059604645, y: -0.0000009536743}
   serializedVersion: 2
   m_Radius: 1.4
+--- !u!114 &1062678455
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1062678451}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 053569674939a48cba9f0a0c13419904, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  planetDialog: {fileID: 1867130523}
 --- !u!1 &1098476059
 GameObject:
   m_ObjectHideFlags: 0
@@ -781,7 +809,7 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
---- !u!1 &1274585796
+--- !u!1 &1180410081
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -789,22 +817,22 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 1274585798}
-  - component: {fileID: 1274585797}
+  - component: {fileID: 1180410083}
+  - component: {fileID: 1180410082}
   m_Layer: 0
-  m_Name: Scripts
+  m_Name: Game State
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1274585797
+--- !u!114 &1180410082
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1274585796}
+  m_GameObject: {fileID: 1180410081}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7754a3ee3b5134b19a25fa40f578fe99, type: 3}
@@ -825,13 +853,13 @@ MonoBehaviour:
   postCleanupEvent:
     m_PersistentCalls:
       m_Calls: []
---- !u!4 &1274585798
+--- !u!4 &1180410083
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1274585796}
+  m_GameObject: {fileID: 1180410081}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
@@ -941,6 +969,49 @@ RectTransform:
   m_AnchoredPosition: {x: 99, y: -70}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &1867130522
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1867130524}
+  - component: {fileID: 1867130523}
+  m_Layer: 0
+  m_Name: Planet Dialog
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1867130523
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1867130522}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 72e2540fd13ea478b9867c4fb06afb3d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &1867130524
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1867130522}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1893112499
 GameObject:
   m_ObjectHideFlags: 0
@@ -951,8 +1022,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1893112500}
   - component: {fileID: 1893112501}
-  - component: {fileID: 1893112503}
   - component: {fileID: 1893112502}
+  - component: {fileID: 1893112503}
   m_Layer: 0
   m_Name: Tab Personnel
   m_TagString: Untagged
@@ -1058,6 +1129,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 053569674939a48cba9f0a0c13419904, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  planetDialog: {fileID: 1867130523}
 --- !u!1 &2076278391
 GameObject:
   m_ObjectHideFlags: 0
