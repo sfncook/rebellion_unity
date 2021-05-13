@@ -47,6 +47,7 @@ public class PlanetDetailGrid : MonoBehaviour
                 }
                 break;
             case TabType.Ship:
+                selectedPlanet.shipsInOrbit.Sort((a, b) => a.type.name.CompareTo(b.type.name));
                 foreach (var ship in selectedPlanet.shipsInOrbit)
                 {
                     newObj = (GameObject)Instantiate(shipListItemPrefab, transform);
