@@ -312,6 +312,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b732dfcf77274496b348155e8fcdc71, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  shipImgSpriteRenderer: {fileID: 3223246737875154268}
+  shipNameLabel: {fileID: 6976861104820199788}
+  shipImg2: {fileID: 21300000, guid: 35727d5ef54a44c89940c3f163598ead, type: 3}
+  shipImg3: {fileID: 21300000, guid: 90dadeb3e6ebf4f8498704031968ed7e, type: 3}
+  shipImg4: {fileID: 21300000, guid: 9e6cab44806414ad79c98b01b601421f, type: 3}
+  shipImg5: {fileID: 21300000, guid: ac3c33629e32d4aa0a25ac248d7960e6, type: 3}
 --- !u!1 &5540142562710922275
 GameObject:
   m_ObjectHideFlags: 0

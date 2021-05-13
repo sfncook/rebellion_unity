@@ -1806,7 +1806,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a9d86d98c31fc45ccb3909203ed07641, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefab: {fileID: 4495967337758738682, guid: e7f5d467c15e542d1a40e1f8cda96d6a, type: 3}
+  defaultPrefab: {fileID: 4495967337758738682, guid: e7f5d467c15e542d1a40e1f8cda96d6a, type: 3}
+  shipListItemPrefab: {fileID: 4495967337758738682, guid: befe39424d3b142278cbfa3a20b52a19, type: 3}
   manyToCreate: 50
   selectedTab: 2
 --- !u!1 &1687960191

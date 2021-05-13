@@ -3,7 +3,8 @@ using UnityEngine.UI;
 
 public class PlanetDetailGrid : MonoBehaviour
 {
-    public GameObject prefab;
+    public GameObject defaultPrefab;
+    public GameObject shipListItemPrefab;
     public int manyToCreate;
 
     private MainGameState gameState;
@@ -34,11 +35,25 @@ public class PlanetDetailGrid : MonoBehaviour
         }
 
         GameObject newObj;
-
-        for(int i=0; i<manyToCreate; i++)
+        switch (selectedTab)
         {
-            newObj = (GameObject)Instantiate(prefab, transform);
-            newObj.GetComponent<Image>().color = Random.ColorHSV();
+            case TabType.Defense:
+            case TabType.Factory:
+            case TabType.Personnel:
+                for (int i = 0; i < manyToCreate; i++)
+                {
+                    newObj = (GameObject)Instantiate(defaultPrefab, transform);
+                    newObj.GetComponent<Image>().color = Random.ColorHSV();
+                }
+                break;
+            case TabType.Ship:
+                foreach (var ship in selectedPlanet.shipsInOrbit)
+                {
+                    newObj = (GameObject)Instantiate(shipListItemPrefab, transform);
+                    ShipListItem shipListItem = newObj.GetComponent<ShipListItem>();
+                    shipListItem.setShip(ship);
+                }
+                break;
         }
     }
 }
