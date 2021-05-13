@@ -121,5 +121,24 @@ public class MainGameState : MonoBehaviour
 
         planetTeamA.factories.Add(new Factory(FactoryType.ctorYard));
         planetTeamB.factories.Add(new Factory(FactoryType.ctorYard));
+
+        var shipTypes = new ShipType[] {
+            ShipType.Bireme,
+            ShipType.Trireme,
+            ShipType.Quadreme,
+            ShipType.Quintreme
+        };
+        foreach (var planet in planets)
+        {
+            int shipTypeIndex = Random.Range(0, shipTypes.Length);
+            Ship randShip = new Ship(shipTypes[shipTypeIndex], Team.TeamA);
+            planetTeamA.shipsInOrbit.Add(randShip);
+        }
+        foreach (var planet in planets)
+        {
+            int shipTypeIndex = Random.Range(0, shipTypes.Length);
+            Ship randShip = new Ship(shipTypes[shipTypeIndex], Team.TeamB);
+            planetTeamB.shipsInOrbit.Add(randShip);
+        }
     }
 }
