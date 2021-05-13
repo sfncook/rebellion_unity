@@ -28,6 +28,11 @@ public class PlanetDetailGrid : MonoBehaviour
 
     private void updateGrid()
     {
+        foreach (Transform child in transform)
+        {
+            GameObject.Destroy(child.gameObject);
+        }
+
         GameObject newObj;
 
         for(int i=0; i<manyToCreate; i++)
