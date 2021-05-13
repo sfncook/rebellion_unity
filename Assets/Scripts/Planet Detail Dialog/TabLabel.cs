@@ -3,29 +3,28 @@ using TMPro;
 
 public class TabLabel : MonoBehaviour
 {
-    private MainGameState gameState;
+    public PlanetDetailGrid planetDetailGrid;
 
     // For updating color
     private TabType lastTabType;
 
     void Start()
     {
-        gameState = MainGameState.gameState;
         updateLabel();
     }
 
     private void OnGUI()
     {
-        if (gameState.selectedTab != lastTabType)
+        if (planetDetailGrid.selectedTab != lastTabType)
         {
             updateLabel();
-            lastTabType = gameState.selectedTab;
+            lastTabType = planetDetailGrid.selectedTab;
         }
     }
 
     private void updateLabel()
     {
-        switch(gameState.selectedTab)
+        switch(planetDetailGrid.selectedTab)
         {
             case TabType.Personnel:
                 gameObject.GetComponentInChildren<TextMeshProUGUI>().text = "Personnel";

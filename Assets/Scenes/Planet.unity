@@ -192,10 +192,10 @@ RectTransform:
   m_Father: {fileID: 1171365353}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0.120000005}
-  m_AnchorMax: {x: 1, y: 0.120000005}
-  m_AnchoredPosition: {x: 0, y: 40}
-  m_SizeDelta: {x: -600, y: 50}
+  m_AnchorMin: {x: 0, y: 0.87020326}
+  m_AnchorMax: {x: 1, y: 0.9175001}
+  m_AnchoredPosition: {x: 0, y: -5.5}
+  m_SizeDelta: {x: -600, y: -13}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &93612738
 MonoBehaviour:
@@ -226,8 +226,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294901760
-  m_fontColor: {r: 0, g: 0, b: 1, a: 1}
+    rgba: 4294967295
+  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -306,6 +306,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f8eeb130c4e3496986d502a8106bc8f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  planetDetailGrid: {fileID: 1491227039}
 --- !u!1001 &143830940
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -455,8 +456,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: 315.07, y: 90}
-  m_SizeDelta: {x: -769.86, y: 2.5599976}
+  m_AnchoredPosition: {x: 250, y: 90}
+  m_SizeDelta: {x: -800, y: 2.5599976}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &155412857
 MonoBehaviour:
@@ -470,8 +471,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 053569674939a48cba9f0a0c13419904, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  planetDialog: {fileID: 1867130523}
   tabType: 1
+  planetDetailGrid: {fileID: 1491227039}
 --- !u!58 &155412858
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -721,8 +722,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -98.92993, y: 90}
-  m_SizeDelta: {x: -797.86, y: 2.5599976}
+  m_AnchoredPosition: {x: -83, y: 90}
+  m_SizeDelta: {x: -800, y: 2.5599976}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!212 &412003685
 SpriteRenderer:
@@ -803,8 +804,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 053569674939a48cba9f0a0c13419904, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  planetDialog: {fileID: 1867130523}
   tabType: 3
+  planetDetailGrid: {fileID: 1491227039}
 --- !u!1 &448906921
 GameObject:
   m_ObjectHideFlags: 0
@@ -1045,10 +1046,10 @@ RectTransform:
   m_Father: {fileID: 1171365353}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0.16749999}
-  m_AnchorMax: {x: 1, y: 0.92312497}
-  m_AnchoredPosition: {x: 0, y: -2.124939}
-  m_SizeDelta: {x: 0, y: -17.050098}
+  m_AnchorMin: {x: 0, y: 0.120000005}
+  m_AnchorMax: {x: 1, y: 0.87020326}
+  m_AnchoredPosition: {x: 0, y: 3.5}
+  m_SizeDelta: {x: 0, y: -10.050095}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &674530044
 MonoBehaviour:
@@ -1093,7 +1094,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.392}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -1267,8 +1268,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: 122.535034, y: 90}
-  m_SizeDelta: {x: -954.93, y: 2.5599976}
+  m_AnchoredPosition: {x: 84, y: 90}
+  m_SizeDelta: {x: -800, y: 2.5599976}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!212 &1062678453
 SpriteRenderer:
@@ -1349,8 +1350,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 053569674939a48cba9f0a0c13419904, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  planetDialog: {fileID: 1867130523}
   tabType: 0
+  planetDetailGrid: {fileID: 1491227039}
 --- !u!1 &1156755749
 GameObject:
   m_ObjectHideFlags: 0
@@ -1740,7 +1741,6 @@ MonoBehaviour:
   postCleanupEvent:
     m_PersistentCalls:
       m_Calls: []
-  selectedTab: 2
 --- !u!4 &1180410083
 Transform:
   m_ObjectHideFlags: 0
@@ -1884,10 +1884,9 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 2076278393}
   - {fileID: 1413550180}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1413550179
 GameObject:
@@ -1918,7 +1917,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1388333319}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &1413550181
 SpriteRenderer:
@@ -1984,7 +1983,7 @@ GameObject:
   - component: {fileID: 1491227037}
   - component: {fileID: 1491227039}
   m_Layer: 5
-  m_Name: Content
+  m_Name: Planet Detail Grid Content
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2069,6 +2068,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   prefab: {fileID: 4495967337758738682, guid: e7f5d467c15e542d1a40e1f8cda96d6a, type: 3}
   manyToCreate: 50
+  selectedTab: 2
 --- !u!1001 &1614544117
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2522,49 +2522,6 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 7676359237607523760, guid: e7f5d467c15e542d1a40e1f8cda96d6a, type: 3}
   m_PrefabInstance: {fileID: 1822674412}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1867130522
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1867130524}
-  - component: {fileID: 1867130523}
-  m_Layer: 0
-  m_Name: Planet Dialog
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1867130523
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1867130522}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 72e2540fd13ea478b9867c4fb06afb3d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!4 &1867130524
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1867130522}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 4
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1893112499
 GameObject:
   m_ObjectHideFlags: 0
@@ -2600,7 +2557,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -320, y: 90}
+  m_AnchoredPosition: {x: -250, y: 90}
   m_SizeDelta: {x: -800, y: 2.5599976}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!212 &1893112501
@@ -2682,8 +2639,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 053569674939a48cba9f0a0c13419904, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  planetDialog: {fileID: 1867130523}
   tabType: 2
+  planetDetailGrid: {fileID: 1491227039}
 --- !u!1 &1970942893
 GameObject:
   m_ObjectHideFlags: 0
@@ -3113,88 +3070,6 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 7676359237607523760, guid: e7f5d467c15e542d1a40e1f8cda96d6a, type: 3}
   m_PrefabInstance: {fileID: 2071798254}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &2076278391
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 2076278393}
-  - component: {fileID: 2076278392}
-  m_Layer: 0
-  m_Name: Planet BG
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!212 &2076278392
-SpriteRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2076278391}
-  m_Enabled: 1
-  m_CastShadows: 0
-  m_ReceiveShadows: 0
-  m_DynamicOccludee: 1
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 0
-  m_RayTraceProcedural: 0
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 0
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: a1fb122e8ecac4855ba58d63e5542385, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 0
-  m_FlipY: 0
-  m_DrawMode: 0
-  m_Size: {x: 20.48, y: 20.48}
-  m_AdaptiveModeThreshold: 0.5
-  m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
-  m_MaskInteraction: 0
-  m_SpriteSortPoint: 0
---- !u!4 &2076278393
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2076278391}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -10, z: 98}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1388333319}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2109307297
 GameObject:
   m_ObjectHideFlags: 0

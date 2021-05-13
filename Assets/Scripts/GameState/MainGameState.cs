@@ -29,7 +29,6 @@ public class MainGameState : MonoBehaviour
     // Planet Dialog
     [HideInInspector]
     public Planet planetForDetail;
-    public TabType selectedTab = TabType.Personnel;
 
     void Awake()
     {

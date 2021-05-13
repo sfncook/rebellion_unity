@@ -2,37 +2,34 @@ using UnityEngine;
 
 public class TabButton : MonoBehaviour
 {
-    private MainGameState gameState;
-    public PlanetDialog planetDialog;
     public TabType tabType;
+    public PlanetDetailGrid planetDetailGrid;
 
-    // For updating color
     private TabType lastTabType;
 
     void Start()
     {
-        gameState = MainGameState.gameState;
         updateTabColor();
     }
 
     void OnMouseDown()
     {
-        gameState.selectedTab = tabType;
+        planetDetailGrid.setSelectedTab(tabType);
     }
 
     private void OnGUI()
     {
-        if(gameState.selectedTab != lastTabType)
+        if(planetDetailGrid.selectedTab != lastTabType)
         {
             updateTabColor();
-            lastTabType = gameState.selectedTab;
+            lastTabType = planetDetailGrid.selectedTab;
         }
     }
 
     private void updateTabColor()
     {
         Color tabColor = Color.white;
-        if (gameState.selectedTab == tabType)
+        if (planetDetailGrid.selectedTab == tabType)
         {
             tabColor = Color.blue;
         }
