@@ -12,7 +12,7 @@ public class PlanetDetail : MonoBehaviour
     public GameObject shipListItemPrefab;
     public GameObject personnelListItemPrefab;
     public GameObject factoryListItemPrefab;
-    //public GameObject defenseListItemPrefab;
+    public GameObject defenseListItemPrefab;
 
     public Transform shipsTeamAPanel;
     public Transform shipsTeamBPanel;
@@ -68,6 +68,15 @@ public class PlanetDetail : MonoBehaviour
             newObj = (GameObject)Instantiate(factoryListItemPrefab, infrastructurePanel);
             FactoryListItem factoryListItem = newObj.GetComponent<FactoryListItem>();
             factoryListItem.setFactory(factory);
+        }
+
+        // Defenses
+        planet.defenses.Sort((a, b) => a.type.name.CompareTo(b.type.name));
+        foreach (Defense defense in planet.defenses)
+        {
+            newObj = (GameObject)Instantiate(defenseListItemPrefab, infrastructurePanel);
+            DefenseListItem defenseListItem = newObj.GetComponent<DefenseListItem>();
+            defenseListItem.setDefense(defense);
         }
     }
 

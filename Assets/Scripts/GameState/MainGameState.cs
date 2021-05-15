@@ -173,5 +173,20 @@ public class MainGameState : MonoBehaviour
                 planet.factories.Add(factory);
             }
         }
+
+        // Randomly add defenses
+        var defenseTypes = new DefenseType[] {
+            DefenseType.orbitalBattery,
+            DefenseType.planetaryShield
+        };
+        foreach (var planet in planets)
+        {
+            for (var i = 0; i < Random.Range(0, 3); i++)
+            {
+                int typeIndex = Random.Range(0, defenseTypes.Length);
+                Defense defense = new Defense(defenseTypes[typeIndex]);
+                planet.defenses.Add(defense);
+            }
+        }
     }
 }
