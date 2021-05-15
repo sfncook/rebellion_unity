@@ -10,6 +10,7 @@ public class PlanetUpdater : MonoBehaviour
     public SpriteRenderer imgShipTeamB;
     public SpriteRenderer personnelTeamA;
     public SpriteRenderer personnelTeamB;
+    public SpriteRenderer shieldImg;
 
     private const float LOYALTY_BAR_TOTAL_WIDTH = 25.0f;
     private MainGameState gameState;
@@ -32,6 +33,9 @@ public class PlanetUpdater : MonoBehaviour
             Transform energySquare = gameObject.transform.Find("Resources").Find("Square" + strI);
             energySquare.gameObject.SetActive(false);
         }
+
+        bool hasOrbitalShield = planet.defenses.Exists(defense => defense.type.Equals(DefenseType.planetaryShield));
+        shieldImg.enabled = hasOrbitalShield;
 
         onGameStateUpdate();
     }
