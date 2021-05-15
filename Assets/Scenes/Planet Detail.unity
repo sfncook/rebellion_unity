@@ -1299,7 +1299,7 @@ GameObject:
   - component: {fileID: 543988579}
   - component: {fileID: 543988578}
   m_Layer: 5
-  m_Name: Defenses Panel
+  m_Name: Infrastructure Panel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3027,10 +3027,13 @@ MonoBehaviour:
   planetShieldImg: {fileID: 5015508944782954345}
   shipListItemPrefab: {fileID: 5315911519325098199, guid: d12691200ac8b4244adf4f8acf90113f, type: 3}
   personnelListItemPrefab: {fileID: 5315911519325098199, guid: 2d2baa46fe37b48ca809c40162750e9f, type: 3}
+  factoryListItemPrefab: {fileID: 5315911519325098199, guid: b11a6f6a9cc8b4c9f9944ea858d05077, type: 3}
+  defenseListItemPrefab: {fileID: 5315911519325098199, guid: bcd854cdd09604f87b39119daae03d3c, type: 3}
   shipsTeamAPanel: {fileID: 246457020}
   shipsTeamBPanel: {fileID: 1759491082}
   personnelTeamAPanel: {fileID: 1144578035}
   personnelTeamBPanel: {fileID: 507451237}
+  infrastructurePanel: {fileID: 543988577}
 --- !u!4 &1473041310
 Transform:
   m_ObjectHideFlags: 0

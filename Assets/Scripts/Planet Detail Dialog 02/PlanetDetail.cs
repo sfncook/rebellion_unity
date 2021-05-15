@@ -11,11 +11,14 @@ public class PlanetDetail : MonoBehaviour
 
     public GameObject shipListItemPrefab;
     public GameObject personnelListItemPrefab;
+    //public GameObject factoryListItemPrefab;
+    //public GameObject defenseListItemPrefab;
 
     public Transform shipsTeamAPanel;
     public Transform shipsTeamBPanel;
     public Transform personnelTeamAPanel;
     public Transform personnelTeamBPanel;
+    //public Transform infrastructurePanel;
 
 
     private MainGameState gameState;
@@ -57,6 +60,15 @@ public class PlanetDetail : MonoBehaviour
             PersonnelListItem personnelListItem = newObj.GetComponent<PersonnelListItem>();
             personnelListItem.setPersonnel(personnel);
         }
+
+        // Factories
+        //planet.factories.Sort((a, b) => a.type.name.CompareTo(b.type.name));
+        //foreach (Factory factory in planet.factories)
+        //{
+        //    newObj = (GameObject)Instantiate(factoryListItemPrefab, infrastructurePanel);
+        //    //PersonnelListItem factoryListItem = newObj.GetComponent<PersonnelListItem>();
+        //    //factoryListItem.setPersonnel(personnel);
+        //}
     }
 
     private void clearAll()
