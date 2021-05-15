@@ -175,6 +175,7 @@ GameObject:
   - component: {fileID: 8805762716755318470}
   - component: {fileID: 5980171181211690401}
   - component: {fileID: 1197498173559019661}
+  - component: {fileID: 1746044393604039211}
   m_Layer: 5
   m_Name: Ship List Item
   m_TagString: Untagged
@@ -241,3 +242,17 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &1746044393604039211
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5315911519325098199}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 49a27a9b7f23a4c5babe6c07c6b14a2d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shipImg: {fileID: 1470768996420471587}
+  hasPersonnelImg: {fileID: 7428416482885215397}
