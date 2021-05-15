@@ -4,7 +4,8 @@ using TMPro;
 public class PlanetDetail : MonoBehaviour
 {
     public TextMeshProUGUI planetNameLabel;
-    public SpriteRenderer imgFactory;
+    public SpriteRenderer planetImg;
+    public SpriteRenderer planetShieldImg;
 
 
     private MainGameState gameState;
@@ -14,7 +15,8 @@ public class PlanetDetail : MonoBehaviour
     {
         gameState = MainGameState.gameState;
         planet = gameState.planetForDetail;
-        imgFactory.sprite = Resources.Load<Sprite>("Images/Planets/"+planet.name);
+        planetImg.sprite = Resources.Load<Sprite>("Images/Planets/"+planet.name);
         planetNameLabel.text = planet.name;
+        planetShieldImg.enabled = false;
     }
 }
