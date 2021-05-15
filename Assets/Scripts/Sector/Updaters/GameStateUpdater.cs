@@ -28,7 +28,10 @@ public class GameStateUpdater : MonoBehaviour
                     planet.loyalty = 0.0f;
                 }
 
-                gameState.gameUpdateNotification();
+                gameState.invokeAgentPlanEvent();
+                gameState.invokeAgentActionEvent();
+                gameState.invokePostCleanupEvent();
+                gameState.invokeUiUpdateEvent();
             }
             else
             {

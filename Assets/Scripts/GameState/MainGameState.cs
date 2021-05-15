@@ -81,10 +81,27 @@ public class MainGameState : MonoBehaviour
         uiUpdateEvent.RemoveListener(call);
     }
 
-    public void gameUpdateNotification()
+
+    public void invokeUiUpdateEvent()
     {
         uiUpdateEvent.Invoke();
     }
+
+    public void invokeAgentPlanEvent()
+    {
+        agentPlanEvent.Invoke();
+    }
+
+    public void invokeAgentActionEvent()
+    {
+        agentActionEvent.Invoke();
+    }
+
+    public void invokePostCleanupEvent()
+    {
+        postCleanupEvent.Invoke();
+    }
+
 
     public void initializeGameState()
     {
