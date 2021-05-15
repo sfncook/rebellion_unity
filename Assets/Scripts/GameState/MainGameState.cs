@@ -166,7 +166,8 @@ public class MainGameState : MonoBehaviour
         };
         foreach (var planet in planets)
         {
-            for (var i = 0; i < Random.Range(0, 3); i++)
+            int many = Mathf.Min(Random.Range(0, 3), (planet.energyCapacity - planet.factories.Count - planet.defenses.Count));
+            for (var i = 0; i < many; i++)
             {
                 int typeIndex = Random.Range(0, factoryTypes.Length);
                 Factory factory = new Factory(factoryTypes[typeIndex]);
@@ -181,11 +182,16 @@ public class MainGameState : MonoBehaviour
         };
         foreach (var planet in planets)
         {
-            for (var i = 0; i < Random.Range(0, 3); i++)
+            int many = Mathf.Min(Random.Range(0, 3), (planet.energyCapacity - planet.factories.Count - planet.defenses.Count));
+            for (var i = 0; i < many; i++)
             {
                 int typeIndex = Random.Range(0, defenseTypes.Length);
                 Defense defense = new Defense(defenseTypes[typeIndex]);
-                planet.defenses.Add(defense);
+                bool hasOrbitalShield = planet.defenses.Exists(defense => defense.type.Equals(DefenseType.planetaryShield));
+                if(defense.type.Equals(DefenseType.orbitalBattery) || !hasOrbitalShield)
+                {
+                    planet.defenses.Add(defense);
+                }
             }
         }
     }

@@ -32,7 +32,7 @@ public class PlanetDetail : MonoBehaviour
         planetImg.sprite = Resources.Load<Sprite>("Images/Planets/" + planet.name);
         starsImg.sprite = Resources.Load<Sprite>("Images/Stars/" + planet.name);
         planetNameLabel.text = planet.name;
-        bool hasOrbitalShield = planet.defenses.Exists(defense => defense.type.Equals(DefenseType.orbitalBattery));
+        bool hasOrbitalShield = planet.defenses.Exists(defense => defense.type.Equals(DefenseType.planetaryShield));
         planetShieldImg.enabled = hasOrbitalShield;
         updateGrid();
     }
