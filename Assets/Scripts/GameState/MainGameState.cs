@@ -135,9 +135,26 @@ public class MainGameState : MonoBehaviour
             for(var i=0; i<Random.Range(0,3); i++)
             {
                 Team team = (Random.Range(0.0f,1.0f)>=0.5f) ? Team.TeamA : Team.TeamB;
-                int shipTypeIndex = Random.Range(0, shipTypes.Length);
-                Ship randShip = new Ship(shipTypes[shipTypeIndex], team);
+                int typeIndex = Random.Range(0, shipTypes.Length);
+                Ship randShip = new Ship(shipTypes[typeIndex], team);
                 planet.shipsInOrbit.Add(randShip);
+            }
+        }
+
+        // Randomly add personnel
+        var personnelTypes = new PersonnelType[] {
+            PersonnelType.Diplomat,
+            PersonnelType.Soldiers,
+            PersonnelType.Spy
+        };
+        foreach (var planet in planets)
+        {
+            for (var i = 0; i < Random.Range(0, 3); i++)
+            {
+                Team team = (Random.Range(0.0f, 1.0f) >= 0.5f) ? Team.TeamA : Team.TeamB;
+                int typeIndex = Random.Range(0, shipTypes.Length);
+                Personnel personnel = new Personnel(personnelTypes[typeIndex], team);
+                planet.personnelsOnSurface.Add(personnel);
             }
         }
     }
