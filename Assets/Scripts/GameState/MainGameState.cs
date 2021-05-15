@@ -157,5 +157,21 @@ public class MainGameState : MonoBehaviour
                 planet.personnelsOnSurface.Add(personnel);
             }
         }
+
+        // Randomly add factories
+        var factoryTypes = new FactoryType[] {
+            FactoryType.ctorYard,
+            FactoryType.shipYard,
+            FactoryType.trainingFac
+        };
+        foreach (var planet in planets)
+        {
+            for (var i = 0; i < Random.Range(0, 3); i++)
+            {
+                int typeIndex = Random.Range(0, factoryTypes.Length);
+                Factory factory = new Factory(factoryTypes[typeIndex]);
+                planet.factories.Add(factory);
+            }
+        }
     }
 }

@@ -4,7 +4,7 @@ public class FactoryType : AbstractType
 {
     private static AbstractType[] ctorYardBuildTypes = {FactoryType.ctorYard, FactoryType.shipYard, FactoryType.trainingFac};
     private static AbstractType[] shipYardBuildTypes = {ShipType.Bireme, ShipType.Trireme, ShipType.Quadreme, ShipType.Quintreme};
-    private static AbstractType[] trainingFacBuildTypes = { };
+    private static AbstractType[] trainingFacBuildTypes = {PersonnelType.Diplomat};
 
     public static FactoryType ctorYard = new FactoryType("Construction Yard", new List<AbstractType>(ctorYardBuildTypes));
     public static FactoryType shipYard = new FactoryType("Ship Yard", new List<AbstractType>(shipYardBuildTypes));
