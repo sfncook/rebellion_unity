@@ -3040,8 +3040,11 @@ MonoBehaviour:
   planetImg: {fileID: 1790104176}
   planetShieldImg: {fileID: 5015508944782954345}
   shipListItemPrefab: {fileID: 5315911519325098199, guid: d12691200ac8b4244adf4f8acf90113f, type: 3}
+  personnelListItemPrefab: {fileID: 5315911519325098199, guid: 2d2baa46fe37b48ca809c40162750e9f, type: 3}
   shipsTeamAPanel: {fileID: 246457020}
   shipsTeamBPanel: {fileID: 1759491082}
+  personnelTeamAPanel: {fileID: 1144578035}
+  personnelTeamBPanel: {fileID: 507451237}
 --- !u!4 &1473041310
 Transform:
   m_ObjectHideFlags: 0

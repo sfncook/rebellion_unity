@@ -152,7 +152,7 @@ public class MainGameState : MonoBehaviour
             for (var i = 0; i < Random.Range(0, 3); i++)
             {
                 Team team = (Random.Range(0.0f, 1.0f) >= 0.5f) ? Team.TeamA : Team.TeamB;
-                int typeIndex = Random.Range(0, shipTypes.Length);
+                int typeIndex = Random.Range(0, personnelTypes.Length);
                 Personnel personnel = new Personnel(personnelTypes[typeIndex], team);
                 planet.personnelsOnSurface.Add(personnel);
             }

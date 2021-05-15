@@ -6,9 +6,14 @@ public class PlanetDetail : MonoBehaviour
     public TextMeshProUGUI planetNameLabel;
     public SpriteRenderer planetImg;
     public SpriteRenderer planetShieldImg;
+
     public GameObject shipListItemPrefab;
+    public GameObject personnelListItemPrefab;
+
     public Transform shipsTeamAPanel;
     public Transform shipsTeamBPanel;
+    public Transform personnelTeamAPanel;
+    public Transform personnelTeamBPanel;
 
 
     private MainGameState gameState;
@@ -39,16 +44,29 @@ public class PlanetDetail : MonoBehaviour
             ShipListItem2 shipListItem = newObj.GetComponent<ShipListItem2>();
             shipListItem.setShip(ship);
         }
+
+        // Personnel
+        planet.personnelsOnSurface.Sort((a, b) => a.type.name.CompareTo(b.type.name));
+        foreach (Personnel personnel in planet.personnelsOnSurface)
+        {
+            Transform panelTransform = personnel.team.Equals(Team.TeamA) ? personnelTeamAPanel : personnelTeamBPanel;
+            newObj = (GameObject)Instantiate(personnelListItemPrefab, panelTransform);
+            PersonnelListItem personnelListItem = newObj.GetComponent<PersonnelListItem>();
+            personnelListItem.setPersonnel(personnel);
+        }
     }
 
     private void clearAll()
     {
-        foreach (Transform child in shipsTeamAPanel)
-        {
-            GameObject.Destroy(child.gameObject);
-        }
+        clearPanel(shipsTeamAPanel);
+        clearPanel(shipsTeamBPanel);
+        clearPanel(personnelTeamAPanel);
+        clearPanel(personnelTeamBPanel);
+    }
 
-        foreach (Transform child in shipsTeamBPanel)
+    private void clearPanel(Transform panel)
+    {
+        foreach (Transform child in panel)
         {
             GameObject.Destroy(child.gameObject);
         }
