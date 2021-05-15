@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 5980171181211690401}
   - component: {fileID: 1197498173559019661}
   - component: {fileID: 5784141003946660902}
+  - component: {fileID: 684110756429884988}
   m_Layer: 5
   m_Name: Personnel List Item
   m_TagString: Untagged
@@ -90,6 +91,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   personnelImg: {fileID: 7392087120828274165}
+--- !u!225 &684110756429884988
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5315911519325098199}
+  m_Enabled: 1
+  m_Alpha: 0.97
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &5634456834367137483
 GameObject:
   m_ObjectHideFlags: 0

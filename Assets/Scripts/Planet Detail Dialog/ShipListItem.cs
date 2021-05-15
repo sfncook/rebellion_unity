@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 
 public class ShipListItem : MonoBehaviour,
-    IPointerDownHandler, IBeginDragHandler, IEndDragHandler, IDragHandler
+    IPointerDownHandler, IBeginDragHandler, IEndDragHandler, IDragHandler, IDropHandler
 {
     public SpriteRenderer shipImg;
     public SpriteRenderer hasPersonnelImg;
@@ -58,5 +58,20 @@ public class ShipListItem : MonoBehaviour,
     void IPointerDownHandler.OnPointerDown(PointerEventData eventData)
     {
         Debug.Log("OnPointerDown "+ship.type.name);
+    }
+
+    void IDropHandler.OnDrop(PointerEventData eventData)
+    {
+        //Debug.Log("Dropped: " + eventData.pointerDrag.GetType().Name);
+        PersonnelListItem personnelListItem = eventData.pointerDrag.GetComponent<PersonnelListItem>();
+        if (personnelListItem != null)
+        {
+            Debug.Log("Dropped personnel! " + personnelListItem.getPersonnel().type.name);
+            personnelListItem.setIsValidDrop(true);
+        }
+        else
+        {
+            Debug.Log("Dropped something odd" + eventData.pointerDrag.GetType().Name);
+        }
     }
 }
