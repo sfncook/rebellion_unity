@@ -13,6 +13,7 @@ public class PlanetDetail : MonoBehaviour
     public GameObject personnelListItemPrefab;
     public GameObject factoryListItemPrefab;
     public GameObject defenseListItemPrefab;
+    public GameObject energySquarePrefab;
 
     public Transform shipsTeamAPanel;
     public Transform shipsTeamBPanel;
@@ -31,7 +32,8 @@ public class PlanetDetail : MonoBehaviour
         planetImg.sprite = Resources.Load<Sprite>("Images/Planets/" + planet.name);
         starsImg.sprite = Resources.Load<Sprite>("Images/Stars/" + planet.name);
         planetNameLabel.text = planet.name;
-        planetShieldImg.enabled = false;
+        bool hasOrbitalShield = planet.defenses.Exists(defense => defense.type.Equals(DefenseType.orbitalBattery));
+        planetShieldImg.enabled = hasOrbitalShield;
         updateGrid();
     }
 
@@ -77,6 +79,12 @@ public class PlanetDetail : MonoBehaviour
             newObj = (GameObject)Instantiate(defenseListItemPrefab, infrastructurePanel);
             DefenseListItem defenseListItem = newObj.GetComponent<DefenseListItem>();
             defenseListItem.setDefense(defense);
+        }
+
+        int manyFacilities = planet.factories.Count + planet.defenses.Count;
+        for (int i = manyFacilities + 1; i <= planet.energyCapacity; i++)
+        {
+            Instantiate(energySquarePrefab, infrastructurePanel);
         }
     }
 
