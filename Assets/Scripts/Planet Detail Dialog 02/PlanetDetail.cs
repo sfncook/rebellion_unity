@@ -49,7 +49,6 @@ public class PlanetDetail : MonoBehaviour
         planet.personnelsOnSurface.Sort((a, b) => a.type.name.CompareTo(b.type.name));
         foreach (Personnel personnel in planet.personnelsOnSurface)
         {
-            Debug.Log(personnel.type.name);
             Transform panelTransform = personnel.team.Equals(Team.TeamA) ? personnelTeamAPanel : personnelTeamBPanel;
             newObj = (GameObject)Instantiate(personnelListItemPrefab, panelTransform);
             PersonnelListItem personnelListItem = newObj.GetComponent<PersonnelListItem>();

@@ -4,11 +4,12 @@ using UnityEngine.SceneManagement;
 public class PlanetUpdater : MonoBehaviour
 {
     public SpriteRenderer imgFactory;
-    public SpriteRenderer imgHq;
     public SpriteRenderer imgDefense;
     public SpriteRenderer imgConflict;
     public SpriteRenderer imgShipTeamA;
     public SpriteRenderer imgShipTeamB;
+    public SpriteRenderer personnelTeamA;
+    public SpriteRenderer personnelTeamB;
 
     private const float LOYALTY_BAR_TOTAL_WIDTH = 25.0f;
     private MainGameState gameState;
@@ -53,7 +54,6 @@ public class PlanetUpdater : MonoBehaviour
             loyaltyColor = Color.red;
         }
         imgFactory.color = loyaltyColor;
-        imgHq.color = loyaltyColor;
         imgDefense.color = loyaltyColor;
         imgConflict.color = loyaltyColor;
 
@@ -62,9 +62,12 @@ public class PlanetUpdater : MonoBehaviour
         imgShipTeamA.gameObject.SetActive(planetHasShipsTeamA);
         imgShipTeamB.gameObject.SetActive(planetHasShipsTeamB);
 
-        imgFactory.gameObject.SetActive(planet.factories.Count > 0);
+        bool planetHasPersonnelTeamA = planet.personnelsOnSurface.Exists(personnel => personnel.team == Team.TeamA);
+        bool planetHasPersonnelTeamB = planet.personnelsOnSurface.Exists(personnel => personnel.team == Team.TeamB);
+        personnelTeamA.gameObject.SetActive(planetHasPersonnelTeamA);
+        personnelTeamB.gameObject.SetActive(planetHasPersonnelTeamB);
 
-        imgHq.gameObject.SetActive(planet.isHq);
+        imgFactory.gameObject.SetActive(planet.factories.Count > 0);
         imgConflict.gameObject.SetActive(planet.isInConflict);
         imgDefense.gameObject.SetActive(planet.defenses.Count > 0);
 
