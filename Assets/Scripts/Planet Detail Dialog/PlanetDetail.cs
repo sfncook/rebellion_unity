@@ -21,6 +21,8 @@ public class PlanetDetail : MonoBehaviour
     public Transform personnelTeamBPanel;
     public Transform infrastructurePanel;
 
+    public Canvas canvas;
+
 
     private MainGameState gameState;
     private Planet planet;
@@ -51,6 +53,7 @@ public class PlanetDetail : MonoBehaviour
             newObj = (GameObject)Instantiate(shipListItemPrefab, panelTransform);
             ShipListItem shipListItem = newObj.GetComponent<ShipListItem>();
             shipListItem.setShip(ship);
+            shipListItem.setCanvas(canvas);
         }
 
         // Personnel
