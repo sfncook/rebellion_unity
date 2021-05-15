@@ -10,7 +10,7 @@ public class ShipListItem2 : MonoBehaviour
     public void setShip(Ship ship)
     {
         this.ship = ship;
-        //shipImg.sprite = Resources.Load<Sprite>("Images/Ships/" + ship.type.name);
+        shipImg.sprite = Resources.Load<Sprite>("Images/Ships/" + ship.type.name);
         hasPersonnelImg.enabled = false;
 
         if (ship.team.Equals(Team.TeamA))
