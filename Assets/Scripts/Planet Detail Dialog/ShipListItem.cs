@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class ShipListItem2 : MonoBehaviour
+public class ShipListItem : MonoBehaviour
 {
     public SpriteRenderer shipImg;
     public SpriteRenderer hasPersonnelImg;

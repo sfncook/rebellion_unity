@@ -49,7 +49,7 @@ public class PlanetDetail : MonoBehaviour
         {
             Transform panelTransform = ship.team.Equals(Team.TeamA) ? shipsTeamAPanel : shipsTeamBPanel;
             newObj = (GameObject)Instantiate(shipListItemPrefab, panelTransform);
-            ShipListItem2 shipListItem = newObj.GetComponent<ShipListItem2>();
+            ShipListItem shipListItem = newObj.GetComponent<ShipListItem>();
             shipListItem.setShip(ship);
         }
 
