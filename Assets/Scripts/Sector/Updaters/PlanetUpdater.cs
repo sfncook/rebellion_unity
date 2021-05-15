@@ -23,7 +23,7 @@ public class PlanetUpdater : MonoBehaviour
     {
         gameState = MainGameState.gameState;
         planet = gameState.getPlanetByName(gameObject.name);
-        gameState.addListenerUiUpdateEvent(onGameStateUpdate);
+        gameState.addListenerUiUpdateEvent(onUiUpdateEvent);
         teamALoyaltyBar = gameObject.transform.Find("Loyalty").Find("Offset").Find("TeamA");
 
         // Hide unused energy squares
@@ -37,10 +37,10 @@ public class PlanetUpdater : MonoBehaviour
         bool hasOrbitalShield = planet.defenses.Exists(defense => defense.type.Equals(DefenseType.planetaryShield));
         shieldImg.enabled = hasOrbitalShield;
 
-        onGameStateUpdate();
+        onUiUpdateEvent();
     }
 
-    void onGameStateUpdate()
+    void onUiUpdateEvent()
     {
         float scaleX = (1.0f - planet.loyalty) * LOYALTY_BAR_TOTAL_WIDTH;
         float scaleY = teamALoyaltyBar.localScale.y;
@@ -94,7 +94,7 @@ public class PlanetUpdater : MonoBehaviour
 
     private void OnDestroy()
     {
-        gameState.removeListenerGameStateUpdateEvent(onGameStateUpdate);
+        gameState.removeListenerGameStateUpdateEvent(onUiUpdateEvent);
     }
 
     void OnMouseDown()

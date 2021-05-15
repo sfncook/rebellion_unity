@@ -24,7 +24,7 @@ public class MainGameState : MonoBehaviour
     [HideInInspector]
     public UnityEvent agentActionEvent = new UnityEvent();  // 4. Battles takes place, pieces take damage
     [HideInInspector]
-    public UnityEvent postCleanupEvent = new UnityEvent();  // 5. Dead pieces are removed and gameState updated in response to decisions
+    public UnityEvent postCleanupEvent = new UnityEvent();  // 5. Dead pieces are removed, units arrive at destinations, and gameState updated in response to decisions
 
     // Planet Dialog
     [HideInInspector]

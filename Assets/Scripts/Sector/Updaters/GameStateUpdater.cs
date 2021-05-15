@@ -42,5 +42,5 @@ public class GameStateUpdater : MonoBehaviour
             // Reset timer
             timerSec = SEC_PER_GAMEDAY;
         }
-    }
+    }// Update
 }
