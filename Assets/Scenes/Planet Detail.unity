@@ -1108,7 +1108,7 @@ GameObject:
   - component: {fileID: 499885059}
   - component: {fileID: 499885058}
   m_Layer: 0
-  m_Name: Background
+  m_Name: Stars
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3023,6 +3023,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   planetNameLabel: {fileID: 1390628792}
   planetImg: {fileID: 1790104176}
+  starsImg: {fileID: 499885058}
   planetShieldImg: {fileID: 5015508944782954345}
   shipListItemPrefab: {fileID: 5315911519325098199, guid: d12691200ac8b4244adf4f8acf90113f, type: 3}
   personnelListItemPrefab: {fileID: 5315911519325098199, guid: 2d2baa46fe37b48ca809c40162750e9f, type: 3}

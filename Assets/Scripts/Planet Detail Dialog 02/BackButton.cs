@@ -5,6 +5,6 @@ public class BackButton : MonoBehaviour
 {
     void OnMouseDown()
     {
-        SceneManager.LoadScene("Sector");
+        SceneManager.LoadScene("Sector Map");
     }
 }

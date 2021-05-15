@@ -5,6 +5,8 @@ public class PlanetDetail : MonoBehaviour
 {
     public TextMeshProUGUI planetNameLabel;
     public SpriteRenderer planetImg;
+    public SpriteRenderer starsImg;
+
     public SpriteRenderer planetShieldImg;
 
     public GameObject shipListItemPrefab;
@@ -24,6 +26,7 @@ public class PlanetDetail : MonoBehaviour
         gameState = MainGameState.gameState;
         planet = gameState.planetForDetail;
         planetImg.sprite = Resources.Load<Sprite>("Images/Planets/" + planet.name);
+        starsImg.sprite = Resources.Load<Sprite>("Images/Stars/" + planet.name);
         planetNameLabel.text = planet.name;
         planetShieldImg.enabled = false;
         updateGrid();
