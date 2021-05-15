@@ -16,11 +16,6 @@ public class ShipListItem : MonoBehaviour,
         rectTransform = GetComponent<RectTransform>();
     }
 
-    public void setCanvas(Canvas canvas)
-    {
-        this.canvas = canvas;
-    }
-
     public void setShip(Ship ship)
     {
         this.ship = ship;
@@ -37,6 +32,11 @@ public class ShipListItem : MonoBehaviour,
             shipImg.transform.localScale = new Vector3(-100, 100, 1);
             shipImg.color = Color.red;
         }
+    }
+
+    public void setCanvas(Canvas canvas)
+    {
+        this.canvas = canvas;
     }
 
     void IBeginDragHandler.OnBeginDrag(PointerEventData eventData)

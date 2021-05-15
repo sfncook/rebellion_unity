@@ -64,6 +64,7 @@ public class PlanetDetail : MonoBehaviour
             newObj = (GameObject)Instantiate(personnelListItemPrefab, panelTransform);
             PersonnelListItem personnelListItem = newObj.GetComponent<PersonnelListItem>();
             personnelListItem.setPersonnel(personnel);
+            personnelListItem.setCanvas(canvas);
         }
 
         // Factories
