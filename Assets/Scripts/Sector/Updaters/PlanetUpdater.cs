@@ -93,6 +93,6 @@ public class PlanetUpdater : MonoBehaviour
     void OnMouseDown()
     {
         gameState.planetForDetail = planet;
-        SceneManager.LoadScene("Planet");
+        SceneManager.LoadScene("Planet2");
     }
 }
