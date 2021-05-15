@@ -122,6 +122,8 @@ public class MainGameState : MonoBehaviour
         planetTeamA.factories.Add(new Factory(FactoryType.ctorYard));
         planetTeamB.factories.Add(new Factory(FactoryType.ctorYard));
 
+
+        // Randomly add ships
         var shipTypes = new ShipType[] {
             ShipType.Bireme,
             ShipType.Trireme,
@@ -130,15 +132,13 @@ public class MainGameState : MonoBehaviour
         };
         foreach (var planet in planets)
         {
-            int shipTypeIndex = Random.Range(0, shipTypes.Length);
-            Ship randShip = new Ship(shipTypes[shipTypeIndex], Team.TeamA);
-            planetTeamA.shipsInOrbit.Add(randShip);
-        }
-        foreach (var planet in planets)
-        {
-            int shipTypeIndex = Random.Range(0, shipTypes.Length);
-            Ship randShip = new Ship(shipTypes[shipTypeIndex], Team.TeamB);
-            planetTeamB.shipsInOrbit.Add(randShip);
+            for(var i=0; i<Random.Range(0,3); i++)
+            {
+                Team team = (Random.Range(0.0f,1.0f)>=0.5f) ? Team.TeamA : Team.TeamB;
+                int shipTypeIndex = Random.Range(0, shipTypes.Length);
+                Ship randShip = new Ship(shipTypes[shipTypeIndex], team);
+                planet.shipsInOrbit.Add(randShip);
+            }
         }
     }
 }
