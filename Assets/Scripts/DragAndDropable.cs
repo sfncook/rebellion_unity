@@ -4,7 +4,7 @@ using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 public abstract class DragAndDropable : MonoBehaviour,
-    IPointerDownHandler, IBeginDragHandler, IEndDragHandler, IDragHandler,
+    IBeginDragHandler, IEndDragHandler, IDragHandler,
     IDropHandler, IPointerExitHandler, IPointerEnterHandler
 {
     private RectTransform rectTransform;
@@ -13,6 +13,9 @@ public abstract class DragAndDropable : MonoBehaviour,
     private Vector2 origin;
     private float originalZorder;
     private bool isValidDrop = false;
+
+    protected bool isDraggable = true;
+    protected bool isDroppable = true;
 
     private void Awake()
     {
@@ -34,42 +37,46 @@ public abstract class DragAndDropable : MonoBehaviour,
 
     void IBeginDragHandler.OnBeginDrag(PointerEventData eventData)
     {
-        isValidDrop = false;
-        canvasGroup.alpha = 0.6f;
-        canvasGroup.blocksRaycasts = false;
-        origin = rectTransform.anchoredPosition;
-        Vector3 locPos = gameObject.transform.localPosition;
-        originalZorder = locPos.z;
-        locPos.z = -99;
-        gameObject.transform.localPosition = locPos;
+        if(isDraggable)
+        {
+            isValidDrop = false;
+            canvasGroup.alpha = 0.6f;
+            canvasGroup.blocksRaycasts = false;
+            origin = rectTransform.anchoredPosition;
+            Vector3 locPos = gameObject.transform.localPosition;
+            originalZorder = locPos.z;
+            locPos.z = -99;
+            gameObject.transform.localPosition = locPos;
+        }
     }
 
     void IDragHandler.OnDrag(PointerEventData eventData)
     {
-        rectTransform.anchoredPosition += eventData.delta / canvas.scaleFactor;
+        if (isDraggable)
+        {
+            rectTransform.anchoredPosition += eventData.delta / canvas.scaleFactor;
+        }
     }
 
     void IEndDragHandler.OnEndDrag(PointerEventData eventData)
     {
-        canvasGroup.alpha = 1.0f;
-        canvasGroup.blocksRaycasts = true;
-        Vector3 locPos = gameObject.transform.localPosition;
-        locPos.z = originalZorder;
-        gameObject.transform.localPosition = locPos;
-        if (isValidDrop)
+        if (isDraggable)
         {
-            Debug.Log("VALID!");
+            canvasGroup.alpha = 1.0f;
+            canvasGroup.blocksRaycasts = true;
+            Vector3 locPos = gameObject.transform.localPosition;
+            locPos.z = originalZorder;
+            gameObject.transform.localPosition = locPos;
+            if (isValidDrop)
+            {
+                Debug.Log("VALID!");
+            }
+            else
+            {
+                Debug.Log("INvalid - reset position now");
+                rectTransform.anchoredPosition = origin;
+            }
         }
-        else
-        {
-            Debug.Log("INvalid - reset position now");
-            rectTransform.anchoredPosition = origin;
-        }
-    }
-
-    void IPointerDownHandler.OnPointerDown(PointerEventData eventData)
-    {
-        // Override, if needed
     }
 
 
