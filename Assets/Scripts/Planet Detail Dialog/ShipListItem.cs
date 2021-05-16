@@ -39,12 +39,15 @@ public class ShipListItem : MonoBehaviour,
 
         if (ship.team.Equals(Team.TeamA))
         {
-            shipImg.transform.localScale = new Vector3(100, 100, 1);
             shipImg.color = Color.green;
         }
         else
         {
-            shipImg.transform.localScale = new Vector3(-100, 100, 1);
+            shipImg.transform.localScale = new Vector3(
+                -shipImg.transform.localScale.x,
+                shipImg.transform.localScale.y,
+                shipImg.transform.localScale.z
+                );
             shipImg.color = Color.red;
         }
     }
