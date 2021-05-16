@@ -14,14 +14,14 @@ public abstract class DragAndDropable : MonoBehaviour,
     private float originalZorder;
     private bool isValidDrop = false;
 
-    protected bool isDraggable = true;
-    protected bool isDroppable = true;
-
     private void Awake()
     {
         rectTransform = GetComponent<RectTransform>();
         canvasGroup = GetComponent<CanvasGroup>();
     }
+
+    protected abstract bool isDraggable();
+    protected abstract bool isDroppable();
 
     public void setCanvas(Canvas canvas)
     {
@@ -37,7 +37,7 @@ public abstract class DragAndDropable : MonoBehaviour,
 
     void IBeginDragHandler.OnBeginDrag(PointerEventData eventData)
     {
-        if(isDraggable)
+        if(isDraggable())
         {
             isValidDrop = false;
             canvasGroup.alpha = 0.6f;
@@ -52,7 +52,7 @@ public abstract class DragAndDropable : MonoBehaviour,
 
     void IDragHandler.OnDrag(PointerEventData eventData)
     {
-        if (isDraggable)
+        if (isDraggable())
         {
             rectTransform.anchoredPosition += eventData.delta / canvas.scaleFactor;
         }
@@ -60,7 +60,7 @@ public abstract class DragAndDropable : MonoBehaviour,
 
     void IEndDragHandler.OnEndDrag(PointerEventData eventData)
     {
-        if (isDraggable)
+        if (isDraggable())
         {
             canvasGroup.alpha = 1.0f;
             canvasGroup.blocksRaycasts = true;
