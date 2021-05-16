@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using System.Collections.Generic;
 
-public class ShipListItem : Droppable
+public class ShipListItem : DragAndDroppable
 {
     public SpriteRenderer shipImg;
     public SpriteRenderer hasPersonnelImg;
@@ -74,5 +74,15 @@ public class ShipListItem : Droppable
     protected override void onPointExit()
     {
         bgColor.color = new Color(0.0f, 0.0f, 0.0f, 0.0f);
+    }
+
+    protected override bool isDraggable()
+    {
+        return false;
+    }
+
+    protected override bool isDroppable()
+    {
+        return true;
     }
 }
