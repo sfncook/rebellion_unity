@@ -1,6 +1,5 @@
 using UnityEngine;
 using UnityEngine.EventSystems;
-using System.Collections.Generic;
 
 public class PersonnelListItem : MonoBehaviour,
     IPointerDownHandler, IBeginDragHandler, IEndDragHandler, IDragHandler
@@ -15,6 +14,7 @@ public class PersonnelListItem : MonoBehaviour,
     // dragging state
     private bool isValidDrop = false;
     private Vector2 origin;
+    private float originalZorder;
 
     private void Awake()
     {
@@ -56,6 +56,10 @@ public class PersonnelListItem : MonoBehaviour,
         canvasGroup.alpha = 0.6f;
         canvasGroup.blocksRaycasts = false;
         origin = rectTransform.anchoredPosition;
+        Vector3 locPos = gameObject.transform.localPosition;
+        originalZorder = locPos.z;
+        locPos.z = -99;
+        gameObject.transform.localPosition = locPos;
     }
 
     void IDragHandler.OnDrag(PointerEventData eventData)
@@ -68,7 +72,10 @@ public class PersonnelListItem : MonoBehaviour,
     {
         canvasGroup.alpha = 1.0f;
         canvasGroup.blocksRaycasts = true;
-        if(isValidDrop)
+        Vector3 locPos = gameObject.transform.localPosition;
+        locPos.z = originalZorder;
+        gameObject.transform.localPosition = locPos;
+        if (isValidDrop)
         {
             Debug.Log("VALID!");
         } else
