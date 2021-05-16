@@ -41,6 +41,10 @@ public class ShipListItem : DragAndDroppable
             shipImg.color = Color.red;
         }
     }
+    public Ship getShip()
+    {
+        return ship;
+    }
 
     protected override List<string> acceptedDropTypes()
     {

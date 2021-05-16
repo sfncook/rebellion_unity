@@ -2,12 +2,20 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.Events;
+
+[System.Serializable]
+public class RemoveShipEvent : UnityEvent<Ship>
+{
+}
 
 public class PlanetStarChart : Droppable
 {
     public TextMeshProUGUI planetNameLabel;
     public Image planetImg;
     public LoyaltyBars loyaltyBars;
+    public Image hoverGlow;
+    public RemoveShipEvent removeShipCallback;
 
     private MainGameState gameState;
     private Planet planet;
@@ -29,17 +37,21 @@ public class PlanetStarChart : Droppable
 
     protected override void onDrop(GameObject pointerDrag)
     {
-        Debug.Log("onDrop "+planet.name);
+        hoverGlow.gameObject.SetActive(false);
+        ShipListItem shipListItem = pointerDrag.GetComponent<ShipListItem>();
+        Ship ship = shipListItem.getShip();
+        removeShipCallback.Invoke(ship);
+        planet.shipsInOrbit.Add(ship);
     }
 
     protected override void onPointEnter(GameObject pointerDrag)
     {
-        Debug.Log("onPointEnter " + planet.name);
+        hoverGlow.gameObject.SetActive(true);
     }
 
     protected override void onPointExit()
     {
-        Debug.Log("onPointExit " + planet.name);
+        hoverGlow.gameObject.SetActive(false);
     }
 
 }

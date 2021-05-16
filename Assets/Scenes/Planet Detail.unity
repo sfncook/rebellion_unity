@@ -1209,6 +1209,34 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5679199408337618576, guid: dede1b366033649a285ca413889eab41, type: 3}
+      propertyPath: removeShipCallback.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5679199408337618576, guid: dede1b366033649a285ca413889eab41, type: 3}
+      propertyPath: removeShipCallback.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5679199408337618576, guid: dede1b366033649a285ca413889eab41, type: 3}
+      propertyPath: removeShipCallback.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1473041309}
+    - target: {fileID: 5679199408337618576, guid: dede1b366033649a285ca413889eab41, type: 3}
+      propertyPath: removeShipCallback.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5679199408337618576, guid: dede1b366033649a285ca413889eab41, type: 3}
+      propertyPath: removeShipCallback.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: removeShip
+      objectReference: {fileID: 0}
+    - target: {fileID: 5679199408337618576, guid: dede1b366033649a285ca413889eab41, type: 3}
+      propertyPath: removeShipCallback.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: PlanetDetail, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 5679199408337618576, guid: dede1b366033649a285ca413889eab41, type: 3}
+      propertyPath: removeShipCallback.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 7086939394589648940, guid: dede1b366033649a285ca413889eab41, type: 3}
       propertyPath: m_Name
       value: Ater
@@ -2206,6 +2234,34 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5679199408337618576, guid: dede1b366033649a285ca413889eab41, type: 3}
+      propertyPath: removeShipCallback.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5679199408337618576, guid: dede1b366033649a285ca413889eab41, type: 3}
+      propertyPath: removeShipCallback.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5679199408337618576, guid: dede1b366033649a285ca413889eab41, type: 3}
+      propertyPath: removeShipCallback.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1473041309}
+    - target: {fileID: 5679199408337618576, guid: dede1b366033649a285ca413889eab41, type: 3}
+      propertyPath: removeShipCallback.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5679199408337618576, guid: dede1b366033649a285ca413889eab41, type: 3}
+      propertyPath: removeShipCallback.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: removeShip
+      objectReference: {fileID: 0}
+    - target: {fileID: 5679199408337618576, guid: dede1b366033649a285ca413889eab41, type: 3}
+      propertyPath: removeShipCallback.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: PlanetDetail, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 5679199408337618576, guid: dede1b366033649a285ca413889eab41, type: 3}
+      propertyPath: removeShipCallback.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 7086939394589648940, guid: dede1b366033649a285ca413889eab41, type: 3}
       propertyPath: m_Name
       value: Ucholla
@@ -2315,6 +2371,34 @@ PrefabInstance:
     - target: {fileID: 2778517757828040225, guid: dede1b366033649a285ca413889eab41, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5679199408337618576, guid: dede1b366033649a285ca413889eab41, type: 3}
+      propertyPath: removeShipCallback.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5679199408337618576, guid: dede1b366033649a285ca413889eab41, type: 3}
+      propertyPath: removeShipCallback.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5679199408337618576, guid: dede1b366033649a285ca413889eab41, type: 3}
+      propertyPath: removeShipCallback.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1473041309}
+    - target: {fileID: 5679199408337618576, guid: dede1b366033649a285ca413889eab41, type: 3}
+      propertyPath: removeShipCallback.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5679199408337618576, guid: dede1b366033649a285ca413889eab41, type: 3}
+      propertyPath: removeShipCallback.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: removeShip
+      objectReference: {fileID: 0}
+    - target: {fileID: 5679199408337618576, guid: dede1b366033649a285ca413889eab41, type: 3}
+      propertyPath: removeShipCallback.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: PlanetDetail, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 5679199408337618576, guid: dede1b366033649a285ca413889eab41, type: 3}
+      propertyPath: removeShipCallback.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 7086939394589648940, guid: dede1b366033649a285ca413889eab41, type: 3}
       propertyPath: m_Name
@@ -3354,6 +3438,34 @@ PrefabInstance:
     - target: {fileID: 2778517757828040225, guid: dede1b366033649a285ca413889eab41, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5679199408337618576, guid: dede1b366033649a285ca413889eab41, type: 3}
+      propertyPath: removeShipCallback.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5679199408337618576, guid: dede1b366033649a285ca413889eab41, type: 3}
+      propertyPath: removeShipCallback.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5679199408337618576, guid: dede1b366033649a285ca413889eab41, type: 3}
+      propertyPath: removeShipCallback.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1473041309}
+    - target: {fileID: 5679199408337618576, guid: dede1b366033649a285ca413889eab41, type: 3}
+      propertyPath: removeShipCallback.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5679199408337618576, guid: dede1b366033649a285ca413889eab41, type: 3}
+      propertyPath: removeShipCallback.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: removeShip
+      objectReference: {fileID: 0}
+    - target: {fileID: 5679199408337618576, guid: dede1b366033649a285ca413889eab41, type: 3}
+      propertyPath: removeShipCallback.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: PlanetDetail, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 5679199408337618576, guid: dede1b366033649a285ca413889eab41, type: 3}
+      propertyPath: removeShipCallback.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 7086939394589648940, guid: dede1b366033649a285ca413889eab41, type: 3}
       propertyPath: m_Name
@@ -5542,6 +5654,34 @@ PrefabInstance:
     - target: {fileID: 2778517757828040225, guid: dede1b366033649a285ca413889eab41, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5679199408337618576, guid: dede1b366033649a285ca413889eab41, type: 3}
+      propertyPath: removeShipCallback.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5679199408337618576, guid: dede1b366033649a285ca413889eab41, type: 3}
+      propertyPath: removeShipCallback.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5679199408337618576, guid: dede1b366033649a285ca413889eab41, type: 3}
+      propertyPath: removeShipCallback.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1473041309}
+    - target: {fileID: 5679199408337618576, guid: dede1b366033649a285ca413889eab41, type: 3}
+      propertyPath: removeShipCallback.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5679199408337618576, guid: dede1b366033649a285ca413889eab41, type: 3}
+      propertyPath: removeShipCallback.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: removeShip
+      objectReference: {fileID: 0}
+    - target: {fileID: 5679199408337618576, guid: dede1b366033649a285ca413889eab41, type: 3}
+      propertyPath: removeShipCallback.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: PlanetDetail, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 5679199408337618576, guid: dede1b366033649a285ca413889eab41, type: 3}
+      propertyPath: removeShipCallback.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 7086939394589648940, guid: dede1b366033649a285ca413889eab41, type: 3}
       propertyPath: m_Name

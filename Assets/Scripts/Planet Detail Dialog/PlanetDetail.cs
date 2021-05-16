@@ -118,4 +118,10 @@ public class PlanetDetail : MonoBehaviour
         planet.personnelsOnSurface.Remove(personnel);
         updateGrid();
     }
+
+    public void removeShip(Ship ship)
+    {
+        planet.shipsInOrbit.Remove(ship);
+        updateGrid();
+    }
 }
