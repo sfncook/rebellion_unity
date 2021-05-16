@@ -24,6 +24,8 @@ public class PlanetUpdater : MonoBehaviour
         planet = gameState.getPlanetByName(gameObject.name);
         gameState.addListenerUiUpdateEvent(onUiUpdateEvent);
 
+        Debug.Log("Start PlanetUpdater"+planet.name);
+
         // Hide unused energy squares
         for (int i = planet.energyCapacity + 1; i <= 10; i++)
         {
