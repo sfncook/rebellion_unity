@@ -9,6 +9,8 @@ public class ShipListItem : DragAndDroppable
     public Image bgColor;
 
     private Ship ship;
+    private bool isDraggable_ = false;
+    private bool isDroppable_ = true;
 
     public delegate void RemovePersonnel(Personnel personnel);
     private RemovePersonnel removePersonnelCallback;
@@ -78,11 +80,21 @@ public class ShipListItem : DragAndDroppable
 
     protected override bool isDraggable()
     {
-        return false;
+        return isDraggable_;
     }
 
     protected override bool isDroppable()
     {
-        return true;
+        return isDroppable_;
+    }
+
+    public void setIsDraggable(bool isDraggable_)
+    {
+        this.isDraggable_ = isDraggable_;
+    }
+
+    public void setIsDroppable(bool isDroppable_)
+    {
+        this.isDroppable_ = isDroppable_;
     }
 }

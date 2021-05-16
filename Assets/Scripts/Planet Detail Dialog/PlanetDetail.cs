@@ -57,7 +57,7 @@ public class PlanetDetail : MonoBehaviour
             ShipListItem shipListItem = newObj.GetComponent<ShipListItem>();
             shipListItem.setRemovePersonnelDelegate(removePersonnel);
             shipListItem.setShip(ship);
-            //shipListItem.setCanvas(canvas);
+            shipListItem.setCanvas(canvas);
         }
 
         // Personnel

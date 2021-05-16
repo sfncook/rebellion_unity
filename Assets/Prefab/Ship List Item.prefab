@@ -176,6 +176,7 @@ GameObject:
   - component: {fileID: 5980171181211690401}
   - component: {fileID: 1197498173559019661}
   - component: {fileID: 1746044393604039211}
+  - component: {fileID: 991677848335011721}
   m_Layer: 5
   m_Name: Ship List Item
   m_TagString: Untagged
@@ -257,3 +258,15 @@ MonoBehaviour:
   shipImg: {fileID: 1470768996420471587}
   hasPersonnelImg: {fileID: 7428416482885215397}
   bgColor: {fileID: 1197498173559019661}
+--- !u!225 &991677848335011721
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5315911519325098199}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
