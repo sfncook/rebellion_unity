@@ -28,10 +28,20 @@ public class PlanetStarChart : Droppable
         planetImg.sprite = Resources.Load<Sprite>("Images/Planets/" + planet.name);
         planetNameLabel.text = planet.name;
         loyaltyBars.setPlanet(planet);
+
+        // Ships cannot be "moved" to the same planet where they already are located
+        if (planet.Equals(gameState.planetForDetail))
+        {
+            Color color = new Color(0.6f, 0.6f, 0.6f, 0.6f);
+            planetImg.color = color;
+            planetNameLabel.color = color;
+            loyaltyBars.gameObject.SetActive(false);
+        }
     }
 
     protected override List<string> acceptedDropTypes()
     {
+        // Ships cannot be "moved" to the same planet where they already are located
         if(!planet.Equals(gameState.planetForDetail))
         {
             return new List<string>() { "ShipListItem" };

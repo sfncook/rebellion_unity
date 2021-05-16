@@ -72,7 +72,9 @@ public abstract class DragAndDroppable : MonoBehaviour,
     void IDragHandler.OnDrag(PointerEventData eventData)
     {
         if (isDraggable())
+        {
             rectTransform.anchoredPosition += eventData.delta / canvas.scaleFactor;
+        }
     }
 
     void IEndDragHandler.OnEndDrag(PointerEventData eventData)
