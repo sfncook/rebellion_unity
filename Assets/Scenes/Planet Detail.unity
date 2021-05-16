@@ -2633,9 +2633,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 981515636}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 29e8a2899b2d9471b940e567ea86ed38, type: 3}
+  m_Script: {fileID: 11500000, guid: cdf61fe71828a420fb45b9b0a29c6380, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  onSurfaceScrollView: {fileID: 2124119896}
+  starChartPanel: {fileID: 188319375}
+  menuBtnImg: {fileID: 981515640}
 --- !u!58 &981515639
 CircleCollider2D:
   m_ObjectHideFlags: 0
