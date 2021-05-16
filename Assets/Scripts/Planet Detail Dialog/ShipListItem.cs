@@ -35,7 +35,7 @@ public class ShipListItem : MonoBehaviour,
     {
         this.ship = ship;
         shipImg.sprite = Resources.Load<Sprite>("Images/Ships/" + ship.type.name);
-        hasPersonnelImg.enabled = false;
+        hasPersonnelImg.enabled = ship.personnelsOnBoard.Count > 0;
 
         if (ship.team.Equals(Team.TeamA))
         {
