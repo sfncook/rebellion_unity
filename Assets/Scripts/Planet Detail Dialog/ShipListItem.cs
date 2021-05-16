@@ -81,7 +81,11 @@ public class ShipListItem : MonoBehaviour,
     void IDropHandler.OnDrop(PointerEventData eventData)
     {
         PersonnelListItem personnelListItem = eventData.pointerDrag.GetComponent<PersonnelListItem>();
-        if (personnelListItem != null && personnelListItem.getPersonnel().team == ship.team)
+        if (
+            personnelListItem != null &&
+            personnelListItem.getPersonnel().team == ship.team &&
+            ship.personnelsOnBoard.Count < ((ShipType)ship.type).personnelCapacity
+            )
         {
             personnelListItem.setIsValidDrop(true);
             ship.personnelsOnBoard.Add(personnelListItem.getPersonnel());
@@ -102,7 +106,11 @@ public class ShipListItem : MonoBehaviour,
         if (eventData.dragging)
         {
             PersonnelListItem personnelListItem = eventData.pointerDrag.GetComponent<PersonnelListItem>();
-            if (personnelListItem != null && personnelListItem.getPersonnel().team == ship.team)
+            if (
+                personnelListItem != null &&
+                personnelListItem.getPersonnel().team == ship.team &&
+                ship.personnelsOnBoard.Count < ((ShipType)ship.type).personnelCapacity
+                )
             {
                 bgColor.color = new Color(1.0f, 1.0f, 0.5f, 0.6f);
             }
