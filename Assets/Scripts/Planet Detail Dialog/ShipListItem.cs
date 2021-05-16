@@ -1,30 +1,18 @@
 using UnityEngine;
-using UnityEngine.EventSystems;
 using UnityEngine.UI;
+using System.Collections.Generic;
 
-public class ShipListItem : MonoBehaviour,
-    IPointerDownHandler, IBeginDragHandler, IEndDragHandler, IDragHandler,
-    IDropHandler, IPointerExitHandler, IPointerEnterHandler
+public class ShipListItem : Droppable
 {
     public SpriteRenderer shipImg;
     public SpriteRenderer hasPersonnelImg;
     public Image bgColor;
 
     private Ship ship;
-    private RectTransform rectTransform;
-    private Canvas canvas; // For drag-n-drop scale factor
 
     public delegate void RemovePersonnel(Personnel personnel);
     private RemovePersonnel removePersonnelCallback;
 
-    private void Awake()
-    {
-        rectTransform = GetComponent<RectTransform>();
-    }
-
-    private void Start()
-    {
-    }
 
     public void setRemovePersonnelDelegate(RemovePersonnel removePersonnel)
     {
@@ -52,37 +40,15 @@ public class ShipListItem : MonoBehaviour,
         }
     }
 
-    public void setCanvas(Canvas canvas)
+    protected override List<string> acceptedDropTypes()
     {
-        this.canvas = canvas;
+        return new List<string>() { "PersonnelListItem" };
     }
 
-    void IBeginDragHandler.OnBeginDrag(PointerEventData eventData)
+    protected override void onDrop(GameObject pointerDrag)
     {
-        Debug.Log("OnBeginDrag " + ship.type.name);
-    }
-
-    void IDragHandler.OnDrag(PointerEventData eventData)
-    {
-        Debug.Log("OnDrag " + ship.type.name);
-        rectTransform.anchoredPosition += eventData.delta / canvas.scaleFactor;
-    }
-
-    void IEndDragHandler.OnEndDrag(PointerEventData eventData)
-    {
-        Debug.Log("OnEndDrag " + ship.type.name);
-    }
-
-    void IPointerDownHandler.OnPointerDown(PointerEventData eventData)
-    {
-        Debug.Log("OnPointerDown "+ship.type.name);
-    }
-
-    void IDropHandler.OnDrop(PointerEventData eventData)
-    {
-        PersonnelListItem personnelListItem = eventData.pointerDrag.GetComponent<PersonnelListItem>();
+        PersonnelListItem personnelListItem = pointerDrag.GetComponent<PersonnelListItem>();
         if (
-            personnelListItem != null &&
             personnelListItem.getPersonnel().team == ship.team &&
             ship.personnelsOnBoard.Count < ((ShipType)ship.type).personnelCapacity
             )
@@ -93,27 +59,20 @@ public class ShipListItem : MonoBehaviour,
         }
     }
 
-    void IPointerExitHandler.OnPointerExit(PointerEventData eventData)
+    protected override void onPointEnter(GameObject pointerDrag)
     {
-        if (eventData.dragging)
-        {
-            bgColor.color = new Color(0.0f, 0.0f, 0.0f, 0.0f);
-        }
-    }
-
-    void IPointerEnterHandler.OnPointerEnter(PointerEventData eventData)
-    {
-        if (eventData.dragging)
-        {
-            PersonnelListItem personnelListItem = eventData.pointerDrag.GetComponent<PersonnelListItem>();
-            if (
-                personnelListItem != null &&
+        PersonnelListItem personnelListItem = pointerDrag.GetComponent<PersonnelListItem>();
+        if (
                 personnelListItem.getPersonnel().team == ship.team &&
                 ship.personnelsOnBoard.Count < ((ShipType)ship.type).personnelCapacity
                 )
-            {
-                bgColor.color = new Color(1.0f, 1.0f, 0.5f, 0.6f);
-            }
+        {
+            bgColor.color = new Color(1.0f, 1.0f, 0.5f, 0.6f);
         }
+    }
+
+    protected override void onPointExit()
+    {
+        bgColor.color = new Color(0.0f, 0.0f, 0.0f, 0.0f);
     }
 }

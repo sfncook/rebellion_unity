@@ -3,7 +3,7 @@ using System.Collections;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public abstract class DragAndDropable : MonoBehaviour,
+public abstract class DragAndDroppable : MonoBehaviour,
     IBeginDragHandler, IEndDragHandler, IDragHandler,
     IDropHandler, IPointerExitHandler, IPointerEnterHandler
 {

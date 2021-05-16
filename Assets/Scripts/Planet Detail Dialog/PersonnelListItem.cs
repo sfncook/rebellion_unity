@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class PersonnelListItem : DragAndDropable
+public class PersonnelListItem : DragAndDroppable
 {
     public SpriteRenderer personnelImg;
 
