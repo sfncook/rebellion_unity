@@ -54,32 +54,44 @@ public class ShipListItem : DragAndDroppable
 
     protected override List<string> acceptedDropTypes()
     {
-        return new List<string>() { "PersonnelListItem" };
+        if(gameState.myTeam == ship.team)
+        {
+            return new List<string>() { "PersonnelListItem" };
+        } else
+        {
+            return new List<string>() { };
+        }
     }
 
     protected override void onDrop(GameObject pointerDrag)
     {
-        PersonnelListItem personnelListItem = pointerDrag.GetComponent<PersonnelListItem>();
-        if (
-            personnelListItem.getPersonnel().team == ship.team &&
-            ship.personnelsOnBoard.Count < ((ShipType)ship.type).personnelCapacity
-            )
+        if (gameState.myTeam == ship.team)
         {
-            personnelListItem.setIsValidDrop(true);
-            ship.personnelsOnBoard.Add(personnelListItem.getPersonnel());
-            removePersonnelCallback(personnelListItem.getPersonnel());
+            PersonnelListItem personnelListItem = pointerDrag.GetComponent<PersonnelListItem>();
+            if (
+                personnelListItem.getPersonnel().team == ship.team &&
+                ship.personnelsOnBoard.Count < ((ShipType)ship.type).personnelCapacity
+                )
+            {
+                personnelListItem.setIsValidDrop(true);
+                ship.personnelsOnBoard.Add(personnelListItem.getPersonnel());
+                removePersonnelCallback(personnelListItem.getPersonnel());
+            }
         }
     }
 
     protected override void onPointEnter(GameObject pointerDrag)
     {
-        PersonnelListItem personnelListItem = pointerDrag.GetComponent<PersonnelListItem>();
-        if (
-                personnelListItem.getPersonnel().team == ship.team &&
-                ship.personnelsOnBoard.Count < ((ShipType)ship.type).personnelCapacity
-                )
+        if (gameState.myTeam == ship.team)
         {
-            bgColor.color = new Color(1.0f, 1.0f, 0.5f, 0.6f);
+            PersonnelListItem personnelListItem = pointerDrag.GetComponent<PersonnelListItem>();
+            if (
+                    personnelListItem.getPersonnel().team == ship.team &&
+                    ship.personnelsOnBoard.Count < ((ShipType)ship.type).personnelCapacity
+                    )
+            {
+                bgColor.color = new Color(1.0f, 1.0f, 0.5f, 0.6f);
+            }
         }
     }
 
@@ -90,12 +102,12 @@ public class ShipListItem : DragAndDroppable
 
     protected override bool isDraggable()
     {
-        return isDraggable_ && gameState.myTeam == ship.team; ;
+        return isDraggable_ && gameState.myTeam == ship.team;
     }
 
     protected override bool isDroppable()
     {
-        return isDroppable_;
+        return isDroppable_ && gameState.myTeam == ship.team;
     }
 
     public void setIsDraggable(bool isDraggable_)

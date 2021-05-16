@@ -56,13 +56,20 @@ public class PlanetStarChart : Droppable
         hoverGlow.gameObject.SetActive(false);
         ShipListItem shipListItem = pointerDrag.GetComponent<ShipListItem>();
         Ship ship = shipListItem.getShip();
-        removeShipCallback.Invoke(ship);
-        planet.shipsInOrbit.Add(ship);
+        if (gameState.myTeam == ship.team)
+        {
+            removeShipCallback.Invoke(ship);
+            planet.shipsInOrbit.Add(ship);
+        }
     }
 
     protected override void onPointEnter(GameObject pointerDrag)
     {
-        hoverGlow.gameObject.SetActive(true);
+        ShipListItem shipListItem = pointerDrag.GetComponent<ShipListItem>();
+        if(gameState.myTeam == shipListItem.getShip().team)
+        {
+            hoverGlow.gameObject.SetActive(true);
+        }
     }
 
     protected override void onPointExit()
