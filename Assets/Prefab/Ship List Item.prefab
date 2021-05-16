@@ -256,3 +256,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shipImg: {fileID: 1470768996420471587}
   hasPersonnelImg: {fileID: 7428416482885215397}
+  bgColor: {fileID: 1197498173559019661}

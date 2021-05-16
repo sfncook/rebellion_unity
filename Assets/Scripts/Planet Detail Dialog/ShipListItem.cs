@@ -1,11 +1,14 @@
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
 public class ShipListItem : MonoBehaviour,
-    IPointerDownHandler, IBeginDragHandler, IEndDragHandler, IDragHandler, IDropHandler
+    IPointerDownHandler, IBeginDragHandler, IEndDragHandler, IDragHandler,
+    IDropHandler, IPointerExitHandler, IPointerEnterHandler
 {
     public SpriteRenderer shipImg;
     public SpriteRenderer hasPersonnelImg;
+    public Image bgColor;
 
     private Ship ship;
     private RectTransform rectTransform;
@@ -14,6 +17,10 @@ public class ShipListItem : MonoBehaviour,
     private void Awake()
     {
         rectTransform = GetComponent<RectTransform>();
+    }
+
+    private void Start()
+    {
     }
 
     public void setShip(Ship ship)
@@ -62,16 +69,31 @@ public class ShipListItem : MonoBehaviour,
 
     void IDropHandler.OnDrop(PointerEventData eventData)
     {
-        //Debug.Log("Dropped: " + eventData.pointerDrag.GetType().Name);
         PersonnelListItem personnelListItem = eventData.pointerDrag.GetComponent<PersonnelListItem>();
-        if (personnelListItem != null)
+        if (personnelListItem != null && personnelListItem.getPersonnel().team == ship.team)
         {
             Debug.Log("Dropped personnel! " + personnelListItem.getPersonnel().type.name);
             personnelListItem.setIsValidDrop(true);
         }
-        else
+    }
+
+    void IPointerExitHandler.OnPointerExit(PointerEventData eventData)
+    {
+        if (eventData.dragging)
         {
-            Debug.Log("Dropped something odd" + eventData.pointerDrag.GetType().Name);
+            bgColor.color = new Color(0.0f, 0.0f, 0.0f, 0.0f);
+        }
+    }
+
+    void IPointerEnterHandler.OnPointerEnter(PointerEventData eventData)
+    {
+        if (eventData.dragging)
+        {
+            PersonnelListItem personnelListItem = eventData.pointerDrag.GetComponent<PersonnelListItem>();
+            if (personnelListItem != null && personnelListItem.getPersonnel().team == ship.team)
+            {
+                bgColor.color = new Color(1.0f, 1.0f, 0.5f, 0.6f);
+            }
         }
     }
 }

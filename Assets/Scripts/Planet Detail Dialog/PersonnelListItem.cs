@@ -66,14 +66,8 @@ public class PersonnelListItem : MonoBehaviour,
 
     void IEndDragHandler.OnEndDrag(PointerEventData eventData)
     {
-        //Debug.Log("OnEndDrag " + personnel.type.name);
         canvasGroup.alpha = 1.0f;
         canvasGroup.blocksRaycasts = true;
-        //List<GameObject> hovered = eventData.hovered;
-        //foreach (var GO in hovered)
-        //{
-        //    Debug.Log("Hovering over: " + GO.name);
-        //}
         if(isValidDrop)
         {
             Debug.Log("VALID!");
