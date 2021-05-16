@@ -21,6 +21,8 @@ public class PlanetDetail : MonoBehaviour
     public Transform personnelTeamBPanel;
     public Transform infrastructurePanel;
 
+    public LoyaltyBars loyaltyBars;
+
     public Canvas canvas;
 
 
@@ -36,6 +38,7 @@ public class PlanetDetail : MonoBehaviour
         planetNameLabel.text = planet.name;
         bool hasOrbitalShield = planet.defenses.Exists(defense => defense.type.Equals(DefenseType.planetaryShield));
         planetShieldImg.enabled = hasOrbitalShield;
+        loyaltyBars.setPlanet(planet);
         updateGrid();
     }
 
@@ -68,15 +71,6 @@ public class PlanetDetail : MonoBehaviour
             personnelListItem.setCanvas(canvas);
         }
 
-        // Factories
-        planet.factories.Sort((a, b) => a.type.name.CompareTo(b.type.name));
-        foreach (Factory factory in planet.factories)
-        {
-            newObj = (GameObject)Instantiate(factoryListItemPrefab, infrastructurePanel);
-            FactoryListItem factoryListItem = newObj.GetComponent<FactoryListItem>();
-            factoryListItem.setFactory(factory);
-        }
-
         // Defenses
         planet.defenses.Sort((a, b) => a.type.name.CompareTo(b.type.name));
         foreach (Defense defense in planet.defenses)
@@ -84,6 +78,15 @@ public class PlanetDetail : MonoBehaviour
             newObj = (GameObject)Instantiate(defenseListItemPrefab, infrastructurePanel);
             DefenseListItem defenseListItem = newObj.GetComponent<DefenseListItem>();
             defenseListItem.setDefense(defense);
+        }
+
+        // Factories
+        planet.factories.Sort((a, b) => a.type.name.CompareTo(b.type.name));
+        foreach (Factory factory in planet.factories)
+        {
+            newObj = (GameObject)Instantiate(factoryListItemPrefab, infrastructurePanel);
+            FactoryListItem factoryListItem = newObj.GetComponent<FactoryListItem>();
+            factoryListItem.setFactory(factory);
         }
 
         int manyFacilities = planet.factories.Count + planet.defenses.Count;

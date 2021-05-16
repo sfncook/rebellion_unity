@@ -11,11 +11,10 @@ public class PlanetUpdater : MonoBehaviour
     public SpriteRenderer personnelTeamA;
     public SpriteRenderer personnelTeamB;
     public SpriteRenderer shieldImg;
+    public LoyaltyBars loyaltyBars;
 
-    private const float LOYALTY_BAR_TOTAL_WIDTH = 25.0f;
     private MainGameState gameState;
     private Planet planet;
-    private Transform teamALoyaltyBar;
 
 
     // Start is called before the first frame update
@@ -24,7 +23,6 @@ public class PlanetUpdater : MonoBehaviour
         gameState = MainGameState.gameState;
         planet = gameState.getPlanetByName(gameObject.name);
         gameState.addListenerUiUpdateEvent(onUiUpdateEvent);
-        teamALoyaltyBar = gameObject.transform.Find("Loyalty").Find("Offset").Find("TeamA");
 
         // Hide unused energy squares
         for (int i = planet.energyCapacity + 1; i <= 10; i++)
@@ -42,15 +40,7 @@ public class PlanetUpdater : MonoBehaviour
 
     void onUiUpdateEvent()
     {
-        float scaleX = (1.0f - planet.loyalty) * LOYALTY_BAR_TOTAL_WIDTH;
-        float scaleY = teamALoyaltyBar.localScale.y;
-        float scaleZ = teamALoyaltyBar.localScale.z;
-        teamALoyaltyBar.localScale = new Vector3(scaleX, scaleY, scaleZ);
-
-        float posX = scaleX / 2.0f;
-        float posY = teamALoyaltyBar.localPosition.y;
-        float posZ = teamALoyaltyBar.localPosition.z;
-        teamALoyaltyBar.localPosition = new Vector3(posX, posY, posZ);
+        loyaltyBars.setPlanet(planet);
 
         Color loyaltyColor = Color.green;
         if (planet.loyalty > 0.5f)

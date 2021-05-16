@@ -861,6 +861,7 @@ MonoBehaviour:
   personnelTeamA: {fileID: 3054040152398325082}
   personnelTeamB: {fileID: 874162909751104674}
   shieldImg: {fileID: 167404924374236226}
+  loyaltyBars: {fileID: 684559697867584858}
 --- !u!61 &2556784249572369182
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1212,7 +1213,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6119744818947429469, guid: 6379c1b8666ab41e8aee9268ce091ebd, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.97
+      value: -4.8
       objectReference: {fileID: 0}
     - target: {fileID: 6119744818947429469, guid: 6379c1b8666ab41e8aee9268ce091ebd, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1257,6 +1258,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6119744818947429469, guid: 6379c1b8666ab41e8aee9268ce091ebd, type: 3}
   m_PrefabInstance: {fileID: 1500286786019896012}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &684559697867584858 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2112783649960075158, guid: 6379c1b8666ab41e8aee9268ce091ebd, type: 3}
+  m_PrefabInstance: {fileID: 1500286786019896012}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9351cee0a091b4956bc4793d2c848f23, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1687357493037117933
 PrefabInstance:
   m_ObjectHideFlags: 0
