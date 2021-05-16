@@ -7,6 +7,7 @@ public class PlanetStarChart : Droppable
 {
     public TextMeshProUGUI planetNameLabel;
     public Image planetImg;
+    public LoyaltyBars loyaltyBars;
 
     private MainGameState gameState;
     private Planet planet;
@@ -18,6 +19,7 @@ public class PlanetStarChart : Droppable
 
         planetImg.sprite = Resources.Load<Sprite>("Images/Planets/" + planet.name);
         planetNameLabel.text = planet.name;
+        loyaltyBars.setPlanet(planet);
     }
 
     protected override List<string> acceptedDropTypes()
