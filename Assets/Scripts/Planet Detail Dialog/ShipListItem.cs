@@ -14,6 +14,9 @@ public class ShipListItem : MonoBehaviour,
     private RectTransform rectTransform;
     private Canvas canvas; // For drag-n-drop scale factor
 
+    public delegate void RemovePersonnel(Personnel personnel);
+    private RemovePersonnel removePersonnelCallback;
+
     private void Awake()
     {
         rectTransform = GetComponent<RectTransform>();
@@ -21,6 +24,11 @@ public class ShipListItem : MonoBehaviour,
 
     private void Start()
     {
+    }
+
+    public void setRemovePersonnelDelegate(RemovePersonnel removePersonnel)
+    {
+        this.removePersonnelCallback = removePersonnel;
     }
 
     public void setShip(Ship ship)
@@ -72,8 +80,9 @@ public class ShipListItem : MonoBehaviour,
         PersonnelListItem personnelListItem = eventData.pointerDrag.GetComponent<PersonnelListItem>();
         if (personnelListItem != null && personnelListItem.getPersonnel().team == ship.team)
         {
-            Debug.Log("Dropped personnel! " + personnelListItem.getPersonnel().type.name);
             personnelListItem.setIsValidDrop(true);
+            ship.personnelsOnBoard.Add(personnelListItem.getPersonnel());
+            removePersonnelCallback(personnelListItem.getPersonnel());
         }
     }
 

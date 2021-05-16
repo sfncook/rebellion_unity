@@ -52,6 +52,7 @@ public class PlanetDetail : MonoBehaviour
             Transform panelTransform = ship.team.Equals(Team.TeamA) ? shipsTeamAPanel : shipsTeamBPanel;
             newObj = (GameObject)Instantiate(shipListItemPrefab, panelTransform);
             ShipListItem shipListItem = newObj.GetComponent<ShipListItem>();
+            shipListItem.setRemovePersonnelDelegate(removePersonnel);
             shipListItem.setShip(ship);
             shipListItem.setCanvas(canvas);
         }
@@ -107,5 +108,11 @@ public class PlanetDetail : MonoBehaviour
         {
             GameObject.Destroy(child.gameObject);
         }
+    }
+
+    public void removePersonnel(Personnel personnel)
+    {
+        planet.personnelsOnSurface.Remove(personnel);
+        updateGrid();
     }
 }
