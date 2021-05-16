@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 using System.Collections.Generic;
+using UnityEngine.Events;
 
 public class ShipListItem : DragAndDroppable
 {
@@ -10,6 +11,7 @@ public class ShipListItem : DragAndDroppable
 
     private MainGameState gameState;
     private Ship ship;
+    private ShowShipContentsEvent showShipContentsEvent;
     private bool isDraggable_ = false;
     private bool isDroppable_ = true;
 
@@ -25,6 +27,11 @@ public class ShipListItem : DragAndDroppable
     public void setRemovePersonnelDelegate(RemovePersonnel removePersonnel)
     {
         this.removePersonnelCallback = removePersonnel;
+    }
+
+    public void setShowShipContentsEvent(ShowShipContentsEvent showShipContentsEvent)
+    {
+        this.showShipContentsEvent = showShipContentsEvent;
     }
 
     public void setShip(Ship ship)
@@ -118,5 +125,13 @@ public class ShipListItem : DragAndDroppable
     public void setIsDroppable(bool isDroppable_)
     {
         this.isDroppable_ = isDroppable_;
+    }
+
+    void OnMouseDown()
+    {
+        if(gameState.myTeam == ship.team)
+        {
+            showShipContentsEvent.Invoke(ship);
+        }
     }
 }

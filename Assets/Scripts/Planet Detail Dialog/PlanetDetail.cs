@@ -1,5 +1,11 @@
 using UnityEngine;
 using TMPro;
+using UnityEngine.Events;
+
+[System.Serializable]
+public class ShowShipContentsEvent : UnityEvent<Ship>
+{
+}
 
 public class PlanetDetail : MonoBehaviour
 {
@@ -22,8 +28,8 @@ public class PlanetDetail : MonoBehaviour
     public Transform infrastructurePanel;
 
     public LoyaltyBars loyaltyBars;
-
     public Canvas canvas;
+    public ShowShipContentsEvent showShipContentsEvent;
 
 
     private MainGameState gameState;
@@ -58,6 +64,7 @@ public class PlanetDetail : MonoBehaviour
             shipListItem.setRemovePersonnelDelegate(removePersonnel);
             shipListItem.setShip(ship);
             shipListItem.setCanvas(canvas);
+            shipListItem.setShowShipContentsEvent(showShipContentsEvent);
         }
 
         // Personnel
