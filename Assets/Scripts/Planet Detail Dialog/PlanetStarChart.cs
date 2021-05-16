@@ -32,7 +32,13 @@ public class PlanetStarChart : Droppable
 
     protected override List<string> acceptedDropTypes()
     {
-        return new List<string>() { "ShipListItem" };
+        if(!planet.Equals(gameState.planetForDetail))
+        {
+            return new List<string>() { "ShipListItem" };
+        } else
+        {
+            return new List<string>() { };
+        }
     }
 
     protected override void onDrop(GameObject pointerDrag)

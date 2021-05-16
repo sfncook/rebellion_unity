@@ -8,6 +8,7 @@ public class ShipListItem : DragAndDroppable
     public SpriteRenderer hasPersonnelImg;
     public Image bgColor;
 
+    private MainGameState gameState;
     private Ship ship;
     private bool isDraggable_ = false;
     private bool isDroppable_ = true;
@@ -15,6 +16,11 @@ public class ShipListItem : DragAndDroppable
     public delegate void RemovePersonnel(Personnel personnel);
     private RemovePersonnel removePersonnelCallback;
 
+
+    private void Start()
+    {
+        gameState = MainGameState.gameState;
+    }
 
     public void setRemovePersonnelDelegate(RemovePersonnel removePersonnel)
     {
@@ -84,7 +90,7 @@ public class ShipListItem : DragAndDroppable
 
     protected override bool isDraggable()
     {
-        return isDraggable_;
+        return isDraggable_ && gameState.myTeam == ship.team; ;
     }
 
     protected override bool isDroppable()

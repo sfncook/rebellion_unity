@@ -13,7 +13,7 @@ public class MainGameState : MonoBehaviour
     [HideInInspector]
     public bool isTimerRunning = false;
     [HideInInspector]
-    public Team playerTeam = Team.TeamA;
+    public Team myTeam = Team.TeamA;
 
     // Game Loop Events
     [HideInInspector]

@@ -1,10 +1,16 @@
 using UnityEngine;
 
-public class PersonnelListItem : Draggable
+public class PersonnelListItem : DragAndDroppable
 {
     public SpriteRenderer personnelImg;
 
+    private MainGameState gameState;
     private Personnel personnel;
+
+    private void Start()
+    {
+        gameState = MainGameState.gameState;
+    }
 
     public void setPersonnel(Personnel personnel)
     {
@@ -28,4 +34,13 @@ public class PersonnelListItem : Draggable
         return personnel;
     }
 
+    protected override bool isDraggable()
+    {
+        return gameState.myTeam == personnel.team;
+    }
+
+    protected override bool isDroppable()
+    {
+        return false;
+    }
 }

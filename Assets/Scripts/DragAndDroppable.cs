@@ -15,10 +15,27 @@ public abstract class DragAndDroppable : MonoBehaviour,
 
     protected abstract bool isDraggable();
     protected abstract bool isDroppable();
-    protected abstract List<string> acceptedDropTypes();
-    protected abstract void onDrop(GameObject pointerDrag);
-    protected abstract void onPointEnter(GameObject pointerDrag);
-    protected abstract void onPointExit();
+
+    protected virtual List<string> acceptedDropTypes()
+    {
+        // Override as-needed
+        return new List<string>() {};
+    }
+    protected virtual void onDrop(GameObject pointerDrag)
+    {
+        // Override as-needed
+    }
+    protected virtual void onPointEnter(GameObject pointerDrag)
+    {
+        // Override as-needed
+    }
+    protected virtual void onPointExit()
+    {
+        // Override as-needed
+    }
+
+
+
 
     private void Awake()
     {
