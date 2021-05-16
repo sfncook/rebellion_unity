@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class PersonnelListItem : DragAndDroppable
+public class PersonnelListItem : Draggable
 {
     public SpriteRenderer personnelImg;
 
@@ -26,16 +26,6 @@ public class PersonnelListItem : DragAndDroppable
     public Personnel getPersonnel()
     {
         return personnel;
-    }
-
-    protected override bool isDraggable()
-    {
-        return true;
-    }
-
-    protected override bool isDroppable()
-    {
-        return false;
     }
 
 }
