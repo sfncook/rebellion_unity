@@ -1,7 +1,6 @@
 using UnityEngine;
 using UnityEngine.UI;
 using System.Collections.Generic;
-using UnityEngine.Events;
 
 public class ShipListItem : DragAndDroppable
 {

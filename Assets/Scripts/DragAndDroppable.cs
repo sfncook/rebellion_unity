@@ -125,7 +125,6 @@ public abstract class DragAndDroppable : MonoBehaviour,
             if (eventData.dragging)
             {
                 GameObject dragging = getDraggingObject(eventData);
-                Debug.Log("dragging:" + dragging);
                 if (dragging != null)
                 {
                     onPointEnter(dragging);

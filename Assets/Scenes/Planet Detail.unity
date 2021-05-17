@@ -5382,6 +5382,21 @@ MonoBehaviour:
   personnelListItemPrefab: {fileID: 5315911519325098199, guid: 2d2baa46fe37b48ca809c40162750e9f, type: 3}
   canvas: {fileID: 105913064}
   bgColor: {fileID: 1612832862}
+  removePersonnelCallback:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1473041309}
+        m_TargetAssemblyTypeName: PlanetDetail, Assembly-CSharp
+        m_MethodName: removePersonnel
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!61 &1612832865
 BoxCollider2D:
   m_ObjectHideFlags: 0

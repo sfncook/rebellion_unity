@@ -2,6 +2,12 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using System.Collections.Generic;
+using UnityEngine.Events;
+
+[System.Serializable]
+public class RemovePersonnel : UnityEvent<Personnel>
+{
+}
 
 public class ShipContentsPanel : DragAndDroppable
 {
@@ -12,6 +18,8 @@ public class ShipContentsPanel : DragAndDroppable
     public GameObject personnelListItemPrefab;
     public Canvas canvas;
     public Image bgColor;
+
+    public RemovePersonnel removePersonnelCallback;
 
     private Ship ship;
 
@@ -63,7 +71,18 @@ public class ShipContentsPanel : DragAndDroppable
 
     protected override void onDrop(GameObject pointerDrag)
     {
-        
+        PersonnelListItem personnelListItem = pointerDrag.GetComponent<PersonnelListItem>();
+        if (
+            personnelListItem.getPersonnel().team == ship.team &&
+            ship.personnelsOnBoard.Count < ((ShipType)ship.type).personnelCapacity
+            )
+        {
+            personnelListItem.setIsValidDrop(true);
+            ship.personnelsOnBoard.Add(personnelListItem.getPersonnel());
+            removePersonnelCallback.Invoke(personnelListItem.getPersonnel());
+            bgColor.color = new Color(0.18f, 0.18f, 0.18f, 1.0f);
+            updateGrid();
+        }
     }
 
     protected override void onPointEnter(GameObject pointerDrag)
