@@ -11,19 +11,15 @@ public class ShipContentsPanel : MonoBehaviour
 
     public void showShipContents(Ship ship)
     {
-        if (shipsInOrbitPanel.activeSelf)
-        {
-            // Activate ship contents panel
-            shipImg.sprite = Resources.Load<Sprite>("Images/Ships/" + ship.type.name);
-            shipTypeNameLabel.text = ship.type.name;
-            shipsInOrbitPanel.SetActive(false);
-            gameObject.SetActive(true);
-        }
-        else
-        {
-            // Deactivate ship contents panel
-            shipsInOrbitPanel.SetActive(true);
-            gameObject.SetActive(false);
-        }
+        shipImg.sprite = Resources.Load<Sprite>("Images/Ships/" + ship.type.name);
+        shipTypeNameLabel.text = ship.type.name;
+        shipsInOrbitPanel.SetActive(false);
+        gameObject.SetActive(true);
+    }
+
+    public void hideShipContents()
+    {
+        shipsInOrbitPanel.SetActive(true);
+        gameObject.SetActive(false);
     }
 }

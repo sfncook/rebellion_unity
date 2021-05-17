@@ -127,9 +127,9 @@ public class ShipListItem : DragAndDroppable
         this.isDroppable_ = isDroppable_;
     }
 
-    void OnMouseDown()
+    private void OnMouseDown()
     {
-        if(gameState.myTeam == ship.team)
+        if (!isDraggable_ && gameState.myTeam == ship.team)
         {
             showShipContentsEvent.Invoke(ship);
         }
