@@ -1,8 +1,9 @@
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using System.Collections.Generic;
 
-public class ShipContentsPanel : MonoBehaviour
+public class ShipContentsPanel : DragAndDroppable
 {
     public GameObject shipsInOrbitPanel;
     public Image shipImg;
@@ -10,9 +11,9 @@ public class ShipContentsPanel : MonoBehaviour
     public Transform shipContentsGrid;
     public GameObject personnelListItemPrefab;
     public Canvas canvas;
+    public Image bgColor;
 
     private Ship ship;
-
 
     public void showShipContents(Ship ship)
     {
@@ -52,5 +53,36 @@ public class ShipContentsPanel : MonoBehaviour
         {
             GameObject.Destroy(child.gameObject);
         }
+    }
+
+    protected override List<string> acceptedDropTypes()
+    {
+        return new List<string>() { "PersonnelListItem" };
+    }
+
+
+    protected override void onDrop(GameObject pointerDrag)
+    {
+        
+    }
+
+    protected override void onPointEnter(GameObject pointerDrag)
+    {
+        bgColor.color = Color.yellow;
+    }
+
+    protected override void onPointExit()
+    {
+        bgColor.color = new Color(0.18f, 0.18f, 0.18f, 1.0f);
+    }
+
+    protected override bool isDraggable()
+    {
+        return false;
+    }
+
+    protected override bool isDroppable()
+    {
+        return true;
     }
 }

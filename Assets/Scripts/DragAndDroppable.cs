@@ -125,6 +125,7 @@ public abstract class DragAndDroppable : MonoBehaviour,
             if (eventData.dragging)
             {
                 GameObject dragging = getDraggingObject(eventData);
+                Debug.Log("dragging:" + dragging);
                 if (dragging != null)
                 {
                     onPointEnter(dragging);
@@ -137,6 +138,7 @@ public abstract class DragAndDroppable : MonoBehaviour,
     {
         if (isDroppable())
         {
+            //Debug.Log("isDroppable OnPointerEnter eventData:" + eventData.pointerDrag+ "  acceptedDropTypes:"+ acceptedDropTypes()[0]);
             foreach (string type in acceptedDropTypes())
             {
                 Component component = eventData.pointerDrag.GetComponent(type);

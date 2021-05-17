@@ -3541,7 +3541,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8805762716755318470, guid: 2d2baa46fe37b48ca809c40162750e9f, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 100
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8805762716755318470, guid: 2d2baa46fe37b48ca809c40162750e9f, type: 3}
       propertyPath: m_LocalPosition.x
@@ -5296,6 +5296,7 @@ GameObject:
   - component: {fileID: 1612832863}
   - component: {fileID: 1612832862}
   - component: {fileID: 1612832864}
+  - component: {fileID: 1612832865}
   m_Layer: 5
   m_Name: Ship Contents Panel
   m_TagString: Untagged
@@ -5380,6 +5381,33 @@ MonoBehaviour:
   shipContentsGrid: {fileID: 1959004987}
   personnelListItemPrefab: {fileID: 5315911519325098199, guid: 2d2baa46fe37b48ca809c40162750e9f, type: 3}
   canvas: {fileID: 105913064}
+  bgColor: {fileID: 1612832862}
+--- !u!61 &1612832865
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1612832860}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: -23.7}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 443.84, y: 182.23}
+  m_EdgeRadius: 0
 --- !u!1 &1662726496
 GameObject:
   m_ObjectHideFlags: 0
@@ -6909,7 +6937,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8805762716755318470, guid: 2d2baa46fe37b48ca809c40162750e9f, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 100
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8805762716755318470, guid: 2d2baa46fe37b48ca809c40162750e9f, type: 3}
       propertyPath: m_LocalPosition.x
@@ -7341,3 +7369,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hoverImg: {fileID: 1666635025}
+--- !u!58 &5015508944782954349
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5015508944782954346}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 11.34
