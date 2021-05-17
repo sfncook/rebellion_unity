@@ -5377,6 +5377,9 @@ MonoBehaviour:
   shipsInOrbitPanel: {fileID: 225748242}
   shipImg: {fileID: 262024443}
   shipTypeNameLabel: {fileID: 1490280326}
+  shipContentsGrid: {fileID: 1959004987}
+  personnelListItemPrefab: {fileID: 5315911519325098199, guid: 2d2baa46fe37b48ca809c40162750e9f, type: 3}
+  canvas: {fileID: 105913064}
 --- !u!1 &1662726496
 GameObject:
   m_ObjectHideFlags: 0
