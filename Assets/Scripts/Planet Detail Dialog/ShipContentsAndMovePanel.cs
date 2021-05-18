@@ -8,6 +8,7 @@ public class ShipContentsAndMovePanel : MonoBehaviour
     public TextMeshProUGUI shipTypeNameLabel;
     public Transform shipContentsGrid;
     public GameObject personnelListItemPrefab;
+    public ShipContentsHeaderImage shipContentsHeaderImage;
     public Canvas canvas;
 
     private Ship ship;
@@ -16,6 +17,7 @@ public class ShipContentsAndMovePanel : MonoBehaviour
     {
         this.ship = ship;
         shipTypeNameLabel.text = ship.type.name;
+        shipContentsHeaderImage.setShip(ship);
 
         updateGrid();
 

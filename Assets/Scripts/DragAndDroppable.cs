@@ -6,9 +6,10 @@ public abstract class DragAndDroppable : MonoBehaviour,
     IBeginDragHandler, IEndDragHandler, IDragHandler,
     IDropHandler, IPointerExitHandler, IPointerEnterHandler
 {
+    public Canvas canvas;
+
     private RectTransform rectTransform;
     private CanvasGroup canvasGroup;
-    private Canvas canvas;
     private Vector2 origin;
     private float originalZorder;
     private bool isValidDrop = false;

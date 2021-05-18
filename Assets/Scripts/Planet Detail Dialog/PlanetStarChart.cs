@@ -44,7 +44,7 @@ public class PlanetStarChart : Droppable
         // Ships cannot be "moved" to the same planet where they already are located
         if(!planet.Equals(gameState.planetForDetail))
         {
-            return new List<string>() { "ShipListItem" };
+            return new List<string>() { "ShipContentsHeaderImage" };
         } else
         {
             return new List<string>() { };
@@ -54,7 +54,7 @@ public class PlanetStarChart : Droppable
     protected override void onDrop(GameObject pointerDrag)
     {
         hoverGlow.gameObject.SetActive(false);
-        ShipListItem shipListItem = pointerDrag.GetComponent<ShipListItem>();
+        ShipContentsHeaderImage shipListItem = pointerDrag.GetComponent<ShipContentsHeaderImage>();
         Ship ship = shipListItem.getShip();
         if (gameState.myTeam == ship.team)
         {
@@ -65,7 +65,7 @@ public class PlanetStarChart : Droppable
 
     protected override void onPointEnter(GameObject pointerDrag)
     {
-        ShipListItem shipListItem = pointerDrag.GetComponent<ShipListItem>();
+        ShipContentsHeaderImage shipListItem = pointerDrag.GetComponent<ShipContentsHeaderImage>();
         if(gameState.myTeam == shipListItem.getShip().team)
         {
             hoverGlow.gameObject.SetActive(true);
