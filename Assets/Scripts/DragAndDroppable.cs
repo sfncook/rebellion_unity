@@ -87,10 +87,10 @@ public abstract class DragAndDroppable : MonoBehaviour,
             Vector3 locPos = gameObject.transform.localPosition;
             locPos.z = originalZorder;
             gameObject.transform.localPosition = locPos;
-            if (!isValidDrop)
-            {
+            //if (!isValidDrop)
+            //{
                 rectTransform.anchoredPosition = origin;
-            }
+            //}
         }
     }
 

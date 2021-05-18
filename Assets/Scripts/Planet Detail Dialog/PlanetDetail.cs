@@ -7,6 +7,11 @@ public class ShowShipContentsEvent : UnityEvent<Ship>
 {
 }
 
+[System.Serializable]
+public class HideShipContentsEvent : UnityEvent
+{
+}
+
 public class PlanetDetail : MonoBehaviour
 {
     public TextMeshProUGUI planetNameLabel;
@@ -30,6 +35,7 @@ public class PlanetDetail : MonoBehaviour
     public LoyaltyBars loyaltyBars;
     public Canvas canvas;
     public ShowShipContentsEvent showShipContentsEvent;
+    public HideShipContentsEvent hideShipContentsEvent;
 
 
     private MainGameState gameState;
@@ -130,5 +136,6 @@ public class PlanetDetail : MonoBehaviour
     {
         planet.shipsInOrbit.Remove(ship);
         updateGrid();
+        hideShipContentsEvent.Invoke();
     }
 }
