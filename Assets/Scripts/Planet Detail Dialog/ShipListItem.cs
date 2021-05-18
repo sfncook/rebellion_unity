@@ -11,8 +11,6 @@ public class ShipListItem : DragAndDroppable
     private MainGameState gameState;
     private Ship ship;
     private ShowShipContentsEvent showShipContentsEvent;
-    private bool isDraggable_ = false;
-    private bool isDroppable_ = true;
 
     public delegate void RemovePersonnel(Personnel personnel);
     private RemovePersonnel removePersonnelCallback;
@@ -108,27 +106,17 @@ public class ShipListItem : DragAndDroppable
 
     protected override bool isDraggable()
     {
-        return isDraggable_ && gameState.myTeam == ship.team;
+        return false;
     }
 
     protected override bool isDroppable()
     {
-        return isDroppable_ && gameState.myTeam == ship.team;
-    }
-
-    public void setIsDraggable(bool isDraggable_)
-    {
-        this.isDraggable_ = isDraggable_;
-    }
-
-    public void setIsDroppable(bool isDroppable_)
-    {
-        this.isDroppable_ = isDroppable_;
+        return gameState.myTeam == ship.team;
     }
 
     private void OnMouseDown()
     {
-        if (!isDraggable_ && gameState.myTeam == ship.team)
+        if (gameState.myTeam == ship.team)
         {
             showShipContentsEvent.Invoke(ship);
         }
