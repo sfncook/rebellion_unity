@@ -34,7 +34,14 @@ public abstract class DragAndDroppable : MonoBehaviour,
     {
         // Override as-needed
     }
-
+    protected virtual void onDragStart()
+    {
+        // Override as-neede
+    }
+    protected virtual void onDragStop()
+    {
+        // Override as-neede
+    }
 
 
 
@@ -67,6 +74,7 @@ public abstract class DragAndDroppable : MonoBehaviour,
             originalZorder = locPos.z;
             locPos.z = -99;
             gameObject.transform.localPosition = locPos;
+            onDragStart();
         }
     }
 
@@ -91,6 +99,7 @@ public abstract class DragAndDroppable : MonoBehaviour,
             //{
                 rectTransform.anchoredPosition = origin;
             //}
+            onDragStop();
         }
     }
 

@@ -19,6 +19,8 @@ public class PlanetStarChart : Droppable
 
     private MainGameState gameState;
     private Planet planet;
+    private bool isDraggingPersonnel = false;
+    private bool isDraggingShip = false;
 
     void Start()
     {
@@ -28,21 +30,63 @@ public class PlanetStarChart : Droppable
         planetImg.sprite = Resources.Load<Sprite>("Images/Planets/" + planet.name);
         planetNameLabel.text = planet.name;
         loyaltyBars.setPlanet(planet);
+    }
 
-        // Ships cannot be "moved" to the same planet where they already are located
+    public void startDraggingPersonnel()
+    {
+        // Personnel can only be moved to the same planet where they are currently located
         if (planet.Equals(gameState.planetForDetail))
         {
-            Color color = new Color(0.6f, 0.6f, 0.6f, 0.6f);
-            planetImg.color = color;
-            planetNameLabel.color = color;
-            loyaltyBars.gameObject.SetActive(false);
+            isDraggingPersonnel = true;
+            setEnabledColor();
+        }
+        else
+        {
+            isDraggingPersonnel = false;
+            setDisabledColor();
         }
     }
+    public void stopDraggingPersonnel()
+    {
+        setEnabledColor();
+        //Debug.Log("stopDraggingPersonnel");
+        //// Ships can only be moved to a different planet from where they are currently located
+        //if (planet.Equals(gameState.planetForDetail))
+        //{
+        //    isDraggingShip = false;
+        //    setDisabledColor();
+        //}
+        //else
+        //{
+        //    isDraggingShip = true;
+        //    setEnabledColor();
+        //}
+    }
+
+    public void setEnabledColor()
+    {
+        Color planetOverlayColor = new Color(1f, 1f, 1f, 1f);
+        bool loyaltyBarsEnabled = true;
+        planetImg.color = planetOverlayColor;
+        planetNameLabel.color = planetOverlayColor;
+        loyaltyBars.gameObject.SetActive(loyaltyBarsEnabled);
+    }
+    public void setDisabledColor()
+    {
+        Color planetOverlayColor = new Color(0.6f, 0.6f, 0.6f, 0.6f);
+        bool loyaltyBarsEnabled = false;
+        planetImg.color = planetOverlayColor;
+        planetNameLabel.color = planetOverlayColor;
+        loyaltyBars.gameObject.SetActive(loyaltyBarsEnabled);
+    }
+
 
     protected override List<string> acceptedDropTypes()
     {
-        // Ships cannot be "moved" to the same planet where they already are located
-        if(!planet.Equals(gameState.planetForDetail))
+        if (isDraggingPersonnel)
+        {
+            return new List<string>() { "PersonnelListItem" };
+        } else if(isDraggingShip)
         {
             return new List<string>() { "ShipContentsHeaderImage" };
         } else
@@ -54,22 +98,24 @@ public class PlanetStarChart : Droppable
     protected override void onDrop(GameObject pointerDrag)
     {
         hoverGlow.gameObject.SetActive(false);
-        ShipContentsHeaderImage shipListItem = pointerDrag.GetComponent<ShipContentsHeaderImage>();
-        Ship ship = shipListItem.getShip();
-        if (gameState.myTeam == ship.team)
-        {
-            removeShipCallback.Invoke(ship);
-            planet.shipsInOrbit.Add(ship);
-        }
+        //hoverGlow.gameObject.SetActive(false);
+        //ShipContentsHeaderImage shipListItem = pointerDrag.GetComponent<ShipContentsHeaderImage>();
+        //Ship ship = shipListItem.getShip();
+        //if (gameState.myTeam == ship.team)
+        //{
+        //    removeShipCallback.Invoke(ship);
+        //    planet.shipsInOrbit.Add(ship);
+        //}
     }
 
     protected override void onPointEnter(GameObject pointerDrag)
     {
-        ShipContentsHeaderImage shipListItem = pointerDrag.GetComponent<ShipContentsHeaderImage>();
-        if(gameState.myTeam == shipListItem.getShip().team)
-        {
-            hoverGlow.gameObject.SetActive(true);
-        }
+        hoverGlow.gameObject.SetActive(true);
+        //ShipContentsHeaderImage shipListItem = pointerDrag.GetComponent<ShipContentsHeaderImage>();
+        //if(gameState.myTeam == shipListItem.getShip().team)
+        //{
+        //    hoverGlow.gameObject.SetActive(true);
+        //}
     }
 
     protected override void onPointExit()

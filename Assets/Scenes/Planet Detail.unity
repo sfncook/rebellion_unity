@@ -336,6 +336,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 2778517757828040225, guid: dede1b366033649a285ca413889eab41, type: 3}
   m_PrefabInstance: {fileID: 54923447}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &54923449 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5679199408337618576, guid: dede1b366033649a285ca413889eab41, type: 3}
+  m_PrefabInstance: {fileID: 54923447}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7ebbdadb757d842429c60f259122dac8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &105913061
 GameObject:
   m_ObjectHideFlags: 0
@@ -1041,6 +1052,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 2778517757828040225, guid: dede1b366033649a285ca413889eab41, type: 3}
   m_PrefabInstance: {fileID: 234083679}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &234083681 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5679199408337618576, guid: dede1b366033649a285ca413889eab41, type: 3}
+  m_PrefabInstance: {fileID: 234083679}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7ebbdadb757d842429c60f259122dac8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &246457019
 GameObject:
   m_ObjectHideFlags: 0
@@ -1825,6 +1847,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 2778517757828040225, guid: dede1b366033649a285ca413889eab41, type: 3}
   m_PrefabInstance: {fileID: 402192087}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &402192089 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5679199408337618576, guid: dede1b366033649a285ca413889eab41, type: 3}
+  m_PrefabInstance: {fileID: 402192087}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7ebbdadb757d842429c60f259122dac8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &403247223
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1963,6 +1996,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 2778517757828040225, guid: dede1b366033649a285ca413889eab41, type: 3}
   m_PrefabInstance: {fileID: 403247223}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &403247225 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5679199408337618576, guid: dede1b366033649a285ca413889eab41, type: 3}
+  m_PrefabInstance: {fileID: 403247223}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7ebbdadb757d842429c60f259122dac8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &408670616
 GameObject:
   m_ObjectHideFlags: 0
@@ -3410,6 +3454,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 2778517757828040225, guid: dede1b366033649a285ca413889eab41, type: 3}
   m_PrefabInstance: {fileID: 765105220}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &765105222 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5679199408337618576, guid: dede1b366033649a285ca413889eab41, type: 3}
+  m_PrefabInstance: {fileID: 765105220}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7ebbdadb757d842429c60f259122dac8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &771986795
 GameObject:
   m_ObjectHideFlags: 0
@@ -5489,7 +5544,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8805762716755318470, guid: 2d2baa46fe37b48ca809c40162750e9f, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 0
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 8805762716755318470, guid: 2d2baa46fe37b48ca809c40162750e9f, type: 3}
       propertyPath: m_LocalPosition.x
@@ -6378,6 +6433,132 @@ MonoBehaviour:
   personnelListItemPrefab: {fileID: 5315911519325098199, guid: 2d2baa46fe37b48ca809c40162750e9f, type: 3}
   shipContentsHeaderImage: {fileID: 374412116}
   canvas: {fileID: 105913064}
+  startDraggingPersonnel:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 765105222}
+        m_TargetAssemblyTypeName: PlanetStarChart, Assembly-CSharp
+        m_MethodName: startDraggingPersonnel
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 234083681}
+        m_TargetAssemblyTypeName: PlanetStarChart, Assembly-CSharp
+        m_MethodName: startDraggingPersonnel
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 54923449}
+        m_TargetAssemblyTypeName: PlanetStarChart, Assembly-CSharp
+        m_MethodName: startDraggingPersonnel
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 403247225}
+        m_TargetAssemblyTypeName: PlanetStarChart, Assembly-CSharp
+        m_MethodName: startDraggingPersonnel
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 402192089}
+        m_TargetAssemblyTypeName: PlanetStarChart, Assembly-CSharp
+        m_MethodName: startDraggingPersonnel
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  stopDraggingPersonnel:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 765105222}
+        m_TargetAssemblyTypeName: PlanetStarChart, Assembly-CSharp
+        m_MethodName: stopDraggingPersonnel
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 234083681}
+        m_TargetAssemblyTypeName: PlanetStarChart, Assembly-CSharp
+        m_MethodName: stopDraggingPersonnel
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 54923449}
+        m_TargetAssemblyTypeName: PlanetStarChart, Assembly-CSharp
+        m_MethodName: stopDraggingPersonnel
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 403247225}
+        m_TargetAssemblyTypeName: PlanetStarChart, Assembly-CSharp
+        m_MethodName: stopDraggingPersonnel
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 402192089}
+        m_TargetAssemblyTypeName: PlanetStarChart, Assembly-CSharp
+        m_MethodName: stopDraggingPersonnel
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1001 &1805859267
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6423,7 +6604,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8805762716755318470, guid: 2d2baa46fe37b48ca809c40162750e9f, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 0
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 8805762716755318470, guid: 2d2baa46fe37b48ca809c40162750e9f, type: 3}
       propertyPath: m_LocalPosition.x

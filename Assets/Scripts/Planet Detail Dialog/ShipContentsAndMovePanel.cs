@@ -1,5 +1,16 @@
 using UnityEngine;
 using TMPro;
+using UnityEngine.Events;
+
+[System.Serializable]
+public class StartDraggingPersonnel : UnityEvent
+{
+}
+
+[System.Serializable]
+public class StopDraggingPersonnel : UnityEvent
+{
+}
 
 public class ShipContentsAndMovePanel : MonoBehaviour
 {
@@ -10,6 +21,8 @@ public class ShipContentsAndMovePanel : MonoBehaviour
     public GameObject personnelListItemPrefab;
     public ShipContentsHeaderImage shipContentsHeaderImage;
     public Canvas canvas;
+    public StartDraggingPersonnel startDraggingPersonnel;
+    public StopDraggingPersonnel stopDraggingPersonnel;
 
     private Ship ship;
 
@@ -45,6 +58,8 @@ public class ShipContentsAndMovePanel : MonoBehaviour
             PersonnelListItem personnelListItem = newObj.GetComponent<PersonnelListItem>();
             personnelListItem.setPersonnel(personnel);
             personnelListItem.setCanvas(canvas);
+            personnelListItem.setStartDraggingPersonnel(startDraggingPersonnel);
+            personnelListItem.setStopDraggingPersonnel(stopDraggingPersonnel);
         }
     }
 

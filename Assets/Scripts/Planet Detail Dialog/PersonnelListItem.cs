@@ -6,6 +6,8 @@ public class PersonnelListItem : DragAndDroppable
 
     private MainGameState gameState;
     private Personnel personnel;
+    private StartDraggingPersonnel startDraggingPersonnel;
+    private StopDraggingPersonnel stopDraggingPersonnel;
 
     private void Start()
     {
@@ -34,6 +36,15 @@ public class PersonnelListItem : DragAndDroppable
         return personnel;
     }
 
+    public void setStartDraggingPersonnel(StartDraggingPersonnel startDraggingPersonnel)
+    {
+        this.startDraggingPersonnel = startDraggingPersonnel;
+    }
+    public void setStopDraggingPersonnel(StopDraggingPersonnel stopDraggingPersonnel)
+    {
+        this.stopDraggingPersonnel = stopDraggingPersonnel;
+    }
+
     protected override bool isDraggable()
     {
         return gameState.myTeam == personnel.team;
@@ -42,5 +53,15 @@ public class PersonnelListItem : DragAndDroppable
     protected override bool isDroppable()
     {
         return false;
+    }
+
+    protected override void onDragStart()
+    {
+        if(startDraggingPersonnel!=null) startDraggingPersonnel.Invoke();
+    }
+
+    protected override void onDragStop()
+    {
+        if (stopDraggingPersonnel != null) stopDraggingPersonnel.Invoke();
     }
 }
