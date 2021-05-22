@@ -19,7 +19,6 @@ public class PlanetDetail : MonoBehaviour
     public Image planetImg;
     public SpriteRenderer starsImg;
 
-
     public GameObject shipListItemPrefab;
     public GameObject personnelListItemPrefab;
     public GameObject factoryListItemPrefab;
@@ -31,6 +30,8 @@ public class PlanetDetail : MonoBehaviour
     public Transform personnelTeamAPanel;
     public Transform personnelTeamBPanel;
     public Transform infrastructurePanel;
+    public Transform starChartPanel;
+    public Transform onSurfacePanel;
 
     public LoyaltyBars loyaltyBars;
     public Canvas canvas;
@@ -69,8 +70,10 @@ public class PlanetDetail : MonoBehaviour
             ShipListItem shipListItem = newObj.GetComponent<ShipListItem>();
             shipListItem.setRemovePersonnelDelegate(removePersonnel);
             shipListItem.setShip(ship);
-            //shipListItem.setCanvas(canvas);
+            shipListItem.setCanvas(canvas);
             shipListItem.setShowShipContentsEvent(showShipContentsEvent);
+            shipListItem.setStartMoveShip(startMoveShip);
+            shipListItem.setStopMoveShip(stopMoveShip);
         }
 
         // Personnel
@@ -137,5 +140,17 @@ public class PlanetDetail : MonoBehaviour
         planet.shipsInOrbit.Remove(ship);
         updateGrid();
         hideShipContentsEvent.Invoke();
+    }
+
+    public void startMoveShip()
+    {
+        starChartPanel.gameObject.SetActive(true);
+        onSurfacePanel.gameObject.SetActive(false);
+    }
+
+    public void stopMoveShip()
+    {
+        starChartPanel.gameObject.SetActive(false);
+        onSurfacePanel.gameObject.SetActive(true);
     }
 }

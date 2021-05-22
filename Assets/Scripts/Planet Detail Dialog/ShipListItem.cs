@@ -11,9 +11,16 @@ public class ShipListItem : DragAndDroppable
     private MainGameState gameState;
     private Ship ship;
     private ShowShipContentsEvent showShipContentsEvent;
+    private bool isDragging = false;
 
     public delegate void RemovePersonnel(Personnel personnel);
     private RemovePersonnel removePersonnelCallback;
+
+    public delegate void StartMoveShip();
+    private StartMoveShip startMoveShip;
+
+    public delegate void StopMoveShip();
+    private StopMoveShip stopMoveShip;
 
 
     private void Start()
@@ -29,6 +36,16 @@ public class ShipListItem : DragAndDroppable
     public void setShowShipContentsEvent(ShowShipContentsEvent showShipContentsEvent)
     {
         this.showShipContentsEvent = showShipContentsEvent;
+    }
+
+    public void setStartMoveShip(StartMoveShip startMoveShip)
+    {
+        this.startMoveShip = startMoveShip;
+    }
+
+    public void setStopMoveShip(StopMoveShip stopMoveShip)
+    {
+        this.stopMoveShip = stopMoveShip;
     }
 
     public void setShip(Ship ship)
@@ -106,7 +123,7 @@ public class ShipListItem : DragAndDroppable
 
     protected override bool isDraggable()
     {
-        return false;
+        return true;
     }
 
     protected override bool isDroppable()
@@ -114,11 +131,22 @@ public class ShipListItem : DragAndDroppable
         return gameState.myTeam == ship.team;
     }
 
-    private void OnMouseDown()
+    protected override void onDragStart()
     {
-        if (gameState.myTeam == ship.team)
+        isDragging = true;
+        startMoveShip.Invoke();
+    }
+
+    private void OnMouseUp()
+    {
+        if(!isDragging)
         {
-            showShipContentsEvent.Invoke(ship);
+            if (gameState.myTeam == ship.team)
+            {
+                showShipContentsEvent.Invoke(ship);
+            }
         }
+        isDragging = false;
+        stopMoveShip.Invoke();
     }
 }
