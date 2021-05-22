@@ -31,7 +31,7 @@ public class PlanetDetail : MonoBehaviour
     public Transform personnelTeamBPanel;
     public Transform infrastructurePanel;
     public Transform starChartPanel;
-    public Transform onSurfacePanel;
+    public OnSurfacePanel onSurfacePanel;
 
     public LoyaltyBars loyaltyBars;
     public Canvas canvas;
@@ -53,6 +53,7 @@ public class PlanetDetail : MonoBehaviour
         //planetShieldImg.enabled = hasOrbitalShield;
         loyaltyBars.setPlanet(planet);
         updateGrid();
+        onSurfacePanel.setPlanet(planet);
     }
 
     private void updateGrid()

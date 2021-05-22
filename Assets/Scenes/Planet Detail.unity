@@ -4571,7 +4571,6 @@ GameObject:
   - component: {fileID: 1336359076}
   - component: {fileID: 1336359075}
   - component: {fileID: 1336359074}
-  - component: {fileID: 1336359077}
   m_Layer: 5
   m_Name: Star Chart Panel
   m_TagString: Untagged
@@ -4656,18 +4655,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1336359072}
   m_CullTransparentMesh: 1
---- !u!114 &1336359077
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1336359072}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3f1abd7f1af6241d589767c49b9ca3e5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1351541742
 GameObject:
   m_ObjectHideFlags: 0
@@ -5037,7 +5024,7 @@ MonoBehaviour:
   personnelTeamBPanel: {fileID: 507451237}
   infrastructurePanel: {fileID: 543988577}
   starChartPanel: {fileID: 1336359073}
-  onSurfacePanel: {fileID: 2124119897}
+  onSurfacePanel: {fileID: 2124119901}
   loyaltyBars: {fileID: 1144347859}
   canvas: {fileID: 105913064}
   showShipContentsEvent:
@@ -7241,3 +7228,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   canvas: {fileID: 105913064}
+  blankPersonnelPrefab: {fileID: 4495967337758738682, guid: e7f5d467c15e542d1a40e1f8cda96d6a, type: 3}
+  personnelTeamAPanel: {fileID: 1144578035}
+  planetDetailImage: {fileID: 365803517}
