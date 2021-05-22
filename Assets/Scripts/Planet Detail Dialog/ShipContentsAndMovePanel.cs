@@ -47,7 +47,7 @@ public class ShipContentsAndMovePanel : MonoBehaviour
         gameObject.SetActive(false);
     }
 
-    private void updateGrid()
+    public void updateGrid()
     {
         clearGrid();
 
@@ -71,5 +71,10 @@ public class ShipContentsAndMovePanel : MonoBehaviour
         {
             GameObject.Destroy(child.gameObject);
         }
+    }
+
+    public void removePersonnel(Personnel personnel)
+    {
+        ship.personnelsOnBoard.Remove(personnel);
     }
 }

@@ -5014,14 +5014,11 @@ MonoBehaviour:
   planetImg: {fileID: 365803517}
   starsImg: {fileID: 499885058}
   shipListItemPrefab: {fileID: 5315911519325098199, guid: d12691200ac8b4244adf4f8acf90113f, type: 3}
-  personnelListItemPrefab: {fileID: 5315911519325098199, guid: 2d2baa46fe37b48ca809c40162750e9f, type: 3}
   factoryListItemPrefab: {fileID: 5315911519325098199, guid: b9132738c678042f0ab9ea54faaaa7cf, type: 3}
   defenseListItemPrefab: {fileID: 5315911519325098199, guid: bcd854cdd09604f87b39119daae03d3c, type: 3}
   energySquarePrefab: {fileID: 4495967337758738682, guid: e7f5d467c15e542d1a40e1f8cda96d6a, type: 3}
   shipsTeamAPanel: {fileID: 246457020}
   shipsTeamBPanel: {fileID: 1759491082}
-  personnelTeamAPanel: {fileID: 1144578035}
-  personnelTeamBPanel: {fileID: 507451237}
   infrastructurePanel: {fileID: 543988577}
   starChartPanel: {fileID: 1336359073}
   onSurfacePanel: {fileID: 2124119901}
@@ -7230,4 +7227,7 @@ MonoBehaviour:
   canvas: {fileID: 105913064}
   blankPersonnelPrefab: {fileID: 4495967337758738682, guid: e7f5d467c15e542d1a40e1f8cda96d6a, type: 3}
   personnelTeamAPanel: {fileID: 1144578035}
+  personnelTeamBPanel: {fileID: 507451237}
   planetDetailImage: {fileID: 365803517}
+  personnelListItemPrefab: {fileID: 5315911519325098199, guid: 2d2baa46fe37b48ca809c40162750e9f, type: 3}
+  shipContentsAndMovePanel: {fileID: 1795898396}

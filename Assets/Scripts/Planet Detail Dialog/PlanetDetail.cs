@@ -20,15 +20,12 @@ public class PlanetDetail : MonoBehaviour
     public SpriteRenderer starsImg;
 
     public GameObject shipListItemPrefab;
-    public GameObject personnelListItemPrefab;
     public GameObject factoryListItemPrefab;
     public GameObject defenseListItemPrefab;
     public GameObject energySquarePrefab;
 
     public Transform shipsTeamAPanel;
     public Transform shipsTeamBPanel;
-    public Transform personnelTeamAPanel;
-    public Transform personnelTeamBPanel;
     public Transform infrastructurePanel;
     public Transform starChartPanel;
     public OnSurfacePanel onSurfacePanel;
@@ -53,40 +50,18 @@ public class PlanetDetail : MonoBehaviour
         //planetShieldImg.enabled = hasOrbitalShield;
         loyaltyBars.setPlanet(planet);
         updateGrid();
-        onSurfacePanel.setPlanet(planet);
     }
 
     private void updateGrid()
     {
-        clearAll();
+
+        onSurfacePanel.setPlanet(planet);
+        onSurfacePanel.setUpdateShipGrids(updateShipGrids);
+        updateShipGrids();
+
+        clearPanel(infrastructurePanel);
 
         GameObject newObj;
-
-        // Ships
-        planet.shipsInOrbit.Sort((a, b) => a.type.name.CompareTo(b.type.name));
-        foreach (Ship ship in planet.shipsInOrbit)
-        {
-            Transform panelTransform = ship.team.Equals(Team.TeamA) ? shipsTeamAPanel : shipsTeamBPanel;
-            newObj = (GameObject)Instantiate(shipListItemPrefab, panelTransform);
-            ShipListItem shipListItem = newObj.GetComponent<ShipListItem>();
-            shipListItem.setRemovePersonnelDelegate(removePersonnel);
-            shipListItem.setShip(ship);
-            shipListItem.setCanvas(canvas);
-            shipListItem.setShowShipContentsEvent(showShipContentsEvent);
-            shipListItem.setStartMoveShip(startMoveShip);
-            shipListItem.setStopMoveShip(stopMoveShip);
-        }
-
-        // Personnel
-        planet.personnelsOnSurface.Sort((a, b) => a.type.name.CompareTo(b.type.name));
-        foreach (Personnel personnel in planet.personnelsOnSurface)
-        {
-            Transform panelTransform = personnel.team.Equals(Team.TeamA) ? personnelTeamAPanel : personnelTeamBPanel;
-            newObj = (GameObject)Instantiate(personnelListItemPrefab, panelTransform);
-            PersonnelListItem personnelListItem = newObj.GetComponent<PersonnelListItem>();
-            personnelListItem.setPersonnel(personnel);
-            personnelListItem.setCanvas(canvas);
-        }
 
         // Defenses
         planet.defenses.Sort((a, b) => a.type.name.CompareTo(b.type.name));
@@ -113,13 +88,27 @@ public class PlanetDetail : MonoBehaviour
         }
     }
 
-    private void clearAll()
+    private void updateShipGrids()
     {
         clearPanel(shipsTeamAPanel);
         clearPanel(shipsTeamBPanel);
-        clearPanel(personnelTeamAPanel);
-        clearPanel(personnelTeamBPanel);
-        clearPanel(infrastructurePanel);
+
+        GameObject newObj;
+
+        // Ships
+        planet.shipsInOrbit.Sort((a, b) => a.type.name.CompareTo(b.type.name));
+        foreach (Ship ship in planet.shipsInOrbit)
+        {
+            Transform panelTransform = ship.team.Equals(Team.TeamA) ? shipsTeamAPanel : shipsTeamBPanel;
+            newObj = (GameObject)Instantiate(shipListItemPrefab, panelTransform);
+            ShipListItem shipListItem = newObj.GetComponent<ShipListItem>();
+            shipListItem.setRemovePersonnelDelegate(removePersonnel);
+            shipListItem.setShip(ship);
+            shipListItem.setCanvas(canvas);
+            shipListItem.setShowShipContentsEvent(showShipContentsEvent);
+            shipListItem.setStartMoveShip(startMoveShip);
+            shipListItem.setStopMoveShip(stopMoveShip);
+        }
     }
 
     private void clearPanel(Transform panel)
