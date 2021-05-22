@@ -1,6 +1,7 @@
 using UnityEngine;
 using TMPro;
 using UnityEngine.Events;
+using UnityEngine.UI;
 
 [System.Serializable]
 public class StartDraggingPersonnel : UnityEvent
@@ -19,7 +20,7 @@ public class ShipContentsAndMovePanel : MonoBehaviour
     public TextMeshProUGUI shipTypeNameLabel;
     public Transform shipContentsGrid;
     public GameObject personnelListItemPrefab;
-    public ShipContentsHeaderImage shipContentsHeaderImage;
+    public Image shipImg;
     public Canvas canvas;
     public StartDraggingPersonnel startDraggingPersonnel;
     public StopDraggingPersonnel stopDraggingPersonnel;
@@ -30,7 +31,7 @@ public class ShipContentsAndMovePanel : MonoBehaviour
     {
         this.ship = ship;
         shipTypeNameLabel.text = ship.type.name;
-        shipContentsHeaderImage.setShip(ship);
+        shipImg.sprite = Resources.Load<Sprite>("Images/Ships/" + ship.type.name);
 
         updateGrid();
 
