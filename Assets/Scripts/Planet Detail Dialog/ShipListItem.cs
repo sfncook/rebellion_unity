@@ -147,16 +147,13 @@ public class ShipListItem : DragAndDroppable
 
     private void OnMouseUp()
     {
-        Debug.Log("OnMouseUp");
-        //    if(!isDragging)
-        //    {
-        //        if (gameState.myTeam == ship.team)
-        //        {
-        //            showShipContentsEvent.Invoke(ship);
-        //        }
-        //    }
-        //    isDragging = false;
-        //    stopMoveShip.Invoke();
-        //}
+        if (!isDragging)
+        {
+            if (gameState.myTeam == ship.team)
+            {
+                showShipContentsEvent.Invoke(ship);
+            }
+            stopMoveShip.Invoke();
+        }
     }
 }
