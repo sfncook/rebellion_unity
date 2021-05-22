@@ -1,8 +1,7 @@
-using UnityEngine;
 using System.Collections.Generic;
-using UnityEngine.UI;
+using UnityEngine;
 
-public class PlanetDetailImage : DragAndDroppable
+public class DropOnMe : DragAndDroppable
 {
     protected override List<string> acceptedDropTypes()
     {
@@ -11,17 +10,12 @@ public class PlanetDetailImage : DragAndDroppable
 
     protected override void onPointEnter(GameObject pointerDrag)
     {
-        gameObject.GetComponent<Image>().color = Color.yellow;
+        Debug.Log("onPointEnter");
     }
 
     protected override void onPointExit()
     {
-        gameObject.GetComponent<Image>().color = Color.white;
-    }
-
-    protected override void onDrop(GameObject pointerDrag)
-    {
-        gameObject.GetComponent<Image>().color = Color.white;
+        Debug.Log("onPointExit");
     }
 
     protected override bool isDraggable()

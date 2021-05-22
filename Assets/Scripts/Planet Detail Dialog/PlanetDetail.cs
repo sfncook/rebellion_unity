@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UI;
 using TMPro;
 using UnityEngine.Events;
 
@@ -15,10 +16,9 @@ public class HideShipContentsEvent : UnityEvent
 public class PlanetDetail : MonoBehaviour
 {
     public TextMeshProUGUI planetNameLabel;
-    public SpriteRenderer planetImg;
+    public Image planetImg;
     public SpriteRenderer starsImg;
 
-    public SpriteRenderer planetShieldImg;
 
     public GameObject shipListItemPrefab;
     public GameObject personnelListItemPrefab;
@@ -44,12 +44,12 @@ public class PlanetDetail : MonoBehaviour
     void Start()
     {
         gameState = MainGameState.gameState;
-        planet = gameState.planetForDetail;
+        planet = gameState.planetForDetail ?? gameState.planets[0];
         planetImg.sprite = Resources.Load<Sprite>("Images/Planets/" + planet.name);
         starsImg.sprite = Resources.Load<Sprite>("Images/Stars/" + planet.name);
         planetNameLabel.text = planet.name;
         bool hasOrbitalShield = planet.defenses.Exists(defense => defense.type.Equals(DefenseType.planetaryShield));
-        planetShieldImg.enabled = hasOrbitalShield;
+        //planetShieldImg.enabled = hasOrbitalShield;
         loyaltyBars.setPlanet(planet);
         updateGrid();
     }
