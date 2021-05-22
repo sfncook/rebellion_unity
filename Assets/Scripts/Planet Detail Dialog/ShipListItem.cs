@@ -140,7 +140,6 @@ public class ShipListItem : DragAndDroppable
 
     protected override void onDragStop()
     {
-        Debug.Log("onDragStop");
         isDragging = false;
         stopMoveShip.Invoke();
     }

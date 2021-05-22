@@ -4,6 +4,7 @@ public class StarChart : MonoBehaviour
 {
     public void startMoveShip()
     {
+        Debug.Log("StarChart startMoveShip");
         gameObject.SetActive(true);
     }
 
