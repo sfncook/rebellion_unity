@@ -124,7 +124,7 @@ public class ShipListItem : DragAndDroppable
 
     protected override bool isDraggable()
     {
-        return true;
+        return gameState.myTeam == ship.team;
     }
 
     protected override bool isDroppable()
@@ -152,8 +152,8 @@ public class ShipListItem : DragAndDroppable
             if (gameState.myTeam == ship.team)
             {
                 showShipContentsEvent.Invoke(ship);
+                stopMoveShip.Invoke();
             }
-            stopMoveShip.Invoke();
         }
     }
 }
