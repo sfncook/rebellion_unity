@@ -8,6 +8,7 @@ public class PersonnelListItem : DragAndDroppable
     private Personnel personnel;
     private StartDraggingPersonnel startDraggingPersonnel;
     private StopDraggingPersonnel stopDraggingPersonnel;
+    private bool locatedOnShip = false;
 
     private void Start()
     {
@@ -34,6 +35,15 @@ public class PersonnelListItem : DragAndDroppable
     public Personnel getPersonnel()
     {
         return personnel;
+    }
+
+    public void setLocatedOnShip(bool locatedOnShip)
+    {
+        this.locatedOnShip = locatedOnShip;
+    }
+    public bool getLocatedOnShip()
+    {
+        return locatedOnShip;
     }
 
     public void setStartDraggingPersonnel(StartDraggingPersonnel startDraggingPersonnel)

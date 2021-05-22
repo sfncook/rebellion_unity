@@ -1,8 +1,13 @@
 using UnityEngine;
 using System.Collections.Generic;
+using UnityEngine.UI;
 
 public class OnSurfacePanel : DragAndDroppable
 {
+    public GameObject blankPersonnelPrefab;
+    public Transform personnelTeamAPanel;
+    public Image planetDetailImage;
+
     protected override List<string> acceptedDropTypes()
     {
         return new List<string>() { "PersonnelListItem" };
@@ -10,7 +15,7 @@ public class OnSurfacePanel : DragAndDroppable
 
     protected override void onPointEnter(GameObject pointerDrag)
     {
-        Debug.Log("OnSurfacePanel onPointEnter");
+        
     }
     protected override void onPointExit()
     {
@@ -25,4 +30,5 @@ public class OnSurfacePanel : DragAndDroppable
     {
         return true;
     }
+
 }

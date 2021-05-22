@@ -7240,4 +7240,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b5ef0bcf2a0ee493083d67567e286579, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canvas: {fileID: 0}
+  canvas: {fileID: 105913064}

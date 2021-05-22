@@ -48,8 +48,8 @@ public class PlanetStarChart : DragAndDroppable
     protected override void onDrop(GameObject pointerDrag)
     {
         hoverGlow.gameObject.SetActive(false);
-        //hoverGlow.gameObject.SetActive(false);
-        //ShipContentsHeaderImage shipListItem = pointerDrag.GetComponent<ShipContentsHeaderImage>();
+        ShipListItem shipListItem = pointerDrag.GetComponent<ShipListItem>();
+        Debug.Log("Drop:"+shipListItem.getShip().type.name);
         //Ship ship = shipListItem.getShip();
         //if (gameState.myTeam == ship.team)
         //{

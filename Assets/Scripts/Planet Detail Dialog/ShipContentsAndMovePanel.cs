@@ -61,6 +61,7 @@ public class ShipContentsAndMovePanel : MonoBehaviour
             personnelListItem.setCanvas(canvas);
             personnelListItem.setStartDraggingPersonnel(startDraggingPersonnel);
             personnelListItem.setStopDraggingPersonnel(stopDraggingPersonnel);
+            personnelListItem.setLocatedOnShip(true);
         }
     }
 
