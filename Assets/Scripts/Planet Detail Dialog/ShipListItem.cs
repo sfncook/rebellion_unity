@@ -75,10 +75,11 @@ public class ShipListItem : DragAndDroppable
 
     protected override List<string> acceptedDropTypes()
     {
-        if(gameState.myTeam == ship.team)
+        if (gameState.myTeam == ship.team)
         {
             return new List<string>() { "PersonnelListItem" };
-        } else
+        }
+        else
         {
             return new List<string>() { };
         }
@@ -137,16 +138,25 @@ public class ShipListItem : DragAndDroppable
         startMoveShip.Invoke();
     }
 
-    private void OnMouseUp()
+    protected override void onDragStop()
     {
-        if(!isDragging)
-        {
-            if (gameState.myTeam == ship.team)
-            {
-                showShipContentsEvent.Invoke(ship);
-            }
-        }
+        Debug.Log("onDragStop");
         isDragging = false;
         stopMoveShip.Invoke();
+    }
+
+    private void OnMouseUp()
+    {
+        Debug.Log("OnMouseUp");
+        //    if(!isDragging)
+        //    {
+        //        if (gameState.myTeam == ship.team)
+        //        {
+        //            showShipContentsEvent.Invoke(ship);
+        //        }
+        //    }
+        //    isDragging = false;
+        //    stopMoveShip.Invoke();
+        //}
     }
 }

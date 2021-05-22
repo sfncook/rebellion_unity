@@ -36,11 +36,11 @@ public abstract class DragAndDroppable : MonoBehaviour,
     }
     protected virtual void onDragStart()
     {
-        // Override as-neede
+        // Override as-needed
     }
     protected virtual void onDragStop()
     {
-        // Override as-neede
+        // Override as-needed
     }
 
 

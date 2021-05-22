@@ -150,6 +150,7 @@ public class PlanetDetail : MonoBehaviour
 
     public void stopMoveShip()
     {
+        Debug.Log("stopMoveShip");
         starChartPanel.gameObject.SetActive(false);
         onSurfacePanel.gameObject.SetActive(true);
     }

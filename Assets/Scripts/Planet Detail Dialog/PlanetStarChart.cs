@@ -9,7 +9,7 @@ public class RemoveShipEvent : UnityEvent<Ship>
 {
 }
 
-public class PlanetStarChart : Droppable
+public class PlanetStarChart : DragAndDroppable
 {
     public TextMeshProUGUI planetNameLabel;
     public Image planetImg;
@@ -19,8 +19,6 @@ public class PlanetStarChart : Droppable
 
     private MainGameState gameState;
     private Planet planet;
-    private bool isDraggingPersonnel = false;
-    private bool isDraggingShip = false;
 
     void Start()
     {
@@ -32,71 +30,24 @@ public class PlanetStarChart : Droppable
         loyaltyBars.setPlanet(planet);
     }
 
-    public void startDraggingPersonnel()
-    {
-        // Personnel can only be moved to the same planet where they are currently located
-        if (planet.Equals(gameState.planetForDetail))
-        {
-            isDraggingPersonnel = true;
-            setEnabledColor();
-        }
-        else
-        {
-            isDraggingPersonnel = false;
-            setDisabledColor();
-        }
-    }
-    public void stopDraggingPersonnel()
-    {
-        setEnabledColor();
-        //Debug.Log("stopDraggingPersonnel");
-        //// Ships can only be moved to a different planet from where they are currently located
-        //if (planet.Equals(gameState.planetForDetail))
-        //{
-        //    isDraggingShip = false;
-        //    setDisabledColor();
-        //}
-        //else
-        //{
-        //    isDraggingShip = true;
-        //    setEnabledColor();
-        //}
-    }
-
-    public void setEnabledColor()
-    {
-        Color planetOverlayColor = new Color(1f, 1f, 1f, 1f);
-        bool loyaltyBarsEnabled = true;
-        planetImg.color = planetOverlayColor;
-        planetNameLabel.color = planetOverlayColor;
-        loyaltyBars.gameObject.SetActive(loyaltyBarsEnabled);
-    }
-    public void setDisabledColor()
-    {
-        Color planetOverlayColor = new Color(0.6f, 0.6f, 0.6f, 0.6f);
-        bool loyaltyBarsEnabled = false;
-        planetImg.color = planetOverlayColor;
-        planetNameLabel.color = planetOverlayColor;
-        loyaltyBars.gameObject.SetActive(loyaltyBarsEnabled);
-    }
-
-
     protected override List<string> acceptedDropTypes()
     {
-        if (isDraggingPersonnel)
-        {
-            return new List<string>() { "PersonnelListItem" };
-        } else if(isDraggingShip)
-        {
-            return new List<string>() { "ShipContentsHeaderImage" };
-        } else
-        {
-            return new List<string>() { };
-        }
+        return new List<string>() { "ShipListItem" };
+    }
+
+    protected override bool isDraggable()
+    {
+        return false;
+    }
+
+    protected override bool isDroppable()
+    {
+        return true;
     }
 
     protected override void onDrop(GameObject pointerDrag)
     {
+        Debug.Log("onDrop");
         hoverGlow.gameObject.SetActive(false);
         //hoverGlow.gameObject.SetActive(false);
         //ShipContentsHeaderImage shipListItem = pointerDrag.GetComponent<ShipContentsHeaderImage>();
