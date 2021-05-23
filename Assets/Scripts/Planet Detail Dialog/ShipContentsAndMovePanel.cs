@@ -1,8 +1,9 @@
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
+using System.Collections.Generic;
 
-public class ShipContentsAndMovePanel : MonoBehaviour
+public class ShipContentsAndMovePanel : DragAndDroppable
 {
     public GameObject inOrbitPanel;
     public GameObject onSurfacePanel;
@@ -10,7 +11,8 @@ public class ShipContentsAndMovePanel : MonoBehaviour
     public Transform shipContentsGrid;
     public GameObject personnelListItemPrefab;
     public Image shipImg;
-    public Canvas canvas;
+    public Image backgroundImage;
+    public PlanetDetail planetDetail;
 
     private Ship ship;
 
@@ -61,5 +63,36 @@ public class ShipContentsAndMovePanel : MonoBehaviour
     public void removePersonnel(Personnel personnel)
     {
         ship.personnelsOnBoard.Remove(personnel);
+    }
+
+    protected override bool isDraggable()
+    {
+        return false;
+    }
+    protected override bool isDroppable()
+    {
+        return ship.team.Equals(MainGameState.gameState.myTeam);
+    }
+
+    protected override List<string> acceptedDropTypes()
+    {
+        return new List<string>() { "PersonnelListItem" };
+    }
+    protected override void onDrop(GameObject pointerDrag)
+    {
+        backgroundImage.color = Color.black;
+        PersonnelListItem personnelListItem = pointerDrag.GetComponent<PersonnelListItem>();
+        Personnel personnel = personnelListItem.getPersonnel();
+        ship.personnelsOnBoard.Add(personnel);
+        planetDetail.removePersonnel(personnel);
+        updateGrid();
+    }
+    protected override void onPointEnter(GameObject pointerDrag)
+    {
+        backgroundImage.color = Color.yellow;
+    }
+    protected override void onPointExit()
+    {
+        backgroundImage.color = Color.black;
     }
 }

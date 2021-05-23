@@ -12,7 +12,6 @@ public abstract class DragAndDroppable : MonoBehaviour,
     private CanvasGroup canvasGroup;
     private Vector2 origin;
     private float originalZorder;
-    private bool isValidDrop = false;
 
     protected abstract bool isDraggable();
     protected abstract bool isDroppable();
@@ -56,17 +55,10 @@ public abstract class DragAndDroppable : MonoBehaviour,
         this.canvas = canvas;
     }
 
-    public void setIsValidDrop(bool isValidDrop)
-    {
-        this.isValidDrop = isValidDrop;
-    }
-
-
     void IBeginDragHandler.OnBeginDrag(PointerEventData eventData)
     {
         if (isDraggable())
         {
-            isValidDrop = false;
             canvasGroup.alpha = 0.6f;
             canvasGroup.blocksRaycasts = false;
             origin = rectTransform.anchoredPosition;
@@ -95,10 +87,7 @@ public abstract class DragAndDroppable : MonoBehaviour,
             Vector3 locPos = gameObject.transform.localPosition;
             locPos.z = originalZorder;
             gameObject.transform.localPosition = locPos;
-            //if (!isValidDrop)
-            //{
-                rectTransform.anchoredPosition = origin;
-            //}
+            rectTransform.anchoredPosition = origin;
             onDragStop();
         }
     }

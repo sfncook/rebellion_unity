@@ -95,7 +95,6 @@ public class ShipListItem : DragAndDroppable
                 ship.personnelsOnBoard.Count < ((ShipType)ship.type).personnelCapacity
                 )
             {
-                personnelListItem.setIsValidDrop(true);
                 ship.personnelsOnBoard.Add(personnelListItem.getPersonnel());
                 removePersonnelCallback(personnelListItem.getPersonnel());
             }
