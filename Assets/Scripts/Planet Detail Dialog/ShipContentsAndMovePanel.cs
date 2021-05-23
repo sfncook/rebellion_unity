@@ -23,7 +23,7 @@ public class ShipContentsAndMovePanel : MonoBehaviour
         updateGrid();
 
         inOrbitPanel.SetActive(false);
-        onSurfacePanel.SetActive(false);
+        onSurfacePanel.SetActive(true);
         gameObject.SetActive(true);
     }
 
