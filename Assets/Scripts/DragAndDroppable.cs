@@ -113,6 +113,8 @@ public abstract class DragAndDroppable : MonoBehaviour,
             if (dragging != null)
             {
                 onDrop(dragging);
+                DragAndDroppable draggingObj = dragging.GetComponent<DragAndDroppable>();
+                draggingObj.onDragStop();
             }
         }
     }

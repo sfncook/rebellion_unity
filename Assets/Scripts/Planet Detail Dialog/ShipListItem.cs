@@ -151,7 +151,6 @@ public class ShipListItem : DragAndDroppable
             if (gameState.myTeam == ship.team)
             {
                 showShipContentsEvent.Invoke(ship);
-                stopMoveShip.Invoke();
             }
         }
     }
