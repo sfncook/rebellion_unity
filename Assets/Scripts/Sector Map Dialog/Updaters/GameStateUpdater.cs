@@ -14,7 +14,7 @@ public class GameStateUpdater : MonoBehaviour
 
     private void Update()
     {
-        if(gameState.isTimerRunning)
+        if(gameState.getIsTimerRunning())
         {
             if (timerSec <= 0.0f)
             {

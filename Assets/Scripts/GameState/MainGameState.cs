@@ -11,9 +11,13 @@ public class MainGameState : MonoBehaviour
     [HideInInspector]
     public int gameTime = 0;
     [HideInInspector]
-    public bool isTimerRunning = false;
+    private bool isTimerRunning = false;
     [HideInInspector]
     public Team myTeam = Team.TeamA;
+    [HideInInspector]
+    public UnityEvent startTimerEvent = new UnityEvent();
+    [HideInInspector]
+    public UnityEvent stopTimerEvent = new UnityEvent();
 
     // Game Loop Events
     [HideInInspector]
@@ -41,6 +45,12 @@ public class MainGameState : MonoBehaviour
         {
             Destroy(gameObject);
         }
+    }
+
+    private void Start()
+    {
+        startTimerEvent.AddListener(onStartTimer);
+        stopTimerEvent.AddListener(onStopTimer);
     }
 
     public Planet getPlanetByName(string planetName)
@@ -100,6 +110,21 @@ public class MainGameState : MonoBehaviour
     public void invokePostCleanupEvent()
     {
         postCleanupEvent.Invoke();
+    }
+
+    private void onStartTimer()
+    {
+        gameState.isTimerRunning = true;
+    }
+
+    private void onStopTimer()
+    {
+        gameState.isTimerRunning = false;
+    }
+
+    public bool getIsTimerRunning()
+    {
+        return isTimerRunning;
     }
 
 
@@ -213,5 +238,5 @@ public class MainGameState : MonoBehaviour
                 }
             }
         }
-    }
+    }// initializeGameState
 }
