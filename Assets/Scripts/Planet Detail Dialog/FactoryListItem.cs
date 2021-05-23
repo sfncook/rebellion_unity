@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections.Generic;
+using UnityEngine.UI;
 
 public class FactoryListItem : DragAndDroppable
 {
@@ -12,17 +13,22 @@ public class FactoryListItem : DragAndDroppable
 
     protected override List<string> acceptedDropTypes()
     {
-        return new List<string>() { "PersonnelListItem" };
+        return new List<string>() { };
     }
 
-    protected override void onPointEnter(GameObject pointerDrag)
-    {
-        Debug.Log("FactoryListItem onPointEnter");
-    }
-    protected override void onPointExit()
-    {
-        Debug.Log("FactoryListItem onPointExit");
-    }
+    //protected override void onPointEnter(GameObject pointerDrag)
+    //{
+    //    factoryImg.gameObject.GetComponent<Image>().color = Color.yellow;
+    //}
+    //protected override void onPointExit()
+    //{
+    //    factoryImg.gameObject.GetComponent<Image>().color = Color.white;
+    //}
+
+    //protected override void onDrop(GameObject pointerDrag)
+    //{
+    //    factoryImg.gameObject.GetComponent<Image>().color = Color.white;
+    //}
 
     protected override bool isDraggable()
     {
@@ -30,6 +36,6 @@ public class FactoryListItem : DragAndDroppable
     }
     protected override bool isDroppable()
     {
-        return true;
+        return false;
     }
 }

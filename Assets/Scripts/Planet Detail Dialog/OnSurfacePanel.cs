@@ -35,8 +35,12 @@ public class OnSurfacePanel : DragAndDroppable
 
     protected override void onPointEnter(GameObject pointerDrag)
     {
-        planetDetailImage.color = Color.yellow;
-        blankPersonnelDragOver = (GameObject)Instantiate(blankPersonnelPrefab, personnelTeamAPanel);
+        PersonnelListItem personnelListItem = pointerDrag.GetComponent<PersonnelListItem>();
+        if(personnelListItem.getLocatedOnShip())
+        {
+            planetDetailImage.color = Color.yellow;
+            blankPersonnelDragOver = (GameObject)Instantiate(blankPersonnelPrefab, personnelTeamAPanel);
+        }
     }
     protected override void onPointExit()
     {
@@ -48,12 +52,15 @@ public class OnSurfacePanel : DragAndDroppable
         planetDetailImage.color = Color.white;
         Destroy(blankPersonnelDragOver, 0.01f);
         PersonnelListItem personnelListItem = pointerDrag.GetComponent<PersonnelListItem>();
-        Personnel personnel = personnelListItem.getPersonnel();
-        planet.personnelsOnSurface.Add(personnel);
-        updateGrid();
-        shipContentsAndMovePanel.removePersonnel(personnel);
-        shipContentsAndMovePanel.updateGrid();
-        updateShipGrids();
+        if (personnelListItem.getLocatedOnShip())
+        {
+            Personnel personnel = personnelListItem.getPersonnel();
+            planet.personnelsOnSurface.Add(personnel);
+            updateGrid();
+            shipContentsAndMovePanel.removePersonnel(personnel);
+            shipContentsAndMovePanel.updateGrid();
+            updateShipGrids();
+        }
     }
 
     protected override bool isDraggable()
