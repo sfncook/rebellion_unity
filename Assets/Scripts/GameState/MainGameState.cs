@@ -20,15 +20,20 @@ public class MainGameState : MonoBehaviour
     public UnityEvent stopTimerEvent = new UnityEvent();
 
     // Game Loop Events
+                                                            // 1. Game time is incremented
     [HideInInspector]
-    public UnityEvent uiUpdateEvent = new UnityEvent();     // 1. UI is updated
-                                                            // 2. Pause waiting for user action
+    public UnityEvent agentPlanEvent = new UnityEvent();    // 2. Pieces make decisions where to move
     [HideInInspector]
-    public UnityEvent agentPlanEvent = new UnityEvent();    // 3. Pieces make decisions where to move
+    public UnityEvent agentActionEvent = new UnityEvent();  // 3. - Battles takes place
+                                                            //    - pieces take damage
     [HideInInspector]
-    public UnityEvent agentActionEvent = new UnityEvent();  // 4. Battles takes place, pieces take damage
+    public UnityEvent postCleanupEvent = new UnityEvent();  // 4. - Dead pieces are removed
+                                                            //    - units arrive at destinations
+                                                            //    - gameState updated in response to decisions
+                                                            //    - unit-arrivals are processed
     [HideInInspector]
-    public UnityEvent postCleanupEvent = new UnityEvent();  // 5. Dead pieces are removed, units arrive at destinations, and gameState updated in response to decisions
+    public UnityEvent uiUpdateEvent = new UnityEvent();     // 5. UI is updated
+                                                            // 6. Pause waiting for user action
 
     // Planet Dialog
     [HideInInspector]
