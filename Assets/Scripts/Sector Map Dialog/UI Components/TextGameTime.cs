@@ -9,6 +9,7 @@ public class TextGameTime : MonoBehaviour
     {
         gameState = MainGameState.gameState;
         gameState.addListenerUiUpdateEvent(onGameStateUpdate);
+        onGameStateUpdate();
     }
 
     void onGameStateUpdate()
