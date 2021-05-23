@@ -19,6 +19,7 @@ public class PlanetStarChart : DragAndDroppable
 
     private MainGameState gameState;
     private Planet planet;
+    private bool isSamePlanet = false;
 
     void Start()
     {
@@ -28,11 +29,22 @@ public class PlanetStarChart : DragAndDroppable
         planetImg.sprite = Resources.Load<Sprite>("Images/Planets/" + planet.name);
         planetNameLabel.text = planet.name;
         loyaltyBars.setPlanet(planet);
+        isSamePlanet = gameState.planetForDetail == planet;
+        if(isSamePlanet)
+        {
+            planetImg.color = new Color(0.6f, 0.6f, 0.6f, 0.6f);
+        }
     }
 
     protected override List<string> acceptedDropTypes()
     {
-        return new List<string>() { "ShipListItem" };
+        if(!isSamePlanet)
+        {
+            return new List<string>() { "ShipListItem" };
+        } else
+        {
+            return new List<string>() { };
+        }
     }
 
     protected override bool isDraggable()
@@ -42,30 +54,33 @@ public class PlanetStarChart : DragAndDroppable
 
     protected override bool isDroppable()
     {
-        return true;
+        return !isSamePlanet;
     }
 
     protected override void onDrop(GameObject pointerDrag)
     {
-        hoverGlow.gameObject.SetActive(false);
-        ShipListItem shipListItem = pointerDrag.GetComponent<ShipListItem>();
-        Debug.Log("Drop:"+shipListItem.getShip().type.name);
-        //Ship ship = shipListItem.getShip();
-        //if (gameState.myTeam == ship.team)
-        //{
-        //    removeShipCallback.Invoke(ship);
-        //    planet.shipsInOrbit.Add(ship);
-        //}
+        if(!isSamePlanet)
+        {
+            hoverGlow.gameObject.SetActive(false);
+            ShipListItem shipListItem = pointerDrag.GetComponent<ShipListItem>();
+            Ship ship = shipListItem.getShip();
+            if (gameState.myTeam == ship.team)
+            {
+                removeShipCallback.Invoke(ship);
+                planet.shipsInOrbit.Add(ship);
+            }
+        }
     }
 
     protected override void onPointEnter(GameObject pointerDrag)
     {
-        hoverGlow.gameObject.SetActive(true);
-        //ShipContentsHeaderImage shipListItem = pointerDrag.GetComponent<ShipContentsHeaderImage>();
-        //if(gameState.myTeam == shipListItem.getShip().team)
-        //{
-        //    hoverGlow.gameObject.SetActive(true);
-        //}
+        if (!isSamePlanet) { 
+            ShipListItem shipListItem = pointerDrag.GetComponent<ShipListItem>();
+            if (gameState.myTeam == shipListItem.getShip().team)
+            {
+                hoverGlow.gameObject.SetActive(true);
+            }
+        }
     }
 
     protected override void onPointExit()
