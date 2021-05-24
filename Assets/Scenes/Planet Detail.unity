@@ -4357,9 +4357,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameTime: 0
-  isTimerRunning: 0
   myTeam: 0
-  uiUpdateEvent:
+  startTimerEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  stopTimerEvent:
     m_PersistentCalls:
       m_Calls: []
   agentPlanEvent:
@@ -4369,6 +4371,9 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   postCleanupEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  uiUpdateEvent:
     m_PersistentCalls:
       m_Calls: []
 --- !u!4 &1291578894

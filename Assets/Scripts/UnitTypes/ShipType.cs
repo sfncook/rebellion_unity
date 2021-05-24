@@ -9,7 +9,7 @@
     public readonly int attackStrength;     // out of 10
     public readonly int defenseStrength;    // out of 10
     public readonly bool isStealth;
-    public readonly int fullHealth;         // out of 10
+    public readonly float fullHealth;         // out of 10
     public readonly int manyAttacksPerTurn; 
 
     public ShipType(

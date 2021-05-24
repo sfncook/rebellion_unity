@@ -8,6 +8,9 @@ public class ShipListItem : DragAndDroppable
     public SpriteRenderer hasPersonnelImg;
     public Image bgColor;
 
+    public Transform healthBackground;
+    public Transform healthValue;
+
     private MainGameState gameState;
     private Ship ship;
     private ShowShipContentsEvent showShipContentsEvent;
@@ -67,6 +70,8 @@ public class ShipListItem : DragAndDroppable
                 );
             shipImg.color = Color.red;
         }
+
+        updateHealthBars();
     }
     public Ship getShip()
     {
@@ -152,5 +157,23 @@ public class ShipListItem : DragAndDroppable
                 showShipContentsEvent.Invoke(ship);
             }
         }
+    }
+
+    private void updateHealthBars()
+    {
+        //float fullWidth = healthBackground.localScale.x;
+        RectTransform rt = (RectTransform)healthBackground.transform;
+        float fullWidth = rt.rect.width;
+        float fullHelath = ((ShipType)ship.type).fullHealth;
+        float healthPercent = ship.health / fullHelath;
+
+        RectTransform healthValueRectTransform = (RectTransform) healthValue.transform;
+        float healthValueWidth = healthPercent * fullWidth;
+        healthValueRectTransform.sizeDelta = new Vector2(healthValueWidth, healthValueRectTransform.rect.height);
+
+        float posX = healthValueWidth / 2.0f;
+        float posY = healthValue.localPosition.y;
+        float posZ = healthValue.localPosition.z;
+        healthValue.localPosition = new Vector3(posX, posY, posZ);
     }
 }
