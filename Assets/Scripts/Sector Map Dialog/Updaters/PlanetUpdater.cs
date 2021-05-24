@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using System.Collections.Generic;
 
 public class PlanetUpdater : MonoBehaviour
 {
@@ -49,7 +50,6 @@ public class PlanetUpdater : MonoBehaviour
         }
         imgFactory.color = loyaltyColor;
         imgDefense.color = loyaltyColor;
-        imgConflict.color = loyaltyColor;
 
         bool planetHasShipsTeamA = planet.shipsInOrbit.Exists(ship => ship.team == Team.TeamA);
         bool planetHasShipsTeamB = planet.shipsInOrbit.Exists(ship => ship.team == Team.TeamB);
@@ -62,7 +62,6 @@ public class PlanetUpdater : MonoBehaviour
         personnelTeamB.gameObject.SetActive(planetHasPersonnelTeamB);
 
         imgFactory.gameObject.SetActive(planet.factories.Count > 0);
-        imgConflict.gameObject.SetActive(planet.isInConflict);
         imgDefense.gameObject.SetActive(planet.defenses.Count > 0);
 
         int manyFacilities = planet.factories.Count + planet.defenses.Count;
@@ -79,6 +78,20 @@ public class PlanetUpdater : MonoBehaviour
             Transform energySquare = gameObject.transform.Find("Resources").Find("Square" + strI);
             energySquare.GetComponent<SpriteRenderer>().color = Color.white;
         }
+
+        // conflict
+        planet.isInConflict = false;
+        Dictionary<Team, int> teamToShipCount = new Dictionary<Team, int>
+    {
+        {Team.TeamA, 0},
+        {Team.TeamB, 0}
+    };
+        foreach (Ship ship in planet.shipsInOrbit)
+        {
+            teamToShipCount[ship.team]++;
+        }
+        planet.isInConflict = (teamToShipCount[Team.TeamA] > 0) && (teamToShipCount[Team.TeamB] > 0);
+        imgConflict.gameObject.SetActive(planet.isInConflict);
 
     }
 
