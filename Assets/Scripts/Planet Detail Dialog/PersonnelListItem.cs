@@ -1,8 +1,10 @@
-    using UnityEngine;
+using UnityEngine;
+using TMPro;
 
 public class PersonnelListItem : DragAndDroppable
 {
     public SpriteRenderer personnelImg;
+    public TextMeshProUGUI manyPeopleLabel;
 
     private MainGameState gameState;
     private Personnel personnel;
@@ -27,6 +29,16 @@ public class PersonnelListItem : DragAndDroppable
         {
             personnelImg.transform.localScale = new Vector3(-50, 50, 1);
             personnelImg.color = Color.red;
+        }
+
+        int totalManyPeople = ((PersonnelType)personnel.type).totalManyPeople;
+        if (totalManyPeople > 1)
+        {
+            manyPeopleLabel.gameObject.SetActive(true);
+            manyPeopleLabel.text = personnel.manyPeople.ToString();
+        } else
+        {
+            manyPeopleLabel.gameObject.SetActive(false);
         }
     }
 

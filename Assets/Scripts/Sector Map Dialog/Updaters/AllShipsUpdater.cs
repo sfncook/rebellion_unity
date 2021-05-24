@@ -11,7 +11,6 @@ public class AllShipsUpdater : MonoBehaviour
         gameState.addListenerAgentPlanEvent(onAgentPlanEvent);
         gameState.addListenerAgentActionEvent(onAgentActionEvent);
         gameState.addListenerPostCleanupEvent(onPostCleanupEvent);
-        gameState.addListenerUiUpdateEvent(onUiUpdateEvent);
     }
 
     public void onAgentPlanEvent()
@@ -46,14 +45,9 @@ public class AllShipsUpdater : MonoBehaviour
             }
             foreach(Ship shipToDelete in shipsToDelete)
             {
-                Debug.Log("Ship destroyed:"+shipToDelete.type.name+" team:"+shipToDelete.team);
+                //Debug.Log("Ship destroyed:"+shipToDelete.type.name+" team:"+shipToDelete.team);
                 planet.shipsInOrbit.Remove(shipToDelete);
             }
         }
-    }
-
-    public void onUiUpdateEvent()
-    {
-
     }
 }
