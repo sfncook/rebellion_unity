@@ -182,7 +182,6 @@ public class MainGameState : MonoBehaviour
             for(var i=0; i<Random.Range(0,3); i++)
             {
                 Team team = (Random.Range(0.0f, 1.0f) >= 0.5f) ? Team.TeamA : Team.TeamB;
-                //Team team = Team.TeamA;
                 int typeIndex = Random.Range(0, shipTypes.Length);
                 Ship randShip = new Ship(shipTypes[typeIndex], team);
                 planet.shipsInOrbit.Add(randShip);
@@ -197,12 +196,12 @@ public class MainGameState : MonoBehaviour
         };
         foreach (var planet in planets)
         {
-            for (var i = 0; i < Random.Range(0, 3); i++)
+            for (var i = 0; i < Random.Range(0, 4); i++)
             {
                 Team team = (Random.Range(0.0f, 1.0f) >= 0.5f) ? Team.TeamA : Team.TeamB;
-                //Team team = Team.TeamA;
-                int typeIndex = Random.Range(0, personnelTypes.Length);
-                Personnel personnel = new Personnel(personnelTypes[typeIndex], team);
+                //int typeIndex = Random.Range(0, personnelTypes.Length);
+                //Personnel personnel = new Personnel(personnelTypes[typeIndex], team);
+                Personnel personnel = new Personnel(PersonnelType.Soldiers, team);
                 planet.personnelsOnSurface.Add(personnel);
             }
         }

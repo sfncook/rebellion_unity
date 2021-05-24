@@ -28,11 +28,13 @@ public class PersonnelUpdater : MonoBehaviour
                     int attackValue = UnityEngine.Random.Range(0, 100);
                     float defenseModifierValue = UnityEngine.Random.Range(0.0f, enemyPersonnelType.defenseModifier);
                     float damage = Math.Max(attackValue - defenseModifierValue, 0);
-                    if(damage >= personnelType.attackAccuracyPerc)
+                    Debug.Log("attackValue:" + attackValue + " defenseModifierValue:" + defenseModifierValue + " damage:" + damage);
+                    if (damage >= personnelType.attackAccuracyPerc)
                     {
                         enemyPersonnelToAttack.manyPeopleDead++;
                     }
                 }
+                Debug.Log("enemyPersonnelToAttack.manyPeopleDead:"+ enemyPersonnelToAttack.manyPeopleDead);
             }
         }
     }// performAttackActions
