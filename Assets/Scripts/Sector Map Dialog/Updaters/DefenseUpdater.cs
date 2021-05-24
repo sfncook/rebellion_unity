@@ -8,10 +8,11 @@ public class DefenseUpdater : MonoBehaviour
     {
         if(defense.type.Equals(DefenseType.orbitalBattery))
         {
+            Team planetaryTeamLoyalty = (planet.loyalty > 0.5f) ? Team.TeamB : Team.TeamA;
             List<Ship> enemyShips = new List<Ship>();
             foreach (Ship otherShip in planet.shipsInOrbit)
             {
-                if (!otherShip.team.Equals(MainGameState.gameState.myTeam))
+                if (!otherShip.team.Equals(planetaryTeamLoyalty))
                 {
                     enemyShips.Add(otherShip);
                 }
