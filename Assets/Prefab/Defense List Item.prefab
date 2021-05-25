@@ -89,6 +89,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e418f3fb101ae457aa54047512b57581, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  canvas: {fileID: 0}
   defenseImg: {fileID: 7392087120828274165}
 --- !u!1 &5634456834367137483
 GameObject:

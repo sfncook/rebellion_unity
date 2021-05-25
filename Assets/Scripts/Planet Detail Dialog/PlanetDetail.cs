@@ -70,6 +70,7 @@ public class PlanetDetail : MonoBehaviour
             newObj = (GameObject)Instantiate(defenseListItemPrefab, infrastructurePanel);
             DefenseListItem defenseListItem = newObj.GetComponent<DefenseListItem>();
             defenseListItem.setDefense(defense);
+            defenseListItem.GetComponent<Image>().color = (planet.loyalty > 0.5) ? Color.red : Color.green;
         }
 
         // Factories
@@ -79,6 +80,7 @@ public class PlanetDetail : MonoBehaviour
             newObj = (GameObject)Instantiate(factoryListItemPrefab, infrastructurePanel);
             FactoryListItem factoryListItem = newObj.GetComponent<FactoryListItem>();
             factoryListItem.setFactory(factory);
+            factoryListItem.GetComponent<Image>().color = (planet.loyalty>0.5) ? Color.red : Color.green;
         }
 
         int manyFacilities = planet.factories.Count + planet.defenses.Count;
