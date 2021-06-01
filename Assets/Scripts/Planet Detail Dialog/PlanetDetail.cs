@@ -32,8 +32,12 @@ public class PlanetDetail : MonoBehaviour
 
     public LoyaltyBars loyaltyBars;
     public Canvas canvas;
+
+    public FactoryDialog factoryDialog;
+
     public ShowShipContentsEvent showShipContentsEvent;
     public HideShipContentsEvent hideShipContentsEvent;
+
 
 
     private MainGameState gameState;
@@ -81,6 +85,7 @@ public class PlanetDetail : MonoBehaviour
             FactoryListItem factoryListItem = newObj.GetComponent<FactoryListItem>();
             factoryListItem.setFactory(factory);
             factoryListItem.GetComponent<Image>().color = (planet.loyalty>0.5) ? Color.red : Color.green;
+            factoryListItem.setFactoryDialog(factoryDialog);
         }
 
         int manyFacilities = planet.factories.Count + planet.defenses.Count;

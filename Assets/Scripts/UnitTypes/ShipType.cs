@@ -19,7 +19,7 @@
         int defenseStrength,
         bool isStealth,
         int fullHealth,
-        int manyAttacksPerTurn) : base(name)
+        int manyAttacksPerTurn) : base(name, TypeCategory.Ship)
     {
         this.personnelCapacity = personnelCapacity;
         this.attackStrength = attackStrength;

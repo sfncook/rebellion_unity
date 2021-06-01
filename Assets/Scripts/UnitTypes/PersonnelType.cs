@@ -18,7 +18,7 @@
         bool canAttack,
         int attackAccuracyPerc = 0,
         int defenseModifier = 0
-        ) : base(name)
+        ) : base(name, TypeCategory.Personnel)
     {
         this.isStealth = isStealth;
         this.totalManyPeople = totalManyPeople;

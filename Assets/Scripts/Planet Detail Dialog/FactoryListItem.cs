@@ -5,10 +5,19 @@ using UnityEngine.UI;
 public class FactoryListItem : DragAndDroppable
 {
     public SpriteRenderer factoryImg;
+    public FactoryDialog factoryDialog;
+
+    private Factory factory;
 
     public void setFactory(Factory factory)
     {
+        this.factory = factory;
         factoryImg.sprite = Resources.Load<Sprite>("Images/Factories/" + factory.type.name);
+    }
+
+    public void setFactoryDialog(FactoryDialog factoryDialog)
+    {
+        this.factoryDialog = factoryDialog;
     }
 
     protected override List<string> acceptedDropTypes()
@@ -37,5 +46,15 @@ public class FactoryListItem : DragAndDroppable
     protected override bool isDroppable()
     {
         return false;
+    }
+
+    private void OnMouseUp()
+    {
+        Planet selectedPlanet = MainGameState.gameState.planetForDetail;
+        if(selectedPlanet.loyalty<0.5f)
+        {
+            factoryDialog.setFactory(factory);
+            factoryDialog.gameObject.SetActive(true);
+        }
     }
 }

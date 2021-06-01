@@ -7,7 +7,8 @@
     public readonly int defenseModifer;
     public readonly int fullHealth = 10;
 
-    public DefenseType(string name, int attackStrength = 0, int defenseModifer = 0) : base(name)
+    public DefenseType(string name, int attackStrength = 0, int defenseModifer = 0)
+        : base(name, TypeCategory.Defense)
     {
         this.attackStrength = attackStrength;
         this.defenseModifer = defenseModifer;
