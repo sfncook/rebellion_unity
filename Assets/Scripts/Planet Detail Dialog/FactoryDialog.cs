@@ -9,12 +9,19 @@ public class FactoryDialog : MonoBehaviour
     public Button closeButton;
     public Transform grid;
     public GameObject catalogListItemPrefab;
+    public GameObject detailsPanel;
 
     private Factory factory;
 
     private void Start()
     {
         closeButton.onClick.AddListener(onClickClose);
+    }
+
+    public void show()
+    {
+        detailsPanel.SetActive(false);
+        gameObject.SetActive(true);
     }
 
     public void setFactory(Factory factory)
@@ -50,6 +57,7 @@ public class FactoryDialog : MonoBehaviour
 
     private void onClickClose()
     {
+        detailsPanel.SetActive(true);
         gameObject.SetActive(false);
     }
 }

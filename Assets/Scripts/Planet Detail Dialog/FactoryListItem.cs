@@ -54,7 +54,7 @@ public class FactoryListItem : DragAndDroppable
         if(selectedPlanet.loyalty<0.5f)
         {
             factoryDialog.setFactory(factory);
-            factoryDialog.gameObject.SetActive(true);
+            factoryDialog.show();
         }
     }
 }
