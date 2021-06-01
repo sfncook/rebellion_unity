@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 5980171181211690401}
   - component: {fileID: 1197498173559019661}
   - component: {fileID: 1169353108290369930}
+  - component: {fileID: 5776551457600229165}
   m_Layer: 5
   m_Name: Catalog List Item
   m_TagString: Untagged
@@ -61,7 +62,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0}
+  m_Color: {r: 1, g: 0.98833823, b: 0, a: 0}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -92,6 +93,32 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   labelText: {fileID: 8341301806362410897}
   image: {fileID: 2261184346875792523}
+--- !u!61 &5776551457600229165
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5315911519325098199}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: -12.5}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 100, y: 125}
+  m_EdgeRadius: 0
 --- !u!1 &7343713387670783725
 GameObject:
   m_ObjectHideFlags: 0

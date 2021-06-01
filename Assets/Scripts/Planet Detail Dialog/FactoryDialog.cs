@@ -7,14 +7,18 @@ public class FactoryDialog : MonoBehaviour
     public TextMeshProUGUI labelText;
     public Image factoryImg;
     public Button closeButton;
+    public Button buildButton;
     public Transform grid;
     public GameObject catalogListItemPrefab;
     public GameObject detailsPanel;
 
     private Factory factory;
+    private CatalogListItem selectedCatalogListItem;
 
     private void Start()
     {
+        buildButton.gameObject.SetActive(false);
+        buildButton.onClick.AddListener(onClickBuild);
         closeButton.onClick.AddListener(onClickClose);
     }
 
@@ -44,6 +48,7 @@ public class FactoryDialog : MonoBehaviour
             newObj = (GameObject)Instantiate(catalogListItemPrefab, grid);
             CatalogListItem catalogListItem = newObj.GetComponent<CatalogListItem>();
             catalogListItem.setType(typeToBuild);
+            catalogListItem.setOnSelectItem(onSelectCatalogItem);
         }
     }
 
@@ -59,5 +64,29 @@ public class FactoryDialog : MonoBehaviour
     {
         detailsPanel.SetActive(true);
         gameObject.SetActive(false);
+    }
+
+    private void onClickBuild()
+    {
+
+    }
+
+    private void onSelectCatalogItem(CatalogListItem selectedCatalogListItem)
+    {
+        this.selectedCatalogListItem = selectedCatalogListItem;
+
+        CatalogListItem[] catalogListItems = GetComponentsInChildren<CatalogListItem>();
+        foreach (CatalogListItem catalogListItem in catalogListItems)
+        {
+            if(catalogListItem.Equals(this.selectedCatalogListItem))
+            {
+                catalogListItem.setSelected(true);
+            } else
+            {
+                catalogListItem.setSelected(false);
+            }
+        }
+
+        buildButton.gameObject.SetActive(true);
     }
 }

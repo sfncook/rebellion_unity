@@ -7,9 +7,19 @@ public class CatalogListItem : MonoBehaviour
     public TextMeshProUGUI labelText;
     public Image image;
 
+    public delegate void OnSelectItem(CatalogListItem selectedCatalogListItem);
+    private OnSelectItem onSelectItem;
+
+    private AbstractType type;
+
+    public AbstractType getType()
+    {
+        return type;
+    }
+
     public void setType(AbstractType type)
     {
-        //Debug.Log("labelText:"+ labelText+" type:"+type);
+        this.type = type;
         labelText.text = type.name;
         string path = "";
         switch (type.typeCategory)
@@ -30,5 +40,31 @@ public class CatalogListItem : MonoBehaviour
 
         image.sprite = Resources.Load<Sprite>(path + type.name);
         labelText.text = type.name;
+    }
+
+
+
+    private void OnMouseUp()
+    {
+        Debug.Log("click");
+        onSelectItem(this);
+    }
+
+    public void setOnSelectItem(OnSelectItem onSelectItem)
+    {
+        this.onSelectItem = onSelectItem;
+    }
+
+    public void setSelected(bool isSelected)
+    {
+        Debug.Log("setSelected: " + isSelected);
+        if (isSelected)
+        {
+            Debug.Log("selected: "+type.name);
+            gameObject.GetComponent<Image>().color = Color.yellow;
+        } else
+        {
+            gameObject.GetComponent<Image>().color = new Color(1, 1, 1, 0);
+        }
     }
 }
