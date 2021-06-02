@@ -150,4 +150,11 @@ public class PlanetDetail : MonoBehaviour
         starChartPanel.gameObject.SetActive(false);
         onSurfacePanel.gameObject.SetActive(true);
     }
+
+    public void assignFactoryBuildCommand(Factory factory, AbstractType type)
+    {
+        Debug.Log("assignFactoryBuildCommand factory:"+factory.type.name);
+        factory.isBuilding = true;
+        updateGrid();
+    }
 }

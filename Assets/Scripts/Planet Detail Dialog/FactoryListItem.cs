@@ -4,15 +4,17 @@ using UnityEngine.UI;
 
 public class FactoryListItem : DragAndDroppable
 {
-    public SpriteRenderer factoryImg;
-    public FactoryDialog factoryDialog;
+    public Image factoryImg;
+    public Image factoryIsWorkingIcon;
 
+    private FactoryDialog factoryDialog;
     private Factory factory;
 
     public void setFactory(Factory factory)
     {
         this.factory = factory;
         factoryImg.sprite = Resources.Load<Sprite>("Images/Factories/" + factory.type.name);
+        factoryIsWorkingIcon.gameObject.SetActive(factory.isBuilding);
     }
 
     public void setFactoryDialog(FactoryDialog factoryDialog)

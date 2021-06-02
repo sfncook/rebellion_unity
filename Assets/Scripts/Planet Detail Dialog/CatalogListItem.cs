@@ -46,7 +46,6 @@ public class CatalogListItem : MonoBehaviour
 
     private void OnMouseUp()
     {
-        Debug.Log("click");
         onSelectItem(this);
     }
 
@@ -57,10 +56,8 @@ public class CatalogListItem : MonoBehaviour
 
     public void setSelected(bool isSelected)
     {
-        Debug.Log("setSelected: " + isSelected);
         if (isSelected)
         {
-            Debug.Log("selected: "+type.name);
             gameObject.GetComponent<Image>().color = Color.yellow;
         } else
         {

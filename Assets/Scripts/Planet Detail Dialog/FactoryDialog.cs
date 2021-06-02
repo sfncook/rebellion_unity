@@ -1,6 +1,12 @@
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.Events;
+
+[System.Serializable]
+public class AssignFactoryBuildCommandEvent : UnityEvent<Factory, AbstractType>
+{
+}
 
 public class FactoryDialog : MonoBehaviour
 {
@@ -11,6 +17,7 @@ public class FactoryDialog : MonoBehaviour
     public Transform grid;
     public GameObject catalogListItemPrefab;
     public GameObject detailsPanel;
+    public AssignFactoryBuildCommandEvent assignFactoryBuildCommandEvent;
 
     private Factory factory;
     private CatalogListItem selectedCatalogListItem;
@@ -68,7 +75,9 @@ public class FactoryDialog : MonoBehaviour
 
     private void onClickBuild()
     {
-
+        detailsPanel.SetActive(true);
+        assignFactoryBuildCommandEvent.Invoke(factory, selectedCatalogListItem.getType());
+        gameObject.SetActive(false);
     }
 
     private void onSelectCatalogItem(CatalogListItem selectedCatalogListItem)

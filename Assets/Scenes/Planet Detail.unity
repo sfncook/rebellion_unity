@@ -1610,9 +1610,25 @@ MonoBehaviour:
   labelText: {fileID: 1729811574}
   factoryImg: {fileID: 890670083}
   closeButton: {fileID: 1960141962}
+  buildButton: {fileID: 240026013}
   grid: {fileID: 502039228}
   catalogListItemPrefab: {fileID: 5315911519325098199, guid: b741b9f327ccb4cd6abe30cd26e38c11, type: 3}
   detailsPanel: {fileID: 969070064}
+  assignFactoryBuildCommandEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1473041309}
+        m_TargetAssemblyTypeName: PlanetDetail, Assembly-CSharp
+        m_MethodName: assignFactoryBuildCommand
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &296196631
 GameObject:
   m_ObjectHideFlags: 0
