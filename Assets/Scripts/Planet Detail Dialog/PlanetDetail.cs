@@ -34,6 +34,7 @@ public class PlanetDetail : MonoBehaviour
     public Canvas canvas;
 
     public FactoryDialog factoryDialog;
+    public FactoryStatusDialog factoryStatusDialog;
 
     public ShowShipContentsEvent showShipContentsEvent;
     public HideShipContentsEvent hideShipContentsEvent;
@@ -85,7 +86,7 @@ public class PlanetDetail : MonoBehaviour
             FactoryListItem factoryListItem = newObj.GetComponent<FactoryListItem>();
             factoryListItem.setFactory(factory);
             factoryListItem.GetComponent<Image>().color = (planet.loyalty>0.5) ? Color.red : Color.green;
-            factoryListItem.setFactoryDialog(factoryDialog);
+            factoryListItem.setOnClickFactoryHandler(onClickFactory);
         }
 
         int manyFacilities = planet.factories.Count + planet.defenses.Count;
@@ -157,5 +158,21 @@ public class PlanetDetail : MonoBehaviour
         factory.buildingType = type;
         factory.buildingDoneDay = gameState.gameTime + type.daysToBuild;
         updateGrid();
+    }
+
+    public void onClickFactory(Factory factory)
+    {
+        if (planet.loyalty < 0.5f)
+        {
+            if(factory.isBuilding)
+            {
+                factoryStatusDialog.setFactory(factory);
+                factoryStatusDialog.show();
+            } else
+            {
+                factoryDialog.setFactory(factory);
+                factoryDialog.show();
+            }
+        }
     }
 }

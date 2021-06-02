@@ -7,8 +7,10 @@ public class FactoryListItem : DragAndDroppable
     public Image factoryImg;
     public Image factoryIsWorkingIcon;
 
-    private FactoryDialog factoryDialog;
     private Factory factory;
+
+    public delegate void OnClickFactoryHandler(Factory factory);
+    private OnClickFactoryHandler onClickFactoryHandler;
 
     public void setFactory(Factory factory)
     {
@@ -17,9 +19,9 @@ public class FactoryListItem : DragAndDroppable
         factoryIsWorkingIcon.gameObject.SetActive(factory.isBuilding);
     }
 
-    public void setFactoryDialog(FactoryDialog factoryDialog)
+    public void setOnClickFactoryHandler(OnClickFactoryHandler onClickFactoryHandler)
     {
-        this.factoryDialog = factoryDialog;
+        this.onClickFactoryHandler = onClickFactoryHandler;
     }
 
     protected override List<string> acceptedDropTypes()
@@ -52,11 +54,6 @@ public class FactoryListItem : DragAndDroppable
 
     private void OnMouseUp()
     {
-        Planet selectedPlanet = MainGameState.gameState.planetForDetail;
-        if(selectedPlanet.loyalty<0.5f)
-        {
-            factoryDialog.setFactory(factory);
-            factoryDialog.show();
-        }
+        onClickFactoryHandler(factory);
     }
 }
