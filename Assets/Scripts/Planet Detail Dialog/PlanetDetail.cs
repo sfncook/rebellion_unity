@@ -153,8 +153,9 @@ public class PlanetDetail : MonoBehaviour
 
     public void assignFactoryBuildCommand(Factory factory, AbstractType type)
     {
-        Debug.Log("assignFactoryBuildCommand factory:"+factory.type.name);
         factory.isBuilding = true;
+        factory.buildingType = type;
+        factory.buildingDoneDay = gameState.gameTime + type.daysToBuild;
         updateGrid();
     }
 }

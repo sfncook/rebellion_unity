@@ -20,20 +20,22 @@ public class MainGameState : MonoBehaviour
     public UnityEvent stopTimerEvent = new UnityEvent();
 
     // Game Loop Events
-                                                            // 1. Game time is incremented
+                                                            // 1. - Game time is incremented
     [HideInInspector]
-    public UnityEvent agentPlanEvent = new UnityEvent();    // 2. Pieces make decisions where to move
+    public UnityEvent preDayPrepEvent = new UnityEvent();   // 2. - Factory builds complete
     [HideInInspector]
-    public UnityEvent agentActionEvent = new UnityEvent();  // 3. - Battles takes place
+    public UnityEvent agentPlanEvent = new UnityEvent();    // 3. - Pieces make decisions where to move
+    [HideInInspector]
+    public UnityEvent agentActionEvent = new UnityEvent();  // 4. - Battles takes place
                                                             //    - pieces take damage
     [HideInInspector]
-    public UnityEvent postCleanupEvent = new UnityEvent();  // 4. - Dead pieces are removed
+    public UnityEvent postCleanupEvent = new UnityEvent();  // 5. - Dead pieces are removed
                                                             //    - units arrive at destinations
                                                             //    - gameState updated in response to decisions
                                                             //    - unit-arrivals are processed
     [HideInInspector]
-    public UnityEvent uiUpdateEvent = new UnityEvent();     // 5. UI is updated
-                                                            // 6. Pause waiting for user action
+    public UnityEvent uiUpdateEvent = new UnityEvent();     // 6. - UI is updated
+                                                            // 7. - Pause waiting for user action
 
     // Planet Dialog
     [HideInInspector]
@@ -75,6 +77,11 @@ public class MainGameState : MonoBehaviour
         uiUpdateEvent.AddListener(call);
     }
 
+    public void addPreDayPrepEvent(UnityAction call)
+    {
+        preDayPrepEvent.AddListener(call);
+    }
+
     public void addListenerAgentPlanEvent(UnityAction call)
     {
         agentPlanEvent.AddListener(call);
@@ -100,6 +107,11 @@ public class MainGameState : MonoBehaviour
     public void invokeUiUpdateEvent()
     {
         uiUpdateEvent.Invoke();
+    }
+
+    public void invokePreDayPrepEvent()
+    {
+        preDayPrepEvent.Invoke();
     }
 
     public void invokeAgentPlanEvent()
