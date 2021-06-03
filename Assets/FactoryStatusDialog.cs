@@ -1,6 +1,12 @@
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.Events;
+
+[System.Serializable]
+public class CancelFactoryBuildCommandEvent : UnityEvent<Factory>
+{
+}
 
 public class FactoryStatusDialog : MonoBehaviour
 {
@@ -13,12 +19,14 @@ public class FactoryStatusDialog : MonoBehaviour
     public TextMeshProUGUI dayCompleteText;
     public TextMeshProUGUI daysRemainingText;
     public Button cancelButton;
+    public CancelFactoryBuildCommandEvent cancelFactoryBuildCommandEvent;
 
     private Factory factory;
 
     private void Start()
     {
         closeButton.onClick.AddListener(onClickClose);
+        cancelButton.onClick.AddListener(onClickCancel);
     }
 
     public void setFactory(Factory factory)
@@ -59,5 +67,10 @@ public class FactoryStatusDialog : MonoBehaviour
     {
         detailsPanel.SetActive(true);
         gameObject.SetActive(false);
+    }
+
+    private void onClickCancel()
+    {
+        cancelFactoryBuildCommandEvent.Invoke(factory);
     }
 }

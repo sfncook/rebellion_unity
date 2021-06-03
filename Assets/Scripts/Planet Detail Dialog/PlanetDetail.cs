@@ -33,6 +33,7 @@ public class PlanetDetail : MonoBehaviour
     public LoyaltyBars loyaltyBars;
     public Canvas canvas;
 
+    public GameObject detailPanel;
     public FactoryDialog factoryDialog;
     public FactoryStatusDialog factoryStatusDialog;
 
@@ -46,6 +47,10 @@ public class PlanetDetail : MonoBehaviour
 
     void Start()
     {
+        detailPanel.SetActive(true);
+        factoryDialog.gameObject.SetActive(false);
+        factoryStatusDialog.gameObject.SetActive(false);
+
         gameState = MainGameState.gameState;
         planet = gameState.planetForDetail ?? gameState.planets[0];
         planetImg.sprite = Resources.Load<Sprite>("Images/Planets/" + planet.name);
@@ -158,6 +163,16 @@ public class PlanetDetail : MonoBehaviour
         factory.buildingType = type;
         factory.buildingDoneDay = gameState.gameTime + type.daysToBuild;
         updateGrid();
+    }
+
+    public void cancelFactoryBuildCommand(Factory factory)
+    {
+        factory.isBuilding = false;
+        factory.buildingType = null;
+        updateGrid();
+        detailPanel.SetActive(true);
+        factoryDialog.gameObject.SetActive(false);
+        factoryStatusDialog.gameObject.SetActive(false);
     }
 
     public void onClickFactory(Factory factory)
