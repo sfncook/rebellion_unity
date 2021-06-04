@@ -162,7 +162,7 @@ GameObject:
   - component: {fileID: 4158639612914748281}
   - component: {fileID: 7213731698611492856}
   m_Layer: 5
-  m_Name: Has Defense
+  m_Name: Defense
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -773,7 +773,7 @@ GameObject:
   - component: {fileID: 2181895217023585448}
   - component: {fileID: 3041835133599038003}
   m_Layer: 5
-  m_Name: Has Factory
+  m_Name: Factory
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1268,7 +1268,7 @@ GameObject:
   - component: {fileID: 8988507610537450603}
   - component: {fileID: 1612417697356057251}
   m_Layer: 0
-  m_Name: Name
+  m_Name: Planet Name
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
