@@ -11,4 +11,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Planet Detail.unity
     guid: 569b32cf4ad7d4f9a906fbc9bb3a0be2
+  - enabled: 1
+    path: Assets/Scenes/Splash Screen.unity
+    guid: 017c8d28d9e6c47e693c7cccb7a625e1
+  - enabled: 1
+    path: Assets/Scenes/Galaxy Map.unity
+    guid: 8044b54f697d84b5aacaec98c1b416b3
   m_configObjects: {}

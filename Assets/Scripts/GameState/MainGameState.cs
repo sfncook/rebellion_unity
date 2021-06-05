@@ -5,6 +5,10 @@ using UnityEngine.Events;
 public class MainGameState : MonoBehaviour
 {
     public static MainGameState gameState;
+    public TextAsset galaxyDataFile;
+
+    [HideInInspector]
+    public readonly Galaxy galaxy = new Galaxy();
 
     [HideInInspector]
     public readonly List<Planet> planets = new List<Planet>();
@@ -255,4 +259,9 @@ public class MainGameState : MonoBehaviour
             }
         }
     }// initializeGameState
+
+    public void loadGameFromFiles()
+    {
+        JsonUtility.FromJsonOverwrite(galaxyDataFile.text, galaxy);
+    }
 }
