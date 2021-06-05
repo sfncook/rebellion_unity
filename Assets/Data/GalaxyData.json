@@ -17,11 +17,11 @@
 		  "galaxyX":0.32,
 		  "galaxyY":0.59,
 		  "planets": [
-		    {"name": "Ucholla","sectorX":0.43,"sectorY":0.27},
-		    {"name": "Vaiclite","sectorX":0.53,"sectorY":0.63},
-		    {"name": "Xelia","sectorX":0.74,"sectorY":0.27},
-		    {"name": "Yiventune","sectorX":0.2,"sectorY":0.63},
-		    {"name": "Chulmonoe","sectorX":0.73,"sectorY":0.27}
+		    {"name": "Ucholla","sectorX":0.6,"sectorY":0.2},
+		    {"name": "Vaiclite","sectorX":0.3,"sectorY":0.15},
+		    {"name": "Xelia","sectorX":0.24,"sectorY":0.3},
+		    {"name": "Yiventune","sectorX":0.8,"sectorY":0.7},
+		    {"name": "Chulmonoe","sectorX":0.73,"sectorY":0.4}
 		  ]
 		}
 	]
