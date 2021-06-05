@@ -14,6 +14,7 @@ public class TextGameTime : MonoBehaviour
 
     void onGameStateUpdate()
     {
+        Debug.Log("onGameStateUpdate");
         string gameDayStr = gameState.gameTime.ToString();
         gameObject.GetComponentInChildren<TextMeshProUGUI>().text = "Day: " + gameDayStr.PadLeft(3, '0');
     }
