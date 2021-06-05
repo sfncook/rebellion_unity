@@ -273,9 +273,76 @@ public class MainGameState : MonoBehaviour
             foreach (Planet planet in sector.planets)
             {
                 planet.shipsInOrbit = new List<Ship>();
+                planet.shipsInTransit = new List<Ship>();
                 planet.personnelsOnSurface = new List<Personnel>();
+                planet.personnelsInTransit = new List<Personnel>();
                 planet.factories = new List<Factory>();
+                planet.factoriesInTransit = new List<Factory>();
                 planet.defenses = new List<Defense>();
+                planet.defensesInTransit = new List<Defense>();
+                initPlanet(planet);
+            }
+        }
+    }
+
+    private void initPlanet(Planet planet)
+    {
+        var shipTypes = new ShipType[] {
+            ShipType.Bireme,
+            ShipType.Trireme,
+            ShipType.Quadreme,
+            ShipType.Quintreme
+        };
+
+        for (var i = 0; i < Random.Range(0, 3); i++)
+        {
+            Team team = (Random.Range(0.0f, 1.0f) >= 0.5f) ? Team.TeamA : Team.TeamB;
+            int typeIndex = Random.Range(0, shipTypes.Length);
+            Ship randShip = new Ship(shipTypes[typeIndex], team);
+            planet.shipsInOrbit.Add(randShip);
+        }
+
+
+        var personnelTypes = new PersonnelType[] {
+            PersonnelType.Diplomat,
+            PersonnelType.Soldiers,
+            PersonnelType.Spy
+        };
+        for (var i = 0; i < Random.Range(0, 4); i++)
+        {
+            Team team = (Random.Range(0.0f, 1.0f) >= 0.5f) ? Team.TeamA : Team.TeamB;
+            //int typeIndex = Random.Range(0, personnelTypes.Length);
+            //Personnel personnel = new Personnel(personnelTypes[typeIndex], team);
+            Personnel personnel = new Personnel(PersonnelType.Soldiers, team);
+            planet.personnelsOnSurface.Add(personnel);
+        }
+
+        var factoryTypes = new FactoryType[] {
+            FactoryType.ctorYard,
+            FactoryType.shipYard,
+            FactoryType.trainingFac
+        };
+        int many = Mathf.Min(Random.Range(0, 3), (planet.energyCapacity - planet.factories.Count - planet.defenses.Count));
+        for (var i = 0; i < many; i++)
+        {
+            int typeIndex = Random.Range(0, factoryTypes.Length);
+            Factory factory = new Factory(factoryTypes[typeIndex]);
+            planet.factories.Add(factory);
+        }
+
+        var defenseTypes = new DefenseType[] {
+            DefenseType.orbitalBattery,
+            DefenseType.planetaryShield
+        };
+        int many2 = Mathf.Min(Random.Range(0, 3), (planet.energyCapacity - planet.factories.Count - planet.defenses.Count));
+        for (var i = 0; i < many2; i++)
+        {
+            int typeIndex = Random.Range(0, defenseTypes.Length);
+            Defense defense = new Defense(defenseTypes[typeIndex]);
+            bool hasOrbitalShield = planet.defenses.Exists(defense => defense.type.Equals(DefenseType.planetaryShield));
+            if (defense.type.Equals(DefenseType.orbitalBattery) || !hasOrbitalShield)
+            {
+                planet.defenses.Add(defense);
             }
         }
     }
