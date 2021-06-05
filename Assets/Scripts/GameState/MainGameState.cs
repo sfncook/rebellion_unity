@@ -267,5 +267,16 @@ public class MainGameState : MonoBehaviour
     public void loadGameFromFiles()
     {
         JsonUtility.FromJsonOverwrite(galaxyDataFile.text, galaxy);
+
+        foreach(StarSector sector in galaxy.sectors)
+        {
+            foreach (Planet planet in sector.planets)
+            {
+                planet.shipsInOrbit = new List<Ship>();
+                planet.personnelsOnSurface = new List<Personnel>();
+                planet.factories = new List<Factory>();
+                planet.defenses = new List<Defense>();
+            }
+        }
     }
 }

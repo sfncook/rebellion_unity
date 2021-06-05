@@ -30,8 +30,6 @@ public class PlanetMap2 : DragAndDroppable
     private void Start()
     {
         MainGameState.gameState.addListenerUiUpdateEvent(onUiUpdateEvent);
-
-        onUiUpdateEvent();
     }
 
     public void setPlanet(Planet planet)
@@ -39,6 +37,7 @@ public class PlanetMap2 : DragAndDroppable
         this.planet = planet;
         planetNameText.text = planet.name;
         planetImg.sprite = Resources.Load<Sprite>("Images/Planets/" + planet.name);
+        onUiUpdateEvent();
     }
 
     public void setOnClickPlanetEvent(OnClickPlanet onClickPlanetEvent)

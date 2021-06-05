@@ -15,17 +15,17 @@ public class Planet
     // Mutable state:
     public float loyalty; // 0=TeamA & 1=TeamB
     public bool isInConflict = false;
-    public readonly List<Ship> shipsInOrbit = new List<Ship>();
-    public readonly List<Ship> shipsInTransit = new List<Ship>();
+    public List<Ship> shipsInOrbit = new List<Ship>();
+    public List<Ship> shipsInTransit = new List<Ship>();
 
-    public readonly List<Personnel> personnelsOnSurface = new List<Personnel>();
-    public readonly List<Personnel> personnelsInTransit = new List<Personnel>();
+    public List<Personnel> personnelsOnSurface = new List<Personnel>();
+    public List<Personnel> personnelsInTransit = new List<Personnel>();
 
-    public readonly List<Factory> factories = new List<Factory>();
-    public readonly List<Factory> factoriesInTransit = new List<Factory>();
+    public List<Factory> factories = new List<Factory>();
+    public List<Factory> factoriesInTransit = new List<Factory>();
 
-    public readonly List<Defense> defenses = new List<Defense>();
-    public readonly List<Defense> defensesInTransit = new List<Defense>();
+    public List<Defense> defenses = new List<Defense>();
+    public List<Defense> defensesInTransit = new List<Defense>();
 
     public Planet(string name, int energyCapacity, float loyalty) : this(name, energyCapacity, loyalty, 0f, 0f)
     {
