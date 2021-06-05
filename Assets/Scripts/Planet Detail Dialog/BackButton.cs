@@ -5,6 +5,7 @@ public class BackButton : MonoBehaviour
 {
     void OnMouseDown()
     {
-        SceneManager.LoadScene("Sector Map");
+        MainGameState.gameState.planetForDetail = null;
+        SceneManager.LoadScene("Sector Map 2");
     }
 }
