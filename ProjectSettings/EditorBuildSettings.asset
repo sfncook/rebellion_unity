@@ -17,4 +17,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Galaxy Map.unity
     guid: 8044b54f697d84b5aacaec98c1b416b3
+  - enabled: 1
+    path: Assets/Scenes/Sector Map 2.unity
+    guid: 336ae80c23a7745bfb48c670977e8185
   m_configObjects: {}

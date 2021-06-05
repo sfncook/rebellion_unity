@@ -1,9 +1,12 @@
+using System;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class SectorGalaxyMap : MonoBehaviour
 {
     public GameObject planetPrefab;
 
+    private Action<StarSector> onClickSector;
     private StarSector sector;
 
     public void setSector(StarSector sector)
@@ -22,5 +25,15 @@ public class SectorGalaxyMap : MonoBehaviour
             planetRectTrans.anchorMax = new Vector2(planet.sectorX, planet.sectorY);
             planetRectTrans.anchoredPosition = new Vector2(0f, 0f);
         }
+    }
+
+    internal void setOnClickSector(Action<StarSector> onClickSector)
+    {
+        this.onClickSector = onClickSector;
+    }
+
+    private void OnMouseUp()
+    {
+        onClickSector(sector);
     }
 }

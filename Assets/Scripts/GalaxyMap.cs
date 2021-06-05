@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GalaxyMap : MonoBehaviour
 {
@@ -20,6 +21,13 @@ public class GalaxyMap : MonoBehaviour
 
             SectorGalaxyMap sectorGalaxyMap = newSectorObj.GetComponent<SectorGalaxyMap>();
             sectorGalaxyMap.setSector(sector);
+            sectorGalaxyMap.setOnClickSector(onClickSector);
         }
+    }
+
+    public void onClickSector(StarSector sector)
+    {
+        MainGameState.gameState.sectorForDetail = sector;
+        SceneManager.LoadScene("Sector Map 2");
     }
 }

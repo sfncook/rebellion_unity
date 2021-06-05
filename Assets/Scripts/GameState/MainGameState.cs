@@ -41,6 +41,10 @@ public class MainGameState : MonoBehaviour
     public UnityEvent uiUpdateEvent = new UnityEvent();     // 6. - UI is updated
                                                             // 7. - Pause waiting for user action
 
+    // Sector Map
+    [HideInInspector]
+    public StarSector sectorForDetail;
+
     // Planet Dialog
     [HideInInspector]
     public Planet planetForDetail;
