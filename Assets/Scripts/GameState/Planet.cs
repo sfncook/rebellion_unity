@@ -4,9 +4,9 @@
 public class Planet
 {
     // Immutable attributes:
-    public readonly string name;
-    public readonly float sectorX;
-    public readonly float sectorY;
+    public string name;
+    public float sectorX;
+    public float sectorY;
 
     // Randomized-then-immutable attributes:
     public readonly int energyCapacity;

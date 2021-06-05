@@ -9,6 +9,7 @@ public class SectorGalaxyMap : MonoBehaviour
     public void setSector(StarSector sector)
     {
         this.sector = sector;
+        updateStars();
     }
 
     private void updateStars()

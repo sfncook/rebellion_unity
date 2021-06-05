@@ -489,6 +489,9 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   planetForDetail:
+    name: 
+    sectorX: 0
+    sectorY: 0
     isHq: 0
     loyalty: 0
     isInConflict: 0

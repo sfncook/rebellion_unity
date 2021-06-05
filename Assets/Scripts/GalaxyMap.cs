@@ -17,6 +17,9 @@ public class GalaxyMap : MonoBehaviour
             sectorRectTrans.anchorMax = new Vector2(sector.galaxyX, sector.galaxyY);
             sectorRectTrans.anchoredPosition = new Vector2(0f, 0f);
             sectorRectTrans.localScale = new Vector2(2, 2);
+
+            SectorGalaxyMap sectorGalaxyMap = newSectorObj.GetComponent<SectorGalaxyMap>();
+            sectorGalaxyMap.setSector(sector);
         }
     }
 }

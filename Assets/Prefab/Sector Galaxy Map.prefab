@@ -89,7 +89,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 31c6467ef7d3e4d3db443167f2a79f78, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  planetPrefab: {fileID: 8941784310252407974, guid: 4dbf139883eab41a4a3e38084eee85f3, type: 3}
+  planetPrefab: {fileID: 9117290949808334453, guid: 952429c85de9f4ee093bf0241a6c6309, type: 3}
 --- !u!61 &1566311454430133948
 BoxCollider2D:
   m_ObjectHideFlags: 0
