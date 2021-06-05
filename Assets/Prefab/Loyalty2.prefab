@@ -33,8 +33,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -30, y: 0}
-  m_SizeDelta: {x: 40, y: 10}
+  m_AnchoredPosition: {x: -50, y: 0}
+  m_SizeDelta: {x: 0, y: 10}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &6705386000119837645
 GameObject:
@@ -47,6 +47,7 @@ GameObject:
   - component: {fileID: 1157851846158627361}
   - component: {fileID: 173800384591974377}
   - component: {fileID: 4635144209683270973}
+  - component: {fileID: 3340063139407545423}
   m_Layer: 5
   m_Name: Loyalty2
   m_TagString: Untagged
@@ -112,6 +113,20 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &3340063139407545423
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6705386000119837645}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fa05934a7c2c84017a30c7c9b199fadb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  teamALoyaltyBar: {fileID: 6485238752836038599}
+  teamBLoyaltyBar: {fileID: 1157851846158627361}
 --- !u!1 &7204580976477516061
 GameObject:
   m_ObjectHideFlags: 0
@@ -146,7 +161,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 20, y: 0}
   m_SizeDelta: {x: 40, y: 10}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3397077178314225937

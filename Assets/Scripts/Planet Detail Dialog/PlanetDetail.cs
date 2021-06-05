@@ -190,4 +190,9 @@ public class PlanetDetail : MonoBehaviour
             }
         }
     }
+
+    public void onClickPlanet(Planet planet)
+    {
+        Debug.Log("Click planet:"+planet.name);
+    }
 }
