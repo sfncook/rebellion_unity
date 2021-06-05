@@ -481,6 +481,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 25865f1c2f90e42558f5f71f7caae76f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sectorPrefab: {fileID: 4964434911428185867, guid: 40e2c98fe136b4f6291a802a320a6f1c, type: 3}
+  mapPanel: {fileID: 373166993}
 --- !u!4 &894459466
 Transform:
   m_ObjectHideFlags: 0

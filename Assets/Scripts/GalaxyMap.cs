@@ -2,8 +2,21 @@ using UnityEngine;
 
 public class GalaxyMap : MonoBehaviour
 {
+    public GameObject sectorPrefab;
+    public Transform mapPanel;
+
     void Start()
     {
-        Debug.Log("many sectors:"+MainGameState.gameState.galaxy.sectors.Count);
+        Galaxy galaxy = MainGameState.gameState.galaxy;
+        foreach(StarSector sector in galaxy.sectors)
+        {
+            Debug.Log(sector.name+" "+ sector.galaxyX+", "+ sector.galaxyY);
+            GameObject newSectorObj = (GameObject)Instantiate(sectorPrefab, mapPanel);
+            RectTransform sectorRectTrans = newSectorObj.GetComponent<RectTransform>();
+            sectorRectTrans.anchorMin = new Vector2(sector.galaxyX, sector.galaxyY);
+            sectorRectTrans.anchorMax = new Vector2(sector.galaxyX, sector.galaxyY);
+            sectorRectTrans.anchoredPosition = new Vector2(0f, 0f);
+            sectorRectTrans.localScale = new Vector2(2, 2);
+        }
     }
 }

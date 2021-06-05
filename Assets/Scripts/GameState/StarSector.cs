@@ -4,7 +4,7 @@ using System.Collections.Generic;
 public class StarSector
 {
     public string name;
-    public readonly float galaxyX;
-    public readonly float galaxyY;
+    public float galaxyX;
+    public float galaxyY;
     public List<Planet> planets;
 }
