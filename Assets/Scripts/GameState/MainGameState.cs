@@ -283,7 +283,16 @@ public class MainGameState : MonoBehaviour
                 initPlanet(planet);
             }
         }
-    }
+
+        StarSector sectorA = galaxy.sectors[Random.Range(0, galaxy.sectors.Count)];
+        StarSector sectorB = galaxy.sectors[Random.Range(0, galaxy.sectors.Count)];
+        Planet planetA = sectorA.planets[Random.Range(0, sectorA.planets.Count)];
+        Planet planetB = sectorB.planets[Random.Range(0, sectorB.planets.Count)];
+        planetA.isHq = true;
+        planetB.isHq = true;
+        planetA.loyalty = 0.1f;
+        planetB.loyalty = 0.9f;
+    }// loadGameFromFiles
 
     private void initPlanet(Planet planet)
     {
@@ -345,5 +354,7 @@ public class MainGameState : MonoBehaviour
                 planet.defenses.Add(defense);
             }
         }
+
+        planet.loyalty = Random.Range(0.0f, 0.999f);
     }
 }
