@@ -5,10 +5,10 @@
 			"galaxyX":0.57,
 			"galaxyY":0.42,
 			"planets": [
-				{"name": "Baphauhines","sectorX":0.29,"sectorY":0.29},
-				{"name": "Ilrichi","sectorX":0.36,"sectorY":0.61},
-				{"name": "Phuitov","sectorX":0.49,"sectorY":0.47},
-				{"name": "Sion","sectorX":0.66,"sectorY":0.77},
+				{"name": "Baphauhines","sectorX":0.22,"sectorY":0.16},
+				{"name": "Ilrichi","sectorX":0.28,"sectorY":0.55},
+				{"name": "Phuitov","sectorX":0.49,"sectorY":0.35},
+				{"name": "Sion","sectorX":0.8,"sectorY":0.85},
 				{"name": "Thion","sectorX":0.52,"sectorY":0.77}
 			]
 		},
@@ -17,11 +17,11 @@
 		  "galaxyX":0.32,
 		  "galaxyY":0.59,
 		  "planets": [
-		    {"name": "Ucholla","sectorX":0.6,"sectorY":0.2},
+		    {"name": "Ucholla","sectorX":0.7,"sectorY":0.2},
 		    {"name": "Vaiclite","sectorX":0.3,"sectorY":0.15},
-		    {"name": "Xelia","sectorX":0.24,"sectorY":0.3},
-		    {"name": "Yiventune","sectorX":0.8,"sectorY":0.7},
-		    {"name": "Chulmonoe","sectorX":0.73,"sectorY":0.4}
+		    {"name": "Xelia","sectorX":0.24,"sectorY":0.75},
+		    {"name": "Yiventune","sectorX":0.8,"sectorY":0.9},
+		    {"name": "Chulmonoe","sectorX":0.55,"sectorY":0.5}
 		  ]
 		}
 	]

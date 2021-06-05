@@ -17,6 +17,7 @@ public class SectorMap2 : MonoBehaviour
     private void instantiatePlanet(Planet planet)
     {
         GameObject newPlanetObj = (GameObject)Instantiate(planetPrefab, transform);
+        newPlanetObj.name = planet.name;
         RectTransform planetRectTrans = newPlanetObj.GetComponent<RectTransform>();
         planetRectTrans.anchorMin = new Vector2(planet.sectorX, planet.sectorY);
         planetRectTrans.anchorMax = new Vector2(planet.sectorX, planet.sectorY);
