@@ -513,7 +513,7 @@ RectTransform:
   - {fileID: 1282235838}
   - {fileID: 1028315895}
   m_Father: {fileID: 1277032534}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.3}
   m_AnchorMax: {x: 1, y: 0.7}
@@ -1574,7 +1574,7 @@ RectTransform:
   - {fileID: 909859677}
   - {fileID: 1277032534}
   m_Father: {fileID: 808988221}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 0.92}
@@ -1906,7 +1906,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1277032534}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 0.3}
@@ -2334,7 +2334,7 @@ RectTransform:
   - {fileID: 673533943}
   - {fileID: 215471648}
   m_Father: {fileID: 1277032534}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.7}
   m_AnchorMax: {x: 1, y: 0.988}
@@ -3885,6 +3885,7 @@ RectTransform:
   m_Children:
   - {fileID: 262305441}
   - {fileID: 745572627}
+  - {fileID: 2081394641}
   - {fileID: 384560136}
   m_Father: {fileID: 0}
   m_RootOrder: 1
@@ -6467,7 +6468,6 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1183732016}
-  - {fileID: 2081394641}
   - {fileID: 527191985}
   - {fileID: 83812030}
   - {fileID: 460740034}
@@ -7108,6 +7108,56 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 8805762716755318470, guid: 2d2baa46fe37b48ca809c40162750e9f, type: 3}
   m_PrefabInstance: {fileID: 1385147763}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1418457204
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1418457206}
+  - component: {fileID: 1418457205}
+  m_Layer: 0
+  m_Name: Planet Detail 2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1418457205
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1418457204}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 969aae0d99a8f4f7c9d90bfeaf783b7d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  starBackgroundImg: {fileID: 0}
+  planetImg: {fileID: 0}
+  teamAInOrbitPanel: {fileID: 0}
+  teamBInOrbitPanel: {fileID: 0}
+  teamAOnSurfacePanel: {fileID: 0}
+  teamBOnSurfacePanel: {fileID: 0}
+  infrastructurePanel: {fileID: 0}
+--- !u!4 &1418457206
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1418457204}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1425349961
 GameObject:
   m_ObjectHideFlags: 0
@@ -10274,17 +10324,17 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2081394640}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 1277032534}
-  m_RootOrder: 1
+  m_Father: {fileID: 808988221}
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 0.6}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: -50, y: -50}
+  m_AnchoredPosition: {x: 0, y: -51.83995}
+  m_SizeDelta: {x: -50, y: -153.67993}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2081394642
 MonoBehaviour:
