@@ -20,4 +20,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Sector Map 2.unity
     guid: 336ae80c23a7745bfb48c670977e8185
+  - enabled: 1
+    path: Assets/Scenes/Planet Detail 2.unity
+    guid: b1855e2e5688644be8ff4cc8393eccbe
   m_configObjects: {}

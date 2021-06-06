@@ -1422,6 +1422,34 @@ PrefabInstance:
       propertyPath: m_Name
       value: Header Controls
       objectReference: {fileID: 0}
+    - target: {fileID: 6890418096369142458, guid: aef06d511c52a44669e77948c335ceed, type: 3}
+      propertyPath: onClickBackButton.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6890418096369142458, guid: aef06d511c52a44669e77948c335ceed, type: 3}
+      propertyPath: onClickBackButton.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6890418096369142458, guid: aef06d511c52a44669e77948c335ceed, type: 3}
+      propertyPath: onClickBackButton.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1418457205}
+    - target: {fileID: 6890418096369142458, guid: aef06d511c52a44669e77948c335ceed, type: 3}
+      propertyPath: onClickBackButton.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6890418096369142458, guid: aef06d511c52a44669e77948c335ceed, type: 3}
+      propertyPath: onClickBackButton.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: onClickBackButton
+      objectReference: {fileID: 0}
+    - target: {fileID: 6890418096369142458, guid: aef06d511c52a44669e77948c335ceed, type: 3}
+      propertyPath: onClickBackButton.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: PlanetDetail2, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 6890418096369142458, guid: aef06d511c52a44669e77948c335ceed, type: 3}
+      propertyPath: onClickBackButton.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: aef06d511c52a44669e77948c335ceed, type: 3}
 --- !u!224 &262305441 stripped
@@ -1429,6 +1457,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 222381488120018971, guid: aef06d511c52a44669e77948c335ceed, type: 3}
   m_PrefabInstance: {fileID: 262305440}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &262305442 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6890418096369142458, guid: aef06d511c52a44669e77948c335ceed, type: 3}
+  m_PrefabInstance: {fileID: 262305440}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d1bfbed0fbb34e03ad27235df89ac97, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &286905504
 GameObject:
   m_ObjectHideFlags: 0
@@ -7137,13 +7176,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 969aae0d99a8f4f7c9d90bfeaf783b7d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  starBackgroundImg: {fileID: 0}
-  planetImg: {fileID: 0}
-  teamAInOrbitPanel: {fileID: 0}
-  teamBInOrbitPanel: {fileID: 0}
-  teamAOnSurfacePanel: {fileID: 0}
-  teamBOnSurfacePanel: {fileID: 0}
-  infrastructurePanel: {fileID: 0}
+  headerControls: {fileID: 262305442}
+  starBackgroundImg: {fileID: 745572628}
+  planetImg: {fileID: 2081394642}
+  teamAInOrbitPanel: {fileID: 673533942}
+  teamBInOrbitPanel: {fileID: 215471647}
+  teamAOnSurfacePanel: {fileID: 1282235837}
+  teamBOnSurfacePanel: {fileID: 1028315894}
+  infrastructurePanel: {fileID: 460740033}
 --- !u!4 &1418457206
 Transform:
   m_ObjectHideFlags: 0
@@ -10333,7 +10373,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 0.6}
-  m_AnchoredPosition: {x: 0, y: -51.83995}
+  m_AnchoredPosition: {x: 0, y: -51.839966}
   m_SizeDelta: {x: -50, y: -153.67993}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2081394642

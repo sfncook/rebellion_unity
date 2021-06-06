@@ -22,8 +22,7 @@ public class HeaderControls : MonoBehaviour
 
     private void onClickBack()
     {
-        MainGameState.gameState.sectorForDetail = null;
-        SceneManager.LoadScene("Galaxy Map");
+        onClickBackButton.Invoke();
     }
 
     public void setHeaderTitle(string headerTitle)

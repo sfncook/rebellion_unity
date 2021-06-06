@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class PlanetDetail2 : MonoBehaviour
 {
@@ -23,5 +24,11 @@ public class PlanetDetail2 : MonoBehaviour
     private void updateUnits()
     {
         
+    }
+
+    public void onClickBackButton()
+    {
+        MainGameState.gameState.planetForDetail = null;
+        SceneManager.LoadScene("Sector Map 2");
     }
 }
