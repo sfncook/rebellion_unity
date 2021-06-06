@@ -4,6 +4,8 @@ using UnityEngine.Events;
 
 public class MainGameState : MonoBehaviour
 {
+    private const float SEC_PER_GAMEDAY = 1.0f;
+
     public static MainGameState gameState;
     public TextAsset galaxyDataFile;
 
@@ -49,6 +51,8 @@ public class MainGameState : MonoBehaviour
     [HideInInspector]
     public Planet planetForDetail;
 
+    private float timerSec = 0.0f;
+
     void Awake()
     {
         if(gameState == null) {
@@ -67,6 +71,33 @@ public class MainGameState : MonoBehaviour
         startTimerEvent.AddListener(onStartTimer);
         stopTimerEvent.AddListener(onStopTimer);
     }
+
+    private void Update()
+    {
+        if (gameState.getIsTimerRunning())
+        {
+            if (timerSec <= 0.0f)
+            {
+                ++gameState.gameTime;
+                timerSec = SEC_PER_GAMEDAY;
+
+                gameState.invokePreDayPrepEvent();
+                gameState.invokeAgentPlanEvent();
+                gameState.invokeAgentActionEvent();
+                gameState.invokePostCleanupEvent();
+                gameState.invokeUiUpdateEvent();
+            }
+            else
+            {
+                timerSec -= Time.deltaTime;
+            }
+        }
+        else
+        {
+            // Reset timer
+            timerSec = SEC_PER_GAMEDAY;
+        }
+    }// Update
 
     public Planet getPlanetByName(string planetName)
     {
