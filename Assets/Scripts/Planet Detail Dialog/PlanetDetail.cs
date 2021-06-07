@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using UnityEngine.Events;
+using UnityEngine.SceneManagement;
 
 [System.Serializable]
 public class ShowShipContentsEvent : UnityEvent<Ship>
@@ -15,7 +16,6 @@ public class HideShipContentsEvent : UnityEvent
 
 public class PlanetDetail : MonoBehaviour
 {
-    public TextMeshProUGUI planetNameLabel;
     public Image planetImg;
     public SpriteRenderer starsImg;
 
@@ -36,10 +36,10 @@ public class PlanetDetail : MonoBehaviour
     public GameObject detailPanel;
     public FactoryDialog factoryDialog;
     public FactoryStatusDialog factoryStatusDialog;
+    public HeaderControls headerControls;
 
     public ShowShipContentsEvent showShipContentsEvent;
     public HideShipContentsEvent hideShipContentsEvent;
-
 
 
     private MainGameState gameState;
@@ -55,7 +55,7 @@ public class PlanetDetail : MonoBehaviour
         planet = gameState.planetForDetail ?? gameState.planets[0];
         planetImg.sprite = Resources.Load<Sprite>("Images/Planets/" + planet.name);
         starsImg.sprite = Resources.Load<Sprite>("Images/Stars/" + planet.name);
-        planetNameLabel.text = planet.name;
+        headerControls.headerTitleText.text = planet.name;
         bool hasOrbitalShield = planet.defenses.Exists(defense => defense.type.Equals(DefenseType.planetaryShield));
         //planetShieldImg.enabled = hasOrbitalShield;
         loyaltyBars.setPlanet(planet);
@@ -194,5 +194,11 @@ public class PlanetDetail : MonoBehaviour
     public void onClickPlanet(Planet planet)
     {
         Debug.Log("Click planet:"+planet.name);
+    }
+
+    public void onClickBackButton()
+    {
+        MainGameState.gameState.planetForDetail = null;
+        SceneManager.LoadScene("Sector Map 2");
     }
 }

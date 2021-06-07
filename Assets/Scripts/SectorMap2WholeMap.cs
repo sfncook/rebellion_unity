@@ -13,7 +13,7 @@ public class SectorMap2WholeMap : MonoBehaviour
     public void onClickPlanet(Planet planet)
     {
         MainGameState.gameState.planetForDetail = planet;
-        SceneManager.LoadScene("Planet Detail 2");
+        SceneManager.LoadScene("Planet Detail");
     }
 
     public void onClickBackButton()
