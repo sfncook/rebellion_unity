@@ -7,6 +7,7 @@ public class LoyaltyBars : MonoBehaviour
 
     public void setPlanet(Planet planet)
     {
+        Debug.Log("LoyaltyBars Planet:" + planet.name+" Loyalty:"+planet.loyalty);
         float fullWidth = teamBLoyaltyBar.localScale.x;
 
         float scaleX = (1.0f - planet.loyalty) * fullWidth;
