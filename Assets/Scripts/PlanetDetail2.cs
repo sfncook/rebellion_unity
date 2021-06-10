@@ -118,7 +118,7 @@ public class PlanetDetail2 : MonoBehaviour
             newObj = (GameObject)Instantiate(shipListItemPrefab, panelTransform);
             ShipListItem2 shipListItem = newObj.GetComponent<ShipListItem2>();
             //shipListItem.setRemovePersonnelDelegate(removePersonnel);
-            //shipListItem.setShip(ship);
+            shipListItem.setShip(ship);
             //shipListItem.setCanvas(canvas);
             //shipListItem.setShowShipContentsEvent(showShipContentsEvent);
             //shipListItem.setStartMoveShip(startMoveShip);
