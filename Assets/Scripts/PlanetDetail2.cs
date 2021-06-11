@@ -30,7 +30,7 @@ public class PlanetDetail2 : MonoBehaviour
     public Transform starChartPanel;
     public OnSurfacePanel onSurfacePanel;
 
-    public LoyaltyBars loyaltyBars;
+    public LoyaltyBars2 loyaltyBars;
     public Canvas canvas;
 
     public GameObject detailPanel;
@@ -60,7 +60,7 @@ public class PlanetDetail2 : MonoBehaviour
         headerControls.setHeaderTitle(planet.name);
         bool hasOrbitalShield = planet.defenses.Exists(defense => defense.type.Equals(DefenseType.planetaryShield));
         //planetShieldImg.enabled = hasOrbitalShield;
-        //loyaltyBars.setPlanet(planet);
+        loyaltyBars.setPlanet(planet);
         updateGrid();
     }
 
