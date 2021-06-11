@@ -21,7 +21,7 @@ public class PlanetMap2 : DragAndDroppable
     public GameObject planetInConflictImg;
     public Image factoryImg;
     public Image defenseImg;
-    public LoyaltyBars2 loyaltyBars;
+    //public LoyaltyBars2 loyaltyBars;
 
     private OnClickPlanet onClickPlanetEvent;
     private Planet planet;
@@ -67,7 +67,7 @@ public class PlanetMap2 : DragAndDroppable
 
     private void onUiUpdateEvent()
     {
-        loyaltyBars.setPlanet(planet);
+        //loyaltyBars.setPlanet(planet);
 
         Color loyaltyColor = Color.green;
         if (planet.loyalty > 0.5f)
