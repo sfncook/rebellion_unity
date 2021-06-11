@@ -4,8 +4,7 @@ using UnityEngine.UI;
 public class ShipListItem2 : MonoBehaviour
 {
     public Image shipImg;
-    public Transform healthBackground;
-    public Transform healthValue;
+    public ValueBars healthBars;
 
     private Ship ship;
 
@@ -29,11 +28,18 @@ public class ShipListItem2 : MonoBehaviour
             shipImg.color = Color.red;
         }
 
-        //updateHealthBars();
+        updateHealthBars();
     }
     public Ship getShip()
     {
         return ship;
+    }
+
+    private void updateHealthBars()
+    {
+        float fullHelath = ((ShipType)ship.type).fullHealth;
+        float healthPercent = ship.health / fullHelath;
+        healthBars.setValue(healthPercent);
     }
 
 }
