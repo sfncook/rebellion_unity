@@ -83,7 +83,7 @@ public class OnSurfacePanel : DragAndDroppable
         {
             Transform panelTransform = personnel.team.Equals(Team.TeamA) ? personnelTeamAPanel : personnelTeamBPanel;
             newObj = (GameObject)Instantiate(personnelListItemPrefab, panelTransform);
-            PersonnelListItem personnelListItem = newObj.GetComponent<PersonnelListItem>();
+            PersonnelListItem2 personnelListItem = newObj.GetComponent<PersonnelListItem2>();
             personnelListItem.setPersonnel(personnel);
             personnelListItem.setCanvas(canvas);
         }
