@@ -33,10 +33,10 @@ RectTransform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 1400, y: 2200}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5203214217006992696
 CanvasRenderer:
@@ -90,3 +90,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   planetPrefab: {fileID: 1736155895544640186, guid: 29f6f970a993747b88b5c1fa86f09c82, type: 3}
   panelForPlanets: {fileID: 0}
+  starsBackgroundImg: {fileID: 5203214217006992647}
+  onClickPlanetEvent:
+    m_PersistentCalls:
+      m_Calls: []

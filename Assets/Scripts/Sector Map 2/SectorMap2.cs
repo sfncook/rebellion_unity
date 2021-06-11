@@ -1,14 +1,19 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 public class SectorMap2 : MonoBehaviour
 {
     public GameObject planetPrefab;
     public Transform panelForPlanets;
+    public Image starsBackgroundImg;
+
     public OnClickPlanet onClickPlanetEvent;
 
     void Start()
     {
-        foreach(Planet planet in MainGameState.gameState.sectorForDetail.planets)
+        starsBackgroundImg.sprite = Resources.Load<Sprite>("Images/Stars/" + MainGameState.gameState.sectorForDetail.name);
+
+        foreach (Planet planet in MainGameState.gameState.sectorForDetail.planets)
         {
             instantiatePlanet(planet);
         }

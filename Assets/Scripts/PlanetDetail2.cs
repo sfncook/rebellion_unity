@@ -17,7 +17,7 @@ using UnityEngine.Events;
 public class PlanetDetail2 : MonoBehaviour
 {
     public Image planetImg;
-    public SpriteRenderer starsImg;
+    public Image starsBackgroundImg;
 
     public GameObject shipListItemPrefab;
     public GameObject factoryListItemPrefab;
@@ -54,9 +54,9 @@ public class PlanetDetail2 : MonoBehaviour
         //factoryStatusDialog.gameObject.SetActive(false);
 
         gameState = MainGameState.gameState;
-        planet = gameState.planetForDetail ?? gameState.planets[0];
-        //planetImg.sprite = Resources.Load<Sprite>("Images/Planets/" + planet.name);
-        //starsImg.sprite = Resources.Load<Sprite>("Images/Stars/" + planet.name);
+        planet = gameState.planetForDetail;
+        planetImg.sprite = Resources.Load<Sprite>("Images/Planets/" + planet.name);
+        starsBackgroundImg.sprite = Resources.Load<Sprite>("Images/Stars/" + gameState.sectorForDetail.name);
         headerControls.setHeaderTitle(planet.name);
         bool hasOrbitalShield = planet.defenses.Exists(defense => defense.type.Equals(DefenseType.planetaryShield));
         //planetShieldImg.enabled = hasOrbitalShield;
