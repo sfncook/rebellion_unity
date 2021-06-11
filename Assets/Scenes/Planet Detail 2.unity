@@ -369,7 +369,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.392}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -422,7 +422,8 @@ RectTransform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 2, y: 2, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 673599005}
   m_Father: {fileID: 1028112063}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -469,6 +470,81 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 486861323}
   m_CullTransparentMesh: 1
+--- !u!1 &673599004
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 673599005}
+  - component: {fileID: 673599007}
+  - component: {fileID: 673599006}
+  m_Layer: 5
+  m_Name: Planet Shield Image
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!224 &673599005
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 673599004}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 486861324}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &673599006
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 673599004}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0, g: 0, b: 1, a: 0.39607844}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 21300000, guid: b27e34ce4e7f04ce58df757a13ab7a08, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &673599007
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 673599004}
+  m_CullTransparentMesh: 1
 --- !u!1 &834315558
 GameObject:
   m_ObjectHideFlags: 0
@@ -499,18 +575,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   planetImg: {fileID: 486861325}
+  planetShieldImg: {fileID: 673599006}
   starsBackgroundImg: {fileID: 51705356}
   shipListItemPrefab: {fileID: 2511993102923382503, guid: a4dfe49b77bd74ffc9900a47f58c01ad, type: 3}
-  factoryListItemPrefab: {fileID: 0}
-  defenseListItemPrefab: {fileID: 0}
-  energySquarePrefab: {fileID: 0}
+  factoryListItemPrefab: {fileID: 5315911519325098199, guid: b9132738c678042f0ab9ea54faaaa7cf, type: 3}
+  defenseListItemPrefab: {fileID: 5315911519325098199, guid: bcd854cdd09604f87b39119daae03d3c, type: 3}
+  energySquarePrefab: {fileID: 4495967337758738682, guid: e7f5d467c15e542d1a40e1f8cda96d6a, type: 3}
   shipsTeamAPanel: {fileID: 1162852054}
   shipsTeamBPanel: {fileID: 1124738977}
   infrastructurePanel: {fileID: 241745149}
   starChartPanel: {fileID: 0}
-  onSurfacePanel: {fileID: 0}
-  valueBars: {fileID: 141114737}
-  canvas: {fileID: 0}
+  onSurfacePanel: {fileID: 1598153029}
+  loyaltyBars: {fileID: 141114737}
+  canvas: {fileID: 954476427}
   detailPanel: {fileID: 1028112062}
   factoryDialog: {fileID: 0}
   factoryStatusDialog: {fileID: 0}
@@ -767,7 +844,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 1, b: 0.25365877, a: 0.392}
+  m_Color: {r: 0, g: 1, b: 0.25365877, a: 0}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -867,7 +944,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 0, b: 0, a: 0.13333334}
+  m_Color: {r: 1, g: 0, b: 0, a: 0}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -1108,7 +1185,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 1, b: 0.23965812, a: 0.18431373}
+  m_Color: {r: 0, g: 1, b: 0.23965812, a: 0}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -1183,7 +1260,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 0, b: 0, a: 0.392}
+  m_Color: {r: 1, g: 0, b: 0, a: 0}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -1303,6 +1380,7 @@ GameObject:
   - component: {fileID: 1598153028}
   - component: {fileID: 1598153027}
   - component: {fileID: 1598153026}
+  - component: {fileID: 1598153029}
   m_Layer: 5
   m_Name: On-Surface Panel
   m_TagString: Untagged
@@ -1370,7 +1448,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.392}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -1395,6 +1473,25 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1598153024}
   m_CullTransparentMesh: 1
+--- !u!114 &1598153029
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1598153024}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b5ef0bcf2a0ee493083d67567e286579, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  canvas: {fileID: 954476427}
+  blankPersonnelPrefab: {fileID: 4495967337758738682, guid: e7f5d467c15e542d1a40e1f8cda96d6a, type: 3}
+  personnelTeamAPanel: {fileID: 1086902907}
+  personnelTeamBPanel: {fileID: 1214344646}
+  planetDetailImage: {fileID: 486861325}
+  personnelListItemPrefab: {fileID: 5315911519325098199, guid: 2d2baa46fe37b48ca809c40162750e9f, type: 3}
+  shipContentsAndMovePanel: {fileID: 0}
 --- !u!1 &1733080046
 GameObject:
   m_ObjectHideFlags: 0

@@ -21,7 +21,7 @@ public class PlanetMap2 : DragAndDroppable
     public GameObject planetInConflictImg;
     public Image factoryImg;
     public Image defenseImg;
-    //public LoyaltyBars2 loyaltyBars;
+    public ValueBars loyaltyBars;
 
     private OnClickPlanet onClickPlanetEvent;
     private Planet planet;
@@ -37,6 +37,7 @@ public class PlanetMap2 : DragAndDroppable
         this.planet = planet;
         planetNameText.text = planet.name;
         planetImg.sprite = Resources.Load<Sprite>("Images/Planets/" + planet.name);
+        loyaltyBars.setValue(planet.loyalty);
         onUiUpdateEvent();
     }
 

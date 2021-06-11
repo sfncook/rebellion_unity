@@ -17,6 +17,7 @@ using UnityEngine.Events;
 public class PlanetDetail2 : MonoBehaviour
 {
     public Image planetImg;
+    public Image planetShieldImg;
     public Image starsBackgroundImg;
 
     public GameObject shipListItemPrefab;
@@ -30,7 +31,7 @@ public class PlanetDetail2 : MonoBehaviour
     public Transform starChartPanel;
     public OnSurfacePanel onSurfacePanel;
 
-    public ValueBars valueBars;
+    public ValueBars loyaltyBars;
     public Canvas canvas;
 
     public GameObject detailPanel;
@@ -59,48 +60,64 @@ public class PlanetDetail2 : MonoBehaviour
         starsBackgroundImg.sprite = Resources.Load<Sprite>("Images/Stars/" + gameState.sectorForDetail.name);
         headerControls.setHeaderTitle(planet.name);
         bool hasOrbitalShield = planet.defenses.Exists(defense => defense.type.Equals(DefenseType.planetaryShield));
-        //planetShieldImg.enabled = hasOrbitalShield;
-        //loyaltyBars.setPlanet(planet);
+        planetShieldImg.enabled = hasOrbitalShield;
+        loyaltyBars.setValue(planet.loyalty);
         updateGrid();
+    }
+
+    void FixedUpdate()
+    {
+        if(planet != null)
+        {
+            bool hasOrbitalShield = planet.defenses.Exists(defense => defense.type.Equals(DefenseType.planetaryShield));
+            if (hasOrbitalShield)
+            {
+                float r = Random.Range(0f, 0.1f);
+                float g = Random.Range(0f, 0.1f);
+                float b = Random.Range(0.9f, 1f);
+                float a = Random.Range(0.1f, 0.3f);
+                planetShieldImg.color = new Color(r, g, b, a);
+            }
+        }
     }
 
     private void updateGrid()
     {
 
-        //onSurfacePanel.setPlanet(planet);
+        onSurfacePanel.setPlanet(planet);
         //onSurfacePanel.setUpdateShipGrids(updateShipGrids);
         updateShipGrids();
 
-        //clearPanel(infrastructurePanel);
+        clearPanel(infrastructurePanel);
 
-        //GameObject newObj;
+        GameObject newObj;
 
-        //// Defenses
-        //planet.defenses.Sort((a, b) => a.type.name.CompareTo(b.type.name));
-        //foreach (Defense defense in planet.defenses)
-        //{
-        //    newObj = (GameObject)Instantiate(defenseListItemPrefab, infrastructurePanel);
-        //    DefenseListItem defenseListItem = newObj.GetComponent<DefenseListItem>();
-        //    defenseListItem.setDefense(defense);
-        //    defenseListItem.GetComponent<Image>().color = (planet.loyalty > 0.5) ? Color.red : Color.green;
-        //}
+        // Defenses
+        planet.defenses.Sort((a, b) => a.type.name.CompareTo(b.type.name));
+        foreach (Defense defense in planet.defenses)
+        {
+            newObj = (GameObject)Instantiate(defenseListItemPrefab, infrastructurePanel);
+            DefenseListItem defenseListItem = newObj.GetComponent<DefenseListItem>();
+            defenseListItem.setDefense(defense);
+            defenseListItem.GetComponent<Image>().color = (planet.loyalty > 0.5) ? Color.red : Color.green;
+        }
 
-        //// Factories
-        //planet.factories.Sort((a, b) => a.type.name.CompareTo(b.type.name));
-        //foreach (Factory factory in planet.factories)
-        //{
-        //    newObj = (GameObject)Instantiate(factoryListItemPrefab, infrastructurePanel);
-        //    FactoryListItem factoryListItem = newObj.GetComponent<FactoryListItem>();
-        //    factoryListItem.setFactory(factory);
-        //    factoryListItem.GetComponent<Image>().color = (planet.loyalty > 0.5) ? Color.red : Color.green;
-        //    factoryListItem.setOnClickFactoryHandler(onClickFactory);
-        //}
+        // Factories
+        planet.factories.Sort((a, b) => a.type.name.CompareTo(b.type.name));
+        foreach (Factory factory in planet.factories)
+        {
+            newObj = (GameObject)Instantiate(factoryListItemPrefab, infrastructurePanel);
+            FactoryListItem factoryListItem = newObj.GetComponent<FactoryListItem>();
+            factoryListItem.setFactory(factory);
+            factoryListItem.GetComponent<Image>().color = (planet.loyalty > 0.5) ? Color.red : Color.green;
+            //factoryListItem.setOnClickFactoryHandler(onClickFactory);
+        }
 
-        //int manyFacilities = planet.factories.Count + planet.defenses.Count;
-        //for (int i = manyFacilities + 1; i <= planet.energyCapacity; i++)
-        //{
-        //    Instantiate(energySquarePrefab, infrastructurePanel);
-        //}
+        int manyFacilities = planet.factories.Count + planet.defenses.Count;
+        for (int i = manyFacilities + 1; i <= planet.energyCapacity; i++)
+        {
+            Instantiate(energySquarePrefab, infrastructurePanel);
+        }
     }
 
     private void updateShipGrids()

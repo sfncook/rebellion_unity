@@ -5,7 +5,7 @@ public class ValueBars : MonoBehaviour
     public Transform valueBar;
     public Transform backgroundBar;
 
-    public void setPlanet(float value)
+    public void setValue(float value)
     {
         RectTransform bgRect = backgroundBar.GetComponent<RectTransform>();
         float fullWidth = bgRect.sizeDelta.x;

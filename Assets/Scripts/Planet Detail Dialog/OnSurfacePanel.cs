@@ -57,8 +57,8 @@ public class OnSurfacePanel : DragAndDroppable
             Personnel personnel = personnelListItem.getPersonnel();
             planet.personnelsOnSurface.Add(personnel);
             updateGrid();
-            shipContentsAndMovePanel.removePersonnel(personnel);
-            shipContentsAndMovePanel.updateGrid();
+            //shipContentsAndMovePanel.removePersonnel(personnel);
+            //shipContentsAndMovePanel.updateGrid();
             updateShipGrids();
         }
     }
