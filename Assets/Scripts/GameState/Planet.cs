@@ -9,7 +9,7 @@ public class Planet
     public float sectorY;
 
     // Randomized-then-immutable attributes:
-    public readonly int energyCapacity;
+    public int energyCapacity;
     public bool isHq = false;
 
     // Mutable state:

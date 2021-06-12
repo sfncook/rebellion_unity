@@ -311,6 +311,7 @@ public class MainGameState : MonoBehaviour
                 planet.factoriesInTransit = new List<Factory>();
                 planet.defenses = new List<Defense>();
                 planet.defensesInTransit = new List<Defense>();
+                planet.energyCapacity = Random.Range(0, 10);
                 initPlanet(planet);
             }
         }

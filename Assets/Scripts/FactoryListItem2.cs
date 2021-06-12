@@ -8,7 +8,7 @@ public class FactoryListItem2 : MonoBehaviour
 
     private Factory factory;
 
-    public void setDefense(Factory factory, Team team)
+    public void setFactory(Factory factory, Team team)
     {
         this.factory = factory;
 

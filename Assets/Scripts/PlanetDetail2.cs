@@ -97,9 +97,8 @@ public class PlanetDetail2 : MonoBehaviour
         foreach (Defense defense in planet.defenses)
         {
             newObj = (GameObject)Instantiate(defenseListItemPrefab, infrastructurePanel);
-            DefenseListItem defenseListItem = newObj.GetComponent<DefenseListItem>();
-            defenseListItem.setDefense(defense);
-            defenseListItem.GetComponent<Image>().color = (planet.loyalty > 0.5) ? Color.red : Color.green;
+            DefenseListItem2 defenseListItem = newObj.GetComponent<DefenseListItem2>();
+            defenseListItem.setDefense(defense, Team.TeamA);
         }
 
         // Factories
@@ -107,9 +106,8 @@ public class PlanetDetail2 : MonoBehaviour
         foreach (Factory factory in planet.factories)
         {
             newObj = (GameObject)Instantiate(factoryListItemPrefab, infrastructurePanel);
-            FactoryListItem factoryListItem = newObj.GetComponent<FactoryListItem>();
-            factoryListItem.setFactory(factory);
-            factoryListItem.GetComponent<Image>().color = (planet.loyalty > 0.5) ? Color.red : Color.green;
+            FactoryListItem2 factoryListItem = newObj.GetComponent<FactoryListItem2>();
+            factoryListItem.setFactory(factory, Team.TeamA);
             //factoryListItem.setOnClickFactoryHandler(onClickFactory);
         }
 

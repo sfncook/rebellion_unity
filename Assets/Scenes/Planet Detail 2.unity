@@ -713,7 +713,7 @@ MonoBehaviour:
   planetShieldImg: {fileID: 673599006}
   starsBackgroundImg: {fileID: 51705356}
   shipListItemPrefab: {fileID: 2511993102923382503, guid: a4dfe49b77bd74ffc9900a47f58c01ad, type: 3}
-  factoryListItemPrefab: {fileID: 5315911519325098199, guid: b9132738c678042f0ab9ea54faaaa7cf, type: 3}
+  factoryListItemPrefab: {fileID: 7562348289976762808, guid: f889211e8c4ac4b3ea35b2a1dcefbc41, type: 3}
   defenseListItemPrefab: {fileID: 2459337032506611614, guid: ac4e92cf3805d4b4591c32dfbcd9eea0, type: 3}
   energySquarePrefab: {fileID: 4495967337758738682, guid: e7f5d467c15e542d1a40e1f8cda96d6a, type: 3}
   shipsTeamAPanel: {fileID: 1162852054}

@@ -97,6 +97,7 @@ public class PlanetMap2 : DragAndDroppable
             string strI = i.ToString().PadLeft(2, '0');
             Transform energySquare = gameObject.transform.Find("Resource Squares").Find("Square" + strI);
             energySquare.GetComponent<Image>().color = Color.blue;
+            energySquare.GetComponent<Image>().enabled = true;
         }
 
         for (int i = manyFacilities + 1; i <= planet.energyCapacity; i++)
@@ -104,6 +105,14 @@ public class PlanetMap2 : DragAndDroppable
             string strI = i.ToString().PadLeft(2, '0');
             Transform energySquare = gameObject.transform.Find("Resource Squares").Find("Square" + strI);
             energySquare.GetComponent<Image>().color = Color.white;
+            energySquare.GetComponent<Image>().enabled = true;
+        }
+
+        for (int i = planet.energyCapacity + 1; i <= 10; i++)
+        {
+            string strI = i.ToString().PadLeft(2, '0');
+            Transform energySquare = gameObject.transform.Find("Resource Squares").Find("Square" + strI);
+            energySquare.GetComponent<Image>().enabled = false;
         }
 
         // conflict
