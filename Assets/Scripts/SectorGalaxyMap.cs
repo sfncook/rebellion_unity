@@ -2,11 +2,16 @@ using System;
 using UnityEngine;
 using UnityEngine.Events;
 
+[System.Serializable]
+public class OnClickSector: UnityEvent<StarSector>
+{
+}
+
 public class SectorGalaxyMap : MonoBehaviour
 {
     public GameObject planetPrefab;
 
-    private Action<StarSector> onClickSector;
+    private OnClickSector onClickSectorEvent;
     private StarSector sector;
 
     public void setSector(StarSector sector)
@@ -27,13 +32,13 @@ public class SectorGalaxyMap : MonoBehaviour
         }
     }
 
-    internal void setOnClickSector(Action<StarSector> onClickSector)
+    public void setOnClickSectorEvent(OnClickSector onClickSectorEvent)
     {
-        this.onClickSector = onClickSector;
+        this.onClickSectorEvent = onClickSectorEvent;
     }
 
     private void OnMouseUp()
     {
-        onClickSector(sector);
+        onClickSectorEvent.Invoke(sector);
     }
 }
