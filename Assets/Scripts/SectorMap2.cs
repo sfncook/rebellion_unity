@@ -8,6 +8,7 @@ public class SectorMap2 : MonoBehaviour
     public Image starsBackgroundImg;
 
     public OnClickPlanet onClickPlanetEvent;
+    public DropGameObjectOnPlanet dropGameObjectOnPlanet;
 
     private StarSector sector;
 
@@ -34,6 +35,7 @@ public class SectorMap2 : MonoBehaviour
 
         PlanetMap2 planetMap2 = newPlanetObj.GetComponent<PlanetMap2>();
         planetMap2.setOnClickPlanetEvent(onClickPlanetEvent);
+        planetMap2.setDropGameObjectOnPlanet(dropGameObjectOnPlanet);
         planetMap2.setPlanet(planet);
     }
 }

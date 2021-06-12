@@ -78,8 +78,6 @@ public class ShipListItem2 : DragAndDroppable
         this.stopMoveShip = stopMoveShip;
     }
 
-
-
     protected override List<string> acceptedDropTypes()
     {
         if (MainGameState.gameState.myTeam == ship.team)

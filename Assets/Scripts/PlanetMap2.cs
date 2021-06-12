@@ -9,6 +9,11 @@ public class OnClickPlanet : UnityEvent<Planet>
 {
 }
 
+[System.Serializable]
+public class DropGameObjectOnPlanet : UnityEvent<GameObject>
+{
+}
+
 public class PlanetMap2 : DragAndDroppable
 {
     public TextMeshProUGUI planetNameText;
@@ -24,8 +29,8 @@ public class PlanetMap2 : DragAndDroppable
     public ValueBars loyaltyBars;
 
     private OnClickPlanet onClickPlanetEvent;
+    private DropGameObjectOnPlanet dropGameObjectOnPlanetEvent;
     private Planet planet;
-    private bool isPlanetDroppable = false;
 
     private void Start()
     {
@@ -46,9 +51,14 @@ public class PlanetMap2 : DragAndDroppable
         this.onClickPlanetEvent = onClickPlanetEvent;
     }
 
-    public void setDroppable(bool isPlanetDroppable)
+    public void setDropGameObjectOnPlanet(DropGameObjectOnPlanet dropGameObjectOnPlanetEvent)
     {
-        this.isPlanetDroppable = isPlanetDroppable;
+        this.dropGameObjectOnPlanetEvent = dropGameObjectOnPlanetEvent;
+    }
+
+    protected override List<string> acceptedDropTypes()
+    {
+        return new List<string>() { "ShipListItem2" };
     }
 
     protected override bool isDraggable()
@@ -58,12 +68,15 @@ public class PlanetMap2 : DragAndDroppable
 
     protected override bool isDroppable()
     {
-        return isPlanetDroppable;
+        return true;
     }
 
     private void OnMouseUp()
     {
-        onClickPlanetEvent.Invoke(planet);
+        if(onClickPlanetEvent!=null)
+        {
+            onClickPlanetEvent.Invoke(planet);
+        }
     }
 
     private void onUiUpdateEvent()
@@ -130,5 +143,14 @@ public class PlanetMap2 : DragAndDroppable
 
         bool hasOrbitalShield = planet.defenses.Exists(defense => defense.type.Equals(DefenseType.planetaryShield));
         planetaryShieldImg.SetActive(hasOrbitalShield);
+    }
+
+    protected override void onDrop(GameObject pointerDrag)
+    {
+        if(dropGameObjectOnPlanetEvent!=null)
+        {
+            //bgColor.color = new Color(0.0f, 0.0f, 0.0f, 0.0f);
+            dropGameObjectOnPlanetEvent.Invoke(pointerDrag);
+        }
     }
 }
