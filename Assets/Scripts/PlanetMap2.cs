@@ -28,6 +28,7 @@ public class PlanetMap2 : DragAndDroppable
     public Image defenseImg;
     public ValueBars loyaltyBars;
     public Image selectionHaloImg;
+    public ShipMoveStarChart shipMoveStarChart;
 
     private OnClickPlanet onClickPlanetEvent;
     private DropGameObjectOnPlanet dropGameObjectOnPlanetEvent;
@@ -83,7 +84,7 @@ public class PlanetMap2 : DragAndDroppable
 
     private void onUiUpdateEvent()
     {
-        //loyaltyBars.setPlanet(planet);
+        loyaltyBars.setValue(planet.loyalty);
 
         Color loyaltyColor = Color.green;
         if (planet.loyalty > 0.5f)

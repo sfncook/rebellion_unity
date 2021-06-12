@@ -28,7 +28,7 @@ public class PlanetDetail2 : MonoBehaviour
     public Transform shipsTeamAPanel;
     public Transform shipsTeamBPanel;
     public Transform infrastructurePanel;
-    public Transform starChartPanel;
+    public ShipMoveStarChart shipMoveStarChart;
     public OnSurfacePanel onSurfacePanel;
 
     public ValueBars loyaltyBars;
@@ -39,7 +39,6 @@ public class PlanetDetail2 : MonoBehaviour
     public FactoryStatusDialog factoryStatusDialog;
 
     public HeaderControls headerControls;
-    public SectorMap2 sectorMap;
 
     public ShowShipContentsEvent2 showShipContentsEvent;
     public HideShipContentsEvent2 hideShipContentsEvent;
@@ -63,7 +62,6 @@ public class PlanetDetail2 : MonoBehaviour
         bool hasOrbitalShield = planet.defenses.Exists(defense => defense.type.Equals(DefenseType.planetaryShield));
         planetShieldImg.gameObject.SetActive(hasOrbitalShield);
         loyaltyBars.setValue(planet.loyalty);
-        sectorMap.setSector(MainGameState.gameState.sectorForDetail);
         updateGrid();
     }
 
@@ -166,14 +164,17 @@ public class PlanetDetail2 : MonoBehaviour
 
     public void startMoveShip()
     {
-        //starChartPanel.gameObject.SetActive(true);
+        shipMoveStarChart.showSector(MainGameState.gameState.sectorForDetail);
+        shipMoveStarChart.gameObject.SetActive(true);
         onSurfacePanel.gameObject.SetActive(false);
+        infrastructurePanel.gameObject.SetActive(false);
     }
 
     public void stopMoveShip()
     {
-        //starChartPanel.gameObject.SetActive(false);
+        shipMoveStarChart.gameObject.SetActive(false);
         onSurfacePanel.gameObject.SetActive(true);
+        infrastructurePanel.gameObject.SetActive(true);
     }
 
     //public void assignFactoryBuildCommand(Factory factory, AbstractType type)

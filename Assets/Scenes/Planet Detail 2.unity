@@ -209,13 +209,14 @@ GameObject:
   - component: {fileID: 136584130}
   - component: {fileID: 136584132}
   - component: {fileID: 136584131}
+  - component: {fileID: 136584133}
   m_Layer: 5
-  m_Name: Star Chart Ship-Move Panel
+  m_Name: Ship-Move Star Chart Panel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &136584130
 RectTransform:
   m_ObjectHideFlags: 0
@@ -229,7 +230,7 @@ RectTransform:
   m_Children:
   - {fileID: 151492824}
   m_Father: {fileID: 1028112063}
-  m_RootOrder: 5
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 0.6}
@@ -274,6 +275,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 136584129}
   m_CullTransparentMesh: 1
+--- !u!114 &136584133
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 136584129}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 30ea2e9849bf2414a8e58824f2351b7b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sectorMap: {fileID: 151492825}
 --- !u!1001 &141114735
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -681,7 +695,7 @@ RectTransform:
   - {fileID: 2954202005554480723}
   - {fileID: 6883066206943808725}
   m_Father: {fileID: 1028112063}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 0.25}
@@ -1042,7 +1056,7 @@ MonoBehaviour:
   shipsTeamAPanel: {fileID: 1162852054}
   shipsTeamBPanel: {fileID: 1124738977}
   infrastructurePanel: {fileID: 241745149}
-  starChartPanel: {fileID: 0}
+  shipMoveStarChart: {fileID: 136584133}
   onSurfacePanel: {fileID: 1598153029}
   loyaltyBars: {fileID: 141114737}
   canvas: {fileID: 954476427}
@@ -1050,7 +1064,6 @@ MonoBehaviour:
   factoryDialog: {fileID: 0}
   factoryStatusDialog: {fileID: 0}
   headerControls: {fileID: 1130940472}
-  sectorMap: {fileID: 151492825}
   showShipContentsEvent:
     m_PersistentCalls:
       m_Calls: []
@@ -1436,10 +1449,10 @@ RectTransform:
   m_Children:
   - {fileID: 51705354}
   - {fileID: 486861324}
+  - {fileID: 136584130}
   - {fileID: 1873450855}
   - {fileID: 1598153025}
   - {fileID: 241745149}
-  - {fileID: 136584130}
   m_Father: {fileID: 954476428}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2560,7 +2573,7 @@ RectTransform:
   - {fileID: 1086902907}
   - {fileID: 1214344646}
   m_Father: {fileID: 1028112063}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.25}
   m_AnchorMax: {x: 1, y: 0.5}
@@ -2851,7 +2864,7 @@ RectTransform:
   - {fileID: 1162852054}
   - {fileID: 1124738977}
   m_Father: {fileID: 1028112063}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.6}
   m_AnchorMax: {x: 1, y: 1}
