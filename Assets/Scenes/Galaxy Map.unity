@@ -444,6 +444,7 @@ MonoBehaviour:
     name: 
     sectorX: 0
     sectorY: 0
+    energyCapacity: 0
     isHq: 0
     loyalty: 0
     isInConflict: 0
@@ -558,11 +559,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3762764097376709044, guid: aef06d511c52a44669e77948c335ceed, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7942917448726262269, guid: aef06d511c52a44669e77948c335ceed, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: aef06d511c52a44669e77948c335ceed, type: 3}

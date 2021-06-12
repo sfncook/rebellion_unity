@@ -88,6 +88,7 @@ GameObject:
   - component: {fileID: 6315560632517176559}
   - component: {fileID: 8818130366629852961}
   - component: {fileID: 328359287919076496}
+  - component: {fileID: 3713409101355792283}
   m_Layer: 5
   m_Name: Personnel List Item 2
   m_TagString: Untagged
@@ -170,6 +171,18 @@ MonoBehaviour:
   personnelImg: {fileID: 1185268088475944258}
   backgroundImg: {fileID: 8818130366629852961}
   manyPeopleLabel: {fileID: 324047233161950582}
+--- !u!225 &3713409101355792283
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2744791615758098042}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &4093170246542638962
 GameObject:
   m_ObjectHideFlags: 0
