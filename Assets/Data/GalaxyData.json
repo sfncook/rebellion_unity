@@ -1,7 +1,7 @@
 {
 	"sectors": [
 		{
-			"name": "Arilia",
+			"name": "Sector I",
 			"galaxyX":0.57,
 			"galaxyY":0.42,
 			"planets": [
@@ -13,7 +13,7 @@
 			]
 		},
 		{
-		  "name": "Bilrizuno",
+		  "name": "Sector II",
 		  "galaxyX":0.32,
 		  "galaxyY":0.59,
 		  "planets": [

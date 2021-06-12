@@ -9,11 +9,14 @@ public class SectorMap2 : MonoBehaviour
 
     public OnClickPlanet onClickPlanetEvent;
 
-    void Start()
-    {
-        starsBackgroundImg.sprite = Resources.Load<Sprite>("Images/Stars/" + MainGameState.gameState.sectorForDetail.name);
+    private StarSector sector;
 
-        foreach (Planet planet in MainGameState.gameState.sectorForDetail.planets)
+    public void setSector(StarSector sector)
+    {
+        this.sector = sector;
+        starsBackgroundImg.sprite = Resources.Load<Sprite>("Images/Stars/" + sector.name);
+
+        foreach (Planet planet in sector.planets)
         {
             instantiatePlanet(planet);
         }
