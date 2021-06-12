@@ -60,7 +60,7 @@ public class PlanetDetail2 : MonoBehaviour
         starsBackgroundImg.sprite = Resources.Load<Sprite>("Images/Stars/" + gameState.sectorForDetail.name);
         headerControls.setHeaderTitle(planet.name);
         bool hasOrbitalShield = planet.defenses.Exists(defense => defense.type.Equals(DefenseType.planetaryShield));
-        planetShieldImg.enabled = hasOrbitalShield;
+        planetShieldImg.gameObject.SetActive(hasOrbitalShield);
         loyaltyBars.setValue(planet.loyalty);
         updateGrid();
     }
