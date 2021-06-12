@@ -214,8 +214,8 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children:
-  - {fileID: 1033707696}
   - {fileID: 2232098387347046246}
+  - {fileID: 1033707696}
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -231,6 +231,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 438303594}
     m_Modifications:
+    - target: {fileID: 2037062630606341858, guid: b4e545b1cc70446828cc0ad19d0e4fa7, type: 3}
+      propertyPath: planetScale
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 2037062630606341858, guid: b4e545b1cc70446828cc0ad19d0e4fa7, type: 3}
       propertyPath: panelForPlanets
       value: 
@@ -277,7 +281,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5203214217006992646, guid: b4e545b1cc70446828cc0ad19d0e4fa7, type: 3}
       propertyPath: m_RootOrder
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5203214217006992646, guid: b4e545b1cc70446828cc0ad19d0e4fa7, type: 3}
       propertyPath: m_AnchorMax.x
@@ -580,7 +584,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 222381488120018971, guid: aef06d511c52a44669e77948c335ceed, type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 222381488120018971, guid: aef06d511c52a44669e77948c335ceed, type: 3}
       propertyPath: m_AnchorMax.x

@@ -6,6 +6,7 @@ public class SectorMap2 : MonoBehaviour
     public GameObject planetPrefab;
     public Transform panelForPlanets;
     public Image starsBackgroundImg;
+    public float planetScale;
 
     public OnClickPlanet onClickPlanetEvent;
     public DropGameObjectOnPlanet dropGameObjectOnPlanet;
@@ -31,7 +32,7 @@ public class SectorMap2 : MonoBehaviour
         planetRectTrans.anchorMin = new Vector2(planet.sectorX, planet.sectorY);
         planetRectTrans.anchorMax = new Vector2(planet.sectorX, planet.sectorY);
         planetRectTrans.anchoredPosition = new Vector2(0f, 0f);
-        planetRectTrans.localScale = new Vector2(2, 2);
+        planetRectTrans.localScale = new Vector2(planetScale, planetScale);
 
         PlanetMap2 planetMap2 = newPlanetObj.GetComponent<PlanetMap2>();
         planetMap2.setOnClickPlanetEvent(onClickPlanetEvent);

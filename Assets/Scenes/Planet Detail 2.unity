@@ -406,6 +406,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 136584130}
     m_Modifications:
+    - target: {fileID: 2037062630606341858, guid: b4e545b1cc70446828cc0ad19d0e4fa7, type: 3}
+      propertyPath: planetScale
+      value: 1.5
+      objectReference: {fileID: 0}
     - target: {fileID: 5203214217006992645, guid: b4e545b1cc70446828cc0ad19d0e4fa7, type: 3}
       propertyPath: m_Name
       value: Sector Map 2
@@ -480,7 +484,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5203214217006992646, guid: b4e545b1cc70446828cc0ad19d0e4fa7, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 153.59996
+      value: 153.59998
       objectReference: {fileID: 0}
     - target: {fileID: 5203214217006992646, guid: b4e545b1cc70446828cc0ad19d0e4fa7, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -501,6 +505,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 5203214217006992646, guid: b4e545b1cc70446828cc0ad19d0e4fa7, type: 3}
   m_PrefabInstance: {fileID: 151492823}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &151492825 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2037062630606341858, guid: b4e545b1cc70446828cc0ad19d0e4fa7, type: 3}
+  m_PrefabInstance: {fileID: 151492823}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ccc2fcc2c6fea4eacbaad9fbd21ce07d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &183767421
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -508,6 +523,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1162852054}
     m_Modifications:
+    - target: {fileID: 467774437675088027, guid: a4dfe49b77bd74ffc9900a47f58c01ad, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 719248285185402488, guid: a4dfe49b77bd74ffc9900a47f58c01ad, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 2511993102923382502, guid: a4dfe49b77bd74ffc9900a47f58c01ad, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -595,6 +618,26 @@ PrefabInstance:
     - target: {fileID: 2511993102923382503, guid: a4dfe49b77bd74ffc9900a47f58c01ad, type: 3}
       propertyPath: m_Name
       value: Ship List Item 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2511993102923382503, guid: a4dfe49b77bd74ffc9900a47f58c01ad, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 3044388533683258702, guid: a4dfe49b77bd74ffc9900a47f58c01ad, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 4073610794139269707, guid: a4dfe49b77bd74ffc9900a47f58c01ad, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 6049669666452525745, guid: a4dfe49b77bd74ffc9900a47f58c01ad, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 8754847355691082552, guid: a4dfe49b77bd74ffc9900a47f58c01ad, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a4dfe49b77bd74ffc9900a47f58c01ad, type: 3}
@@ -1007,6 +1050,7 @@ MonoBehaviour:
   factoryDialog: {fileID: 0}
   factoryStatusDialog: {fileID: 0}
   headerControls: {fileID: 1130940472}
+  sectorMap: {fileID: 151492825}
   showShipContentsEvent:
     m_PersistentCalls:
       m_Calls: []
@@ -1034,6 +1078,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1162852054}
     m_Modifications:
+    - target: {fileID: 467774437675088027, guid: a4dfe49b77bd74ffc9900a47f58c01ad, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 719248285185402488, guid: a4dfe49b77bd74ffc9900a47f58c01ad, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 2511993102923382502, guid: a4dfe49b77bd74ffc9900a47f58c01ad, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -1121,6 +1173,26 @@ PrefabInstance:
     - target: {fileID: 2511993102923382503, guid: a4dfe49b77bd74ffc9900a47f58c01ad, type: 3}
       propertyPath: m_Name
       value: Ship List Item 2 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2511993102923382503, guid: a4dfe49b77bd74ffc9900a47f58c01ad, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 3044388533683258702, guid: a4dfe49b77bd74ffc9900a47f58c01ad, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 4073610794139269707, guid: a4dfe49b77bd74ffc9900a47f58c01ad, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 6049669666452525745, guid: a4dfe49b77bd74ffc9900a47f58c01ad, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 8754847355691082552, guid: a4dfe49b77bd74ffc9900a47f58c01ad, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a4dfe49b77bd74ffc9900a47f58c01ad, type: 3}
@@ -1976,7 +2048,7 @@ GameObject:
   - component: {fileID: 1162852057}
   - component: {fileID: 1162852056}
   - component: {fileID: 1162852055}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Team A
   m_TagString: Untagged
   m_Icon: {fileID: 0}

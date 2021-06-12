@@ -27,6 +27,7 @@ public class PlanetMap2 : DragAndDroppable
     public Image factoryImg;
     public Image defenseImg;
     public ValueBars loyaltyBars;
+    public Image selectionHaloImg;
 
     private OnClickPlanet onClickPlanetEvent;
     private DropGameObjectOnPlanet dropGameObjectOnPlanetEvent;
@@ -73,7 +74,8 @@ public class PlanetMap2 : DragAndDroppable
 
     private void OnMouseUp()
     {
-        if(onClickPlanetEvent!=null)
+        selectionHaloImg.gameObject.SetActive(false);
+        if (onClickPlanetEvent!=null)
         {
             onClickPlanetEvent.Invoke(planet);
         }
@@ -145,9 +147,20 @@ public class PlanetMap2 : DragAndDroppable
         planetaryShieldImg.SetActive(hasOrbitalShield);
     }
 
+    protected override void onPointEnter(GameObject pointerDrag)
+    {
+        selectionHaloImg.gameObject.SetActive(true);
+    }
+
+    protected override void onPointExit()
+    {
+        selectionHaloImg.gameObject.SetActive(false);
+    }
+
     protected override void onDrop(GameObject pointerDrag)
     {
-        if(dropGameObjectOnPlanetEvent!=null)
+        selectionHaloImg.gameObject.SetActive(false);
+        if (dropGameObjectOnPlanetEvent!=null)
         {
             //bgColor.color = new Color(0.0f, 0.0f, 0.0f, 0.0f);
             dropGameObjectOnPlanetEvent.Invoke(pointerDrag);

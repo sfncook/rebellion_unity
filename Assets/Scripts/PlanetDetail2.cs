@@ -39,6 +39,7 @@ public class PlanetDetail2 : MonoBehaviour
     public FactoryStatusDialog factoryStatusDialog;
 
     public HeaderControls headerControls;
+    public SectorMap2 sectorMap;
 
     public ShowShipContentsEvent2 showShipContentsEvent;
     public HideShipContentsEvent2 hideShipContentsEvent;
@@ -62,6 +63,7 @@ public class PlanetDetail2 : MonoBehaviour
         bool hasOrbitalShield = planet.defenses.Exists(defense => defense.type.Equals(DefenseType.planetaryShield));
         planetShieldImg.gameObject.SetActive(hasOrbitalShield);
         loyaltyBars.setValue(planet.loyalty);
+        sectorMap.setSector(MainGameState.gameState.sectorForDetail);
         updateGrid();
     }
 
