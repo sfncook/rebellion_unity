@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class GalaxyMap : MonoBehaviour
+public class GalaxyMapWholeMap : MonoBehaviour
 {
     public GameObject sectorPrefab;
     public Transform mapPanel;
