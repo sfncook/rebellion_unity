@@ -424,6 +424,50 @@ PrefabInstance:
       propertyPath: planetScale
       value: 1.5
       objectReference: {fileID: 0}
+    - target: {fileID: 2037062630606341858, guid: b4e545b1cc70446828cc0ad19d0e4fa7, type: 3}
+      propertyPath: onClickPlanetEvent.m_PersistentCalls.m_Calls.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2037062630606341858, guid: b4e545b1cc70446828cc0ad19d0e4fa7, type: 3}
+      propertyPath: dropGameObjectOnPlanet.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2037062630606341858, guid: b4e545b1cc70446828cc0ad19d0e4fa7, type: 3}
+      propertyPath: onClickPlanetEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2037062630606341858, guid: b4e545b1cc70446828cc0ad19d0e4fa7, type: 3}
+      propertyPath: onClickPlanetEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 136584129}
+    - target: {fileID: 2037062630606341858, guid: b4e545b1cc70446828cc0ad19d0e4fa7, type: 3}
+      propertyPath: dropGameObjectOnPlanet.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2037062630606341858, guid: b4e545b1cc70446828cc0ad19d0e4fa7, type: 3}
+      propertyPath: onClickPlanetEvent.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2037062630606341858, guid: b4e545b1cc70446828cc0ad19d0e4fa7, type: 3}
+      propertyPath: dropGameObjectOnPlanet.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 834315559}
+    - target: {fileID: 2037062630606341858, guid: b4e545b1cc70446828cc0ad19d0e4fa7, type: 3}
+      propertyPath: dropGameObjectOnPlanet.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2037062630606341858, guid: b4e545b1cc70446828cc0ad19d0e4fa7, type: 3}
+      propertyPath: dropGameObjectOnPlanet.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: dropGameObjectOnPlanetEvent
+      objectReference: {fileID: 0}
+    - target: {fileID: 2037062630606341858, guid: b4e545b1cc70446828cc0ad19d0e4fa7, type: 3}
+      propertyPath: dropGameObjectOnPlanet.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: PlanetDetail2, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 2037062630606341858, guid: b4e545b1cc70446828cc0ad19d0e4fa7, type: 3}
+      propertyPath: dropGameObjectOnPlanet.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 5203214217006992645, guid: b4e545b1cc70446828cc0ad19d0e4fa7, type: 3}
       propertyPath: m_Name
       value: Sector Map 2

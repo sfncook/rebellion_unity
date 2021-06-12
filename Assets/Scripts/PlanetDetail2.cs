@@ -155,13 +155,6 @@ public class PlanetDetail2 : MonoBehaviour
         updateGrid();
     }
 
-    public void removeShip(Ship ship)
-    {
-        planet.shipsInOrbit.Remove(ship);
-        updateGrid();
-        hideShipContentsEvent.Invoke();
-    }
-
     public void startMoveShip()
     {
         shipMoveStarChart.showSector(MainGameState.gameState.sectorForDetail);
@@ -216,5 +209,15 @@ public class PlanetDetail2 : MonoBehaviour
     {
         MainGameState.gameState.planetForDetail = null;
         SceneManager.LoadScene("Sector Map 2");
+    }
+
+    public void dropGameObjectOnPlanetEvent(GameObject pointerDrag, Planet destPlanet)
+    {
+        ShipListItem2 shipListItem = pointerDrag.GetComponent<ShipListItem2>();
+        Ship ship = shipListItem.getShip();
+        Debug.Log("Drop " + ship.type.name + " destPlanet:" + destPlanet.name);
+        planet.shipsInOrbit.Remove(ship);
+        destPlanet.shipsInOrbit.Add(ship);
+        updateShipGrids();
     }
 }

@@ -10,7 +10,7 @@ public class OnClickPlanet : UnityEvent<Planet>
 }
 
 [System.Serializable]
-public class DropGameObjectOnPlanet : UnityEvent<GameObject>
+public class DropGameObjectOnPlanet : UnityEvent<GameObject, Planet>
 {
 }
 
@@ -163,8 +163,7 @@ public class PlanetMap2 : DragAndDroppable
         selectionHaloImg.gameObject.SetActive(false);
         if (dropGameObjectOnPlanetEvent!=null)
         {
-            //bgColor.color = new Color(0.0f, 0.0f, 0.0f, 0.0f);
-            dropGameObjectOnPlanetEvent.Invoke(pointerDrag);
+            dropGameObjectOnPlanetEvent.Invoke(pointerDrag, planet);
         }
     }
 }
