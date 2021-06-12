@@ -4,15 +4,15 @@ using UnityEngine.SceneManagement;
 using TMPro;
 using UnityEngine.Events;
 
-//[System.Serializable]
-//public class ShowShipContentsEvent : UnityEvent<Ship>
-//{
-//}
+[System.Serializable]
+public class ShowShipContentsEvent2 : UnityEvent<Ship>
+{
+}
 
-//[System.Serializable]
-//public class HideShipContentsEvent : UnityEvent
-//{
-//}
+[System.Serializable]
+public class HideShipContentsEvent2 : UnityEvent
+{
+}
 
 public class PlanetDetail2 : MonoBehaviour
 {
@@ -40,8 +40,8 @@ public class PlanetDetail2 : MonoBehaviour
 
     public HeaderControls headerControls;
 
-    public ShowShipContentsEvent showShipContentsEvent;
-    public HideShipContentsEvent hideShipContentsEvent;
+    public ShowShipContentsEvent2 showShipContentsEvent;
+    public HideShipContentsEvent2 hideShipContentsEvent;
 
 
 
@@ -132,12 +132,12 @@ public class PlanetDetail2 : MonoBehaviour
             Transform panelTransform = ship.team.Equals(Team.TeamA) ? shipsTeamAPanel : shipsTeamBPanel;
             newObj = (GameObject)Instantiate(shipListItemPrefab, panelTransform);
             ShipListItem2 shipListItem = newObj.GetComponent<ShipListItem2>();
-            //shipListItem.setRemovePersonnelDelegate(removePersonnel);
+            shipListItem.setRemovePersonnelDelegate(removePersonnel);
             shipListItem.setShip(ship);
-            //shipListItem.setCanvas(canvas);
-            //shipListItem.setShowShipContentsEvent(showShipContentsEvent);
-            //shipListItem.setStartMoveShip(startMoveShip);
-            //shipListItem.setStopMoveShip(stopMoveShip);
+            shipListItem.setCanvas(canvas);
+            shipListItem.setShowShipContentsEvent(showShipContentsEvent);
+            shipListItem.setStartMoveShip(startMoveShip);
+            shipListItem.setStopMoveShip(stopMoveShip);
         }
     }
 
@@ -149,30 +149,30 @@ public class PlanetDetail2 : MonoBehaviour
         }
     }
 
-    //public void removePersonnel(Personnel personnel)
-    //{
-    //    planet.personnelsOnSurface.Remove(personnel);
-    //    updateGrid();
-    //}
+    public void removePersonnel(Personnel personnel)
+    {
+        planet.personnelsOnSurface.Remove(personnel);
+        updateGrid();
+    }
 
-    //public void removeShip(Ship ship)
-    //{
-    //    planet.shipsInOrbit.Remove(ship);
-    //    updateGrid();
-    //    hideShipContentsEvent.Invoke();
-    //}
+    public void removeShip(Ship ship)
+    {
+        planet.shipsInOrbit.Remove(ship);
+        updateGrid();
+        hideShipContentsEvent.Invoke();
+    }
 
-    //public void startMoveShip()
-    //{
-    //    starChartPanel.gameObject.SetActive(true);
-    //    onSurfacePanel.gameObject.SetActive(false);
-    //}
+    public void startMoveShip()
+    {
+        //starChartPanel.gameObject.SetActive(true);
+        onSurfacePanel.gameObject.SetActive(false);
+    }
 
-    //public void stopMoveShip()
-    //{
-    //    starChartPanel.gameObject.SetActive(false);
-    //    onSurfacePanel.gameObject.SetActive(true);
-    //}
+    public void stopMoveShip()
+    {
+        //starChartPanel.gameObject.SetActive(false);
+        onSurfacePanel.gameObject.SetActive(true);
+    }
 
     //public void assignFactoryBuildCommand(Factory factory, AbstractType type)
     //{
