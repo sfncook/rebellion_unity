@@ -4,7 +4,6 @@ using UnityEngine;
 public class GalaxyMap : MonoBehaviour
 {
     public GameObject sectorPrefab;
-    public Transform mapPanel;
 
     public OnClickSector onClickSectorEvent;
 
@@ -13,7 +12,7 @@ public class GalaxyMap : MonoBehaviour
         Galaxy galaxy = MainGameState.gameState.galaxy;
         foreach(StarSector sector in galaxy.sectors)
         {
-            GameObject newSectorObj = (GameObject)Instantiate(sectorPrefab, mapPanel);
+            GameObject newSectorObj = (GameObject)Instantiate(sectorPrefab, transform);
             RectTransform sectorRectTrans = newSectorObj.GetComponent<RectTransform>();
             sectorRectTrans.anchorMin = new Vector2(sector.galaxyX, sector.galaxyY);
             sectorRectTrans.anchorMax = new Vector2(sector.galaxyX, sector.galaxyY);

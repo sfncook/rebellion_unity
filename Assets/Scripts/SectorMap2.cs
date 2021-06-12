@@ -4,7 +4,6 @@ using UnityEngine.UI;
 public class SectorMap2 : MonoBehaviour
 {
     public GameObject planetPrefab;
-    public Transform panelForPlanets;
     public Image starsBackgroundImg;
     public float planetScale;
 
