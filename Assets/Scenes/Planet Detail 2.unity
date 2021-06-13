@@ -3724,7 +3724,7 @@ MonoBehaviour:
   shipContentsGrid: {fileID: 178821676}
   personnelListItemPrefab: {fileID: 2744791615758098042, guid: a71b23225b23b47ebbf587e06cc03036, type: 3}
   shipImg: {fileID: 612911080}
-  backgroundImage: {fileID: 486861325}
+  backgroundImage: {fileID: 1752620122}
   planetDetail: {fileID: 834315559}
 --- !u!1 &1873450854
 GameObject:

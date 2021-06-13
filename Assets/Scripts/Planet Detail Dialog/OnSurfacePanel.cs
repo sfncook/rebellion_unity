@@ -12,7 +12,7 @@ public class OnSurfacePanel : DragAndDroppable
     public ShipContentsAndMovePanel shipContentsAndMovePanel;
 
     private Planet planet;
-    //private GameObject blankPersonnelDragOver;
+    private GameObject blankPersonnelDragOver;
 
     public delegate void UpdateShipGrids();
     public UpdateShipGrids updateShipGrids;
@@ -30,28 +30,28 @@ public class OnSurfacePanel : DragAndDroppable
 
     protected override List<string> acceptedDropTypes()
     {
-        return new List<string>() { "PersonnelListItem" };
+        return new List<string>() { "PersonnelListItem2" };
     }
 
     protected override void onPointEnter(GameObject pointerDrag)
     {
-        PersonnelListItem personnelListItem = pointerDrag.GetComponent<PersonnelListItem>();
+        PersonnelListItem2 personnelListItem = pointerDrag.GetComponent<PersonnelListItem2>();
         if (personnelListItem.getLocatedOnShip())
         {
             planetDetailImage.color = Color.yellow;
-            //blankPersonnelDragOver = (GameObject)Instantiate(blankPersonnelPrefab, personnelTeamAPanel);
+            blankPersonnelDragOver = (GameObject)Instantiate(blankPersonnelPrefab, personnelTeamAPanel);
         }
     }
     protected override void onPointExit()
     {
         planetDetailImage.color = Color.white;
-        //Destroy(blankPersonnelDragOver, 0.01f);
+        Destroy(blankPersonnelDragOver, 0.01f);
     }
     protected override void onDrop(GameObject pointerDrag)
     {
         planetDetailImage.color = Color.white;
-        //Destroy(blankPersonnelDragOver, 0.01f);
-        PersonnelListItem personnelListItem = pointerDrag.GetComponent<PersonnelListItem>();
+        Destroy(blankPersonnelDragOver, 0.01f);
+        PersonnelListItem2 personnelListItem = pointerDrag.GetComponent<PersonnelListItem2>();
         if (personnelListItem.getLocatedOnShip())
         {
             Personnel personnel = personnelListItem.getPersonnel();
