@@ -12,7 +12,7 @@ public class ShipContentsAndMovePanel : DragAndDroppable
     public GameObject personnelListItemPrefab;
     public Image shipImg;
     public Image backgroundImage;
-    public PlanetDetail planetDetail;
+    public PlanetDetail2 planetDetail;
 
     private Ship ship;
 
