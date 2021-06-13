@@ -1,11 +1,11 @@
 using UnityEngine;
 using System.Collections.Generic;
 
-public class AllPersonnelUpdater : MonoBehaviour
+public class AllPersonnelUpdater
 {
     private MainGameState gameState;
 
-    void Start()
+    public AllPersonnelUpdater()
     {
         gameState = MainGameState.gameState;
         gameState.addListenerAgentPlanEvent(onAgentPlanEvent);

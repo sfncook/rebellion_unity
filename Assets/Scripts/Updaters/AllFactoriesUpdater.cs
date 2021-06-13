@@ -1,10 +1,10 @@
 using UnityEngine;
 
-public class AllFactoriesUpdater : MonoBehaviour
+public class AllFactoriesUpdater
 {
     private MainGameState gameState;
 
-    void Start()
+    public AllFactoriesUpdater()
     {
         gameState = MainGameState.gameState;
         gameState.addPreDayPrepEvent(onPreDayPrepEvent);

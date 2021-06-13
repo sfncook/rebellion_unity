@@ -53,12 +53,16 @@ public class MainGameState : MonoBehaviour
 
     private float timerSec = 0.0f;
 
+    // Updaters
+    private AllShipsUpdater allShipsUpdater = new AllShipsUpdater();
+
     void Awake()
     {
         if(gameState == null) {
             DontDestroyOnLoad(gameObject);
             gameState = this;
-            initializeGameState();
+            //initializeGameState();
+            allShipsUpdater.init();
         }
         else if(gameState != this)
         {

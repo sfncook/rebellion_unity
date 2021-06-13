@@ -1,11 +1,11 @@
 using UnityEngine;
 using System.Collections.Generic;
 
-public class AllShipsUpdater : MonoBehaviour
+public class AllDefenseUpdater
 {
     private MainGameState gameState;
 
-    void Start()
+    public AllDefenseUpdater()
     {
         gameState = MainGameState.gameState;
         gameState.addListenerAgentPlanEvent(onAgentPlanEvent);
@@ -18,15 +18,13 @@ public class AllShipsUpdater : MonoBehaviour
 
     }
 
-    // 3. - Battles takes place
-    //    - pieces take damage
     public void onAgentActionEvent()
     {
         foreach (Planet planet in gameState.planets)
         {
-            foreach (Ship ship in planet.shipsInOrbit)
+            foreach (Defense defense in planet.defenses)
             {
-                ShipUpdater.performAttackActions(planet, ship);
+                DefenseUpdater.performAttackActions(planet, defense);
             }
         }
     }
@@ -35,18 +33,17 @@ public class AllShipsUpdater : MonoBehaviour
     {
         foreach (Planet planet in gameState.planets)
         {
-            List<Ship> shipsToDelete = new List<Ship>();
-            foreach (Ship ship in planet.shipsInOrbit)
+            List<Defense> defensesToDelete = new List<Defense>();
+            foreach (Defense defense in planet.defenses)
             {
-                if (ship.health<=0)
+                if (defense.health <= 0)
                 {
-                    shipsToDelete.Add(ship);
+                    defensesToDelete.Add(defense);
                 }
             }
-            foreach(Ship shipToDelete in shipsToDelete)
+            foreach (Defense defenseToDelete in defensesToDelete)
             {
-                //Debug.Log("Ship destroyed:"+shipToDelete.type.name+" team:"+shipToDelete.team);
-                planet.shipsInOrbit.Remove(shipToDelete);
+                planet.defenses.Remove(defenseToDelete);
             }
         }
     }

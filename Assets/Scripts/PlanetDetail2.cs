@@ -65,6 +65,8 @@ public class PlanetDetail2 : MonoBehaviour
         planetShieldImg.gameObject.SetActive(hasOrbitalShield);
         loyaltyBars.setValue(planet.loyalty);
         updateGrid();
+
+        gameState.addListenerUiUpdateEvent(updateGrid);
     }
 
     void FixedUpdate()

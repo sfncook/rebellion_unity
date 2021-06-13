@@ -1,9 +1,9 @@
 ﻿public class ShipType : AbstractType
 {
-    public static ShipType Bireme = new ShipType("Bireme", 2, 2, 2, false, 4, 0);
-    public static ShipType Trireme = new ShipType("Trireme", 3, 3, 3, false, 6, 1);
-    public static ShipType Quadreme = new ShipType("Quadreme", 4, 4, 4, false, 8, 2);
-    public static ShipType Quintreme = new ShipType("Quintreme", 2, 2, 3, true, 4, 2);
+    public static ShipType Bireme = new ShipType("Bireme", 2, 2, 2, false, 4, 1);
+    public static ShipType Trireme = new ShipType("Trireme", 3, 3, 3, false, 6, 2);
+    public static ShipType Quadreme = new ShipType("Quadreme", 4, 4, 4, false, 8, 3);
+    public static ShipType Quintreme = new ShipType("Quintreme", 5, 5, 5, true, 10, 4);
 
     public readonly int personnelCapacity;
     public readonly int attackStrength;     // out of 10

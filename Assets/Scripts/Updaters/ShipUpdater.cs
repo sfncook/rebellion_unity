@@ -6,7 +6,8 @@ public class ShipUpdater : MonoBehaviour
 {
     public static void performAttackActions(Planet planet, Ship ship)
     {
-        List<Ship> enemyShips = new List<Ship>();
+        //Debug.Log("performAttackActions");
+        List <Ship> enemyShips = new List<Ship>();
         foreach(Ship otherShip in planet.shipsInOrbit)
         {
             if(!otherShip.team.Equals(ship.team))
@@ -26,7 +27,7 @@ public class ShipUpdater : MonoBehaviour
                 float defenseValue = UnityEngine.Random.Range(0.0f, (float) enemyShipType.defenseStrength);
                 float damage = Math.Max(attackValue - defenseValue, 0);
                 enemyShipToAttack.health -= damage;
-                //Debug.Log("Ship damage offense:"+ship.type.name+" defense:"+enemyShipToAttack.type.name+" health:"+enemyShipToAttack.health+" damage:"+damage+" enemyTeam:"+enemyShipToAttack.team);
+                Debug.Log(planet.name+" Ship damage offense:" + ship.type.name + " defense:" + enemyShipToAttack.type.name + " health:" + enemyShipToAttack.health + " damage:" + damage + " offenseTeam:" + ship.team + " defenseTeam:" + enemyShipToAttack.team);
             }
         }
     }// performAttackActions
