@@ -1,8 +1,8 @@
 ﻿public class PersonnelType : AbstractType
 {
-    public static PersonnelType Soldiers = new PersonnelType("Soldiers", false, totalManyPeople: 10, canAttack:true, attackAccuracyPerc: 50, defenseModifier: 10);
-    public static PersonnelType Diplomat = new PersonnelType("Diplomat", false, totalManyPeople: 1, canAttack: false);
-    public static PersonnelType Spy = new PersonnelType("Spy", true, totalManyPeople: 1, canAttack: false);
+    public static PersonnelType Soldiers = new PersonnelType("Soldiers", isStealth:false, totalManyPeople:10, canAttack:true, attackAccuracyPerc: 50, defenseModifier: 10);
+    public static PersonnelType Diplomat = new PersonnelType("Diplomat", isStealth: false, totalManyPeople:1, canAttack:false);
+    public static PersonnelType Spy = new PersonnelType("Spy", isStealth: true, totalManyPeople:1, canAttack:false);
 
     public readonly bool isStealth;
     public readonly bool isMultiple;

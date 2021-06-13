@@ -45,7 +45,7 @@ public class AllShipsUpdater
                 List<Ship> shipsToDelete = new List<Ship>();
                 foreach (Ship ship in planet.shipsInOrbit)
                 {
-                    Debug.Log(planet.name+" "+ship.team+" "+ship.type.name+" health:"+ship.health);
+                    //Debug.Log(planet.name+" "+ship.team+" "+ship.type.name+" health:"+ship.health);
                     if (ship.health <= 0)
                     {
                         shipsToDelete.Add(ship);

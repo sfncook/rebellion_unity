@@ -5,7 +5,7 @@ public class AllPersonnelUpdater
 {
     private MainGameState gameState;
 
-    public AllPersonnelUpdater()
+    public void init()
     {
         gameState = MainGameState.gameState;
         gameState.addListenerAgentPlanEvent(onAgentPlanEvent);
@@ -22,36 +22,42 @@ public class AllPersonnelUpdater
     //    - pieces take damage
     public void onAgentActionEvent()
     {
-        foreach (Planet planet in gameState.planets)
+        foreach (StarSector sector in gameState.galaxy.sectors)
         {
-            foreach (Personnel personnel in planet.personnelsOnSurface)
+            foreach (Planet planet in sector.planets)
             {
-                PersonnelUpdater.performAttackActions(planet, personnel);
+                foreach (Personnel personnel in planet.personnelsOnSurface)
+                {
+                    PersonnelUpdater.performAttackActions(planet, personnel);
+                }
             }
         }
     }
 
     public void onPostCleanupEvent()
     {
-        foreach (Planet planet in gameState.planets)
+        foreach (StarSector sector in gameState.galaxy.sectors)
         {
-            List<Personnel> personnelToDelete = new List<Personnel>();
-            foreach (Personnel personnel in planet.personnelsOnSurface)
+            foreach (Planet planet in sector.planets)
             {
-                if (personnel.manyPeopleDead>0)
+                List<Personnel> personnelToDelete = new List<Personnel>();
+                foreach (Personnel personnel in planet.personnelsOnSurface)
                 {
-                    personnel.manyPeople -= personnel.manyPeopleDead;
-                    personnel.manyPeopleDead = 0;
+                    if (personnel.manyPeopleDead > 0)
+                    {
+                        personnel.manyPeople -= personnel.manyPeopleDead;
+                        personnel.manyPeopleDead = 0;
+                    }
+                    if (personnel.manyPeople <= 0)
+                    {
+                        personnelToDelete.Add(personnel);
+                    }
                 }
-                if(personnel.manyPeople <= 0)
+                foreach (Personnel personnelToDelete_ in personnelToDelete)
                 {
-                    personnelToDelete.Add(personnel);
+                    Debug.Log(planet.name + " Personnel destroyed:" + personnelToDelete_.type.name + " team:" + personnelToDelete_.team);
+                    planet.personnelsOnSurface.Remove(personnelToDelete_);
                 }
-            }
-            foreach(Personnel personnelToDelete_ in personnelToDelete)
-            {
-                Debug.Log("Personnel destroyed:"+ personnelToDelete_.type.name+" team:"+ personnelToDelete_.team);
-                planet.personnelsOnSurface.Remove(personnelToDelete_);
             }
         }
     }

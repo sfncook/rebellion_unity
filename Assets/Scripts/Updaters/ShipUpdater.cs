@@ -27,7 +27,7 @@ public class ShipUpdater : MonoBehaviour
                 float defenseValue = UnityEngine.Random.Range(0.0f, (float) enemyShipType.defenseStrength);
                 float damage = Math.Max(attackValue - defenseValue, 0);
                 enemyShipToAttack.health -= damage;
-                Debug.Log(planet.name+" Ship damage offense:" + ship.type.name + " defense:" + enemyShipToAttack.type.name + " health:" + enemyShipToAttack.health + " damage:" + damage + " offenseTeam:" + ship.team + " defenseTeam:" + enemyShipToAttack.team);
+                //Debug.Log(planet.name+" Ship damage offense:" + ship.type.name + " defense:" + enemyShipToAttack.type.name + " health:" + enemyShipToAttack.health + " damage:" + damage + " offenseTeam:" + ship.team + " defenseTeam:" + enemyShipToAttack.team);
             }
         }
     }// performAttackActions

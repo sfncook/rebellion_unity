@@ -55,6 +55,7 @@ public class MainGameState : MonoBehaviour
 
     // Updaters
     private AllShipsUpdater allShipsUpdater = new AllShipsUpdater();
+    private AllPersonnelUpdater allPersonnelUpdater = new AllPersonnelUpdater();
 
     void Awake()
     {
@@ -63,6 +64,7 @@ public class MainGameState : MonoBehaviour
             gameState = this;
             //initializeGameState();
             allShipsUpdater.init();
+            allPersonnelUpdater.init();
         }
         else if(gameState != this)
         {
