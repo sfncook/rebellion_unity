@@ -71,7 +71,7 @@ public class ShipContentsAndMovePanel : DragAndDroppable
     }
     protected override bool isDroppable()
     {
-        return ship.team.Equals(MainGameState.gameState.myTeam);
+        return true;
     }
 
     protected override List<string> acceptedDropTypes()

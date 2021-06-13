@@ -215,7 +215,6 @@ public class PlanetDetail2 : MonoBehaviour
     {
         ShipListItem2 shipListItem = pointerDrag.GetComponent<ShipListItem2>();
         Ship ship = shipListItem.getShip();
-        Debug.Log("Drop " + ship.type.name + " destPlanet:" + destPlanet.name);
         planet.shipsInOrbit.Remove(ship);
         destPlanet.shipsInOrbit.Add(ship);
         updateShipGrids();
