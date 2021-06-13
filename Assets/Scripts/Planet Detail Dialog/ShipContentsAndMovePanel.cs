@@ -2,6 +2,7 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
 using System.Collections.Generic;
+using System.Linq;
 
 public class ShipContentsAndMovePanel : DragAndDroppable
 {
@@ -76,16 +77,19 @@ public class ShipContentsAndMovePanel : DragAndDroppable
 
     protected override List<string> acceptedDropTypes()
     {
-        return new List<string>() { "PersonnelListItem" };
+        return new List<string>() { "PersonnelListItem2" };
     }
     protected override void onDrop(GameObject pointerDrag)
     {
         backgroundImage.color = Color.black;
         PersonnelListItem2 personnelListItem = pointerDrag.GetComponent<PersonnelListItem2>();
         Personnel personnel = personnelListItem.getPersonnel();
-        ship.personnelsOnBoard.Add(personnel);
-        planetDetail.removePersonnel(personnel);
-        updateGrid();
+        if (!ship.personnelsOnBoard.Any(_personnel => _personnel.uuid == personnel.uuid))
+        {
+            ship.personnelsOnBoard.Add(personnel);
+            planetDetail.removePersonnel(personnel);
+            updateGrid();
+        }
     }
     protected override void onPointEnter(GameObject pointerDrag)
     {
