@@ -1047,7 +1047,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 0.6}
-  m_AnchoredPosition: {x: 0, y: -439.00003}
+  m_AnchoredPosition: {x: 0, y: -439}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &486861325
@@ -3458,7 +3458,7 @@ MonoBehaviour:
   personnelTeamBPanel: {fileID: 1214344646}
   planetDetailImage: {fileID: 486861325}
   personnelListItemPrefab: {fileID: 2744791615758098042, guid: a71b23225b23b47ebbf587e06cc03036, type: 3}
-  shipContentsAndMovePanel: {fileID: 0}
+  shipContentsAndMovePanel: {fileID: 1752620124}
 --- !u!1001 &1715948980
 PrefabInstance:
   m_ObjectHideFlags: 0

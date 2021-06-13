@@ -54,6 +54,8 @@ public class PlanetDetail2 : MonoBehaviour
         //factoryDialog.gameObject.SetActive(false);
         //factoryStatusDialog.gameObject.SetActive(false);
 
+        onSurfacePanel.setUpdateShipGrids(updateShipGrids);
+
         gameState = MainGameState.gameState;
         planet = gameState.planetForDetail;
         planetImg.sprite = Resources.Load<Sprite>("Images/Planets/" + planet.name);
@@ -85,7 +87,6 @@ public class PlanetDetail2 : MonoBehaviour
     {
 
         onSurfacePanel.setPlanet(planet);
-        //onSurfacePanel.setUpdateShipGrids(updateShipGrids);
         updateShipGrids();
 
         clearPanel(infrastructurePanel);
