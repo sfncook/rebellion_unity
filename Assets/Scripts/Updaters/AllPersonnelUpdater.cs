@@ -55,7 +55,7 @@ public class AllPersonnelUpdater
                 }
                 foreach (Personnel personnelToDelete_ in personnelToDelete)
                 {
-                    Debug.Log(planet.name + " Personnel destroyed:" + personnelToDelete_.type.name + " team:" + personnelToDelete_.team);
+                    //Debug.Log(planet.name + " Personnel destroyed:" + personnelToDelete_.type.name + " team:" + personnelToDelete_.team);
                     planet.personnelsOnSurface.Remove(personnelToDelete_);
                 }
             }

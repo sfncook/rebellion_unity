@@ -4,7 +4,7 @@ public class AllFactoriesUpdater
 {
     private MainGameState gameState;
 
-    public AllFactoriesUpdater()
+    public void init()
     {
         gameState = MainGameState.gameState;
         gameState.addPreDayPrepEvent(onPreDayPrepEvent);
@@ -12,11 +12,14 @@ public class AllFactoriesUpdater
 
     public void onPreDayPrepEvent()
     {
-        foreach (Planet planet in gameState.planets)
+        foreach (StarSector sector in gameState.galaxy.sectors)
         {
-            foreach (Factory factory in planet.factories)
+            foreach (Planet planet in sector.planets)
             {
-                FactoryUpdater.updateBuilds(factory);
+                foreach (Factory factory in planet.factories)
+                {
+                    FactoryUpdater.updateBuilds(factory);
+                }
             }
         }
     }

@@ -53,7 +53,7 @@ public class AllShipsUpdater
                 }
                 foreach (Ship shipToDelete in shipsToDelete)
                 {
-                    Debug.Log(planet.name+" Ship destroyed:" + shipToDelete.type.name + " team:" + shipToDelete.team);
+                    //Debug.Log(planet.name+" Ship destroyed:" + shipToDelete.type.name + " team:" + shipToDelete.team);
                     planet.shipsInOrbit.Remove(shipToDelete);
                 }
             }

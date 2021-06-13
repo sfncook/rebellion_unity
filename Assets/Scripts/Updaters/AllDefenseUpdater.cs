@@ -5,7 +5,7 @@ public class AllDefenseUpdater
 {
     private MainGameState gameState;
 
-    public AllDefenseUpdater()
+    public void init()
     {
         gameState = MainGameState.gameState;
         gameState.addListenerAgentPlanEvent(onAgentPlanEvent);
@@ -20,30 +20,36 @@ public class AllDefenseUpdater
 
     public void onAgentActionEvent()
     {
-        foreach (Planet planet in gameState.planets)
+        foreach (StarSector sector in gameState.galaxy.sectors)
         {
-            foreach (Defense defense in planet.defenses)
+            foreach (Planet planet in sector.planets)
             {
-                DefenseUpdater.performAttackActions(planet, defense);
+                foreach (Defense defense in planet.defenses)
+                {
+                    DefenseUpdater.performAttackActions(planet, defense);
+                }
             }
         }
     }
 
     public void onPostCleanupEvent()
     {
-        foreach (Planet planet in gameState.planets)
+        foreach (StarSector sector in gameState.galaxy.sectors)
         {
-            List<Defense> defensesToDelete = new List<Defense>();
-            foreach (Defense defense in planet.defenses)
+            foreach (Planet planet in sector.planets)
             {
-                if (defense.health <= 0)
+                List<Defense> defensesToDelete = new List<Defense>();
+                foreach (Defense defense in planet.defenses)
                 {
-                    defensesToDelete.Add(defense);
+                    if (defense.health <= 0)
+                    {
+                        defensesToDelete.Add(defense);
+                    }
                 }
-            }
-            foreach (Defense defenseToDelete in defensesToDelete)
-            {
-                planet.defenses.Remove(defenseToDelete);
+                foreach (Defense defenseToDelete in defensesToDelete)
+                {
+                    planet.defenses.Remove(defenseToDelete);
+                }
             }
         }
     }
