@@ -45,7 +45,7 @@ public class ShipContentsAndMovePanel : DragAndDroppable
         foreach (Personnel personnel in ship.personnelsOnBoard)
         {
             newObj = (GameObject)Instantiate(personnelListItemPrefab, shipContentsGrid);
-            PersonnelListItem personnelListItem = newObj.GetComponent<PersonnelListItem>();
+            PersonnelListItem2 personnelListItem = newObj.GetComponent<PersonnelListItem2>();
             personnelListItem.setPersonnel(personnel);
             personnelListItem.setCanvas(canvas);
             personnelListItem.setLocatedOnShip(true);
@@ -81,7 +81,7 @@ public class ShipContentsAndMovePanel : DragAndDroppable
     protected override void onDrop(GameObject pointerDrag)
     {
         backgroundImage.color = Color.black;
-        PersonnelListItem personnelListItem = pointerDrag.GetComponent<PersonnelListItem>();
+        PersonnelListItem2 personnelListItem = pointerDrag.GetComponent<PersonnelListItem2>();
         Personnel personnel = personnelListItem.getPersonnel();
         ship.personnelsOnBoard.Add(personnel);
         planetDetail.removePersonnel(personnel);
