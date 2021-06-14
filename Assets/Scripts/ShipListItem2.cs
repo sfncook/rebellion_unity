@@ -26,7 +26,7 @@ public class ShipListItem2 : DragAndDroppable
     public void setShip(Ship ship)
     {
         this.ship = ship;
-        shipImg.sprite = Resources.Load<Sprite>("Images/Ships/" + ship.type.name);
+        shipImg.sprite = Resources.Load<Sprite>("Images/Ships/" + ship.type.name + "_flat");
         hasPersonnelImg.gameObject.SetActive(ship.personnelsOnBoard.Count > 0);
 
         if (ship.team.Equals(Team.TeamA))
