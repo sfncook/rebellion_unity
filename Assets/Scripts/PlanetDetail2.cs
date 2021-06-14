@@ -197,13 +197,11 @@ public class PlanetDetail2 : MonoBehaviour
         {
             if (factory.isBuilding)
             {
-                factoryStatusDialog.setFactory(factory);
-                factoryStatusDialog.show();
+                gameState.factoryForDetail = factory;
+                SceneManager.LoadScene("Factory Status Dialog 2");
             }
             else
             {
-                //factoryDialog.setFactory(factory);
-                //factoryDialog.show();
                 gameState.factoryForDetail = factory;
                 SceneManager.LoadScene("Factory Build Dialog 2");
             }

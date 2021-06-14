@@ -26,4 +26,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Factory Build Dialog 2.unity
     guid: cc1a70a4f9ca6409e965ad500ab0d93c
+  - enabled: 1
+    path: Assets/Scenes/Factory Status Dialog 2.unity
+    guid: bdc55c4ec9b274c5d89e9a1cd774f6a0
   m_configObjects: {}
