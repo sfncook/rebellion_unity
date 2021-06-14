@@ -12,9 +12,43 @@ public abstract class DragAndDroppable : MonoBehaviour,
     private CanvasGroup canvasGroup;
     private Vector2 origin;
     private float originalZorder;
+    protected const float HOVER_TIMER_DUR_SEC = 0.8f;
+    protected bool isHovering = false;
+    protected float hoverTimerSec;
 
-    protected abstract bool isDraggable();
-    protected abstract bool isDroppable();
+
+    void FixedUpdate()
+    {
+        if (isHovering)
+        {
+            if (hoverTimerSec <= 0.0f)
+            {
+                hoverTimerSec = HOVER_TIMER_DUR_SEC;
+                onHoverTimerExpire();
+            }
+            else
+            {
+                hoverTimerSec -= Time.deltaTime;
+                //Debug.Log("hoverTimerSec:" + hoverTimerSec + " Time.deltaTime:"+ Time.deltaTime);
+            }
+        }
+    }
+
+    protected void _FixedUpdate()
+    {
+        FixedUpdate();
+    }
+
+    protected virtual bool isDraggable()
+    {
+        // Override as-needed
+        return false;
+    }
+    protected virtual bool isDroppable()
+    {
+        // Override as-needed
+        return false;
+    }
 
     protected virtual List<string> acceptedDropTypes()
     {
@@ -38,6 +72,18 @@ public abstract class DragAndDroppable : MonoBehaviour,
         // Override as-needed
     }
     protected virtual void onDragStop()
+    {
+        // Override as-needed
+    }
+    protected virtual void onHoverStart()
+    {
+        // Override as-needed
+    }
+    protected virtual void onHoverStop()
+    {
+        // Override as-needed
+    }
+    protected virtual void onHoverTimerExpire()
     {
         // Override as-needed
     }
@@ -80,6 +126,7 @@ public abstract class DragAndDroppable : MonoBehaviour,
 
     void IEndDragHandler.OnEndDrag(PointerEventData eventData)
     {
+        isHovering = false;
         if (isDraggable())
         {
             canvasGroup.alpha = 1.0f;
@@ -96,7 +143,8 @@ public abstract class DragAndDroppable : MonoBehaviour,
 
     void IDropHandler.OnDrop(PointerEventData eventData)
     {
-        if(isDroppable())
+        isHovering = false;
+        if (isDroppable())
         {
             GameObject dragging = getDraggingObject(eventData);
             if (dragging != null)
@@ -110,6 +158,7 @@ public abstract class DragAndDroppable : MonoBehaviour,
 
     void IPointerExitHandler.OnPointerExit(PointerEventData eventData)
     {
+        isHovering = false;
         if (isDroppable())
         {
             if (eventData.dragging)
@@ -128,6 +177,8 @@ public abstract class DragAndDroppable : MonoBehaviour,
                 GameObject dragging = getDraggingObject(eventData);
                 if (dragging != null)
                 {
+                    isHovering = true;
+                    hoverTimerSec = HOVER_TIMER_DUR_SEC;
                     onPointEnter(dragging);
                 }
             }

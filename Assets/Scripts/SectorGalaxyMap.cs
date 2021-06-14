@@ -1,15 +1,17 @@
 using System;
 using UnityEngine;
 using UnityEngine.Events;
+using System.Collections.Generic;
 
 [System.Serializable]
 public class OnClickSector: UnityEvent<StarSector>
 {
 }
 
-public class SectorGalaxyMap : MonoBehaviour
+public class SectorGalaxyMap : DragAndDroppable
 {
     public GameObject planetPrefab;
+    public bool isHoverable = false;
 
     private OnClickSector onClickSectorEvent;
     private StarSector sector;
@@ -40,5 +42,15 @@ public class SectorGalaxyMap : MonoBehaviour
     private void OnMouseUp()
     {
         onClickSectorEvent.Invoke(sector);
+    }
+
+    protected override List<string> acceptedDropTypes()
+    {
+        return new List<string>() { "ShipListItem2" };
+    }
+
+    protected override bool isDroppable()
+    {
+        return true;
     }
 }
