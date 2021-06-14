@@ -35,7 +35,7 @@ public class PlanetDetail2 : MonoBehaviour
     public Canvas canvas;
 
     public GameObject detailPanel;
-    public FactoryDialog factoryDialog;
+    //public FactoryDialog factoryDialog;
     public FactoryStatusDialog factoryStatusDialog;
 
     public HeaderControls headerControls;
@@ -52,7 +52,7 @@ public class PlanetDetail2 : MonoBehaviour
     {
         detailPanel.SetActive(true);
         //factoryDialog.gameObject.SetActive(false);
-        //factoryStatusDialog.gameObject.SetActive(false);
+        factoryStatusDialog.gameObject.SetActive(false);
 
         onSurfacePanel.setUpdateShipGrids(updateShipGrids);
 
@@ -111,7 +111,7 @@ public class PlanetDetail2 : MonoBehaviour
             newObj = (GameObject)Instantiate(factoryListItemPrefab, infrastructurePanel);
             FactoryListItem2 factoryListItem = newObj.GetComponent<FactoryListItem2>();
             factoryListItem.setFactory(factory, Team.TeamA);
-            //factoryListItem.setOnClickFactoryHandler(onClickFactory);
+            factoryListItem.setOnClickFactoryHandler(onClickFactory);
         }
 
         int manyFacilities = planet.factories.Count + planet.defenses.Count;
@@ -173,40 +173,42 @@ public class PlanetDetail2 : MonoBehaviour
         infrastructurePanel.gameObject.SetActive(true);
     }
 
-    //public void assignFactoryBuildCommand(Factory factory, AbstractType type)
-    //{
-    //    factory.isBuilding = true;
-    //    factory.buildingType = type;
-    //    factory.buildingDoneDay = gameState.gameTime + type.daysToBuild;
-    //    updateGrid();
-    //}
+    public void assignFactoryBuildCommand(Factory factory, AbstractType type)
+    {
+        factory.isBuilding = true;
+        factory.buildingType = type;
+        factory.buildingDoneDay = gameState.gameTime + type.daysToBuild;
+        updateGrid();
+    }
 
-    //public void cancelFactoryBuildCommand(Factory factory)
-    //{
-    //    factory.isBuilding = false;
-    //    factory.buildingType = null;
-    //    updateGrid();
-    //    detailPanel.SetActive(true);
-    //    factoryDialog.gameObject.SetActive(false);
-    //    factoryStatusDialog.gameObject.SetActive(false);
-    //}
+    public void cancelFactoryBuildCommand(Factory factory)
+    {
+        factory.isBuilding = false;
+        factory.buildingType = null;
+        updateGrid();
+        detailPanel.SetActive(true);
+        //factoryDialog.gameObject.SetActive(false);
+        factoryStatusDialog.gameObject.SetActive(false);
+    }
 
-    //public void onClickFactory(Factory factory)
-    //{
-    //    if (planet.loyalty < 0.5f)
-    //    {
-    //        if (factory.isBuilding)
-    //        {
-    //            factoryStatusDialog.setFactory(factory);
-    //            factoryStatusDialog.show();
-    //        }
-    //        else
-    //        {
-    //            factoryDialog.setFactory(factory);
-    //            factoryDialog.show();
-    //        }
-    //    }
-    //}
+    public void onClickFactory(Factory factory)
+    {
+        if (planet.loyalty < 0.5f)
+        {
+            if (factory.isBuilding)
+            {
+                factoryStatusDialog.setFactory(factory);
+                factoryStatusDialog.show();
+            }
+            else
+            {
+                //factoryDialog.setFactory(factory);
+                //factoryDialog.show();
+                gameState.factoryForDetail = factory;
+                SceneManager.LoadScene("Factory Build Dialog 2");
+            }
+        }
+    }
 
     public void onClickBackButton()
     {

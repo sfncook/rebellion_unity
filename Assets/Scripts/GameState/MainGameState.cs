@@ -51,6 +51,10 @@ public class MainGameState : MonoBehaviour
     [HideInInspector]
     public Planet planetForDetail;
 
+    // Factory Dialog(s)
+    [HideInInspector]
+    public Factory factoryForDetail;
+
     private float timerSec = 0.0f;
 
     // Updaters

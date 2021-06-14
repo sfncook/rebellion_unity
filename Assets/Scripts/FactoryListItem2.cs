@@ -6,6 +6,9 @@ public class FactoryListItem2 : MonoBehaviour
     public Image factoryImg;
     public Image backgroundImg;
 
+    public delegate void OnClickFactoryHandler(Factory factory);
+    private OnClickFactoryHandler onClickFactoryHandler;
+
     private Factory factory;
 
     public void setFactory(Factory factory, Team team)
@@ -21,5 +24,15 @@ public class FactoryListItem2 : MonoBehaviour
         {
             backgroundImg.color = Color.red;
         }
+    }
+
+    public void setOnClickFactoryHandler(OnClickFactoryHandler onClickFactoryHandler)
+    {
+        this.onClickFactoryHandler = onClickFactoryHandler;
+    }
+
+    private void OnMouseUp()
+    {
+        onClickFactoryHandler(factory);
     }
 }
