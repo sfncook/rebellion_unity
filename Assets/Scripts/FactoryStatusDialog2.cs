@@ -17,29 +17,41 @@ public class FactoryStatusDialog2 : MonoBehaviour
     void Start()
     {
         factory = MainGameState.gameState.factoryForDetail;
+        updateStatus();
+        MainGameState.gameState.addListenerUiUpdateEvent(updateStatus);
+    }
+
+    private void updateStatus()
+    {
         headerControls.setHeaderTitle(factory.type.name);
 
-        buildTypeText.text = factory.buildingType.name;
-        dayCompleteText.text = factory.buildingDoneDay.ToString();
-        daysRemainingText.text = (factory.buildingDoneDay - MainGameState.gameState.gameTime).ToString();
-
-        string path = "";
-        switch (factory.buildingType.typeCategory)
+        if(factory.isBuilding)
         {
-            case TypeCategory.Defense:
-                path = "Images/Defenses/";
-                break;
-            case TypeCategory.Factory:
-                path = "Images/Factories/";
-                break;
-            case TypeCategory.Personnel:
-                path = "Images/Personnel/";
-                break;
-            case TypeCategory.Ship:
-                path = "Images/Ships/";
-                break;
+            buildTypeText.text = factory.buildingType.name;
+            dayCompleteText.text = factory.buildingDoneDay.ToString();
+            daysRemainingText.text = (factory.buildingDoneDay - MainGameState.gameState.gameTime).ToString();
+
+            string path = "";
+            switch (factory.buildingType.typeCategory)
+            {
+                case TypeCategory.Defense:
+                    path = "Images/Defenses/";
+                    break;
+                case TypeCategory.Factory:
+                    path = "Images/Factories/";
+                    break;
+                case TypeCategory.Personnel:
+                    path = "Images/Personnel/";
+                    break;
+                case TypeCategory.Ship:
+                    path = "Images/Ships/";
+                    break;
+            }
+            buildTypeImg.sprite = Resources.Load<Sprite>(path + factory.buildingType.name);
+        } else
+        {
+            SceneManager.LoadScene("Factory Build Dialog 2");
         }
-        buildTypeImg.sprite = Resources.Load<Sprite>(path + factory.buildingType.name);
     }
 
     public void onClickBackButton()
