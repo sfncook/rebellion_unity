@@ -48,7 +48,7 @@ public class FactoryBuildDialog2 : MonoBehaviour
         SceneManager.LoadScene("Planet Detail 2");
     }
 
-    private void onClickBuild()
+    public void onClickBuild()
     {
         AbstractType type = selectedCatalogListItem.getType();
         factory.isBuilding = true;
@@ -62,7 +62,7 @@ public class FactoryBuildDialog2 : MonoBehaviour
     {
         this.selectedCatalogListItem = selectedCatalogListItem;
 
-        CatalogListItem[] catalogListItems = GetComponentsInChildren<CatalogListItem>();
+        CatalogListItem[] catalogListItems = grid.GetComponentsInChildren<CatalogListItem>();
         foreach (CatalogListItem catalogListItem in catalogListItems)
         {
             if (catalogListItem.Equals(this.selectedCatalogListItem))

@@ -5,6 +5,7 @@ public class FactoryListItem2 : MonoBehaviour
 {
     public Image factoryImg;
     public Image backgroundImg;
+    public Image factoryIsWorkingIcon;
 
     public delegate void OnClickFactoryHandler(Factory factory);
     private OnClickFactoryHandler onClickFactoryHandler;
@@ -14,6 +15,7 @@ public class FactoryListItem2 : MonoBehaviour
     public void setFactory(Factory factory, Team team)
     {
         this.factory = factory;
+        factoryIsWorkingIcon.gameObject.SetActive(factory.isBuilding);
 
         factoryImg.sprite = Resources.Load<Sprite>("Images/Factories/" + factory.type.name);
         if (team.Equals(Team.TeamA))
@@ -34,5 +36,13 @@ public class FactoryListItem2 : MonoBehaviour
     private void OnMouseUp()
     {
         onClickFactoryHandler(factory);
+    }
+
+    private void FixedUpdate()
+    {
+        if(factory.isBuilding)
+        {
+            factoryIsWorkingIcon.transform.Rotate(Vector3.forward * (Time.deltaTime * 180.0f));
+        }
     }
 }
