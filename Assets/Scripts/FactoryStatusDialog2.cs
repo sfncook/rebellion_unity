@@ -10,6 +10,7 @@ public class FactoryStatusDialog2 : MonoBehaviour
     public Image buildTypeImg;
     public TextMeshProUGUI dayCompleteText;
     public TextMeshProUGUI daysRemainingText;
+    public Image factoryIsWorkingIcon;
 
     private Factory factory;
 
@@ -53,6 +54,11 @@ public class FactoryStatusDialog2 : MonoBehaviour
         factory.buildingType = null;
         MainGameState.gameState.factoryForDetail = null;
         SceneManager.LoadScene("Planet Detail 2");
+    }
+
+    private void FixedUpdate()
+    {
+        factoryIsWorkingIcon.transform.Rotate(Vector3.forward * (Time.deltaTime * 180.0f));
     }
 
 }
