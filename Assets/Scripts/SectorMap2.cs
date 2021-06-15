@@ -17,6 +17,7 @@ public class SectorMap2 : MonoBehaviour
         this.sector = sector;
         starsBackgroundImg.sprite = Resources.Load<Sprite>("Images/Stars/" + sector.name);
 
+        clearPanel();
         foreach (Planet planet in sector.planets)
         {
             instantiatePlanet(planet);
@@ -37,5 +38,13 @@ public class SectorMap2 : MonoBehaviour
         planetMap2.setOnClickPlanetEvent(onClickPlanetEvent);
         planetMap2.setDropGameObjectOnPlanet(dropGameObjectOnPlanet);
         planetMap2.setPlanet(planet);
+    }
+
+    private void clearPanel()
+    {
+        foreach (Transform child in transform)
+        {
+            GameObject.Destroy(child.gameObject);
+        }
     }
 }

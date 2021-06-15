@@ -23,7 +23,7 @@ public abstract class DragAndDroppable : MonoBehaviour,
         {
             if (hoverTimerSec <= 0.0f)
             {
-                hoverTimerSec = HOVER_TIMER_DUR_SEC;
+                isHovering = false;
                 onHoverTimerExpire();
             }
             else
@@ -200,5 +200,10 @@ public abstract class DragAndDroppable : MonoBehaviour,
             }
         }
         return null;
+    }
+
+    protected void resetHoverState()
+    {
+        isHovering = false;
     }
 }

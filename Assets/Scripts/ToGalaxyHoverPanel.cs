@@ -19,6 +19,7 @@ public class ToGalaxyHoverPanel : DragAndDroppable
 
     protected override void onHoverTimerExpire()
     {
+        resetHoverState();
         gameObject.SetActive(false);
         galaxyMap.SetActive(true);
         sectorMap.SetActive(false);

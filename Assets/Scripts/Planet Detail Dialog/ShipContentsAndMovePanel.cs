@@ -21,7 +21,7 @@ public class ShipContentsAndMovePanel : DragAndDroppable
     {
         this.ship = ship;
         shipTypeNameLabel.text = ship.type.name;
-        shipImg.sprite = Resources.Load<Sprite>("Images/Ships/" + ship.type.name);
+        shipImg.sprite = Resources.Load<Sprite>("Images/Ships/" + ship.type.name +"_flat");
 
         updateGrid();
 

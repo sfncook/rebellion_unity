@@ -1,7 +1,8 @@
-using System;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.Events;
 using System.Collections.Generic;
+using TMPro;
 
 [System.Serializable]
 public class OnClickSector: UnityEvent<StarSector>
@@ -10,8 +11,12 @@ public class OnClickSector: UnityEvent<StarSector>
 
 public class SectorGalaxyMap : DragAndDroppable
 {
+    public TextMeshProUGUI sectorNameText;
     public GameObject planetPrefab;
     public bool isHoverable = false;
+    public SectorMap2 sectorMap;
+    public GameObject galaxyMap;
+    public GameObject toGalaxyHoverPanel;
 
     private OnClickSector onClickSectorEvent;
     private StarSector sector;
@@ -19,6 +24,7 @@ public class SectorGalaxyMap : DragAndDroppable
     public void setSector(StarSector sector)
     {
         this.sector = sector;
+        sectorNameText.text = sector.name;
         updateStars();
     }
 
@@ -52,5 +58,34 @@ public class SectorGalaxyMap : DragAndDroppable
     protected override bool isDroppable()
     {
         return true;
+    }
+
+    protected override void onHoverTimerExpire()
+    {
+        resetHoverState();
+        sectorMap.setSector(sector);
+        galaxyMap.SetActive(false);
+        sectorMap.gameObject.SetActive(true);
+        toGalaxyHoverPanel.SetActive(true);
+        gameObject.GetComponent<Image>().color = new Color(1, 1, 1, 0.17f);
+    }
+
+    void FixedUpdate()
+    {
+        _FixedUpdate();
+        if (isHovering)
+        {
+            float g = 1.0f - (hoverTimerSec / HOVER_TIMER_DUR_SEC);
+            gameObject.GetComponent<Image>().color = new Color(0, g, 1);
+        }
+    }
+
+    protected override void onPointEnter(GameObject pointerDrag)
+    {
+        gameObject.GetComponent<Image>().color = new Color(0, 0, 1);
+    }
+    protected override void onPointExit()
+    {
+        gameObject.GetComponent<Image>().color = new Color(1, 1, 1, 0.17f);
     }
 }

@@ -4,6 +4,10 @@ using UnityEngine;
 public class GalaxyMap : MonoBehaviour
 {
     public GameObject sectorPrefab;
+    public float sectorScale = 2;
+    public SectorMap2 sectorMap;
+    public GameObject galaxyMap;
+    public GameObject toGalaxyHoverPanel;
 
     public OnClickSector onClickSectorEvent;
 
@@ -17,11 +21,14 @@ public class GalaxyMap : MonoBehaviour
             sectorRectTrans.anchorMin = new Vector2(sector.galaxyX, sector.galaxyY);
             sectorRectTrans.anchorMax = new Vector2(sector.galaxyX, sector.galaxyY);
             sectorRectTrans.anchoredPosition = new Vector2(0f, 0f);
-            sectorRectTrans.localScale = new Vector2(2, 2);
+            sectorRectTrans.localScale = new Vector2(sectorScale, sectorScale);
 
             SectorGalaxyMap sectorGalaxyMap = newSectorObj.GetComponent<SectorGalaxyMap>();
             sectorGalaxyMap.setSector(sector);
             sectorGalaxyMap.setOnClickSectorEvent(onClickSectorEvent);
+            sectorGalaxyMap.sectorMap = sectorMap;
+            sectorGalaxyMap.galaxyMap = galaxyMap;
+            sectorGalaxyMap.toGalaxyHoverPanel = toGalaxyHoverPanel;
         }
     }
 }

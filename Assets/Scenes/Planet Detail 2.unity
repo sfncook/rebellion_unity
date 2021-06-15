@@ -4466,6 +4466,22 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6271307014044078204, guid: b82f932e1f0404ad288642862bc48921, type: 3}
+      propertyPath: galaxyMap
+      value: 
+      objectReference: {fileID: 2025453770}
+    - target: {fileID: 6271307014044078204, guid: b82f932e1f0404ad288642862bc48921, type: 3}
+      propertyPath: sectorMap
+      value: 
+      objectReference: {fileID: 151492825}
+    - target: {fileID: 6271307014044078204, guid: b82f932e1f0404ad288642862bc48921, type: 3}
+      propertyPath: sectorScale
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6271307014044078204, guid: b82f932e1f0404ad288642862bc48921, type: 3}
+      propertyPath: toGalaxyHoverPanel
+      value: 
+      objectReference: {fileID: 91454805}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b82f932e1f0404ad288642862bc48921, type: 3}
 --- !u!224 &2025453769 stripped
