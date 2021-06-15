@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 public class FactoryBuildDialog2 : MonoBehaviour
 {
@@ -8,6 +9,10 @@ public class FactoryBuildDialog2 : MonoBehaviour
     public Transform grid;
     public GameObject catalogListItemPrefab;
     public Button buildButton;
+    public SectorMap2 sectorMap;
+    public GalaxyMap galaxyMap;
+    public GameObject toGalaxyButton;
+    public TextMeshProUGUI sectorNameText;
 
     private Factory factory;
     private CatalogListItem selectedCatalogListItem;
@@ -16,6 +21,8 @@ public class FactoryBuildDialog2 : MonoBehaviour
     {
         factory = MainGameState.gameState.factoryForDetail;
         headerControls.setHeaderTitle(factory.type.name);
+        sectorNameText.text = MainGameState.gameState.sectorForDetail.name;
+        sectorMap.setSector(MainGameState.gameState.sectorForDetail);
         updateGrid();
     }
 
@@ -76,5 +83,15 @@ public class FactoryBuildDialog2 : MonoBehaviour
         }
 
         buildButton.gameObject.SetActive(true);
+    }
+
+    public void onClickSector(StarSector sector)
+    {
+        sectorNameText.text = sector.name;
+        sectorMap.setSector(sector);
+        galaxyMap.gameObject.SetActive(false);
+        sectorMap.gameObject.SetActive(true);
+        toGalaxyButton.SetActive(true);
+        sectorNameText.gameObject.SetActive(true);
     }
 }

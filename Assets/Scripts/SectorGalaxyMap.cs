@@ -88,4 +88,9 @@ public class SectorGalaxyMap : DragAndDroppable
     {
         gameObject.GetComponent<Image>().color = new Color(1, 1, 1, 0.17f);
     }
+
+    public void setIsSelected()
+    {
+        gameObject.GetComponent<Image>().color = Color.yellow;
+    }
 }

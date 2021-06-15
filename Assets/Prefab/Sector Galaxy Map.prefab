@@ -228,6 +228,9 @@ MonoBehaviour:
   sectorNameText: {fileID: 8325571202821318108}
   planetPrefab: {fileID: 9117290949808334453, guid: 952429c85de9f4ee093bf0241a6c6309, type: 3}
   isHoverable: 0
+  sectorMap: {fileID: 0}
+  galaxyMap: {fileID: 0}
+  toGalaxyHoverPanel: {fileID: 0}
 --- !u!61 &1566311454430133948
 BoxCollider2D:
   m_ObjectHideFlags: 0
