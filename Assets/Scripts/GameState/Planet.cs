@@ -40,4 +40,15 @@ public class Planet
         this.sectorX = sectorX;
         this.sectorY = sectorY;
     }
+
+    public Team getTeam()
+    {
+        if(loyalty>0.5)
+        {
+            return Team.TeamA;
+        } else
+        {
+            return Team.TeamB;
+        }
+    }
 }

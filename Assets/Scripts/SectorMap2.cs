@@ -16,7 +16,11 @@ public class SectorMap2 : MonoBehaviour
     {
         this.sector = sector;
         starsBackgroundImg.sprite = Resources.Load<Sprite>("Images/Stars/" + sector.name);
+        updateGrid();
+    }
 
+    private void updateGrid()
+    {
         clearPanel();
         foreach (Planet planet in sector.planets)
         {
@@ -38,6 +42,11 @@ public class SectorMap2 : MonoBehaviour
         planetMap2.setOnClickPlanetEvent(onClickPlanetEvent);
         planetMap2.setDropGameObjectOnPlanet(dropGameObjectOnPlanet);
         planetMap2.setPlanet(planet);
+
+        if(planet.Equals(MainGameState.gameState.planetSelectedForDestination))
+        {
+            planetMap2.setIsSelected(true);
+        }
     }
 
     private void clearPanel()
@@ -50,6 +59,7 @@ public class SectorMap2 : MonoBehaviour
 
     public void selectPlanet(Planet planet)
     {
-
+        MainGameState.gameState.planetSelectedForDestination = planet;
+        updateGrid();
     }
 }

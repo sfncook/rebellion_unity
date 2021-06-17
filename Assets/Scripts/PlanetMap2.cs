@@ -48,6 +48,10 @@ public class PlanetMap2 : DragAndDroppable
         loyaltyBars.setValue(planet.loyalty);
         onUiUpdateEvent();
     }
+    public Planet getPlanet()
+    {
+        return planet;
+    }
 
     public void setOnClickPlanetEvent(OnClickPlanet onClickPlanetEvent)
     {

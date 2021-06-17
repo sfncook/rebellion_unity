@@ -19,6 +19,7 @@ public class FactoryBuildDialog2 : MonoBehaviour
 
     void Start()
     {
+        MainGameState.gameState.planetSelectedForDestination = null;
         factory = MainGameState.gameState.factoryForDetail;
         headerControls.setHeaderTitle(factory.type.name);
         sectorNameText.text = MainGameState.gameState.sectorForDetail.name;
@@ -97,5 +98,6 @@ public class FactoryBuildDialog2 : MonoBehaviour
 
     public void onClickPlanet(Planet planet)
     {
+        sectorMap.selectPlanet(planet);
     }
 }

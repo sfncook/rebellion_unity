@@ -54,6 +54,8 @@ public class MainGameState : MonoBehaviour
     // Factory Dialog(s)
     [HideInInspector]
     public Factory factoryForDetail;
+    [HideInInspector]
+    public Planet planetSelectedForDestination;
 
     private float timerSec = 0.0f;
 
