@@ -91,11 +91,7 @@ public class PlanetMap2 : DragAndDroppable
     {
         loyaltyBars.setValue(planet.loyalty);
 
-        Color loyaltyColor = Color.green;
-        if (planet.loyalty <= 0.5f)
-        {
-            loyaltyColor = Color.red;
-        }
+        Color loyaltyColor = planet.getTeam().getColorForTeam();
         factoryImg.color = loyaltyColor;
         defenseImg.color = loyaltyColor;
 

@@ -80,7 +80,7 @@ public class PlanetDetail : MonoBehaviour
             newObj = (GameObject)Instantiate(defenseListItemPrefab, infrastructurePanel);
             DefenseListItem defenseListItem = newObj.GetComponent<DefenseListItem>();
             defenseListItem.setDefense(defense);
-            defenseListItem.GetComponent<Image>().color = (planet.loyalty > 0.5) ? Color.red : Color.green;
+            defenseListItem.GetComponent<Image>().color = planet.getTeam().getColorForTeam();
         }
 
         // Factories
@@ -90,7 +90,7 @@ public class PlanetDetail : MonoBehaviour
             newObj = (GameObject)Instantiate(factoryListItemPrefab, infrastructurePanel);
             FactoryListItem factoryListItem = newObj.GetComponent<FactoryListItem>();
             factoryListItem.setFactory(factory);
-            factoryListItem.GetComponent<Image>().color = (planet.loyalty>0.5) ? Color.red : Color.green;
+            factoryListItem.GetComponent<Image>().color = planet.getTeam().getColorForTeam();
             factoryListItem.setOnClickFactoryHandler(onClickFactory);
         }
 
@@ -177,7 +177,7 @@ public class PlanetDetail : MonoBehaviour
 
     public void onClickFactory(Factory factory)
     {
-        if (planet.loyalty < 0.5f)
+        if (planet.getTeam().Equals(MainGameState.gameState.myTeam))
         {
             if(factory.isBuilding)
             {

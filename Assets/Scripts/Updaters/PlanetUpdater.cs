@@ -43,11 +43,7 @@ public class PlanetUpdater : MonoBehaviour
     {
         loyaltyBars.setPlanet(planet);
 
-        Color loyaltyColor = Color.green;
-        if (planet.loyalty > 0.5f)
-        {
-            loyaltyColor = Color.red;
-        }
+        Color loyaltyColor = planet.getTeam().getColorForTeam();
         imgFactory.color = loyaltyColor;
         imgDefense.color = loyaltyColor;
 
