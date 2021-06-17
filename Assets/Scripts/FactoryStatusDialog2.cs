@@ -10,6 +10,7 @@ public class FactoryStatusDialog2 : MonoBehaviour
     public Image buildTypeImg;
     public TextMeshProUGUI dayCompleteText;
     public TextMeshProUGUI daysRemainingText;
+    public TextMeshProUGUI destinationText;
     public Image factoryIsWorkingIcon;
 
     private Factory factory;
@@ -30,6 +31,7 @@ public class FactoryStatusDialog2 : MonoBehaviour
             buildTypeText.text = factory.buildingType.name;
             dayCompleteText.text = factory.buildingDoneDay.ToString();
             daysRemainingText.text = (factory.buildingDoneDay - MainGameState.gameState.gameTime).ToString();
+            destinationText.text = factory.planetDestination.name;
 
             string path = "";
             switch (factory.buildingType.typeCategory)
