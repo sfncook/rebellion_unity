@@ -93,6 +93,12 @@ public class PlanetDetail2 : MonoBehaviour
 
         clearPanel(infrastructurePanel);
 
+        Team planetTeam = Team.TeamA;
+        if (planet.loyalty <= 0.5f)
+        {
+            planetTeam = Team.TeamB;
+        }
+
         GameObject newObj;
 
         // Defenses
@@ -101,7 +107,7 @@ public class PlanetDetail2 : MonoBehaviour
         {
             newObj = (GameObject)Instantiate(defenseListItemPrefab, infrastructurePanel);
             DefenseListItem2 defenseListItem = newObj.GetComponent<DefenseListItem2>();
-            defenseListItem.setDefense(defense, Team.TeamA);
+            defenseListItem.setDefense(defense, planetTeam);
         }
 
         // Factories
@@ -110,7 +116,7 @@ public class PlanetDetail2 : MonoBehaviour
         {
             newObj = (GameObject)Instantiate(factoryListItemPrefab, infrastructurePanel);
             FactoryListItem2 factoryListItem = newObj.GetComponent<FactoryListItem2>();
-            factoryListItem.setFactory(factory, Team.TeamA);
+            factoryListItem.setFactory(factory, planetTeam);
             factoryListItem.setOnClickFactoryHandler(onClickFactory);
         }
 

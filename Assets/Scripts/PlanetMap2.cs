@@ -33,6 +33,7 @@ public class PlanetMap2 : DragAndDroppable
     private OnClickPlanet onClickPlanetEvent;
     private DropGameObjectOnPlanet dropGameObjectOnPlanetEvent;
     private Planet planet;
+    private bool isSelected = false;
 
     private void Start()
     {
@@ -87,7 +88,7 @@ public class PlanetMap2 : DragAndDroppable
         loyaltyBars.setValue(planet.loyalty);
 
         Color loyaltyColor = Color.green;
-        if (planet.loyalty > 0.5f)
+        if (planet.loyalty <= 0.5f)
         {
             loyaltyColor = Color.red;
         }
@@ -165,5 +166,11 @@ public class PlanetMap2 : DragAndDroppable
         {
             dropGameObjectOnPlanetEvent.Invoke(pointerDrag, planet);
         }
+    }
+
+    public void setIsSelected(bool isSelected)
+    {
+        selectionHaloImg.gameObject.SetActive(true);
+        this.isSelected = isSelected;
     }
 }

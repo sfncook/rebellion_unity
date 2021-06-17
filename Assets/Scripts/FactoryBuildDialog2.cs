@@ -94,4 +94,8 @@ public class FactoryBuildDialog2 : MonoBehaviour
         toGalaxyButton.SetActive(true);
         sectorNameText.gameObject.SetActive(true);
     }
+
+    public void onClickPlanet(Planet planet)
+    {
+    }
 }

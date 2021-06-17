@@ -47,4 +47,9 @@ public class SectorMap2 : MonoBehaviour
             GameObject.Destroy(child.gameObject);
         }
     }
+
+    public void selectPlanet(Planet planet)
+    {
+
+    }
 }
