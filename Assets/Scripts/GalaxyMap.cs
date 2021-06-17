@@ -17,6 +17,7 @@ public class GalaxyMap : MonoBehaviour
         foreach(StarSector sector in galaxy.sectors)
         {
             GameObject newSectorObj = (GameObject)Instantiate(sectorPrefab, transform);
+            newSectorObj.name = sector.name;
             RectTransform sectorRectTrans = newSectorObj.GetComponent<RectTransform>();
             sectorRectTrans.anchorMin = new Vector2(sector.galaxyX, sector.galaxyY);
             sectorRectTrans.anchorMax = new Vector2(sector.galaxyX, sector.galaxyY);

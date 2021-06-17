@@ -2,27 +2,259 @@
 	"sectors": [
 		{
 			"name": "Sector I",
-			"galaxyX":0.57,
-			"galaxyY":0.42,
+			"galaxyX": 0.25,
+			"galaxyY": 0.75,
 			"planets": [
-				{"name": "Baphauhines","sectorX":0.22,"sectorY":0.16},
-				{"name": "Ilrichi","sectorX":0.28,"sectorY":0.55},
-				{"name": "Phuitov","sectorX":0.49,"sectorY":0.35},
-				{"name": "Sion","sectorX":0.8,"sectorY":0.85},
-				{"name": "Thion","sectorX":0.52,"sectorY":0.77}
+				{
+					"name": "Baphauhines",
+					"sectorX": 0.22,
+					"sectorY": 0.16
+				},
+				{
+					"name": "Ilrichi",
+					"sectorX": 0.28,
+					"sectorY": 0.55
+				},
+				{
+					"name": "Phuitov",
+					"sectorX": 0.49,
+					"sectorY": 0.35
+				},
+				{
+					"name": "Sion",
+					"sectorX": 0.8,
+					"sectorY": 0.85
+				},
+				{
+					"name": "Thion",
+					"sectorX": 0.52,
+					"sectorY": 0.77
+				}
 			]
 		},
 		{
-		  "name": "Sector II",
-		  "galaxyX":0.32,
-		  "galaxyY":0.59,
-		  "planets": [
-		    {"name": "Ucholla","sectorX":0.7,"sectorY":0.2},
-		    {"name": "Vaiclite","sectorX":0.3,"sectorY":0.15},
-		    {"name": "Xelia","sectorX":0.24,"sectorY":0.75},
-		    {"name": "Yiventune","sectorX":0.8,"sectorY":0.9},
-		    {"name": "Chulmonoe","sectorX":0.55,"sectorY":0.5}
-		  ]
+			"name": "Sector II",
+			"galaxyX": 0.6,
+			"galaxyY": 0.85,
+			"planets": [
+				{
+					"name": "Ucholla",
+					"sectorX": 0.7,
+					"sectorY": 0.2
+				},
+				{
+					"name": "Vaiclite",
+					"sectorX": 0.3,
+					"sectorY": 0.15
+				},
+				{
+					"name": "Xelia",
+					"sectorX": 0.24,
+					"sectorY": 0.75
+				},
+				{
+					"name": "Yiventune",
+					"sectorX": 0.8,
+					"sectorY": 0.9
+				},
+				{
+					"name": "Chulmonoe",
+					"sectorX": 0.55,
+					"sectorY": 0.5
+				}
+			]
+		},
+		{
+			"name": "Sector III",
+			"galaxyX": 0.75,
+			"galaxyY": 0.65,
+			"planets": [
+				{
+					"name": "Generth",
+					"sectorX": 0.2,
+					"sectorY": 0.2
+				},
+				{
+					"name": "Tranitania",
+					"sectorX": 0.35,
+					"sectorY": 0.2
+				},
+				{
+					"name": "Yeonus",
+					"sectorX": 0.4,
+					"sectorY": 0.75
+				},
+				{
+					"name": "Zaovis",
+					"sectorX": 0.2,
+					"sectorY": 0.8
+				},
+				{
+					"name": "Ater",
+					"sectorX": 0.55,
+					"sectorY": 0.6
+				}
+			]
+		},
+		{
+			"name": "Sector IV",
+			"galaxyX": 0.7,
+			"galaxyY": 0.45,
+			"planets": [
+				{
+					"name": "Bivore",
+					"sectorX": 0.2,
+					"sectorY": 0.2
+				},
+				{
+					"name": "Brohavis",
+					"sectorX": 0.35,
+					"sectorY": 0.2
+				},
+				{
+					"name": "Crilles",
+					"sectorX": 0.4,
+					"sectorY": 0.75
+				},
+				{
+					"name": "Dion",
+					"sectorX": 0.2,
+					"sectorY": 0.8
+				},
+				{
+					"name": "Regoulia",
+					"sectorX": 0.55,
+					"sectorY": 0.6
+				}
+			]
+		},
+		{
+			"name": "Sector V",
+			"galaxyX": 0.42,
+			"galaxyY": 0.35,
+			"planets": [
+				{
+					"name": "Cravis",
+					"sectorX": 0.2,
+					"sectorY": 0.2
+				},
+				{
+					"name": "Doatis",
+					"sectorX": 0.35,
+					"sectorY": 0.2
+				},
+				{
+					"name": "Doguvis",
+					"sectorX": 0.4,
+					"sectorY": 0.75
+				},
+				{
+					"name": "Nilagawa",
+					"sectorX": 0.2,
+					"sectorY": 0.8
+				},
+				{
+					"name": "Ochiter",
+					"sectorX": 0.55,
+					"sectorY": 0.6
+				}
+			]
+		},
+		{
+			"name": "Sector VI",
+			"galaxyX": 0.25,
+			"galaxyY": 0.15,
+			"planets": [
+				{
+					"name": "Othiunerth",
+					"sectorX": 0.2,
+					"sectorY": 0.2
+				},
+				{
+					"name": "Sanvides",
+					"sectorX": 0.35,
+					"sectorY": 0.2
+				},
+				{
+					"name": "Vebolla",
+					"sectorX": 0.4,
+					"sectorY": 0.75
+				},
+				{
+					"name": "Zadus",
+					"sectorX": 0.2,
+					"sectorY": 0.8
+				},
+				{
+					"name": "Zinov",
+					"sectorX": 0.55,
+					"sectorY": 0.6
+				}
+			]
+		},
+		{
+			"name": "Sector VII",
+			"galaxyX": 0.2,
+			"galaxyY": 0.55,
+			"planets": [
+				{
+					"name": "Othiunerth",
+					"sectorX": 0.2,
+					"sectorY": 0.2
+				},
+				{
+					"name": "Sanvides",
+					"sectorX": 0.35,
+					"sectorY": 0.2
+				},
+				{
+					"name": "Vebolla",
+					"sectorX": 0.4,
+					"sectorY": 0.75
+				},
+				{
+					"name": "Zadus",
+					"sectorX": 0.2,
+					"sectorY": 0.8
+				},
+				{
+					"name": "Zinov",
+					"sectorX": 0.55,
+					"sectorY": 0.6
+				}
+			]
+		},
+		{
+			"name": "Sector VIII",
+			"galaxyX": 0.75,
+			"galaxyY": 0.17,
+			"planets": [
+				{
+					"name": "Othiunerth",
+					"sectorX": 0.2,
+					"sectorY": 0.2
+				},
+				{
+					"name": "Sanvides",
+					"sectorX": 0.35,
+					"sectorY": 0.2
+				},
+				{
+					"name": "Vebolla",
+					"sectorX": 0.4,
+					"sectorY": 0.75
+				},
+				{
+					"name": "Zadus",
+					"sectorX": 0.2,
+					"sectorY": 0.8
+				},
+				{
+					"name": "Zinov",
+					"sectorX": 0.55,
+					"sectorY": 0.6
+				}
+			]
 		}
 	]
 }
