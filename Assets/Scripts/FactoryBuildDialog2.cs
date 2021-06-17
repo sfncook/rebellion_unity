@@ -19,7 +19,10 @@ public class FactoryBuildDialog2 : MonoBehaviour
 
     void Start()
     {
-        MainGameState.gameState.planetSelectedForDestination = MainGameState.gameState.planetForDetail;
+        if (MainGameState.gameState.planetForDetail.getManyAvailableEnergies() > 0)
+        {
+            MainGameState.gameState.planetSelectedForDestination = MainGameState.gameState.planetForDetail;
+        }
         factory = MainGameState.gameState.factoryForDetail;
         headerControls.setHeaderTitle(factory.type.name);
         sectorNameText.text = MainGameState.gameState.sectorForDetail.name;
@@ -86,7 +89,7 @@ public class FactoryBuildDialog2 : MonoBehaviour
             }
         }
 
-        buildButton.gameObject.SetActive(true);
+        updateBuildButton();
     }
 
     public void onClickSector(StarSector sector)
@@ -101,6 +104,21 @@ public class FactoryBuildDialog2 : MonoBehaviour
 
     public void onClickPlanet(Planet planet)
     {
-        sectorMap.selectPlanet(planet);
+        if(planet.getManyAvailableEnergies()>0)
+        {
+            sectorMap.selectPlanet(planet);
+            updateBuildButton();
+        }
+    }
+
+    private void updateBuildButton()
+    {
+        if (selectedCatalogListItem != null && MainGameState.gameState.planetSelectedForDestination!=null)
+        {
+            buildButton.gameObject.SetActive(true);
+        } else
+        {
+            buildButton.gameObject.SetActive(false);
+        }
     }
 }

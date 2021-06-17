@@ -51,4 +51,11 @@ public class Planet
             return Team.TeamB;
         }
     }
+
+    public int getManyAvailableEnergies()
+    {
+        int manyFacilities = factories.Count + defenses.Count;
+        return energyCapacity - manyFacilities;
+
+    }
 }
