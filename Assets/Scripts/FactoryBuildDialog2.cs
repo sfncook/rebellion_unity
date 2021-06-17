@@ -19,7 +19,7 @@ public class FactoryBuildDialog2 : MonoBehaviour
 
     void Start()
     {
-        MainGameState.gameState.planetSelectedForDestination = null;
+        MainGameState.gameState.planetSelectedForDestination = MainGameState.gameState.planetForDetail;
         factory = MainGameState.gameState.factoryForDetail;
         headerControls.setHeaderTitle(factory.type.name);
         sectorNameText.text = MainGameState.gameState.sectorForDetail.name;
@@ -52,6 +52,7 @@ public class FactoryBuildDialog2 : MonoBehaviour
 
     public void onClickBackButton()
     {
+        MainGameState.gameState.planetSelectedForDestination = null;
         MainGameState.gameState.factoryForDetail = null;
         SceneManager.LoadScene("Planet Detail 2");
     }
@@ -62,7 +63,9 @@ public class FactoryBuildDialog2 : MonoBehaviour
         factory.isBuilding = true;
         factory.buildingType = type;
         factory.buildingDoneDay = MainGameState.gameState.gameTime + type.daysToBuild;
+        factory.planetDestination = MainGameState.gameState.planetSelectedForDestination;
         MainGameState.gameState.factoryForDetail = null;
+        MainGameState.gameState.planetSelectedForDestination = null;
         SceneManager.LoadScene("Planet Detail 2");
     }
 
