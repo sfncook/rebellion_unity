@@ -19,11 +19,15 @@ public class FactoryBuildDialog2 : MonoBehaviour
 
     void Start()
     {
-        if (MainGameState.gameState.planetForDetail.getManyAvailableEnergies() > 0)
+        factory = MainGameState.gameState.factoryForDetail;
+        bool buildTypesRequireEnergy = ((FactoryType)factory.type).buildTypesRequireEnergy;
+        if (
+             buildTypesRequireEnergy  && MainGameState.gameState.planetForDetail.getManyAvailableEnergies() > 0 ||
+             !buildTypesRequireEnergy
+            )
         {
             MainGameState.gameState.planetSelectedForDestination = MainGameState.gameState.planetForDetail;
         }
-        factory = MainGameState.gameState.factoryForDetail;
         headerControls.setHeaderTitle(factory.type.name);
         sectorNameText.text = MainGameState.gameState.sectorForDetail.name;
         sectorMap.setSector(MainGameState.gameState.sectorForDetail);
@@ -104,7 +108,11 @@ public class FactoryBuildDialog2 : MonoBehaviour
 
     public void onClickPlanet(Planet planet)
     {
-        if(planet.getManyAvailableEnergies()>0)
+        bool buildTypesRequireEnergy = ((FactoryType)factory.type).buildTypesRequireEnergy;
+        if (
+             buildTypesRequireEnergy && planet.getManyAvailableEnergies() > 0 ||
+             !buildTypesRequireEnergy
+            )
         {
             sectorMap.selectPlanet(planet);
             updateBuildButton();

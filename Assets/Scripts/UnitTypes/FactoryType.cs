@@ -2,11 +2,12 @@
 
 public class FactoryType : AbstractType
 {
-    public static FactoryType ctorYard = new FactoryType("Construction Yard");
-    public static FactoryType shipYard = new FactoryType("Ship Yard");
-    public static FactoryType trainingFac = new FactoryType("Training Facility");
+    public static FactoryType ctorYard = new FactoryType("Construction Yard", true);
+    public static FactoryType shipYard = new FactoryType("Ship Yard", false);
+    public static FactoryType trainingFac = new FactoryType("Training Facility", false);
 
     public readonly List<AbstractType> typesAvailableToBuild = new List<AbstractType>();
+    public readonly bool buildTypesRequireEnergy = false;
 
     static FactoryType()
     {
@@ -18,7 +19,8 @@ public class FactoryType : AbstractType
         trainingFac.typesAvailableToBuild.AddRange(trainingFacBuildTypes);
     }
 
-    public FactoryType(string name) : base(name, TypeCategory.Factory)
+    public FactoryType(string name, bool buildTypesRequireEnergy) : base(name, TypeCategory.Factory)
     {
+        this.buildTypesRequireEnergy = buildTypesRequireEnergy;
     }
 }
