@@ -18,7 +18,7 @@ public class AllFactoriesUpdater
             {
                 foreach (Factory factory in planet.factories)
                 {
-                    FactoryUpdater.updateBuilds(factory);
+                    FactoryUpdater.updateBuilds(planet, factory);
                 }
             }
         }

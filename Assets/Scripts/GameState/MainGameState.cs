@@ -15,7 +15,7 @@ public class MainGameState : MonoBehaviour
     [HideInInspector]
     public readonly List<Planet> planets = new List<Planet>();
     [HideInInspector]
-    public int gameTime = 0;
+    public int gameTime = 1;
     [HideInInspector]
     private bool isTimerRunning = false;
     [HideInInspector]
