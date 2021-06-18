@@ -14,8 +14,10 @@ public class FactoryUpdater : MonoBehaviour
             int dayArrival = 0;
             if(needsDelivery)
             {
-                dayArrival = MainGameState.travelDuration(planetSrc, planetDest);
+                dayArrival = MainGameState.arrivalDay(planetSrc, planetDest);
             }
+
+            Debug.Log("planetSrc:"+planetSrc.name+" planetDst:"+planetDest.name+" needsDelivery:"+needsDelivery+" dayArrival:"+dayArrival);
 
             if (
                 factory.buildingType.Equals(DefenseType.orbitalBattery) ||

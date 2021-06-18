@@ -311,7 +311,7 @@ public class MainGameState : MonoBehaviour
         return null;
     }
 
-    public static int travelDuration(Planet src, Planet dst)
+    public static int arrivalDay(Planet src, Planet dst)
     {
         StarSector srcSector = findSectorForPlanet(src);
         StarSector dstSector = findSectorForPlanet(dst);
@@ -336,6 +336,6 @@ public class MainGameState : MonoBehaviour
         float dm = d * multiplier;
         int dmi = (int)dm;
         //Debug.Log("dx:"+dx+" dy:"+dy+" d:"+d+" dm:"+dm+" dmi:"+dmi);
-        return dmi;
+        return dmi + MainGameState.gameState.gameTime;
     }
 }
