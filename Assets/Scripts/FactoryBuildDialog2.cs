@@ -13,6 +13,7 @@ public class FactoryBuildDialog2 : MonoBehaviour
     public GalaxyMap galaxyMap;
     public GameObject toGalaxyButton;
     public TextMeshProUGUI sectorNameText;
+    public GameObject starChartPanel;
 
     private Factory factory;
     private CatalogListItem selectedCatalogListItem;
@@ -28,6 +29,10 @@ public class FactoryBuildDialog2 : MonoBehaviour
         {
             MainGameState.gameState.planetSelectedForDestination = MainGameState.gameState.planetForDetail;
         }
+
+        bool buildTypesAreDeliverable = ((FactoryType)factory.type).buildTypesAreDeliverable;
+        starChartPanel.SetActive(buildTypesAreDeliverable);
+
         headerControls.setHeaderTitle(factory.type.name);
         sectorNameText.text = MainGameState.gameState.sectorForDetail.name;
         sectorMap.setSector(MainGameState.gameState.sectorForDetail);

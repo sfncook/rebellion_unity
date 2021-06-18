@@ -633,6 +633,7 @@ MonoBehaviour:
   galaxyMap: {fileID: 1639808298}
   toGalaxyButton: {fileID: 900324341}
   sectorNameText: {fileID: 106425454}
+  starChartPanel: {fileID: 1875566345}
 --- !u!4 &637426111
 Transform:
   m_ObjectHideFlags: 0

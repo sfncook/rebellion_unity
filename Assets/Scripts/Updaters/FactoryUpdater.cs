@@ -1,5 +1,4 @@
 using UnityEngine;
-using System.Collections.Generic;
 
 public class FactoryUpdater : MonoBehaviour
 {
@@ -60,6 +59,7 @@ public class FactoryUpdater : MonoBehaviour
                 factory.buildingType.Equals(PersonnelType.Spy)
             )
             {
+                // Personnel cannot be delivered to another planet.  They must be transported there by normal means
                 planetSrc.personnelsOnSurface.Add(new Personnel((PersonnelType)factory.buildingType, planetSrc.getTeam()));
             }
 
