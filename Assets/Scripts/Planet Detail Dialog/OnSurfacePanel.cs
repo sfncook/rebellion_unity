@@ -36,7 +36,7 @@ public class OnSurfacePanel : DragAndDroppable
     protected override void onPointEnter(GameObject pointerDrag)
     {
         PersonnelListItem2 personnelListItem = pointerDrag.GetComponent<PersonnelListItem2>();
-        if (personnelListItem.getLocatedOnShip())
+        if (personnelListItem.isLocatedOnShip())
         {
             planetDetailImage.color = Color.yellow;
             blankPersonnelDragOver = (GameObject)Instantiate(blankPersonnelPrefab, personnelTeamAPanel);
@@ -52,8 +52,9 @@ public class OnSurfacePanel : DragAndDroppable
         planetDetailImage.color = Color.white;
         Destroy(blankPersonnelDragOver, 0.01f);
         PersonnelListItem2 personnelListItem = pointerDrag.GetComponent<PersonnelListItem2>();
-        if (personnelListItem.getLocatedOnShip())
+        if (personnelListItem.isLocatedOnShip())
         {
+            personnelListItem.setOnShip(null);
             Personnel personnel = personnelListItem.getPersonnel();
             planet.personnelsOnSurface.Add(personnel);
             updateGrid();

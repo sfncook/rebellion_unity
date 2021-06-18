@@ -8,6 +8,7 @@ public class ShipListItem2 : DragAndDroppable
     public ValueBars healthBars;
     public Image bgColor;
     public Image hasPersonnelImg;
+    public Image inTransitImg;
 
     private Ship ship;
     private bool isDragging = false;
@@ -41,6 +42,11 @@ public class ShipListItem2 : DragAndDroppable
                 shipImg.transform.localScale.z
                 );
             shipImg.color = Color.red;
+        }
+
+        if(ship.inTransit())
+        {
+            inTransitImg.gameObject.SetActive(true);
         }
 
         updateHealthBars();
@@ -80,7 +86,7 @@ public class ShipListItem2 : DragAndDroppable
 
     protected override List<string> acceptedDropTypes()
     {
-        if (MainGameState.gameState.myTeam == ship.team)
+        if (MainGameState.gameState.myTeam == ship.team && !ship.inTransit())
         {
             return new List<string>() { "PersonnelListItem2" };
         }
@@ -109,7 +115,7 @@ public class ShipListItem2 : DragAndDroppable
 
     protected override void onPointEnter(GameObject pointerDrag)
     {
-        if (MainGameState.gameState.myTeam == ship.team)
+        if (MainGameState.gameState.myTeam == ship.team && !ship.inTransit())
         {
             PersonnelListItem2 personnelListItem = pointerDrag.GetComponent<PersonnelListItem2>();
             if (
@@ -134,7 +140,7 @@ public class ShipListItem2 : DragAndDroppable
 
     protected override bool isDroppable()
     {
-        return MainGameState.gameState.myTeam == ship.team;
+        return MainGameState.gameState.myTeam == ship.team && !ship.inTransit();
     }
 
     protected override void onDragStart()

@@ -11,4 +11,9 @@ public class AbstractUnit
         this.type = type;
         this.uuid = Guid.NewGuid().ToString();
     }
+
+    public bool inTransit()
+    {
+        return dayArrival > MainGameState.gameState.gameTime;
+    }
 }

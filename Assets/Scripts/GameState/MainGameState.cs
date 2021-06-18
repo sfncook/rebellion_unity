@@ -332,6 +332,9 @@ public class MainGameState : MonoBehaviour
             multiplier = 50;
         }
 
-        return (int) (Mathf.Sqrt(dx + dy) * multiplier);
+        float d = Mathf.Sqrt((dx * dx) + (dy * dy));
+        float dm = d * multiplier;
+        int dmi = (int)dm;
+        return dmi;
     }
 }

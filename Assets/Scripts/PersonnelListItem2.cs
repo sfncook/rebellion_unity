@@ -9,7 +9,7 @@ public class PersonnelListItem2 : DragAndDroppable
     public TextMeshProUGUI manyPeopleLabel;
 
     private Personnel personnel;
-    private bool locatedOnShip = false;
+    private Ship onShip = null;
 
     public void setPersonnel(Personnel personnel)
     {
@@ -43,18 +43,26 @@ public class PersonnelListItem2 : DragAndDroppable
         return personnel;
     }
 
-    public void setLocatedOnShip(bool locatedOnShip)
+    public void setOnShip(Ship onShip)
     {
-        this.locatedOnShip = locatedOnShip;
+        this.onShip = onShip;
     }
-    public bool getLocatedOnShip()
+    public Ship getOnShip()
     {
-        return locatedOnShip;
+        return onShip;
+    }
+    public bool isLocatedOnShip()
+    {
+        return onShip != null;
     }
 
     protected override bool isDraggable()
     {
-        return MainGameState.gameState.myTeam == personnel.team;
+        return MainGameState.gameState.myTeam == personnel.team &&
+            (
+                (isLocatedOnShip() && !onShip.inTransit()) ||
+                !isLocatedOnShip()
+            );
     }
 
     protected override bool isDroppable()

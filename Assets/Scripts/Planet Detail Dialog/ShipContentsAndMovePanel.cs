@@ -14,6 +14,8 @@ public class ShipContentsAndMovePanel : DragAndDroppable
     public Image shipImg;
     public Image backgroundImage;
     public PlanetDetail2 planetDetail;
+    public Image inTransitImg;
+    public GameObject inTransitPanel;
 
     private Ship ship;
 
@@ -28,6 +30,17 @@ public class ShipContentsAndMovePanel : DragAndDroppable
         inOrbitPanel.SetActive(false);
         onSurfacePanel.SetActive(true);
         gameObject.SetActive(true);
+        inTransitImg.gameObject.SetActive(ship.inTransit());
+        inTransitPanel.gameObject.SetActive(ship.inTransit());
+        Color panelColor;
+        if (ship.inTransit())
+        {
+            panelColor = new Color(0.1058824f, 0.9843137f, 1);
+        } else
+        {
+            panelColor = new Color(1, 1, 1, 0.3921569f);
+        }
+        shipContentsGrid.GetComponent<Image>().color = panelColor;
     }
 
     public void hideShipContents()
@@ -49,7 +62,7 @@ public class ShipContentsAndMovePanel : DragAndDroppable
             PersonnelListItem2 personnelListItem = newObj.GetComponent<PersonnelListItem2>();
             personnelListItem.setPersonnel(personnel);
             personnelListItem.setCanvas(canvas);
-            personnelListItem.setLocatedOnShip(true);
+            personnelListItem.setOnShip(ship);
         }
     }
 
@@ -72,7 +85,7 @@ public class ShipContentsAndMovePanel : DragAndDroppable
     }
     protected override bool isDroppable()
     {
-        return true;
+        return !ship.inTransit();
     }
 
     protected override List<string> acceptedDropTypes()
