@@ -20,6 +20,31 @@ public class ShipContentsAndMovePanel : DragAndDroppable
 
     private Ship ship;
 
+    private void Start()
+    {
+        MainGameState.gameState.addListenerUiUpdateEvent(updateContents);
+    }
+
+    private void updateContents()
+    {
+        if (ship != null && gameObject.activeSelf)
+        {
+            inTransitImg.gameObject.SetActive(ship.inTransit());
+            inTransitPanel.gameObject.SetActive(ship.inTransit());
+            Color panelColor;
+            if (ship.inTransit())
+            {
+                panelColor = new Color(0.1058824f, 0.9843137f, 1);
+                inTransitArrivalDayText.text = ship.dayArrival.ToString();
+            }
+            else
+            {
+                panelColor = new Color(1, 1, 1, 0.3921569f);
+            }
+            shipContentsGrid.GetComponent<Image>().color = panelColor;
+        }
+    }
+
     public void showShipContents(Ship ship)
     {
         this.ship = ship;
@@ -31,18 +56,8 @@ public class ShipContentsAndMovePanel : DragAndDroppable
         inOrbitPanel.SetActive(false);
         onSurfacePanel.SetActive(true);
         gameObject.SetActive(true);
-        inTransitImg.gameObject.SetActive(ship.inTransit());
-        inTransitPanel.gameObject.SetActive(ship.inTransit());
-        Color panelColor;
-        if (ship.inTransit())
-        {
-            panelColor = new Color(0.1058824f, 0.9843137f, 1);
-            inTransitArrivalDayText.text = ship.dayArrival.ToString();
-        } else
-        {
-            panelColor = new Color(1, 1, 1, 0.3921569f);
-        }
-        shipContentsGrid.GetComponent<Image>().color = panelColor;
+
+        updateContents();
     }
 
     public void hideShipContents()

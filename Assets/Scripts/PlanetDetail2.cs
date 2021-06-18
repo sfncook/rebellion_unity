@@ -220,6 +220,7 @@ public class PlanetDetail2 : MonoBehaviour
         ShipListItem2 shipListItem = pointerDrag.GetComponent<ShipListItem2>();
         Ship ship = shipListItem.getShip();
         planet.shipsInOrbit.Remove(ship);
+        planet.shipsInTransit.Remove(ship);
         ship.dayArrival = MainGameState.travelDuration(planet, destPlanet);
         destPlanet.shipsInTransit.Add(ship);
         updateShipGrids();
