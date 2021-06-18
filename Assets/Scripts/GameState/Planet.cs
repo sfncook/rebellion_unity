@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 [System.Serializable]
 public class Planet
@@ -57,5 +58,35 @@ public class Planet
         int manyFacilities = factories.Count + defenses.Count;
         return energyCapacity - manyFacilities;
 
+    }
+
+    public override int GetHashCode()
+    {
+        return name.GetHashCode() +
+            (int)sectorX +
+            (int)sectorY +
+            energyCapacity +
+            (int)loyalty +
+            shipsInOrbit.GetHashCode() +
+            shipsInTransit.GetHashCode() +
+            personnelsOnSurface.GetHashCode() +
+            personnelsInTransit.GetHashCode() +
+            factories.GetHashCode() +
+            factoriesInTransit.GetHashCode() +
+            defenses.GetHashCode() +
+            defensesInTransit.GetHashCode();
+    }
+
+    public override bool Equals(Object obj)
+    {
+        if ((obj == null) || !this.GetType().Equals(obj.GetType()))
+        {
+            return false;
+        }
+        else
+        {
+            Planet p = (Planet)obj;
+            return p.name.Equals(name);
+        }
     }
 }

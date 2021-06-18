@@ -295,4 +295,43 @@ public class MainGameState : MonoBehaviour
 
         planet.loyalty = Random.Range(0.0f, 0.999f);
     }
+
+    private static StarSector findSectorForPlanet(Planet planet)
+    {
+        foreach (StarSector sector in MainGameState.gameState.galaxy.sectors)
+        {
+            foreach (Planet _planet in sector.planets)
+            {
+                if (_planet.Equals(planet))
+                {
+                    return sector;
+                }
+            }
+        }
+        return null;
+    }
+
+    public static int travelDuration(Planet src, Planet dst)
+    {
+        StarSector srcSector = findSectorForPlanet(src);
+        StarSector dstSector = findSectorForPlanet(src);
+
+        float dx;
+        float dy;
+        float multiplier;
+        if(srcSector.Equals(dstSector))
+        {
+            dx = src.sectorX - dst.sectorX;
+            dy = src.sectorY - dst.sectorY;
+            multiplier = 10;
+        } else
+        {
+
+            dx = srcSector.galaxyX - dstSector.galaxyX;
+            dy = srcSector.galaxyY - dstSector.galaxyY;
+            multiplier = 50;
+        }
+
+        return (int) (Mathf.Sqrt(dx + dy) * multiplier);
+    }
 }

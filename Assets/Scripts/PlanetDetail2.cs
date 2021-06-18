@@ -1,8 +1,8 @@
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
-using TMPro;
 using UnityEngine.Events;
+using System.Linq;
 
 [System.Serializable]
 public class ShowShipContentsEvent2 : UnityEvent<Ship>
@@ -126,14 +126,14 @@ public class PlanetDetail2 : MonoBehaviour
         clearPanel(shipsTeamAPanel);
         clearPanel(shipsTeamBPanel);
 
-        GameObject newObj;
+        
 
         // Ships
         planet.shipsInOrbit.Sort((a, b) => a.type.name.CompareTo(b.type.name));
-        foreach (Ship ship in planet.shipsInOrbit)
+        foreach (Ship ship in planet.shipsInOrbit.Concat(planet.shipsInTransit))
         {
             Transform panelTransform = ship.team.Equals(Team.TeamA) ? shipsTeamAPanel : shipsTeamBPanel;
-            newObj = (GameObject)Instantiate(shipListItemPrefab, panelTransform);
+            GameObject newObj = (GameObject)Instantiate(shipListItemPrefab, panelTransform);
             ShipListItem2 shipListItem = newObj.GetComponent<ShipListItem2>();
             shipListItem.setRemovePersonnelDelegate(removePersonnel);
             shipListItem.setShip(ship);
@@ -219,7 +219,8 @@ public class PlanetDetail2 : MonoBehaviour
         ShipListItem2 shipListItem = pointerDrag.GetComponent<ShipListItem2>();
         Ship ship = shipListItem.getShip();
         planet.shipsInOrbit.Remove(ship);
-        destPlanet.shipsInOrbit.Add(ship);
+        ship.dayArrival = MainGameState.travelDuration(planet, destPlanet);
+        destPlanet.shipsInTransit.Add(ship);
         updateShipGrids();
     }
 }
