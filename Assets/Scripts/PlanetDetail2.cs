@@ -217,7 +217,7 @@ public class PlanetDetail2 : MonoBehaviour
 
     public void dropGameObjectOnPlanetEvent(GameObject pointerDrag, Planet destPlanet)
     {
-        Debug.Log("dropGameObjectOnPlanetEvent destPlanet:"+destPlanet.name);
+        //Debug.Log("dropGameObjectOnPlanetEvent destPlanet:"+destPlanet.name);
         ShipListItem2 shipListItem = pointerDrag.GetComponent<ShipListItem2>();
         Ship ship = shipListItem.getShip();
         planet.shipsInOrbit.Remove(ship);
