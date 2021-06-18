@@ -314,7 +314,7 @@ public class MainGameState : MonoBehaviour
     public static int travelDuration(Planet src, Planet dst)
     {
         StarSector srcSector = findSectorForPlanet(src);
-        StarSector dstSector = findSectorForPlanet(src);
+        StarSector dstSector = findSectorForPlanet(dst);
 
         float dx;
         float dy;
@@ -335,6 +335,7 @@ public class MainGameState : MonoBehaviour
         float d = Mathf.Sqrt((dx * dx) + (dy * dy));
         float dm = d * multiplier;
         int dmi = (int)dm;
+        //Debug.Log("dx:"+dx+" dy:"+dy+" d:"+d+" dm:"+dm+" dmi:"+dmi);
         return dmi;
     }
 }
