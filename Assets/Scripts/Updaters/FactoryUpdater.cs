@@ -1,60 +1,83 @@
 using UnityEngine;
+using System.Collections.Generic;
 
 public class FactoryUpdater : MonoBehaviour
 {
-    public static void updateBuilds(Planet planet, Factory factory)
+    public static void updateBuilds(Planet planetSrc, Factory factory)
     {
         if(factory.isBuilding && MainGameState.gameState.gameTime >= factory.buildingDoneDay)
         {
             Planet planetDest = factory.planetDestination;
             factory.isBuilding = false;
-            if(factory.buildingType.Equals(DefenseType.orbitalBattery))
+
+            bool needsDelivery = !planetSrc.Equals(planetDest);
+            int dayArrival = 0;
+            if(needsDelivery)
             {
-                planetDest.defenses.Add(new Defense(DefenseType.orbitalBattery));
+                dayArrival = MainGameState.travelDuration(planetSrc, planetDest);
             }
-            else if (factory.buildingType.Equals(DefenseType.planetaryShield))
+
+            if (
+                factory.buildingType.Equals(DefenseType.orbitalBattery) ||
+                factory.buildingType.Equals(DefenseType.planetaryShield)
+            )
             {
-                planetDest.defenses.Add(new Defense(DefenseType.planetaryShield));
+                Defense def = new Defense((DefenseType)factory.buildingType);
+                if (needsDelivery)
+                {
+                    planetDest.defensesInTransit.Add(def);
+                    def.dayArrival = dayArrival;
+                } else
+                {
+                    planetDest.defenses.Add(def);
+                }
             }
-            else if (factory.buildingType.Equals(FactoryType.ctorYard))
+
+            else if (
+                factory.buildingType.Equals(FactoryType.ctorYard) ||
+                factory.buildingType.Equals(FactoryType.shipYard) ||
+                factory.buildingType.Equals(FactoryType.trainingFac)
+            )
             {
-                planetDest.factories.Add(new Factory(FactoryType.ctorYard));
+                Factory fct = new Factory((FactoryType)factory.buildingType);
+                if (needsDelivery)
+                {
+                    planetDest.factoriesInTransit.Add(fct);
+                    fct.dayArrival = dayArrival;
+                }
+                else
+                {
+                    planetDest.factoriesInTransit.Add(fct);
+                }
             }
-            else if (factory.buildingType.Equals(FactoryType.shipYard))
+
+
+            else if (
+                factory.buildingType.Equals(PersonnelType.Diplomat) ||
+                factory.buildingType.Equals(PersonnelType.Soldiers) ||
+                factory.buildingType.Equals(PersonnelType.Spy)
+            )
             {
-                planetDest.factories.Add(new Factory(FactoryType.shipYard));
+                planetSrc.personnelsOnSurface.Add(new Personnel((PersonnelType)factory.buildingType, planetSrc.getTeam()));
             }
-            else if (factory.buildingType.Equals(FactoryType.trainingFac))
+
+            else if (
+                factory.buildingType.Equals(ShipType.Bireme) ||
+                factory.buildingType.Equals(ShipType.Trireme) ||
+                factory.buildingType.Equals(ShipType.Quadreme) ||
+                factory.buildingType.Equals(ShipType.Quintreme)
+            )
             {
-                planetDest.factories.Add(new Factory(FactoryType.trainingFac));
-            }
-            else if (factory.buildingType.Equals(PersonnelType.Diplomat))
-            {
-                planetDest.personnelsOnSurface.Add(new Personnel(PersonnelType.Diplomat, planet.getTeam()));
-            }
-            else if (factory.buildingType.Equals(PersonnelType.Soldiers))
-            {
-                planetDest.personnelsOnSurface.Add(new Personnel(PersonnelType.Soldiers, planet.getTeam()));
-            }
-            else if (factory.buildingType.Equals(PersonnelType.Spy))
-            {
-                planetDest.personnelsOnSurface.Add(new Personnel(PersonnelType.Spy, planet.getTeam()));
-            }
-            else if (factory.buildingType.Equals(ShipType.Bireme))
-            {
-                planetDest.shipsInOrbit.Add(new Ship(ShipType.Bireme, planet.getTeam()));
-            }
-            else if (factory.buildingType.Equals(ShipType.Trireme))
-            {
-                planetDest.shipsInOrbit.Add(new Ship(ShipType.Trireme, planet.getTeam()));
-            }
-            else if (factory.buildingType.Equals(ShipType.Quadreme))
-            {
-                planetDest.shipsInOrbit.Add(new Ship(ShipType.Quadreme, planet.getTeam()));
-            }
-            else if (factory.buildingType.Equals(ShipType.Quintreme))
-            {
-                planetDest.shipsInOrbit.Add(new Ship(ShipType.Quintreme, planet.getTeam()));
+                Ship ship = new Ship((ShipType)factory.buildingType, planetSrc.getTeam());
+                if (needsDelivery)
+                {
+                    planetDest.shipsInTransit.Add(ship);
+                    ship.dayArrival = dayArrival;
+                }
+                else
+                {
+                    planetDest.shipsInTransit.Add(ship);
+                }
             }
         }
     }
