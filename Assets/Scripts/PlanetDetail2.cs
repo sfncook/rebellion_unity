@@ -171,6 +171,7 @@ public class PlanetDetail2 : MonoBehaviour
         GameObject.Destroy(shipListItem.gameObject);
         shipMoveStarChart.gameObject.SetActive(false);
         detailPanel.gameObject.SetActive(true);
+        updateGrid();
     }
 
     public void assignFactoryBuildCommand(Factory factory, AbstractType type)
@@ -220,7 +221,6 @@ public class PlanetDetail2 : MonoBehaviour
         Ship ship = shipListItem.getShip();
         planet.shipsInOrbit.Remove(ship);
         ship.dayArrival = MainGameState.travelDuration(planet, destPlanet);
-        Debug.Log("dropGameObjectOnPlanetEvent ship.dayArrival:" + ship.dayArrival);
         destPlanet.shipsInTransit.Add(ship);
         updateShipGrids();
     }

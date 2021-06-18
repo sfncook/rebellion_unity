@@ -24,6 +24,7 @@ public class ShipListItem2 : DragAndDroppable
     public delegate void StopMoveShip(ShipListItem2 shipListItem);
     private StopMoveShip stopMoveShip;
 
+
     public void setShip(Ship ship)
     {
         this.ship = ship;

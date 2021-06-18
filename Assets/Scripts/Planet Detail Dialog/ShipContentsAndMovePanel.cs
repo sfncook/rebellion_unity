@@ -16,6 +16,7 @@ public class ShipContentsAndMovePanel : DragAndDroppable
     public PlanetDetail2 planetDetail;
     public Image inTransitImg;
     public GameObject inTransitPanel;
+    public TextMeshProUGUI inTransitArrivalDayText;
 
     private Ship ship;
 
@@ -36,6 +37,7 @@ public class ShipContentsAndMovePanel : DragAndDroppable
         if (ship.inTransit())
         {
             panelColor = new Color(0.1058824f, 0.9843137f, 1);
+            inTransitArrivalDayText.text = ship.dayArrival.ToString();
         } else
         {
             panelColor = new Color(1, 1, 1, 0.3921569f);
