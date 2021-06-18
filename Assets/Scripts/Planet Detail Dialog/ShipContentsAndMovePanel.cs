@@ -11,6 +11,7 @@ public class ShipContentsAndMovePanel : DragAndDroppable
     public TextMeshProUGUI shipTypeNameLabel;
     public Transform shipContentsGrid;
     public GameObject personnelListItemPrefab;
+    public GameObject emptyListItemPrefab;
     public Image shipImg;
     public Image backgroundImage;
     public PlanetDetail2 planetDetail;
@@ -80,6 +81,12 @@ public class ShipContentsAndMovePanel : DragAndDroppable
             personnelListItem.setPersonnel(personnel);
             personnelListItem.setCanvas(canvas);
             personnelListItem.setOnShip(ship);
+        }
+
+        int capacity = ((ShipType)ship.type).personnelCapacity;
+        for(int i=ship.personnelsOnBoard.Count; i< capacity; i++)
+        {
+            Instantiate(emptyListItemPrefab, shipContentsGrid);
         }
     }
 

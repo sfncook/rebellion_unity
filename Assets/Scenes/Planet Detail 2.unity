@@ -4486,6 +4486,7 @@ MonoBehaviour:
   shipTypeNameLabel: {fileID: 1074642505}
   shipContentsGrid: {fileID: 178821676}
   personnelListItemPrefab: {fileID: 2744791615758098042, guid: a71b23225b23b47ebbf587e06cc03036, type: 3}
+  emptyListItemPrefab: {fileID: 4495967337758738682, guid: e7f5d467c15e542d1a40e1f8cda96d6a, type: 3}
   shipImg: {fileID: 612911080}
   backgroundImage: {fileID: 1752620122}
   planetDetail: {fileID: 834315559}
