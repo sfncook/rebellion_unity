@@ -5,6 +5,7 @@ public class FactoryListItem2 : MonoBehaviour
 {
     public Image factoryImg;
     public Image backgroundImg;
+    public Image inTransitImg;
     public Image factoryIsWorkingIcon;
 
     public delegate void OnClickFactoryHandler(Factory factory);
@@ -26,6 +27,8 @@ public class FactoryListItem2 : MonoBehaviour
         {
             backgroundImg.color = Color.red;
         }
+
+        inTransitImg.gameObject.SetActive(factory.inTransit());
     }
 
     public void setOnClickFactoryHandler(OnClickFactoryHandler onClickFactoryHandler)

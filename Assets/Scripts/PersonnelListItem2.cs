@@ -6,6 +6,7 @@ public class PersonnelListItem2 : DragAndDroppable
 {
     public Image personnelImg;
     public Image backgroundImg;
+    public Image inTransitImg;
     public TextMeshProUGUI manyPeopleLabel;
 
     private Personnel personnel;
@@ -36,6 +37,8 @@ public class PersonnelListItem2 : DragAndDroppable
         {
             manyPeopleLabel.gameObject.SetActive(false);
         }
+
+        inTransitImg.gameObject.SetActive(personnel.inTransit());
     }
 
     public Personnel getPersonnel()

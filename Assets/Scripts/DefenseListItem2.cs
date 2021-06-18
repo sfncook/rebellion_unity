@@ -5,6 +5,7 @@ public class DefenseListItem2 : MonoBehaviour
 {
     public Image defenseImg;
     public Image backgroundImg;
+    public Image inTransitImg;
     public ValueBars healthBars;
 
     private Defense defense;
@@ -22,5 +23,7 @@ public class DefenseListItem2 : MonoBehaviour
         {
             backgroundImg.color = Color.red;
         }
+
+        inTransitImg.gameObject.SetActive(defense.inTransit());
     }
 }

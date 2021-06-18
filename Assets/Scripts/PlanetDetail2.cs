@@ -87,7 +87,6 @@ public class PlanetDetail2 : MonoBehaviour
 
     private void updateGrid()
     {
-
         onSurfacePanel.setPlanet(planet);
         updateShipGrids();
 
@@ -97,7 +96,7 @@ public class PlanetDetail2 : MonoBehaviour
 
         // Defenses
         planet.defenses.Sort((a, b) => a.type.name.CompareTo(b.type.name));
-        foreach (Defense defense in planet.defenses)
+        foreach (Defense defense in planet.defenses.Concat(planet.defensesInTransit))
         {
             newObj = (GameObject)Instantiate(defenseListItemPrefab, infrastructurePanel);
             DefenseListItem2 defenseListItem = newObj.GetComponent<DefenseListItem2>();
@@ -106,7 +105,7 @@ public class PlanetDetail2 : MonoBehaviour
 
         // Factories
         planet.factories.Sort((a, b) => a.type.name.CompareTo(b.type.name));
-        foreach (Factory factory in planet.factories)
+        foreach (Factory factory in planet.factories.Concat(planet.factoriesInTransit))
         {
             newObj = (GameObject)Instantiate(factoryListItemPrefab, infrastructurePanel);
             FactoryListItem2 factoryListItem = newObj.GetComponent<FactoryListItem2>();
