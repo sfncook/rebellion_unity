@@ -17,10 +17,10 @@ public class ShipListItem2 : DragAndDroppable
     public delegate void RemovePersonnel(Personnel personnel);
     private RemovePersonnel removePersonnelCallback;
 
-    public delegate void StartMoveShip();
+    public delegate void StartMoveShip(ShipListItem2 shipListItem);
     private StartMoveShip startMoveShip;
 
-    public delegate void StopMoveShip();
+    public delegate void StopMoveShip(ShipListItem2 shipListItem);
     private StopMoveShip stopMoveShip;
 
     public void setShip(Ship ship)
@@ -140,13 +140,13 @@ public class ShipListItem2 : DragAndDroppable
     protected override void onDragStart()
     {
         isDragging = true;
-        startMoveShip.Invoke();
+        startMoveShip.Invoke(this);
     }
 
     protected override void onDragStop()
     {
         isDragging = false;
-        stopMoveShip.Invoke();
+        stopMoveShip.Invoke(this);
     }
 
     public void OnMouseUp()

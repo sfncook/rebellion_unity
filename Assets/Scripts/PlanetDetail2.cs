@@ -158,19 +158,19 @@ public class PlanetDetail2 : MonoBehaviour
         updateGrid();
     }
 
-    public void startMoveShip()
+    public void startMoveShip(ShipListItem2 shipListItem)
     {
+        shipListItem.transform.SetParent(canvas.transform);
         shipMoveStarChart.showSector(MainGameState.gameState.sectorForDetail);
         shipMoveStarChart.gameObject.SetActive(true);
-        onSurfacePanel.gameObject.SetActive(false);
-        infrastructurePanel.gameObject.SetActive(false);
+        detailPanel.gameObject.SetActive(false);
     }
 
-    public void stopMoveShip()
+    public void stopMoveShip(ShipListItem2 shipListItem)
     {
+        GameObject.Destroy(shipListItem.gameObject);
         shipMoveStarChart.gameObject.SetActive(false);
-        onSurfacePanel.gameObject.SetActive(true);
-        infrastructurePanel.gameObject.SetActive(true);
+        detailPanel.gameObject.SetActive(true);
     }
 
     public void assignFactoryBuildCommand(Factory factory, AbstractType type)
