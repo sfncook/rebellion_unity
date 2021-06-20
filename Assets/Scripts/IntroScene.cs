@@ -1,23 +1,20 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class IntroScene : MonoBehaviour
+public class IntroScene : BladeFadeScene
 {
     public List<GameObject> pagePanels;
     public Button skipButton;
     public Button nextPageButton;
-    public Image blackFade;
 
     private int curPage = 0;
-
-    private bool fading = false;
-    private const float FADE_DUR_SEC = 2;
 
     // Start is called before the first frame update
     void Start()
     {
+        fadein = true;
+        blackFade.color = Color.black;
         skipButton.onClick.AddListener(onClickSkip);
         nextPageButton.onClick.AddListener(onClickNextPage);
         updatePage();
@@ -51,23 +48,11 @@ public class IntroScene : MonoBehaviour
 
     private void loadNextScene()
     {
-        fading = true;
+        fadeout = true;
     }
 
-    private void FixedUpdate()
+    protected override void fadeOutComplete()
     {
-        if(fading)
-        {
-            float alpha = blackFade.color.a;
-            if(alpha>=1)
-            {
-                fading = false;
-                MainGameState.gameState.initializeNewGame();
-            } else
-            {
-                alpha += (Time.deltaTime/FADE_DUR_SEC);
-                blackFade.color = new Color(0, 0, 0, alpha);
-            }
-        }
+        MainGameState.gameState.initializeNewGame();
     }
 }

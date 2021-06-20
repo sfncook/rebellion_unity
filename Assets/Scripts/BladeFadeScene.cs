@@ -1,53 +1,56 @@
 using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.SceneManagement;
 
-public class SplashScreen : MonoBehaviour
+public abstract class BladeFadeScene : MonoBehaviour
 {
-    public Button startButton;
     public Image blackFade;
 
-    private bool fadein = false;
-    private bool fadeout = false;
+    protected bool fadein = false;
+    protected bool fadeout = false;
     private const float FADE_DUR_SEC = 2;
-    
+
     void Start()
     {
-        startButton.onClick.AddListener(onClickStart);
-        fadein = true;
+        blackFade.color = Color.black;
     }
 
-    public void onClickStart()
+    protected virtual void fadeInComplete()
     {
-        Debug.Log("onClickStart");
-        fadeout = true;
     }
+
+    protected virtual void fadeOutComplete()
+    {
+    }
+
 
     private void FixedUpdate()
     {
         if (fadein || fadeout)
         {
             float alpha = blackFade.color.a;
-            if(fadein && alpha<=0)
+            if (fadein && alpha <= 0)
             {
                 fadein = false;
-            } else if(fadeout && alpha>=1)
+                fadeInComplete();
+            }
+            else if (fadeout && alpha >= 1)
             {
                 fadeout = false;
-                SceneManager.LoadScene("Introduction Scene");
+                fadeOutComplete();
             }
             else
             {
-                if(fadein)
+                if (fadein)
                 {
                     alpha -= (Time.deltaTime / FADE_DUR_SEC);
-                } else
+                }
+                else
                 {
                     alpha += (Time.deltaTime / FADE_DUR_SEC);
                 }
-                Debug.Log("alpha:"+alpha);
                 blackFade.color = new Color(0, 0, 0, alpha);
             }
         }
     }
+
 }
