@@ -30,4 +30,9 @@ public class HeaderControls : MonoBehaviour
         headerTitleText.text = headerTitle;
     }
 
+    public void setShowBackButton(bool showBackButton)
+    {
+        backButton.gameObject.SetActive(showBackButton);
+    }
+
 }

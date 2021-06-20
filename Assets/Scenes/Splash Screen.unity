@@ -826,7 +826,6 @@ MonoBehaviour:
     isHq: 0
     loyalty: 0
     isInConflict: 0
-  newGameFadeIn: 0
   planetSelectedForDestination:
     name: 
     sectorX: 0
@@ -835,6 +834,8 @@ MonoBehaviour:
     isHq: 0
     loyalty: 0
     isInConflict: 0
+  newGameFadeIn: 0
+  showPlanetDetailBackButton: 0
 --- !u!4 &1324701452
 Transform:
   m_ObjectHideFlags: 0
@@ -1095,8 +1096,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a7b1223a7197843269b4e834d2abc91d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startButton: {fileID: 553215395}
   blackFade: {fileID: 2127811246}
+  startButton: {fileID: 553215395}
 --- !u!4 &1965789661
 Transform:
   m_ObjectHideFlags: 0
@@ -1161,7 +1162,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_Color: {r: 0, g: 0, b: 0, a: 0}
   m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1

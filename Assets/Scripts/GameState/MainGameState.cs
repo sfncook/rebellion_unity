@@ -51,14 +51,19 @@ public class MainGameState : MonoBehaviour
     // Planet Dialog
     [HideInInspector]
     public Planet planetForDetail;
-    [HideInInspector]
-    public bool newGameFadeIn = false;
 
     // Factory Dialog(s)
     [HideInInspector]
     public Factory factoryForDetail;
     [HideInInspector]
     public Planet planetSelectedForDestination;
+
+
+    // Story-line state
+    [HideInInspector]
+    public bool newGameFadeIn = false;
+    [HideInInspector]
+    public bool showPlanetDetailBackButton = false;
 
     private float timerSec = 0.0f;
 
@@ -223,6 +228,7 @@ public class MainGameState : MonoBehaviour
         gameState.sectorForDetail = homeSector;
         gameState.planetForDetail = homePlanet;
         gameState.newGameFadeIn = true;
+        gameState.startTimerEvent.Invoke();
         SceneManager.LoadScene("Planet Detail 2");
     }
 

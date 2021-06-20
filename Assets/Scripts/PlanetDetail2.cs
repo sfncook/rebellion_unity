@@ -58,6 +58,9 @@ public class PlanetDetail2 : BladeFadeScene
         {
             blackFade.color = Color.clear;
         }
+
+        headerControls.setShowBackButton(MainGameState.gameState.showPlanetDetailBackButton);
+
         detailPanel.SetActive(true);
         //factoryDialog.gameObject.SetActive(false);
         factoryStatusDialog.gameObject.SetActive(false);
@@ -82,15 +85,16 @@ public class PlanetDetail2 : BladeFadeScene
         _FixedUpdate();
         if (planet != null)
         {
-            bool hasOrbitalShield = planet.defenses.Exists(defense => defense.type.Equals(DefenseType.planetaryShield));
-            if (hasOrbitalShield)
-            {
-                float r = Random.Range(0f, 0.1f);
-                float g = Random.Range(0f, 0.1f);
-                float b = Random.Range(0.9f, 1f);
-                float a = Random.Range(0.1f, 0.3f);
-                planetShieldImg.color = new Color(r, g, b, a);
-            }
+            // Orbital shield color-flicker.  Not very helpful
+            //bool hasOrbitalShield = planet.defenses.Exists(defense => defense.type.Equals(DefenseType.planetaryShield));
+            //if (hasOrbitalShield)
+            //{
+            //    float r = Random.Range(0f, 0.1f);
+            //    float g = Random.Range(0f, 0.1f);
+            //    float b = Random.Range(0.9f, 1f);
+            //    float a = Random.Range(0.1f, 0.3f);
+            //    planetShieldImg.color = new Color(r, g, b, a);
+            //}
         }
     }
 
