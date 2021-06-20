@@ -58,6 +58,7 @@ public class PlanetDetail2 : BladeFadeScene
         {
             blackFade.color = Color.clear;
         }
+        MainGameState.gameState.newGameFadeIn = false;
 
         headerControls.setShowBackButton(MainGameState.gameState.showPlanetDetailBackButton);
 
