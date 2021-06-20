@@ -2094,6 +2094,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1185268088475944258, guid: a71b23225b23b47ebbf587e06cc03036, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: fe9bb0cd56f014e1ba17022c52e1e756, type: 3}
     - target: {fileID: 2744791615758098042, guid: a71b23225b23b47ebbf587e06cc03036, type: 3}
       propertyPath: m_Name
       value: Personnel List Item 2 (1)

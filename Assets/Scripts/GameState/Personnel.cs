@@ -4,10 +4,19 @@
     public int manyPeople;
     public int manyPeopleDead; // to be removed between events
 
-    public Personnel(PersonnelType personnelType, Team team) : base(personnelType)
+    // Attributes for individuals
+    public string moniker; // "human" name
+
+    public Personnel(
+        PersonnelType personnelType,
+        Team team,
+        string moniker = ""
+    ) : base(personnelType)
     {
         this.team = team;
         this.manyPeople = personnelType.totalManyPeople;
         this.manyPeopleDead = 0;
+
+        this.moniker = moniker;
     }
 }

@@ -414,13 +414,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1657a1e5706248948cb4a0ebf39d65b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  blackFade: {fileID: 820209050}
   pagePanels:
   - {fileID: 46464918}
   - {fileID: 1534156974}
   - {fileID: 2051746666}
   skipButton: {fileID: 1022672587}
   nextPageButton: {fileID: 63969372}
-  blackFade: {fileID: 820209050}
 --- !u!4 &638026845
 Transform:
   m_ObjectHideFlags: 0
@@ -844,7 +844,7 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1022672585}
   m_CullTransparentMesh: 1
---- !u!1 &1394943242
+--- !u!1 &1369877598
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -852,8 +852,8 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 1394943244}
-  - component: {fileID: 1394943243}
+  - component: {fileID: 1369877600}
+  - component: {fileID: 1369877599}
   m_Layer: 0
   m_Name: Main Game State
   m_TagString: Untagged
@@ -861,13 +861,13 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1394943243
+--- !u!114 &1369877599
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1394943242}
+  m_GameObject: {fileID: 1369877598}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7754a3ee3b5134b19a25fa40f578fe99, type: 3}
@@ -918,13 +918,15 @@ MonoBehaviour:
     isHq: 0
     loyalty: 0
     isInConflict: 0
---- !u!4 &1394943244
+  newGameFadeIn: 0
+  showPlanetDetailBackButton: 0
+--- !u!4 &1369877600
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1394943242}
+  m_GameObject: {fileID: 1369877598}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}

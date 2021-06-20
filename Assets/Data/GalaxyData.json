@@ -1,4 +1,12 @@
 {
+	"heros": [
+		{
+			"moniker": "Breia Stormchapel"
+		},
+		{
+			"moniker": "Caerter Olscalon"
+		}
+	],
 	"sectors": [
 		{
 			"name": "Sector I",

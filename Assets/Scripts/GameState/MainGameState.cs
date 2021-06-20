@@ -237,7 +237,10 @@ public class MainGameState : MonoBehaviour
     {
         JsonUtility.FromJsonOverwrite(galaxyDataFile.text, galaxy);
 
-        foreach(StarSector sector in galaxy.sectors)
+        Debug.Log(galaxy.heros.Count);
+        Debug.Log(galaxy.heros[0].moniker);
+
+        foreach (StarSector sector in galaxy.sectors)
         {
             foreach (Planet planet in sector.planets)
             {
