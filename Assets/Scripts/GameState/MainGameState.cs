@@ -41,8 +41,10 @@ public class MainGameState : MonoBehaviour
                                                             //    - gameState updated in response to decisions
                                                             //    - unit-arrivals are processed
     [HideInInspector]
-    public UnityEvent uiUpdateEvent = new UnityEvent();     // 6. - UI is updated
-                                                            // 7. - Pause waiting for user action
+    public UnityEvent storyLineUpdateEvent = new UnityEvent();  // 6. - Update any storyline elements
+    [HideInInspector]
+    public UnityEvent uiUpdateEvent = new UnityEvent();     // 7. - UI is updated
+                                                            // 8. - Pause waiting for user action
 
     // Sector Map
     [HideInInspector]
@@ -64,14 +66,20 @@ public class MainGameState : MonoBehaviour
     public bool newGameFadeIn = false;
     [HideInInspector]
     public bool showPlanetDetailBackButton = false;
+    [HideInInspector]
+    public Personnel initialHero = null;
 
     private float timerSec = 0.0f;
+
+    [HideInInspector]
+    public List<Report> reportsUnAcked = new List<Report>();
 
     // Updaters
     private AllShipsUpdater allShipsUpdater = new AllShipsUpdater();
     private AllPersonnelUpdater allPersonnelUpdater = new AllPersonnelUpdater();
     private AllDefenseUpdater allDefenseUpdater = new AllDefenseUpdater();
     private AllFactoriesUpdater allFactoriesUpdater = new AllFactoriesUpdater();
+    private AllStoryLineUpdater allStoryLineUpdater = new AllStoryLineUpdater();
 
     void Awake()
     {
@@ -109,6 +117,7 @@ public class MainGameState : MonoBehaviour
                 gameState.invokeAgentPlanEvent();
                 gameState.invokeAgentActionEvent();
                 gameState.invokePostCleanupEvent();
+                gameState.invokeStoryLineUpdateEvent();
                 gameState.invokeUiUpdateEvent();
             }
             else
@@ -160,6 +169,11 @@ public class MainGameState : MonoBehaviour
         postCleanupEvent.AddListener(call);
     }
 
+    public void addListenerStoryLineUpdateEvent(UnityAction call)
+    {
+        storyLineUpdateEvent.AddListener(call);
+    }
+
 
     public void removeListenerGameStateUpdateEvent(UnityAction call)
     {
@@ -170,6 +184,11 @@ public class MainGameState : MonoBehaviour
     public void invokeUiUpdateEvent()
     {
         uiUpdateEvent.Invoke();
+    }
+
+    public void invokeStoryLineUpdateEvent()
+    {
+        storyLineUpdateEvent.Invoke();
     }
 
     public void invokePreDayPrepEvent()
@@ -224,8 +243,8 @@ public class MainGameState : MonoBehaviour
         homePlanet.factories.Add(new Factory(FactoryType.ctorYard));
         homePlanet.defenses.Add(new Defense(DefenseType.planetaryShield));
         homePlanet.personnelsOnSurface.Add(new Personnel(PersonnelType.Soldiers, Team.TeamB));
-        Hero initialHero = galaxy.heros[0];
-        homePlanet.personnelsOnSurface.Add(new Personnel(PersonnelType.Hero, Team.TeamA, hero:initialHero));
+        initialHero = new Personnel(PersonnelType.Hero, Team.TeamA, hero: galaxy.heros[0]);
+        homePlanet.personnelsOnSurface.Add(initialHero);
 
         gameState.sectorForDetail = homeSector;
         gameState.planetForDetail = homePlanet;

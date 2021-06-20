@@ -8,6 +8,7 @@ public class PersonnelListItem2 : DragAndDroppable
     public Image backgroundImg;
     public Image inTransitImg;
     public TextMeshProUGUI manyPeopleLabel;
+    public Image hasReportImg;
 
     private Personnel personnel;
     private Ship onShip = null;
