@@ -71,6 +71,10 @@ public class MainGameState : MonoBehaviour
 
     private float timerSec = 0.0f;
 
+
+    [HideInInspector]
+    public Report reportForDialog = null;
+
     [HideInInspector]
     public List<Report> reportsUnAcked = new List<Report>();
 
@@ -91,6 +95,7 @@ public class MainGameState : MonoBehaviour
             allPersonnelUpdater.init();
             allDefenseUpdater.init();
             allFactoriesUpdater.init();
+            allStoryLineUpdater.init();
         }
         else if(gameState != this)
         {
@@ -258,9 +263,6 @@ public class MainGameState : MonoBehaviour
     {
         JsonUtility.FromJsonOverwrite(galaxyDataFile.text, galaxy);
 
-        Debug.Log(galaxy.heros.Count);
-        Debug.Log(galaxy.heros[0].moniker);
-
         foreach (StarSector sector in galaxy.sectors)
         {
             foreach (Planet planet in sector.planets)
@@ -392,5 +394,17 @@ public class MainGameState : MonoBehaviour
         int dmi = (int)dm;
         //Debug.Log("dx:"+dx+" dy:"+dy+" d:"+d+" dm:"+dm+" dmi:"+dmi);
         return dmi + MainGameState.gameState.gameTime;
+    }
+
+    public bool personnelHasUnAckedReports(Personnel personnel)
+    {
+        foreach (Report report in reportsUnAcked)
+        {
+            if(report.reporter.Equals(personnel))
+            {
+                return true;
+            }
+        }
+        return false;
     }
 }

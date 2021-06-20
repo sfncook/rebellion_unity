@@ -89,6 +89,7 @@ GameObject:
   - component: {fileID: 8818130366629852961}
   - component: {fileID: 328359287919076496}
   - component: {fileID: 3713409101355792283}
+  - component: {fileID: 6315643122418762716}
   m_Layer: 5
   m_Name: Personnel List Item 2
   m_TagString: Untagged
@@ -174,6 +175,7 @@ MonoBehaviour:
   backgroundImg: {fileID: 8818130366629852961}
   inTransitImg: {fileID: 4507381340642251072}
   manyPeopleLabel: {fileID: 324047233161950582}
+  hasReportImg: {fileID: 6811675125908829765}
 --- !u!225 &3713409101355792283
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -186,6 +188,32 @@ CanvasGroup:
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
+--- !u!61 &6315643122418762716
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2744791615758098042}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 5, y: 7.1}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 100, y: 126.31}
+  m_EdgeRadius: 0
 --- !u!1 &2973228026679541877
 GameObject:
   m_ObjectHideFlags: 0

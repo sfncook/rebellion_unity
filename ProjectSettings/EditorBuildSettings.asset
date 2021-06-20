@@ -26,4 +26,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Factory Status Dialog 2.unity
     guid: bdc55c4ec9b274c5d89e9a1cd774f6a0
+  - enabled: 1
+    path: Assets/Scenes/Story Line Report Dialog.unity
+    guid: 871fceceffd874fc1a786c77ae07b09b
   m_configObjects: {}

@@ -24,4 +24,9 @@
     {
         return hero != null;
     }
+
+    public bool hasUnAckedReports()
+    {
+        return MainGameState.gameState.personnelHasUnAckedReports(this);
+    }
 }

@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class PersonnelListItem2 : DragAndDroppable
 {
@@ -12,6 +13,7 @@ public class PersonnelListItem2 : DragAndDroppable
 
     private Personnel personnel;
     private Ship onShip = null;
+    private bool isDragging = false;
 
     public void setPersonnel(Personnel personnel)
     {
@@ -48,6 +50,7 @@ public class PersonnelListItem2 : DragAndDroppable
         }
 
         inTransitImg.gameObject.SetActive(personnel.inTransit());
+        hasReportImg.gameObject.SetActive(personnel.hasUnAckedReports());
     }
 
     public Personnel getPersonnel()
@@ -80,5 +83,28 @@ public class PersonnelListItem2 : DragAndDroppable
     protected override bool isDroppable()
     {
         return false;
+    }
+
+    protected override void onDragStart()
+    {
+        isDragging = true;
+    }
+
+    protected override void onDragStop()
+    {
+        isDragging = false;
+    }
+
+    public void OnMouseUp()
+    {
+        if (!isDragging)
+        {
+            if(personnel.hasUnAckedReports())
+            {
+                MainGameState.gameState.reportForDialog = MainGameState.gameState.reportsUnAcked[0];
+                MainGameState.gameState.reportsUnAcked.RemoveAt(0);
+                SceneManager.LoadScene("Story Line Report Dialog");
+            }
+        }
     }
 }

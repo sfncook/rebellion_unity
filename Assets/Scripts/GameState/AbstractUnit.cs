@@ -16,4 +16,22 @@ public class AbstractUnit
     {
         return dayArrival > MainGameState.gameState.gameTime;
     }
+
+    public override int GetHashCode()
+    {
+        return uuid.GetHashCode();
+    }
+
+    public override bool Equals(Object obj)
+    {
+        if ((obj == null) || !this.GetType().Equals(obj.GetType()))
+        {
+            return false;
+        }
+        else
+        {
+            AbstractUnit p = (AbstractUnit)obj;
+            return p.uuid.Equals(uuid);
+        }
+    }
 }
