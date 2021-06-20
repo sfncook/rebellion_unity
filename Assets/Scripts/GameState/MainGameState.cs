@@ -1,6 +1,7 @@
 using UnityEngine;
 using System.Collections.Generic;
 using UnityEngine.Events;
+using UnityEngine.SceneManagement;
 
 public class MainGameState : MonoBehaviour
 {
@@ -50,6 +51,8 @@ public class MainGameState : MonoBehaviour
     // Planet Dialog
     [HideInInspector]
     public Planet planetForDetail;
+    [HideInInspector]
+    public bool newGameFadeIn = false;
 
     // Factory Dialog(s)
     [HideInInspector]
@@ -201,6 +204,29 @@ public class MainGameState : MonoBehaviour
 
 
 
+    public void initializeNewGame()
+    {
+        loadGameFromFiles();
+
+        // Randomly pick starting sector and planet:
+        StarSector homeSector = galaxy.sectors[Random.Range(0, galaxy.sectors.Count)];
+        Planet homePlanet = homeSector.planets[Random.Range(0, homeSector.planets.Count)];
+        homePlanet.loyalty = 0.4f;
+        initPlanetUnits(homePlanet);
+        homePlanet.energyCapacity = 5;
+
+        // Init standard set of intro units
+        homePlanet.factories.Add(new Factory(FactoryType.ctorYard));
+        homePlanet.defenses.Add(new Defense(DefenseType.planetaryShield));
+        homePlanet.personnelsOnSurface.Add(new Personnel(PersonnelType.Soldiers, Team.TeamB));
+
+        gameState.sectorForDetail = homeSector;
+        gameState.planetForDetail = homePlanet;
+        gameState.newGameFadeIn = true;
+        SceneManager.LoadScene("Planet Detail 2");
+    }
+
+
     public void loadGameFromFiles()
     {
         JsonUtility.FromJsonOverwrite(galaxyDataFile.text, galaxy);
@@ -209,31 +235,29 @@ public class MainGameState : MonoBehaviour
         {
             foreach (Planet planet in sector.planets)
             {
-                planet.shipsInOrbit = new List<Ship>();
-                planet.shipsInTransit = new List<Ship>();
-                planet.personnelsOnSurface = new List<Personnel>();
-                planet.personnelsInTransit = new List<Personnel>();
-                planet.factories = new List<Factory>();
-                planet.factoriesInTransit = new List<Factory>();
-                planet.defenses = new List<Defense>();
-                planet.defensesInTransit = new List<Defense>();
+                initPlanetUnits(planet);
                 planet.energyCapacity = Random.Range(0, 10);
                 initPlanet(planet);
             }
         }
-
-        StarSector sectorA = galaxy.sectors[Random.Range(0, galaxy.sectors.Count)];
-        StarSector sectorB = galaxy.sectors[Random.Range(0, galaxy.sectors.Count)];
-        Planet planetA = sectorA.planets[Random.Range(0, sectorA.planets.Count)];
-        Planet planetB = sectorB.planets[Random.Range(0, sectorB.planets.Count)];
-        planetA.isHq = true;
-        planetB.isHq = true;
-        planetA.loyalty = 0.1f;
-        planetB.loyalty = 0.9f;
     }// loadGameFromFiles
+
+    private void initPlanetUnits(Planet planet)
+    {
+        planet.shipsInOrbit = new List<Ship>();
+        planet.shipsInTransit = new List<Ship>();
+        planet.personnelsOnSurface = new List<Personnel>();
+        planet.personnelsInTransit = new List<Personnel>();
+        planet.factories = new List<Factory>();
+        planet.factoriesInTransit = new List<Factory>();
+        planet.defenses = new List<Defense>();
+        planet.defensesInTransit = new List<Defense>();
+    }
 
     private void initPlanet(Planet planet)
     {
+        // Initializing everything to enemy strength
+        Team enemyTeam = Team.TeamB;
         var shipTypes = new ShipType[] {
             ShipType.Bireme,
             ShipType.Trireme,
@@ -243,9 +267,9 @@ public class MainGameState : MonoBehaviour
 
         for (var i = 0; i < Random.Range(0, 3); i++)
         {
-            Team team = (Random.Range(0.0f, 1.0f) >= 0.5f) ? Team.TeamA : Team.TeamB;
+            //Team team = (Random.Range(0.0f, 1.0f) >= 0.5f) ? Team.TeamA : Team.TeamB;
             int typeIndex = Random.Range(0, shipTypes.Length);
-            Ship randShip = new Ship(shipTypes[typeIndex], team);
+            Ship randShip = new Ship(shipTypes[typeIndex], enemyTeam);
             planet.shipsInOrbit.Add(randShip);
         }
 
@@ -257,10 +281,10 @@ public class MainGameState : MonoBehaviour
         };
         for (var i = 0; i < Random.Range(0, 4); i++)
         {
-            Team team = (Random.Range(0.0f, 1.0f) >= 0.5f) ? Team.TeamA : Team.TeamB;
+            //Team team = (Random.Range(0.0f, 1.0f) >= 0.5f) ? Team.TeamA : Team.TeamB;
             //int typeIndex = Random.Range(0, personnelTypes.Length);
             //Personnel personnel = new Personnel(personnelTypes[typeIndex], team);
-            Personnel personnel = new Personnel(PersonnelType.Soldiers, team);
+            Personnel personnel = new Personnel(PersonnelType.Soldiers, enemyTeam);
             planet.personnelsOnSurface.Add(personnel);
         }
 
@@ -286,6 +310,7 @@ public class MainGameState : MonoBehaviour
         {
             int typeIndex = Random.Range(0, defenseTypes.Length);
             Defense defense = new Defense(defenseTypes[typeIndex]);
+            // Limit each planet to just a single orbital shield
             bool hasOrbitalShield = planet.defenses.Exists(defense => defense.type.Equals(DefenseType.planetaryShield));
             if (defense.type.Equals(DefenseType.orbitalBattery) || !hasOrbitalShield)
             {

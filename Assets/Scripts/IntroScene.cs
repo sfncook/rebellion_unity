@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.SceneManagement;
 
 public class IntroScene : MonoBehaviour
 {
@@ -63,8 +62,7 @@ public class IntroScene : MonoBehaviour
             if(alpha>=1)
             {
                 fading = false;
-                MainGameState.gameState.loadGameFromFiles();
-                SceneManager.LoadScene("Galaxy Map");
+                MainGameState.gameState.initializeNewGame();
             } else
             {
                 alpha += (Time.deltaTime/FADE_DUR_SEC);
