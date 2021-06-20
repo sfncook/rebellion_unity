@@ -1,4 +1,6 @@
-﻿public class PersonnelType : AbstractType
+﻿using System.Collections.Generic;
+
+public class PersonnelType : AbstractType
 {
     public static PersonnelType Soldiers = new PersonnelType(
         "Soldiers",
@@ -19,7 +21,8 @@
         defaultEspionage: 30,
         defaultRecruiting:50,
         defaultDiplomacy:60,
-        defaultVisibility: 20
+        defaultVisibility: 20,
+        availableMissionTypes: new List<MissionType>() { MissionType.diplomacy, MissionType.espionage, MissionType.recruiting }
     );
     public static PersonnelType Spy = new PersonnelType(
         "Spy",
@@ -30,14 +33,16 @@
         defaultEspionage: 60,
         defaultRecruiting: 50,
         defaultDiplomacy: 20,
-        defaultVisibility: 80
+        defaultVisibility: 80,
+        availableMissionTypes: new List<MissionType>() { MissionType.diplomacy, MissionType.espionage, MissionType.recruiting }
     );
     public static PersonnelType Hero = new PersonnelType(
         "Hero",
         isStealth: true,
         totalManyPeople: 1,
         canAttack: false,
-        isHero: true
+        isHero: true,
+        availableMissionTypes: new List<MissionType>() { MissionType.diplomacy, MissionType.espionage, MissionType.recruiting }
     );
 
     public readonly bool isStealth;
@@ -55,6 +60,8 @@
     public readonly int defaultRecruiting;
     public readonly int defaultDiplomacy;
 
+    public List<MissionType> availableMissionTypes = new List<MissionType>();
+
     public PersonnelType(
         string name,
         bool isStealth,
@@ -66,7 +73,8 @@
         int defaultVisibility = 0,
         int defaultEspionage = 0,
         int defaultRecruiting = 0,
-        int defaultDiplomacy = 0
+        int defaultDiplomacy = 0,
+        List<MissionType> availableMissionTypes = null
         ) : base(name, TypeCategory.Personnel)
     {
         this.isStealth = isStealth;
@@ -77,5 +85,9 @@
         this.isHero = isHero;
         this.defaultRecruiting = defaultRecruiting;
         this.defaultDiplomacy = defaultDiplomacy;
+        if(availableMissionTypes!=null)
+        {
+            this.availableMissionTypes = new List<MissionType>(availableMissionTypes);
+        }
     }
 }

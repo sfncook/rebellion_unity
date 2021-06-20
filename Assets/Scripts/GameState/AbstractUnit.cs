@@ -4,7 +4,9 @@ public class AbstractUnit
 {
     public readonly AbstractType type;
     public readonly string uuid;
-    public int dayArrival = 0; // For travelling
+    public int dayArrival = -1; // For travelling
+    public MissionType activeMission = null;
+    public int dayMissionComplete = -1;
 
     public AbstractUnit(AbstractType type)
     {
@@ -15,6 +17,11 @@ public class AbstractUnit
     public bool inTransit()
     {
         return dayArrival > MainGameState.gameState.gameTime;
+    }
+
+    public bool hasMission()
+    {
+        return dayMissionComplete > MainGameState.gameState.gameTime;
     }
 
     public override int GetHashCode()

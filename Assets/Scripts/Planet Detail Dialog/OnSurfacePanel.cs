@@ -36,10 +36,19 @@ public class OnSurfacePanel : DragAndDroppable
     protected override void onPointEnter(GameObject pointerDrag)
     {
         PersonnelListItem2 personnelListItem = pointerDrag.GetComponent<PersonnelListItem2>();
+        Personnel personnel = personnelListItem.getPersonnel();
+        PersonnelType personnelType = (PersonnelType) personnel.type;
         if (personnelListItem.isLocatedOnShip())
         {
             planetDetailImage.color = Color.yellow;
             blankPersonnelDragOver = (GameObject)Instantiate(blankPersonnelPrefab, personnelTeamAPanel);
+        } else  if(
+            personnelType.availableMissionTypes.Contains(MissionType.espionage) ||
+            personnelType.availableMissionTypes.Contains(MissionType.recruiting) ||
+            personnelType.availableMissionTypes.Contains(MissionType.diplomacy)
+            )
+        {
+            planetDetailImage.color = Color.blue;
         }
     }
     protected override void onPointExit()
@@ -52,15 +61,23 @@ public class OnSurfacePanel : DragAndDroppable
         planetDetailImage.color = Color.white;
         Destroy(blankPersonnelDragOver, 0.01f);
         PersonnelListItem2 personnelListItem = pointerDrag.GetComponent<PersonnelListItem2>();
+        Personnel personnel = personnelListItem.getPersonnel();
+        PersonnelType personnelType = (PersonnelType)personnel.type;
         if (personnelListItem.isLocatedOnShip())
         {
             personnelListItem.setOnShip(null);
-            Personnel personnel = personnelListItem.getPersonnel();
             planet.personnelsOnSurface.Add(personnel);
             updateGrid();
             shipContentsAndMovePanel.removePersonnel(personnel);
             shipContentsAndMovePanel.updateGrid();
             updateShipGrids();
+        } else if (
+         personnelType.availableMissionTypes.Contains(MissionType.espionage) ||
+         personnelType.availableMissionTypes.Contains(MissionType.recruiting) ||
+         personnelType.availableMissionTypes.Contains(MissionType.diplomacy)
+         )
+        {
+            
         }
     }
 

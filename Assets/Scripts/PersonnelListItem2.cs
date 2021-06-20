@@ -10,6 +10,8 @@ public class PersonnelListItem2 : DragAndDroppable
     public Image inTransitImg;
     public TextMeshProUGUI manyPeopleLabel;
     public Image hasReportImg;
+    public GameObject hasMissionContainer;
+    public Image missionImg;
 
     private Personnel personnel;
     private Ship onShip = null;
@@ -51,6 +53,12 @@ public class PersonnelListItem2 : DragAndDroppable
 
         inTransitImg.gameObject.SetActive(personnel.inTransit());
         hasReportImg.gameObject.SetActive(personnel.hasUnAckedReports());
+
+        hasMissionContainer.SetActive(personnel.hasMission());
+        if(personnel.hasMission())
+        {
+            missionImg.sprite = Resources.Load<Sprite>("Images/Missions/" + personnel.activeMission.name);
+        }
     }
 
     public Personnel getPersonnel()

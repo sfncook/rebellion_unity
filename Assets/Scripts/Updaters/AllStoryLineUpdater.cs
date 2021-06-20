@@ -23,7 +23,7 @@ public class AllStoryLineUpdater
             contentPages.Add("But all is not lost!  I evaded their capture and retained my crypto-siganture.  Intact and untraceable.  But I must continue to reach out to others who feel the way I do!  Who hate the damned Faction and their brutality!  And with each new contact, my crypto-signature becomes a little more visible, more traceable.");
             contentPages.Add("What should I do?  Please!  Tell me what to do!  I am lost, alone, and afraid for my life.  Perhaps I should try to recruit more people to the cause?  You can assign me a recruiting mission and I will seek out new people.  The more people we recruit, the more we can fan the flames of insurrection and sway the loyalty of the planet in our favor!");
             contentPages.Add("Who knows?  Perhaps in time we will have the majority of the planet’s loyalty.  Then we will control the factories and infrastructure.  Will be able to begin to build our own sanctuary here on this planet.  A place that we control and maybe, just maybe, we will be able to keep the damned Faction at bay.");
-            contentPages.Add("(To assign "+ initialHero.hero.moniker + " a new recruiting mission drag them and drop them on the planet.)");
+            contentPages.Add("(To assign "+ initialHero.hero.moniker + " a new recruiting mission drag them and drop them on the planet.)\n(Personnel can only be assigned to the planet where they are currently located.)");
 
             Report report = new StoryLineReport(reportTitle, MainGameState.gameState.initialHero, contentPages);
             MainGameState.gameState.reportsUnAcked.Add(report);
