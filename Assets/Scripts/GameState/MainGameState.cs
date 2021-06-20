@@ -60,6 +60,9 @@ public class MainGameState : MonoBehaviour
     [HideInInspector]
     public Planet planetSelectedForDestination;
 
+    [HideInInspector]
+    public Personnel personnelForDetail;
+
 
     // Story-line state
     [HideInInspector]

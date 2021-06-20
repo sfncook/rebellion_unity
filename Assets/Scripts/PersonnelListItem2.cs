@@ -112,6 +112,10 @@ public class PersonnelListItem2 : DragAndDroppable
                 MainGameState.gameState.reportForDialog = MainGameState.gameState.reportsUnAcked[0];
                 MainGameState.gameState.reportsUnAcked.RemoveAt(0);
                 SceneManager.LoadScene("Story Line Report Dialog");
+            } else
+            {
+                MainGameState.gameState.personnelForDetail = personnel;
+                SceneManager.LoadScene("Personnel Detail");
             }
         }
     }
