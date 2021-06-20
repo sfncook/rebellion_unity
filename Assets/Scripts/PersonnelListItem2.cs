@@ -15,7 +15,15 @@ public class PersonnelListItem2 : DragAndDroppable
     public void setPersonnel(Personnel personnel)
     {
         this.personnel = personnel;
-        personnelImg.sprite = Resources.Load<Sprite>("Images/Personnel/" + personnel.type.name);
+        string imagePath;
+        if(personnel.isHero())
+        {
+            imagePath = "Images/Heros/" + personnel.hero.moniker;
+        } else
+        {
+            imagePath = "Images/Personnel/" + personnel.type.name;
+        }
+        personnelImg.sprite = Resources.Load<Sprite>(imagePath);
 
         if (personnel.team.Equals(Team.TeamA))
         {

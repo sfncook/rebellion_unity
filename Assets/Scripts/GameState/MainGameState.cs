@@ -224,6 +224,8 @@ public class MainGameState : MonoBehaviour
         homePlanet.factories.Add(new Factory(FactoryType.ctorYard));
         homePlanet.defenses.Add(new Defense(DefenseType.planetaryShield));
         homePlanet.personnelsOnSurface.Add(new Personnel(PersonnelType.Soldiers, Team.TeamB));
+        Hero initialHero = galaxy.heros[0];
+        homePlanet.personnelsOnSurface.Add(new Personnel(PersonnelType.Hero, Team.TeamA, hero:initialHero));
 
         gameState.sectorForDetail = homeSector;
         gameState.planetForDetail = homePlanet;
