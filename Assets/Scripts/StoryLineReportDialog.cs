@@ -18,6 +18,7 @@ public class StoryLineReportDialog : MonoBehaviour
 
     void Start()
     {
+        MainGameState.gameState.stopTimerEvent.Invoke();
         report = (StoryLineReport) MainGameState.gameState.reportForDialog;
         headerControls.setHeaderTitle(report.title);
         nextButton.onClick.AddListener(onClickNext);
