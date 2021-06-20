@@ -14,7 +14,7 @@ public class HideShipContentsEvent2 : UnityEvent
 {
 }
 
-public class PlanetDetail2 : MonoBehaviour
+public class PlanetDetail2 : BladeFadeScene
 {
     public Image planetImg;
     public Image planetShieldImg;
@@ -50,6 +50,14 @@ public class PlanetDetail2 : MonoBehaviour
 
     void Start()
     {
+        if(MainGameState.gameState.newGameFadeIn)
+        {
+            fadein = true;
+            blackFade.color = Color.black;
+        } else
+        {
+            blackFade.color = Color.clear;
+        }
         detailPanel.SetActive(true);
         //factoryDialog.gameObject.SetActive(false);
         factoryStatusDialog.gameObject.SetActive(false);
@@ -71,7 +79,8 @@ public class PlanetDetail2 : MonoBehaviour
 
     void FixedUpdate()
     {
-        if(planet != null)
+        _FixedUpdate();
+        if (planet != null)
         {
             bool hasOrbitalShield = planet.defenses.Exists(defense => defense.type.Equals(DefenseType.planetaryShield));
             if (hasOrbitalShield)

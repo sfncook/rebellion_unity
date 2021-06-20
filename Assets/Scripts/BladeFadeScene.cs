@@ -22,6 +22,10 @@ public abstract class BladeFadeScene : MonoBehaviour
     {
     }
 
+    protected void _FixedUpdate()
+    {
+        FixedUpdate();
+    }
 
     private void FixedUpdate()
     {
