@@ -70,8 +70,6 @@ public class MainGameState : MonoBehaviour
     [HideInInspector]
     public bool showPlanetDetailBackButton = false;
     [HideInInspector]
-    public Personnel initialHero = null;
-    [HideInInspector]
     public Planet homePlanet = null;
 
     private float timerSec = 0.0f;
@@ -253,7 +251,6 @@ public class MainGameState : MonoBehaviour
         homePlanet.factories.Add(new Factory(FactoryType.ctorYard));
         homePlanet.defenses.Add(new Defense(DefenseType.planetaryShield));
         homePlanet.personnelsOnSurface.Add(new Personnel(PersonnelType.Soldiers, Team.TeamB));
-        initialHero = new Personnel(PersonnelType.Hero, Team.TeamA, hero: galaxy.heros[0]);
 
         gameState.sectorForDetail = homeSector;
         gameState.planetForDetail = homePlanet;

@@ -11,6 +11,10 @@ public class PersonnelDetail : MonoBehaviour
     public TextMeshProUGUI diplomacyText;
     public TextMeshProUGUI espionageText;
     public ValueBars visibilityBars;
+    public GameObject missionPanel;
+    public TextMeshProUGUI missionTypeText;
+    public TextMeshProUGUI missionTargetNameText;
+    public TextMeshProUGUI missionCompleteText;
 
     private Personnel personnel;
 
@@ -36,7 +40,18 @@ public class PersonnelDetail : MonoBehaviour
         diplomacyText.text = personnel.diplomacy.ToString();
         espionageText.text = personnel.espionage.ToString();
 
-        visibilityBars.setValue(personnel.visibility);
+        visibilityBars.setValue(personnel.visibility/100f);
+
+        if(personnel.hasMission())
+        {
+            missionPanel.SetActive(true);
+            missionTypeText.text = personnel.activeMission.name;
+            missionTargetNameText.text = (personnel.missionTargetUnit!=null) ? personnel.missionTargetUnit.type.name: personnel.missionTargetPlanet.name;
+            missionCompleteText.text = personnel.dayMissionComplete.ToString();
+        } else
+        {
+            missionPanel.SetActive(false);
+        }
     }
 
     public void onClickBackButton()

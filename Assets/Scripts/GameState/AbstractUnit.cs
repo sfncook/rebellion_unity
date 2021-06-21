@@ -7,6 +7,8 @@ public class AbstractUnit
     public int dayArrival = -1; // For travelling
     public MissionType activeMission = null;
     public int dayMissionComplete = -1;
+    public AbstractUnit missionTargetUnit;
+    public Planet missionTargetPlanet;
 
     public AbstractUnit(AbstractType type)
     {

@@ -14,7 +14,15 @@ public class AllStoryLineUpdater
         // Initial storyline
         if(MainGameState.gameState.gameTime == 5)
         {
-            Personnel initialHero = MainGameState.gameState.initialHero;
+            Personnel initialHero = new Personnel(
+                PersonnelType.Hero,
+                Team.TeamA,
+                hero: MainGameState.gameState.galaxy.heros[0],
+                visibility:10,
+                recruiting:80,
+                diplomacy:10,
+                espionage:10
+            );
             MainGameState.gameState.homePlanet.personnelsOnSurface.Add(initialHero);
             string reportTitle = "Report from " + initialHero.hero.moniker;
             List<string> contentPages = new List<string>();
@@ -25,7 +33,7 @@ public class AllStoryLineUpdater
             contentPages.Add("Who knows?  Perhaps in time we will have the majority of the planet’s loyalty.  Then we will control the factories and infrastructure.  Will be able to begin to build our own sanctuary here on this planet.  A place that we control and maybe, just maybe, we will be able to keep the damned Faction at bay.");
             contentPages.Add("(To assign "+ initialHero.hero.moniker + " a new recruiting mission click on their picture.)\n\n(Personnel can only be assigned to the planet where they are currently located.)");
 
-            Report report = new StoryLineReport(reportTitle, MainGameState.gameState.initialHero, contentPages);
+            Report report = new StoryLineReport(reportTitle, initialHero, contentPages);
             MainGameState.gameState.reportsUnAcked.Add(report);
         }
     }

@@ -6,22 +6,22 @@
 
     // Attributes for heros
     public Hero hero;
-    public int visibility; // out of 100 where 0=full-stealth, 100=completely-visible
+    public float visibility; // out of 100 where 0=full-stealth, 100=completely-visible
 
     // Mission qualifications (out of 100)
-    public int espionage;   // Likelihood that they will collect new intelligence
-    public int recruiting;  // Likelihood that they will recruit someone new
-    public int diplomacy;   // Likelihood that they will successfully modify planet sentiment
+    public float espionage;   // Likelihood that they will collect new intelligence
+    public float recruiting;  // Likelihood that they will recruit someone new
+    public float diplomacy;   // Likelihood that they will successfully modify planet sentiment
 
 
     public Personnel(
         PersonnelType personnelType,
         Team team,
         Hero hero = null,
-        int visibility = -1,
-        int espionage = -1,
-        int recruiting = -1,
-        int diplomacy = -1
+        float visibility = -1,
+        float espionage = -1,
+        float recruiting = -1,
+        float diplomacy = -1
     ) : base(personnelType)
     {
         this.team = team;
