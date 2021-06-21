@@ -292,6 +292,11 @@ MonoBehaviour:
   diplomacyText: {fileID: 1864188969}
   espionageText: {fileID: 787237310}
   visibilityBars: {fileID: 307169536}
+  missionPanel: {fileID: 683399026}
+  missionTypeText: {fileID: 306662216}
+  missionTargetNameText: {fileID: 203180907}
+  missionCompleteText: {fileID: 591791068}
+  cancelMissionButton: {fileID: 604227244}
 --- !u!4 &108824300
 Transform:
   m_ObjectHideFlags: 0
@@ -1481,7 +1486,7 @@ GameObject:
   - component: {fileID: 683399029}
   - component: {fileID: 683399028}
   m_Layer: 5
-  m_Name: Assign Mission Panel
+  m_Name: Mission Panel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

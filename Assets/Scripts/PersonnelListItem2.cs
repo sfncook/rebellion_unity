@@ -54,10 +54,13 @@ public class PersonnelListItem2 : DragAndDroppable
         inTransitImg.gameObject.SetActive(personnel.inTransit());
         hasReportImg.gameObject.SetActive(personnel.hasUnAckedReports());
 
-        hasMissionContainer.SetActive(personnel.hasMission());
         if(personnel.hasMission())
         {
+            hasMissionContainer.SetActive(true);
             missionImg.sprite = Resources.Load<Sprite>("Images/Missions/" + personnel.activeMission.name);
+        } else
+        {
+            hasMissionContainer.SetActive(false);
         }
     }
 

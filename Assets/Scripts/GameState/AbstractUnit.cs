@@ -26,6 +26,22 @@ public class AbstractUnit
         return dayMissionComplete > MainGameState.gameState.gameTime;
     }
 
+    public void assignMission(MissionType missionType, AbstractUnit missionTargetUnit=null, Planet missionTargetPlanet=null)
+    {
+        activeMission = missionType;
+        dayMissionComplete = MainGameState.gameState.gameTime + 5;
+        this.missionTargetUnit = missionTargetUnit;
+        this.missionTargetPlanet = missionTargetPlanet;
+    }
+
+    public void cancelMission()
+    {
+        activeMission = null;
+        dayMissionComplete = -1;
+        missionTargetUnit = null;
+        missionTargetPlanet = null;
+    }
+
     public override int GetHashCode()
     {
         return uuid.GetHashCode();
