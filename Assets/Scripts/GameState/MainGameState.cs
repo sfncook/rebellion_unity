@@ -27,24 +27,25 @@ public class MainGameState : MonoBehaviour
     public UnityEvent stopTimerEvent = new UnityEvent();
 
     // Game Loop Events
-                                                            // 1. - Game time is incremented
+                                                                // 1. - Game time is incremented
     [HideInInspector]
-    public UnityEvent preDayPrepEvent = new UnityEvent();   // 2. - Factory builds complete
+    public UnityEvent preDayPrepEvent = new UnityEvent();       // 2. - Factory builds complete
+                                                                //    - Missions complete
     [HideInInspector]
-    public UnityEvent agentPlanEvent = new UnityEvent();    // 3. - Pieces make decisions where to move
+    public UnityEvent agentPlanEvent = new UnityEvent();        // 4. - Pieces make decisions where to move
     [HideInInspector]
-    public UnityEvent agentActionEvent = new UnityEvent();  // 4. - Battles takes place
-                                                            //    - pieces take damage
+    public UnityEvent agentActionEvent = new UnityEvent();      // 5. - Battles takes place
+                                                                //    - pieces take damage
     [HideInInspector]
-    public UnityEvent postCleanupEvent = new UnityEvent();  // 5. - Dead pieces are removed
-                                                            //    - units arrive at destinations
-                                                            //    - gameState updated in response to decisions
-                                                            //    - unit-arrivals are processed
+    public UnityEvent postCleanupEvent = new UnityEvent();      // 6. - Dead pieces are removed
+                                                                //    - units arrive at destinations
+                                                                //    - gameState updated in response to decisions
+                                                                //    - unit-arrivals are processed
     [HideInInspector]
-    public UnityEvent storyLineUpdateEvent = new UnityEvent();  // 6. - Update any storyline elements
+    public UnityEvent storyLineUpdateEvent = new UnityEvent();  // 7. - Update any storyline elements
     [HideInInspector]
-    public UnityEvent uiUpdateEvent = new UnityEvent();     // 7. - UI is updated
-                                                            // 8. - Pause waiting for user action
+    public UnityEvent uiUpdateEvent = new UnityEvent();         // 8. - UI is updated
+                                                                //    - Pause waiting for user action
 
     // Sector Map
     [HideInInspector]
