@@ -31,6 +31,8 @@ public class PlanetDetail2 : BladeFadeScene
     public ShipMoveStarChart shipMoveStarChart;
     public OnSurfacePanel onSurfacePanel;
 
+    public MissionAssignmentDialog missionAssignmentDialog;
+
     public ValueBars loyaltyBars;
     public Canvas canvas;
 
@@ -79,6 +81,7 @@ public class PlanetDetail2 : BladeFadeScene
         updateGrid();
 
         gameState.addListenerUiUpdateEvent(updateGrid);
+        gameState.showMissionAssignmentDialog.AddListener(onShowMissionAssignmentDialog);
     }
 
     void FixedUpdate()
@@ -238,5 +241,15 @@ public class PlanetDetail2 : BladeFadeScene
         ship.dayArrival = MainGameState.arrivalDay(planet, destPlanet);
         destPlanet.shipsInTransit.Add(ship);
         updateShipGrids();
+    }
+
+    private void onShowMissionAssignmentDialog(
+        Personnel personnel,
+        AbstractUnit missionTargetUnit,
+        Planet missionTargetPlanet
+    )
+    {
+        missionAssignmentDialog.setMissionParameters(personnel, missionTargetUnit, missionTargetPlanet);
+        missionAssignmentDialog.gameObject.SetActive(true);
     }
 }

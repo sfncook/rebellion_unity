@@ -77,8 +77,7 @@ public class OnSurfacePanel : DragAndDroppable
          personnelType.availableMissionTypes.Contains(MissionType.diplomacy)
          )
         {
-            personnel.assignMission(MissionType.recruiting, missionTargetPlanet:planet);
-            updateGrid();
+            MainGameState.gameState.showMissionAssignmentDialog.Invoke(personnel, null, planet);
         }
     }
 

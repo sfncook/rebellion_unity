@@ -81,6 +81,9 @@ public class MainGameState : MonoBehaviour
     [HideInInspector]
     public List<Report> reportsUnAcked = new List<Report>();
 
+    [HideInInspector]
+    public UnityEvent<Personnel, AbstractUnit, Planet> showMissionAssignmentDialog = new UnityEvent<Personnel, AbstractUnit, Planet>();
+
     // Updaters
     private AllShipsUpdater allShipsUpdater = new AllShipsUpdater();
     private AllPersonnelUpdater allPersonnelUpdater = new AllPersonnelUpdater();
