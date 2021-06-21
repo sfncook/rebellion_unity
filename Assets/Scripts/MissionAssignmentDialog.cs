@@ -53,6 +53,8 @@ public class MissionAssignmentDialog : MonoBehaviour
         this.personnel = personnel;
         this.missionTargetUnit = missionTargetUnit;
         this.missionTargetPlanet = missionTargetPlanet;
+
+        updateGrid();
     }
 
     private void onClickCancel()
@@ -80,8 +82,9 @@ public class MissionAssignmentDialog : MonoBehaviour
         {
             newObj = (GameObject)Instantiate(missionTypesPrefab, missionTypesPanel);
             MissionTypeListItem missionTypeListItem = newObj.GetComponent<MissionTypeListItem>();
-            //personnelListItem.setPersonnel(personnel);
-            //personnelListItem.setCanvas(canvas);
+            missionTypeListItem.setMissionType(missionType);
+            missionTypeListItem.clickMissionType = setSelectedMissionType;
+            missionTypeListItem.setIsSelected(missionType.Equals(selectedMissionType));
         }
     }
 
@@ -91,5 +94,16 @@ public class MissionAssignmentDialog : MonoBehaviour
         {
             GameObject.Destroy(child.gameObject);
         }
+    }
+
+    private void setSelectedMissionType(MissionType missionType)
+    {
+        selectedMissionType = missionType;
+        updateGrid();
+    }
+
+    public void setUpdatePlanetDetail(UpdatePlanetDetail updatePlanetDetail)
+    {
+        this.updatePlanetDetail = updatePlanetDetail;
     }
 }

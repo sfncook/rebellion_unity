@@ -82,6 +82,8 @@ public class PlanetDetail2 : BladeFadeScene
 
         gameState.addListenerUiUpdateEvent(updateGrid);
         gameState.showMissionAssignmentDialog.AddListener(onShowMissionAssignmentDialog);
+
+        missionAssignmentDialog.setUpdatePlanetDetail(updateGrid);
     }
 
     void FixedUpdate()
