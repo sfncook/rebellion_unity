@@ -73,7 +73,7 @@ public class PersonnelDetail : MonoBehaviour
 
     private void onClickCancelMission()
     {
-        personnel.cancelMission();
+        personnel.resetMission();
         updateDialog();
     }
 }

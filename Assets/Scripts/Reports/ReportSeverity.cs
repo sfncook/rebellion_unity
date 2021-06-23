@@ -1,5 +1,4 @@
-﻿using System;
-public enum ReportSeverity
+﻿public enum ReportSeverity
 {
-    Info, Warning, Danger
+    Success, Failure, Info, Warning, Danger
 }

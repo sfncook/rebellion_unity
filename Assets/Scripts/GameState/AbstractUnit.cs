@@ -34,7 +34,7 @@ public class AbstractUnit
         this.missionTargetPlanet = missionTargetPlanet;
     }
 
-    public void cancelMission()
+    public void resetMission()
     {
         activeMission = null;
         dayMissionComplete = -1;
