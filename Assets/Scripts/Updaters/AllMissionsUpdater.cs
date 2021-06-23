@@ -19,10 +19,10 @@ public class AllMissionsUpdater
                         MainGameState.gameState.gameTime >= personnel.dayMissionComplete
                     )
                     {
+                        MissionType missionType = personnel.activeMission;
                         MissionReport missionReport = null;
                         if(didMissionSucceed(personnel))
                         {
-                            MissionType missionType = personnel.activeMission;
                             if (missionType.Equals(MissionType.diplomacy))
                             {
                                 Planet targetPlanet = personnel.missionTargetPlanet;
@@ -36,7 +36,7 @@ public class AllMissionsUpdater
                                         targetPlanet.loyalty += loyaltyDelta;
                                         break;
                                 }
-                                missionReport = new DiplomacyMissionreport(personnel, missionType, true, loyaltyDelta);
+                                missionReport = new DiplomacyMissionreport(personnel, true, loyaltyDelta);
                             }
                             else if (missionType.Equals(MissionType.espionage))
                             {
@@ -46,7 +46,24 @@ public class AllMissionsUpdater
                             {
 
                             }
-                        }// if mission succeeds
+                        }
+                        else
+                        {
+                            // Mission failes
+                            if (missionType.Equals(MissionType.diplomacy))
+                            {
+                                missionReport = new DiplomacyMissionreport(personnel, false);
+                            }
+                            else if (missionType.Equals(MissionType.espionage))
+                            {
+
+                            }
+                            else if (missionType.Equals(MissionType.recruiting))
+                            {
+
+                            }
+                        }
+
                         personnel.resetMission();
                         MainGameState.gameState.reportsUnAcked.Add(missionReport);
                     }// if mission done

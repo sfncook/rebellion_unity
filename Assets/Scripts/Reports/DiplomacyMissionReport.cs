@@ -4,10 +4,9 @@
 
     public DiplomacyMissionreport(
         Personnel reporter,
-        MissionType missionType,
         bool success,
-        float loyaltyDelta
-    ) : base(reporter,missionType, success)
+        float loyaltyDelta=0
+    ) : base(reporter,MissionType.diplomacy, success)
     {
         this.loyaltyDelta = loyaltyDelta;
     }
