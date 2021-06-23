@@ -72,6 +72,8 @@ public class MainGameState : MonoBehaviour
     public bool showPlanetDetailBackButton = false;
     [HideInInspector]
     public Planet homePlanet = null;
+    [HideInInspector]
+    public bool firstRecruitingTask = true;
 
     private float timerSec = 0.0f;
 
@@ -91,6 +93,7 @@ public class MainGameState : MonoBehaviour
     private AllDefenseUpdater allDefenseUpdater = new AllDefenseUpdater();
     private AllFactoriesUpdater allFactoriesUpdater = new AllFactoriesUpdater();
     private AllStoryLineUpdater allStoryLineUpdater = new AllStoryLineUpdater();
+    private AllMissionsUpdater allMissionsUpdater = new AllMissionsUpdater();
 
     void Awake()
     {
@@ -103,6 +106,7 @@ public class MainGameState : MonoBehaviour
             allDefenseUpdater.init();
             allFactoriesUpdater.init();
             allStoryLineUpdater.init();
+            allMissionsUpdater.init();
         }
         else if(gameState != this)
         {

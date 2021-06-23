@@ -1,8 +1,8 @@
-﻿public class DiplomacyMissionreport: MissionReport
+﻿public class DiplomacyMissionReport: MissionReport
 { 
     public float loyaltyDelta;
 
-    public DiplomacyMissionreport(
+    public DiplomacyMissionReport(
         Personnel reporter,
         bool success,
         float loyaltyDelta=0

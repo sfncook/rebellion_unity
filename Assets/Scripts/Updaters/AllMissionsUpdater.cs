@@ -1,8 +1,17 @@
-﻿using System;
+﻿using System.Collections.Generic;
+using UnityEngine;
+
 public class AllMissionsUpdater
 {
+    Dictionary<MissionType, MissionCompleter> typeToCompleter = new Dictionary<MissionType, MissionCompleter>
+    {
+        {MissionType.diplomacy, new DiplomacyMissionCompleter()},
+        {MissionType.recruiting, new RecruitingMissionCompleter()},
+    };
+
     public void init()
     {
+        Debug.Log("init");
         MainGameState.gameState.addPreDayPrepEvent(onPrePrepEvent);
     }
 
@@ -16,53 +25,12 @@ public class AllMissionsUpdater
                 {
                     if(
                         personnel.hasMission() &&
-                        MainGameState.gameState.gameTime >= personnel.dayMissionComplete
+                        MainGameState.gameState.gameTime <= personnel.dayMissionComplete
                     )
                     {
-                        MissionType missionType = personnel.activeMission;
-                        MissionReport missionReport = null;
-                        if(didMissionSucceed(personnel))
-                        {
-                            if (missionType.Equals(MissionType.diplomacy))
-                            {
-                                Planet targetPlanet = personnel.missionTargetPlanet;
-                                float loyaltyDelta = UnityEngine.Random.Range(0.0f, 5f);
-                                switch (personnel.team)
-                                {
-                                    case Team.TeamA:
-                                        targetPlanet.loyalty -= loyaltyDelta;
-                                        break;
-                                    case Team.TeamB:
-                                        targetPlanet.loyalty += loyaltyDelta;
-                                        break;
-                                }
-                                missionReport = new DiplomacyMissionreport(personnel, true, loyaltyDelta);
-                            }
-                            else if (missionType.Equals(MissionType.espionage))
-                            {
-
-                            }
-                            else if (missionType.Equals(MissionType.recruiting))
-                            {
-
-                            }
-                        }
-                        else
-                        {
-                            // Mission failes
-                            if (missionType.Equals(MissionType.diplomacy))
-                            {
-                                missionReport = new DiplomacyMissionreport(personnel, false);
-                            }
-                            else if (missionType.Equals(MissionType.espionage))
-                            {
-
-                            }
-                            else if (missionType.Equals(MissionType.recruiting))
-                            {
-
-                            }
-                        }
+                        Debug.Log("Mission complete:"+ personnel.activeMission.name);
+                        MissionCompleter missionCompleter = typeToCompleter[personnel.activeMission];
+                        MissionReport missionReport = missionCompleter.completeMission(sector, planet, personnel);
 
                         personnel.resetMission();
                         MainGameState.gameState.reportsUnAcked.Add(missionReport);
