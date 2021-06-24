@@ -14,6 +14,9 @@ public class MainGameState : MonoBehaviour
     public readonly Galaxy galaxy = new Galaxy();
 
     [HideInInspector]
+    public List<Hero> heroesAvailableForRecruiting = new List<Hero>();
+
+    [HideInInspector]
     public readonly List<Planet> planets = new List<Planet>();
     [HideInInspector]
     public int gameTime = 1;
@@ -247,6 +250,9 @@ public class MainGameState : MonoBehaviour
     public void initializeNewGame()
     {
         loadGameFromFiles();
+
+        // All heroes are initially available for recruiting - remove them from this list as they are recruited
+        heroesAvailableForRecruiting.AddRange(galaxy.heros);
 
         // Randomly pick starting sector and planet:
         StarSector homeSector = galaxy.sectors[Random.Range(0, galaxy.sectors.Count)];

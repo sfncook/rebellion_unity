@@ -35,6 +35,7 @@ public class AllStoryLineUpdater
 
             Report report = new StoryLineReport(reportTitle, initialHero, contentPages);
             MainGameState.gameState.reportsUnAcked.Add(report);
+            MainGameState.gameState.heroesAvailableForRecruiting.Remove(initialHero.hero);
         }
     }
     

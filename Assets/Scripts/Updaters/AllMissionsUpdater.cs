@@ -3,15 +3,16 @@ using UnityEngine;
 
 public class AllMissionsUpdater
 {
+    private static RecruitingMissionCompleter recruitingMissionCompleter = new RecruitingMissionCompleter();
+
     Dictionary<MissionType, MissionCompleter> typeToCompleter = new Dictionary<MissionType, MissionCompleter>
     {
         {MissionType.diplomacy, new DiplomacyMissionCompleter()},
-        {MissionType.recruiting, new RecruitingMissionCompleter()},
+        {MissionType.recruiting, recruitingMissionCompleter},
     };
 
     public void init()
     {
-        Debug.Log("init");
         MainGameState.gameState.addPreDayPrepEvent(onPrePrepEvent);
     }
 
@@ -23,12 +24,16 @@ public class AllMissionsUpdater
             {
                 foreach (Personnel personnel in planet.personnelsOnSurface)
                 {
+                    //if(personnel.isHero())
+                    //{
+                    //    Debug.Log("MainGameState.gameState.gameTime:" + MainGameState.gameState.gameTime+"  personnel.dayMissionComplete:" + personnel.dayMissionComplete);
+                    //}
                     if(
-                        personnel.hasMission() &&
-                        MainGameState.gameState.gameTime <= personnel.dayMissionComplete
-                    )
+                        personnel.activeMission != null &&
+                        MainGameState.gameState.gameTime >= personnel.dayMissionComplete
+                        )
                     {
-                        Debug.Log("Mission complete:"+ personnel.activeMission.name);
+                        //Debug.Log("mission complete");
                         MissionCompleter missionCompleter = typeToCompleter[personnel.activeMission];
                         MissionReport missionReport = missionCompleter.completeMission(sector, planet, personnel);
 
@@ -38,6 +43,8 @@ public class AllMissionsUpdater
                 }
             }
         }
+
+        recruitingMissionCompleter.addAllRecruitedPersonnelToPlanets();
     }
 
     private bool didMissionSucceed(Personnel personnel)
