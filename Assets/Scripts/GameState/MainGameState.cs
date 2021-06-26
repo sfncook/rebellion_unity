@@ -368,7 +368,7 @@ public class MainGameState : MonoBehaviour
         planet.loyalty = Random.Range(0.0f, 0.999f);
     }
 
-    private static StarSector findSectorForPlanet(Planet planet)
+    public static StarSector findSectorForPlanet(Planet planet)
     {
         foreach (StarSector sector in MainGameState.gameState.galaxy.sectors)
         {
@@ -379,6 +379,24 @@ public class MainGameState : MonoBehaviour
                     return sector;
                 }
             }
+        }
+        return null;
+    }
+
+    public static Planet findPlanetForPersonnel(Personnel personnel)
+    {
+        foreach (StarSector sector in MainGameState.gameState.galaxy.sectors)
+        {
+            foreach (Planet planet in sector.planets)
+            {
+                foreach (Personnel _personnel in planet.personnelsOnSurface)
+                {
+                    if(_personnel.Equals(personnel))
+                    {
+                        return planet;
+                    }
+                }
+            }   
         }
         return null;
     }
