@@ -11,9 +11,10 @@ public class DiplomacyMissionCompleter: MissionCompleter
 
     public override MissionReport completeMission(StarSector sector, Planet planet, Personnel personnel)
     {
+        Debug.Log("DiplomacyMissionCompleter");
         bool missionSuccess = didMissionSucceed(personnel, personnel.diplomacy);
         Planet targetPlanet = personnel.missionTargetPlanet;
-        float loyaltyDelta = Random.Range(0.0f, 5f);
+        float loyaltyDelta = Random.Range(0.0f, 0.05f);
         if(missionSuccess)
         {
             targetPlanet.loyalty = loyaltyDelta * teamToLoyaltyMultiplier[personnel.team];
