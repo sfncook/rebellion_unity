@@ -234,6 +234,7 @@ MonoBehaviour:
   missionTypeNameText: {fileID: 9113153690047055}
   descriptionText: {fileID: 4856444980902590379}
   planetName: {fileID: 6963452868820671684}
+  dayCompleteText: {fileID: 2151058895345867987}
   planetImg: {fileID: 2882916574620380913}
 --- !u!61 &2584833305034973415
 BoxCollider2D:

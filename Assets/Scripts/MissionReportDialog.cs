@@ -1,5 +1,7 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using System.Linq;
+using System.Collections.Generic;
 
 public class MissionReportDialog : MonoBehaviour
 {
@@ -21,7 +23,8 @@ public class MissionReportDialog : MonoBehaviour
             addRow(report, false);
         }
 
-        foreach (Report report in MainGameState.gameState.reportsAcked)
+        List<Report> sortedReportsAcked = MainGameState.gameState.reportsAcked.OrderByDescending(r => r.dayComplete).ToList();
+        foreach (Report report in sortedReportsAcked)
         {
             addRow(report, true);
         }

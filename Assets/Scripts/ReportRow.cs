@@ -82,11 +82,11 @@ public class ReportRow : MonoBehaviour
         gameObject.GetComponent<Image>().color = color;
     }
 
-    private void OnMouseUp()
-    {
-        StarSector sector = MainGameState.findSectorForPlanet(planet);
-        MainGameState.gameState.sectorForDetail = sector;
-        MainGameState.gameState.planetForDetail = planet;
-        SceneManager.LoadScene("Planet Detail 2");
-    }
+    //private void OnMouseUp()
+    //{
+    //    StarSector sector = MainGameState.findSectorForPlanet(planet);
+    //    MainGameState.gameState.sectorForDetail = sector;
+    //    MainGameState.gameState.planetForDetail = planet;
+    //    SceneManager.LoadScene("Planet Detail 2");
+    //}
 }
