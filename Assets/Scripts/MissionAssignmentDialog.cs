@@ -25,6 +25,7 @@ public class MissionAssignmentDialog : MonoBehaviour
     {
         cancelButton.onClick.AddListener(onClickCancel);
         assignButton.onClick.AddListener(onClickAssign);
+        assignButton.gameObject.SetActive(false);
     }
 
     public void setMissionParameters(
@@ -63,6 +64,8 @@ public class MissionAssignmentDialog : MonoBehaviour
         missionTargetUnit = null;
         missionTargetPlanet = null;
         gameObject.SetActive(false);
+        selectedMissionType = null;
+        assignButton.gameObject.SetActive(false);
     }
 
     private void onClickAssign()
@@ -70,6 +73,8 @@ public class MissionAssignmentDialog : MonoBehaviour
         personnel.assignMission(selectedMissionType, missionTargetUnit, missionTargetPlanet);
         gameObject.SetActive(false);
         updatePlanetDetail();
+        selectedMissionType = null;
+        assignButton.gameObject.SetActive(false);
     }
 
     private void updateGrid()
@@ -100,6 +105,7 @@ public class MissionAssignmentDialog : MonoBehaviour
     {
         selectedMissionType = missionType;
         updateGrid();
+        assignButton.gameObject.SetActive(true);
     }
 
     public void setUpdatePlanetDetail(UpdatePlanetDetail updatePlanetDetail)
