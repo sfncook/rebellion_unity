@@ -87,7 +87,7 @@ public class MissionAssignmentDialog : MonoBehaviour
         {
             newObj = (GameObject)Instantiate(missionTypesPrefab, missionTypesPanel);
             MissionTypeListItem missionTypeListItem = newObj.GetComponent<MissionTypeListItem>();
-            missionTypeListItem.setMissionType(missionType);
+            missionTypeListItem.setMissionType(missionType, personnel);
             missionTypeListItem.clickMissionType = setSelectedMissionType;
             missionTypeListItem.setIsSelected(missionType.Equals(selectedMissionType));
         }
