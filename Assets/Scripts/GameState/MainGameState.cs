@@ -86,6 +86,8 @@ public class MainGameState : MonoBehaviour
 
     [HideInInspector]
     public List<Report> reportsUnAcked = new List<Report>();
+    [HideInInspector]
+    public List<Report> reportsAcked = new List<Report>();
 
     [HideInInspector]
     public UnityEvent<Personnel, AbstractUnit, Planet> showMissionAssignmentDialog = new UnityEvent<Personnel, AbstractUnit, Planet>();
@@ -131,6 +133,9 @@ public class MainGameState : MonoBehaviour
             {
                 ++gameState.gameTime;
                 timerSec = SEC_PER_GAMEDAY;
+
+                gameState.reportsAcked.AddRange(gameState.reportsUnAcked);
+                gameState.reportsUnAcked.Clear();
 
                 gameState.invokePreDayPrepEvent();
                 gameState.invokeAgentPlanEvent();

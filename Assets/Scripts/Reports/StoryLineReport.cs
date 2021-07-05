@@ -8,12 +8,14 @@ public class StoryLineReport: Report
     public StoryLineReport(
         string title,
         Personnel reporter,
+        int dayComplete,
         List<string> contentPages
     ) : base(
         title,
         "Story Line Report Dialog",
         ReportSeverity.Info,
-        reporter
+        reporter,
+        dayComplete
     )
     {
         this.contentPages = new List<string>(contentPages);

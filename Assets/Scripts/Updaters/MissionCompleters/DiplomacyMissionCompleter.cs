@@ -5,8 +5,8 @@ public class DiplomacyMissionCompleter: MissionCompleter
 {
     Dictionary<Team, int> teamToLoyaltyMultiplier = new Dictionary<Team, int>
     {
-        {Team.TeamA, -1},
-        {Team.TeamB, +1}
+        {Team.TeamA, 1},
+        {Team.TeamB, -1}
     };
 
     public override MissionReport completeMission(StarSector sector, Planet planet, Personnel personnel)
@@ -14,11 +14,13 @@ public class DiplomacyMissionCompleter: MissionCompleter
         Debug.Log("DiplomacyMissionCompleter");
         bool missionSuccess = didMissionSucceed(personnel, personnel.diplomacy);
         Planet targetPlanet = personnel.missionTargetPlanet;
-        float loyaltyDelta = Random.Range(0.0f, 0.05f);
+        float loyaltyDelta = Random.Range(0.0f, 0.10f);
         if(missionSuccess)
         {
-            targetPlanet.loyalty = loyaltyDelta * teamToLoyaltyMultiplier[personnel.team];
+            float signedLoyaltyDelta = loyaltyDelta * teamToLoyaltyMultiplier[personnel.team];
+            targetPlanet.loyalty = targetPlanet.loyalty + signedLoyaltyDelta;
+            Debug.Log("  - signedLoyaltyDelta:" + signedLoyaltyDelta  + " targetPlanet.loyalty:"+ targetPlanet.loyalty);
         }
-        return new DiplomacyMissionReport(personnel, missionSuccess, loyaltyDelta);
+        return new DiplomacyMissionReport(personnel, missionSuccess, MainGameState.gameState.gameTime, loyaltyDelta);
     }
 }

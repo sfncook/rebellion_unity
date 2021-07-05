@@ -9,6 +9,7 @@ public class ReportRow : MonoBehaviour
     public TextMeshProUGUI missionTypeNameText;
     public TextMeshProUGUI descriptionText;
     public TextMeshProUGUI planetName;
+    public TextMeshProUGUI dayCompleteText;
     public Image planetImg;
 
     private Report report;
@@ -51,6 +52,34 @@ public class ReportRow : MonoBehaviour
         planetImg.sprite = Resources.Load<Sprite>("Images/Planets/" + planet.name);
 
         descriptionText.text = report.title;
+        dayCompleteText.text = report.dayComplete.ToString();
+
+        if(report is DiplomacyMissionReport)
+        {
+            missionTypeNameText.text = "Diplomacy";
+        }
+        else if (report is RecruiterMissionReport)
+        {
+            missionTypeNameText.text = "Recruitment";
+        }
+        else if (report is EspionageMissionReport)
+        {
+            missionTypeNameText.text = "Espionage";
+        }
+        else if (report is StoryLineReport)
+        {
+            missionTypeNameText.text = "Storyline";
+        }
+    }
+
+    public void setIsAcked(bool isAcked)
+    {
+        Color color = new Color(1f, 1f, 1f, 0.3f);
+        if (!isAcked)
+        {
+            color = new Color(0.5f, 0.5f, 1.0f, 0.3f);
+        }
+        gameObject.GetComponent<Image>().color = color;
     }
 
     private void OnMouseUp()

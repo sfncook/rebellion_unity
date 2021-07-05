@@ -33,7 +33,7 @@ public class AllStoryLineUpdater
             contentPages.Add("Who knows?  Perhaps in time we will have the majority of the planet’s loyalty.  Then we will control the factories and infrastructure.  Will be able to begin to build our own sanctuary here on this planet.  A place that we control and maybe, just maybe, we will be able to keep the damned Faction at bay.");
             contentPages.Add("(To assign "+ initialHero.hero.moniker + " a new recruiting mission drag their picture off the planet, then back over the planet and drop them there.)\n\n(Personnel can only be assigned to the planet where they are currently located.)");
 
-            Report report = new StoryLineReport(reportTitle, initialHero, contentPages);
+            Report report = new StoryLineReport(reportTitle, initialHero, MainGameState.gameState.gameTime, contentPages);
             MainGameState.gameState.reportsUnAcked.Add(report);
             MainGameState.gameState.heroesAvailableForRecruiting.Remove(initialHero.hero);
         }

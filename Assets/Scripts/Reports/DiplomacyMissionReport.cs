@@ -5,8 +5,9 @@
     public DiplomacyMissionReport(
         Personnel reporter,
         bool success,
+        int dayComplete,
         float loyaltyDelta=0
-    ) : base(reporter,MissionType.diplomacy, success)
+    ) : base(reporter,MissionType.diplomacy, success, dayComplete)
     {
         this.loyaltyDelta = loyaltyDelta;
     }

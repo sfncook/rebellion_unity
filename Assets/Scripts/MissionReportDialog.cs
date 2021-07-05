@@ -18,15 +18,23 @@ public class MissionReportDialog : MonoBehaviour
 
         foreach (Report report in MainGameState.gameState.reportsUnAcked)
         {
-            GameObject newObj = (GameObject)Instantiate(missionRowPrefab, reportGridPanel);
-            ReportRow reportRow = newObj.GetComponent<ReportRow>();
-            reportRow.setReport(report);
-            RectTransform rectTrans = reportRow.GetComponent<RectTransform>();
-            rectTrans.sizeDelta = new Vector2(790f, 85f);
+            addRow(report, false);
         }
 
-        // Reset unacked list
-        MainGameState.gameState.reportsUnAcked.Clear();
+        foreach (Report report in MainGameState.gameState.reportsAcked)
+        {
+            addRow(report, true);
+        }
+    }
+
+    private void addRow(Report report, bool isAcked)
+    {
+        GameObject newObj = (GameObject)Instantiate(missionRowPrefab, reportGridPanel);
+        ReportRow reportRow = newObj.GetComponent<ReportRow>();
+        reportRow.setReport(report);
+        reportRow.setIsAcked(isAcked);
+        RectTransform rectTrans = reportRow.GetComponent<RectTransform>();
+        rectTrans.sizeDelta = new Vector2(790f, 85f);
     }
 
     private void clearGrid()

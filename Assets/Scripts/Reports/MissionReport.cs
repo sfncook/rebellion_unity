@@ -12,12 +12,14 @@ public abstract class MissionReport: Report
     public MissionReport(
         Personnel reporter,
         MissionType missionType,
-        bool success
+        bool success,
+        int dayComplete
     ) : base(
         missionType.name + " Mission " + successStr[success],
         "Mission Report Dialog",
         success ? ReportSeverity.Success : ReportSeverity.Failure,
-        reporter
+        reporter,
+        dayComplete
     )
     {
         this.success = success;
