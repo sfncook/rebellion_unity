@@ -4,7 +4,7 @@
     public readonly TypeCategory typeCategory;
     public readonly int daysToBuild;
 
-    public AbstractType(string name, TypeCategory typeCategory, int daysToBuild = 2)
+    public AbstractType(string name, TypeCategory typeCategory, int daysToBuild = 7)
     {
         this.name = name;
         this.typeCategory = typeCategory;

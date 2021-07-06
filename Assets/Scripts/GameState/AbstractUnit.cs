@@ -29,7 +29,7 @@ public class AbstractUnit
     public void assignMission(MissionType missionType, AbstractUnit missionTargetUnit=null, Planet missionTargetPlanet=null)
     {
         activeMission = missionType;
-        dayMissionComplete = MainGameState.gameState.gameTime + 5;
+        dayMissionComplete = MainGameState.gameState.gameTime + 2;
         this.missionTargetUnit = missionTargetUnit;
         this.missionTargetPlanet = missionTargetPlanet;
     }

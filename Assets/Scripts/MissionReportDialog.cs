@@ -60,11 +60,20 @@ public class MissionReportDialog : MonoBehaviour
         if (report is DiplomacyMissionReport)
         {
             headerControls.setHeaderTitle("Diplomacy Report");
+            DiplomacyMissionReport diplomacyMissionReport = (DiplomacyMissionReport)report;
             if (report.success)
             {
-                float loyaltyDeltaF = ((DiplomacyMissionReport)report).loyaltyDelta;
+                float loyaltyDeltaF = diplomacyMissionReport.loyaltyDelta;
                 string loyaltyDeltaStr = ((int)(loyaltyDeltaF * 100)).ToString();
                 setRowText(row2, "Loyalty Increase:", loyaltyDeltaStr + "%");
+            } else
+            {
+                if(diplomacyMissionReport.loyaltyLost)
+                {
+                    float loyaltyLostDeltaF = diplomacyMissionReport.loyaltyLostDelta;
+                    string loyaltyLostDeltaStr = ((int)(loyaltyLostDeltaF * 100)).ToString();
+                    setRowText(row2, "Loyalty Lost:", loyaltyLostDeltaStr + "%");
+                }
             }
         }
         else if (report is RecruiterMissionReport)
