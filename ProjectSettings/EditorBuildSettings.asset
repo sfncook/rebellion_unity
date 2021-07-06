@@ -33,6 +33,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Personnel Detail.unity
     guid: cff56a884fae54fa7bee8c6c21c0c4ed
   - enabled: 1
-    path: Assets/Scenes/Mission Report Dialog.unity
+    path: Assets/Scenes/Mission Reports List Dialog.unity
     guid: 4d404af5aecee4eb38ea23950e028640
+  - enabled: 1
+    path: Assets/Scenes/Mission Report.unity
+    guid: 9a7960361e7334fd19f53d75faf87438
   m_configObjects: {}

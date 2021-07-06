@@ -434,15 +434,9 @@ public class MainGameState : MonoBehaviour
         return dmi + MainGameState.gameState.gameTime;
     }
 
-    public bool personnelHasUnAckedReports(Personnel personnel)
+    public void ackReport(Report report)
     {
-        foreach (Report report in reportsUnAcked)
-        {
-            if(report.reporter.Equals(personnel))
-            {
-                return true;
-            }
-        }
-        return false;
+        MainGameState.gameState.reportsUnAcked.Remove(report);
+        MainGameState.gameState.reportsAcked.Add(report);
     }
 }

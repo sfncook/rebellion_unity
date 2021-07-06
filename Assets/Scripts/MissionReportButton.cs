@@ -23,6 +23,6 @@ public class MissionReportButton : MonoBehaviour
 
     public void OnMouseUp()
     {
-        SceneManager.LoadScene("Mission Report Dialog");
+        SceneManager.LoadScene("Mission Reports List Dialog");
     }
 }

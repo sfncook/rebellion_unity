@@ -43,6 +43,18 @@
 
     public bool hasUnAckedReports()
     {
-        return MainGameState.gameState.personnelHasUnAckedReports(this);
+        return getNextReportForPersonnel() != null;
+    }
+
+    public Report getNextReportForPersonnel()
+    {
+        foreach (Report report in MainGameState.gameState.reportsUnAcked)
+        {
+            if (report.reporter.Equals(this))
+            {
+                return report;
+            }
+        }
+        return null;
     }
 }

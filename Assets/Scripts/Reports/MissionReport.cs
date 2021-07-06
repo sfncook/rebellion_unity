@@ -16,7 +16,7 @@ public abstract class MissionReport: Report
         int dayComplete
     ) : base(
         missionType.name + " Mission " + successStr[success],
-        "Mission Report Dialog",
+        "Mission Report",
         success ? ReportSeverity.Success : ReportSeverity.Failure,
         reporter,
         dayComplete

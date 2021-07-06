@@ -110,11 +110,11 @@ public class PersonnelListItem2 : DragAndDroppable
     {
         if (!isDragging)
         {
-            if(personnel.hasUnAckedReports())
+            Report report = personnel.getNextReportForPersonnel();
+            if(report!=null)
             {
-                MainGameState.gameState.reportForDialog = MainGameState.gameState.reportsUnAcked[0];
-                MainGameState.gameState.reportsUnAcked.RemoveAt(0);
-                SceneManager.LoadScene("Story Line Report Dialog");
+                MainGameState.gameState.reportForDialog = report;
+                SceneManager.LoadScene(report.dialogScene);
             } else
             {
                 MainGameState.gameState.personnelForDetail = personnel;
