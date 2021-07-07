@@ -91,6 +91,8 @@ public class PlanetDetail2 : BladeFadeScene
         _FixedUpdate();
         if (planet != null)
         {
+            loyaltyBars.setValue(planet.loyalty);
+
             // Orbital shield color-flicker.  Not very helpful
             //bool hasOrbitalShield = planet.defenses.Exists(defense => defense.type.Equals(DefenseType.planetaryShield));
             //if (hasOrbitalShield)

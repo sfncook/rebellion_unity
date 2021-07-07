@@ -134,8 +134,8 @@ public class MainGameState : MonoBehaviour
                 ++gameState.gameTime;
                 timerSec = SEC_PER_GAMEDAY;
 
-                gameState.reportsAcked.AddRange(gameState.reportsUnAcked);
-                gameState.reportsUnAcked.Clear();
+                //gameState.reportsAcked.AddRange(gameState.reportsUnAcked);
+                //gameState.reportsUnAcked.Clear();
 
                 gameState.invokePreDayPrepEvent();
                 gameState.invokeAgentPlanEvent();

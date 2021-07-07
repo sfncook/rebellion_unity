@@ -6,7 +6,8 @@ public class TimerSpinner2 : MonoBehaviour
     {
         if (MainGameState.gameState.getIsTimerRunning())
         {
-            transform.Rotate(Vector3.forward * (Time.deltaTime * 180.0f));
+            transform.Rotate(Vector3.forward * -(Time.deltaTime * 180.0f));
+            //transform.Rotate(Vector3.forward * -5);
         }
     }
 
