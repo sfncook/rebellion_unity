@@ -15,6 +15,7 @@ public abstract class DragAndDroppable : MonoBehaviour,
     protected const float HOVER_TIMER_DUR_SEC = 0.8f;
     protected bool isHovering = false;
     protected float hoverTimerSec;
+    private bool restartTimerOnDragEnd = false;
 
 
     void FixedUpdate()
@@ -112,6 +113,8 @@ public abstract class DragAndDroppable : MonoBehaviour,
             originalZorder = locPos.z;
             locPos.z = -99;
             gameObject.transform.localPosition = locPos;
+            restartTimerOnDragEnd = MainGameState.gameState.getIsTimerRunning();
+            MainGameState.gameState.stopTimerEvent.Invoke();
             onDragStart();
         }
     }
@@ -136,6 +139,10 @@ public abstract class DragAndDroppable : MonoBehaviour,
             gameObject.transform.localPosition = locPos;
             rectTransform.anchoredPosition = origin;
             onDragStop();
+            if(restartTimerOnDragEnd)
+            {
+                //MainGameState.gameState.startTimerEvent.Invoke();
+            }
         }
     }
 
