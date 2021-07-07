@@ -23,7 +23,7 @@ public class RecruitingMissionCompleter: MissionCompleter
             addPersonnelToPlanets.Add(new Tuple<Planet, Personnel>(planet, recruitedPersonnel));
         } else
         {
-            missionSuccess = didMissionSucceed(personnel, personnel.diplomacy);
+            missionSuccess = didMissionSucceed(personnel, personnel.recruiting);
             if (missionSuccess)
             {
                 PersonnelType recruitedType = recruitableTypes[UnityEngine.Random.Range(0, recruitableTypes.Count)];

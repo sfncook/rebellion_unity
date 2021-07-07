@@ -72,9 +72,9 @@ public class OnSurfacePanel : DragAndDroppable
             shipContentsAndMovePanel.updateGrid();
             updateShipGrids();
         } else if (
-         personnelType.availableMissionTypes.Contains(MissionType.espionage) ||
-         personnelType.availableMissionTypes.Contains(MissionType.recruiting) ||
-         personnelType.availableMissionTypes.Contains(MissionType.diplomacy)
+            personnelType.availableMissionTypes.Contains(MissionType.espionage) ||
+            personnelType.availableMissionTypes.Contains(MissionType.recruiting) ||
+            personnelType.availableMissionTypes.Contains(MissionType.diplomacy)
          )
         {
             MainGameState.gameState.showMissionAssignmentDialog.Invoke(personnel, null, planet);
