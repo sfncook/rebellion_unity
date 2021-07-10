@@ -8,10 +8,11 @@
         Personnel reporter,
         bool success,
         int dayComplete,
+        bool showImmediately = false,
         float loyaltyDelta=0,
         bool loyaltyLost=false,
         float loyaltyLostDelta=0
-    ) : base(reporter,MissionType.diplomacy, success, dayComplete)
+    ) : base(reporter,MissionType.diplomacy, success, dayComplete, showImmediately)
     {
         this.loyaltyDelta = loyaltyDelta;
         this.loyaltyLost = loyaltyLost;

@@ -3,8 +3,9 @@
     public EspionageMissionReport(
         Personnel reporter,
         bool success,
-        int dayComplete
-    ) : base(reporter,MissionType.recruiting, success, dayComplete)
+        int dayComplete,
+        bool showImmediately = false
+    ) : base(reporter,MissionType.recruiting, success, dayComplete, showImmediately)
     {
     }
 }

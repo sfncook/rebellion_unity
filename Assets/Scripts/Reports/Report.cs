@@ -6,13 +6,15 @@ public abstract class Report
     public readonly ReportSeverity severity;
     public readonly Personnel reporter;
     public readonly int dayComplete;
+    public readonly bool showImmediately;
 
     public Report(
         string title,
         string dialogScene,
         ReportSeverity severity,
         Personnel reporter,
-        int dayComplete
+        int dayComplete,
+        bool showImmediately = false
     )
     {
         this.title = title;
@@ -20,5 +22,6 @@ public abstract class Report
         this.severity = severity;
         this.reporter = reporter;
         this.dayComplete = dayComplete;
+        this.showImmediately = showImmediately;
     }
 }

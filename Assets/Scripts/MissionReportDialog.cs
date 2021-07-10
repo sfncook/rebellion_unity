@@ -29,6 +29,8 @@ public class MissionReportDialog : MonoBehaviour
         planetNameText.text = planet.name;
         planetImg.sprite = Resources.Load<Sprite>("Images/Planets/" + planet.name);
 
+        headerControls.setShowBackButton(!report.showImmediately);
+
         string imagePath;
         if (report.reporter.isHero())
         {
@@ -124,6 +126,15 @@ public class MissionReportDialog : MonoBehaviour
     public void onClickBackButton()
     {
         MainGameState.gameState.reportForDialog = null;
-        SceneManager.LoadScene("Planet Detail 2");
+        if(MainGameState.gameState.planetForDetail!=null)
+        {
+            SceneManager.LoadScene("Planet Detail 2");
+        } else if (MainGameState.gameState.sectorForDetail != null)
+        {
+            SceneManager.LoadScene("Sector Map 2");
+        } else
+        {
+            SceneManager.LoadScene("Galaxy Map");
+        }
     }
 }

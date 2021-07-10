@@ -39,7 +39,7 @@ public class RecruitingMissionCompleter: MissionCompleter
                 addPersonnelToPlanets.Add(new Tuple<Planet, Personnel>(planet, recruitedPersonnel));
             }
         }
-        return new RecruiterMissionReport(personnel, missionSuccess, MainGameState.gameState.gameTime, recruitedPersonnel);
+        return new RecruiterMissionReport(personnel, missionSuccess, MainGameState.gameState.gameTime, false, recruitedPersonnel);
     }
 
     public void addAllRecruitedPersonnelToPlanets()

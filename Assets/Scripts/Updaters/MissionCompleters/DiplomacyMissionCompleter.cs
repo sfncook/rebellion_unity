@@ -14,6 +14,7 @@ public class DiplomacyMissionCompleter: MissionCompleter
         Debug.Log("DiplomacyMissionCompleter");
         bool missionSuccess = didMissionSucceed(personnel, personnel.diplomacy);
         Planet targetPlanet = personnel.missionTargetPlanet;
+        Team teamOrig = targetPlanet.getTeam();
         float loyaltyDelta = Random.Range(0.0f, 0.10f);
         bool loyaltyLost = false;
         float loyaltyLostDelta = 0;
@@ -26,7 +27,7 @@ public class DiplomacyMissionCompleter: MissionCompleter
         {
             // Mission failed, % chance that loyalty actually worsens
             int random = Random.Range(0, 100);
-            if(random <= 10)
+            if(random <= 3)
             {
                 loyaltyLost = true;
                 loyaltyLostDelta = loyaltyDelta * teamToLoyaltyMultiplier[personnel.team] * -1;
@@ -34,6 +35,8 @@ public class DiplomacyMissionCompleter: MissionCompleter
                 Debug.Log("  - loyaltyLossDelta:" + loyaltyLostDelta + " targetPlanet.loyalty:" + targetPlanet.loyalty);
             }
         }
-        return new DiplomacyMissionReport(personnel, missionSuccess, MainGameState.gameState.gameTime, loyaltyDelta, loyaltyLost, loyaltyLostDelta);
+        Team teamFinal = targetPlanet.getTeam();
+        bool showReportImmediately = !teamOrig.Equals(teamFinal);
+        return new DiplomacyMissionReport(personnel, missionSuccess, MainGameState.gameState.gameTime, showReportImmediately, loyaltyDelta, loyaltyLost, loyaltyLostDelta);
     }
 }

@@ -3,6 +3,7 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using UnityEngine.Events;
 using System.Linq;
+using TMPro;
 
 [System.Serializable]
 public class ShowShipContentsEvent2 : UnityEvent<Ship>
@@ -34,6 +35,9 @@ public class PlanetDetail2 : BladeFadeScene
     public MissionAssignmentDialog missionAssignmentDialog;
 
     public ValueBars loyaltyBars;
+    public TextMeshProUGUI teamALoyaltyText;
+    public TextMeshProUGUI teamBLoyaltyText;
+
     public Canvas canvas;
 
     public GameObject detailPanel;
@@ -78,6 +82,8 @@ public class PlanetDetail2 : BladeFadeScene
         bool hasOrbitalShield = planet.defenses.Exists(defense => defense.type.Equals(DefenseType.planetaryShield));
         planetShieldImg.gameObject.SetActive(hasOrbitalShield);
         loyaltyBars.setValue(planet.loyalty);
+        teamALoyaltyText.text = ((int)(planet.loyalty * 100f)).ToString();
+        teamBLoyaltyText.text = ((int)((1f - planet.loyalty) * 100f)).ToString();
         updateGrid();
 
         gameState.addListenerUiUpdateEvent(updateGrid);
@@ -92,6 +98,8 @@ public class PlanetDetail2 : BladeFadeScene
         if (planet != null)
         {
             loyaltyBars.setValue(planet.loyalty);
+            teamALoyaltyText.text = ((int)(planet.loyalty * 100f)).ToString();
+            teamBLoyaltyText.text = ((int)((1f - planet.loyalty) * 100f)).ToString();
 
             // Orbital shield color-flicker.  Not very helpful
             //bool hasOrbitalShield = planet.defenses.Exists(defense => defense.type.Equals(DefenseType.planetaryShield));

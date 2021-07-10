@@ -123,6 +123,8 @@ public class MainGameState : MonoBehaviour
     {
         startTimerEvent.AddListener(onStartTimer);
         stopTimerEvent.AddListener(onStopTimer);
+
+        addListenerUiUpdateEvent(checkForShowImmediatelyReports);
     }
 
     private void Update()
@@ -438,5 +440,19 @@ public class MainGameState : MonoBehaviour
     {
         MainGameState.gameState.reportsUnAcked.Remove(report);
         MainGameState.gameState.reportsAcked.Add(report);
+    }
+
+    // Check for any unack'd reports marked as showImmediately
+    private void checkForShowImmediatelyReports()
+    {
+        foreach(Report report in gameState.reportsUnAcked)
+        {
+            if(report.showImmediately)
+            {
+                MainGameState.gameState.reportForDialog = report;
+                SceneManager.LoadScene(report.dialogScene);
+                return;
+            }
+        }
     }
 }
