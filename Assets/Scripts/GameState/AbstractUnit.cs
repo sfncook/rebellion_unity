@@ -1,6 +1,6 @@
 ﻿using System;
 
-public class AbstractUnit
+public class AbstractUnit: AbstractTarget
 {
     public readonly AbstractType type;
     public readonly string uuid;

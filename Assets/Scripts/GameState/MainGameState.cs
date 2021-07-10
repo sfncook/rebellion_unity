@@ -86,6 +86,8 @@ public class MainGameState : MonoBehaviour
     public Report reportForDialog = null;
 
     [HideInInspector]
+    public List<Report> reportsShowImmediately = new List<Report>();
+    [HideInInspector]
     public List<Report> reportsUnAcked = new List<Report>();
     [HideInInspector]
     public List<Report> reportsAcked = new List<Report>();
@@ -125,7 +127,7 @@ public class MainGameState : MonoBehaviour
         startTimerEvent.AddListener(onStartTimer);
         stopTimerEvent.AddListener(onStopTimer);
 
-        addListenerUiUpdateEvent(checkForShowImmediatelyReports);
+        addListenerUiUpdateEvent(updateReports);
     }
 
     private void Update()
@@ -136,14 +138,6 @@ public class MainGameState : MonoBehaviour
             {
                 ++gameState.gameTime;
                 timerSec = SEC_PER_GAMEDAY;
-
-                //gameState.reportsAcked.AddRange();
-                //gameState.reportsUnAcked.Clear();
-
-                // Auto-ack all reports over 5 days old
-                List<Report> oldUnackedReports = gameState.reportsUnAcked.FindAll(r => (MainGameState.gameState.gameTime - r.dayComplete) >=5 );
-                gameState.reportsUnAcked = gameState.reportsUnAcked.Except(oldUnackedReports).ToList();
-                gameState.reportsAcked.AddRange(oldUnackedReports);
 
                 gameState.invokePreDayPrepEvent();
                 gameState.invokeAgentPlanEvent();
@@ -449,9 +443,21 @@ public class MainGameState : MonoBehaviour
     }
 
     // Check for any unack'd reports marked as showImmediately
-    private void checkForShowImmediatelyReports()
+    private void updateReports()
     {
-        foreach(Report report in gameState.reportsUnAcked)
+        // Auto-ack all reports over 5 days old
+        List<Report> oldUnackedReports = gameState.reportsUnAcked.FindAll(r => (MainGameState.gameState.gameTime - r.dayComplete) >= 5);
+        gameState.reportsUnAcked = gameState.reportsUnAcked.Except(oldUnackedReports).ToList();
+        gameState.reportsAcked.AddRange(oldUnackedReports);
+
+        if(MainGameState.gameState.reportsShowImmediately.Count > 0)
+        {
+            MainGameState.gameState.reportForDialog = MainGameState.gameState.reportsShowImmediately[0];
+            MainGameState.gameState.reportsShowImmediately.RemoveAt(0);
+            SceneManager.LoadScene("Info Report Dialog");
+        }
+
+        foreach (Report report in gameState.reportsUnAcked)
         {
             if(report.showImmediately)
             {

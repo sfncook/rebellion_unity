@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 
 [System.Serializable]
-public class Planet
+public class Planet: AbstractTarget
 {
     // Immutable attributes:
     public string name;
