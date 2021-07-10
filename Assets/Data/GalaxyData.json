@@ -1,11 +1,14 @@
 {
 	"heros": [
-		{
-			"moniker": "Breia Stormchapel"
-		},
-		{
-			"moniker": "Caerter Olscalon"
-		}
+		{ "moniker": "Breia Stormchapel" },
+		{ "moniker": "Caerter Olscalon" },
+		{ "moniker": "Derek Redraven" },
+		{ "moniker": "Diesa Ambershard" },
+		{ "moniker": "Kathra Copperhearth" },
+		{ "moniker": "Millicent Vrye" },
+		{ "moniker": "NorrisVan Devries" },
+		{ "moniker": "Ragnhild Deepmiddens" },
+		{ "moniker": "Rogath Skandalor" }
 	],
 	"sectors": [
 		{

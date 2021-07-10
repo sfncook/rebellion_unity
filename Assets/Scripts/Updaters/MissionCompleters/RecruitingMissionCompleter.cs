@@ -29,8 +29,17 @@ public class RecruitingMissionCompleter: MissionCompleter
                 PersonnelType recruitedType = recruitableTypes[UnityEngine.Random.Range(0, recruitableTypes.Count)];
                 if(recruitedType.Equals(PersonnelType.Hero))
                 {
-                    Hero recruitedHero = MainGameState.gameState.heroesAvailableForRecruiting[UnityEngine.Random.Range(0, MainGameState.gameState.heroesAvailableForRecruiting.Count)];
-                    recruitedPersonnel = new Personnel(recruitedType, personnel.team, recruitedHero);
+                    int heroIndex = UnityEngine.Random.Range(0, MainGameState.gameState.heroesAvailableForRecruiting.Count);
+                    Hero recruitedHero = MainGameState.gameState.heroesAvailableForRecruiting[heroIndex];
+                    recruitedPersonnel = new Personnel(
+                        recruitedType,
+                        personnel.team,
+                        recruitedHero,
+                        UnityEngine.Random.Range(10, 80),
+                        UnityEngine.Random.Range(10, 80),
+                        UnityEngine.Random.Range(10, 80),
+                        UnityEngine.Random.Range(10, 80)
+                    );
                     MainGameState.gameState.heroesAvailableForRecruiting.Remove(recruitedHero);
                 } else
                 {
