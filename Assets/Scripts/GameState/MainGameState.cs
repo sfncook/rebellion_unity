@@ -2,6 +2,7 @@ using UnityEngine;
 using System.Collections.Generic;
 using UnityEngine.Events;
 using UnityEngine.SceneManagement;
+using System.Linq;
 
 public class MainGameState : MonoBehaviour
 {
@@ -136,8 +137,13 @@ public class MainGameState : MonoBehaviour
                 ++gameState.gameTime;
                 timerSec = SEC_PER_GAMEDAY;
 
-                //gameState.reportsAcked.AddRange(gameState.reportsUnAcked);
+                //gameState.reportsAcked.AddRange();
                 //gameState.reportsUnAcked.Clear();
+
+                // Auto-ack all reports over 5 days old
+                List<Report> oldUnackedReports = gameState.reportsUnAcked.FindAll(r => (MainGameState.gameState.gameTime - r.dayComplete) >=5 );
+                gameState.reportsUnAcked = gameState.reportsUnAcked.Except(oldUnackedReports).ToList();
+                gameState.reportsAcked.AddRange(oldUnackedReports);
 
                 gameState.invokePreDayPrepEvent();
                 gameState.invokeAgentPlanEvent();

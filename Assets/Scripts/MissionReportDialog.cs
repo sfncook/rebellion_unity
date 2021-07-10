@@ -25,6 +25,8 @@ public class MissionReportDialog : MonoBehaviour
         MainGameState.gameState.stopTimerEvent.Invoke();
         report = (MissionReport) MainGameState.gameState.reportForDialog;
 
+        MainGameState.gameState.ackReport(report);
+
         Planet planet = MainGameState.findPlanetForPersonnel(report.reporter);
         planetNameText.text = planet.name;
         planetImg.sprite = Resources.Load<Sprite>("Images/Planets/" + planet.name);
@@ -118,7 +120,6 @@ public class MissionReportDialog : MonoBehaviour
 
     private void onClickAck()
     {
-        MainGameState.gameState.ackReport(report);
         MainGameState.gameState.reportForDialog = null;
         SceneManager.LoadScene("Planet Detail 2");
     }

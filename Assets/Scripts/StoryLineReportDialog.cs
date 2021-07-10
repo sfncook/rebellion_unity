@@ -27,6 +27,8 @@ public class StoryLineReportDialog : MonoBehaviour
         prevButton.onClick.AddListener(onClickPrev);
         doneButton.onClick.AddListener(onClickDone);
 
+        MainGameState.gameState.ackReport(report);
+
         string imagePath;
         if (report.reporter.isHero())
         {
