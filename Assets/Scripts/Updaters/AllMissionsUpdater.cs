@@ -8,6 +8,7 @@ public class AllMissionsUpdater
     Dictionary<MissionType, MissionCompleter> typeToCompleter = new Dictionary<MissionType, MissionCompleter>
     {
         {MissionType.diplomacy, new DiplomacyMissionCompleter()},
+        {MissionType.espionage, new EspionageMissionCompleter()},
         {MissionType.recruiting, recruitingMissionCompleter},
     };
 

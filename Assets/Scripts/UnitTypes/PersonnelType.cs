@@ -83,6 +83,7 @@ public class PersonnelType : AbstractType
         this.attackAccuracyPerc = attackAccuracyPerc;
         this.defenseModifier = defenseModifier;
         this.isHero = isHero;
+        this.defaultEspionage = defaultEspionage;
         this.defaultRecruiting = defaultRecruiting;
         this.defaultDiplomacy = defaultDiplomacy;
         if(availableMissionTypes!=null)

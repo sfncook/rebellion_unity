@@ -3,6 +3,7 @@
     public readonly Team team;
     public int manyPeople;
     public int manyPeopleDead; // to be removed between events
+    public bool killed = false;
 
     // Attributes for heros
     public Hero hero;

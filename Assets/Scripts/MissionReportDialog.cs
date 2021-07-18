@@ -103,6 +103,51 @@ public class MissionReportDialog : MonoBehaviour
             headerControls.setHeaderTitle("Espionage Mission Report");
             if (report.success)
             {
+                AbstractUnit targetUnit = ((EspionageMissionReport)report).targetUnit;
+                string rowKey = "Killed:";
+                string rowValue = "";
+                if (targetUnit is Personnel)
+                {
+                    Personnel targetUnitPersonnel = (Personnel)targetUnit;
+                    if (targetUnitPersonnel.type == PersonnelType.Soldiers)
+                    {
+                        rowKey = "Killed:";
+                        rowValue = "Enemy soldiers";
+                    }
+                    else
+                    {
+                        if(targetUnitPersonnel.isHero())
+                        {
+                            rowValue = targetUnitPersonnel.hero.moniker;
+                        } else
+                        {
+                            rowValue = targetUnitPersonnel.type.name;
+                        }
+                    }
+                }
+                else if (targetUnit is Ship)
+                {
+                    Ship targetShip = (Ship)targetUnit;
+                    rowKey = "Damaged:";
+                    rowValue = targetShip.type.name;
+                }
+                else if (targetUnit is Factory)
+                {
+                    Factory targetFactory = (Factory)targetUnit;
+                    rowKey = "Damaged:";
+                    rowValue = targetFactory.type.name;
+                }
+                else if (targetUnit is Defense)
+                {
+                    Defense targetDefense = (Defense)targetUnit;
+                    rowKey = "Damaged:";
+                    rowValue = targetDefense.type.name;
+                }
+                if(((EspionageMissionReport)report).destroyed)
+                {
+                    rowKey = "Destroyed:";
+                }
+                setRowText(row2, rowKey, rowValue);
             }
         }
     }

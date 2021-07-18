@@ -43,6 +43,10 @@ public class AllPersonnelUpdater
                 List<Personnel> personnelToDelete = new List<Personnel>();
                 foreach (Personnel personnel in planet.personnelsOnSurface)
                 {
+                    if(personnel.killed)
+                    {
+                        personnelToDelete.Add(personnel);
+                    }
                     if (personnel.manyPeopleDead > 0)
                     {
                         personnel.manyPeople -= personnel.manyPeopleDead;
