@@ -25,5 +25,15 @@ public class DefenseListItem2 : MonoBehaviour
         }
 
         inTransitImg.gameObject.SetActive(defense.inTransit());
+
+        updateHealthBars();
+    }
+
+    private void updateHealthBars()
+    {
+        float fullHealth = ((DefenseType)defense.type).fullHealth;
+        float healthPercent = defense.health / fullHealth;
+        Debug.Log("DefenseListItem defense.health:"+ defense.health+ " fullHealth:"+ fullHealth+ " healthPercent:"+ healthPercent);
+        healthBars.setValue(healthPercent);
     }
 }

@@ -27,7 +27,9 @@ public class EspionageMissionCompleter : MissionCompleter
                 potentialTargets.AddRange(planet.factories);
             }
 
-            targetUnit = potentialTargets[Random.Range(0, potentialTargets.Count)];
+            int targetIndex = Random.Range(0, potentialTargets.Count);
+            targetUnit = potentialTargets[targetIndex];
+            Debug.Log("EspMission targetIndex:"+targetIndex+ " out of potentialTargets.Count:" + potentialTargets.Count);
 
             if (targetUnit is Personnel)
             {
@@ -43,7 +45,9 @@ public class EspionageMissionCompleter : MissionCompleter
             else if (targetUnit is Ship)
             {
                 Ship targetShip = (Ship)targetUnit;
-                targetShip.health -= Random.Range(1, targetShip.health);
+                float damage = Random.Range(1f, targetShip.health);
+                targetShip.health -= damage;
+                Debug.Log("Ship damage:"+damage+" new health:"+targetShip.health);
                 if(targetShip.health <= 0)
                 {
                     destroyed = true;
@@ -58,13 +62,15 @@ public class EspionageMissionCompleter : MissionCompleter
             else if (targetUnit is Defense)
             {
                 Defense targetDefense = (Defense)targetUnit;
-                targetDefense.health -= Random.Range(1, targetDefense.health);
+                int damage = Random.Range(1, targetDefense.health);
+                targetDefense.health -= damage;
+                Debug.Log("Defense damage:" + damage + " new health:" + targetDefense.health);
                 if (targetDefense.health <= 0)
                 {
                     destroyed = true;
                 }
             }
         }
-        return new EspionageMissionReport(reporter, missionSuccess, MainGameState.gameState.gameTime, false, targetUnit);
+        return new EspionageMissionReport(reporter, missionSuccess, MainGameState.gameState.gameTime, false, targetUnit, destroyed);
     }
 }
