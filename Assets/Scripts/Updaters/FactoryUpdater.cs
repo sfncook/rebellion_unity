@@ -16,7 +16,7 @@ public class FactoryUpdater : MonoBehaviour
                 dayArrival = MainGameState.arrivalDay(planetSrc, planetDest);
             }
 
-            Debug.Log("planetSrc:"+planetSrc.name+" planetDst:"+planetDest.name+" needsDelivery:"+needsDelivery+" dayArrival:"+dayArrival);
+            //Debug.Log("planetSrc:"+planetSrc.name+" planetDst:"+planetDest.name+" needsDelivery:"+needsDelivery+" dayArrival:"+dayArrival);
 
             if (
                 factory.buildingType.Equals(DefenseType.orbitalBattery) ||
@@ -30,7 +30,7 @@ public class FactoryUpdater : MonoBehaviour
                     def.dayArrival = dayArrival;
                 } else
                 {
-                    planetDest.defenses.Add(def);
+                    planetDest.defensesToDeploy.Add(def);
                 }
             }
 
@@ -48,7 +48,7 @@ public class FactoryUpdater : MonoBehaviour
                 }
                 else
                 {
-                    planetDest.factoriesInTransit.Add(fct);
+                    planetDest.factoriesToDeploy.Add(fct);
                 }
             }
 
@@ -60,7 +60,7 @@ public class FactoryUpdater : MonoBehaviour
             )
             {
                 // Personnel cannot be delivered to another planet.  They must be transported there by normal means
-                planetSrc.personnelsOnSurface.Add(new Personnel((PersonnelType)factory.buildingType, planetSrc.getTeam()));
+                planetSrc.personnelsToDeploy.Add(new Personnel((PersonnelType)factory.buildingType, planetSrc.getTeam()));
             }
 
             else if (
@@ -78,7 +78,7 @@ public class FactoryUpdater : MonoBehaviour
                 }
                 else
                 {
-                    planetDest.shipsInTransit.Add(ship);
+                    planetDest.shipsToDeploy.Add(ship);
                 }
             }
         }

@@ -96,6 +96,7 @@ public class MainGameState : MonoBehaviour
     public UnityEvent<Personnel, AbstractUnit, Planet> showMissionAssignmentDialog = new UnityEvent<Personnel, AbstractUnit, Planet>();
 
     // Updaters
+    private AllPlanetsUpdater allPlanetsUpdater = new AllPlanetsUpdater();
     private AllShipsUpdater allShipsUpdater = new AllShipsUpdater();
     private AllPersonnelUpdater allPersonnelUpdater = new AllPersonnelUpdater();
     private AllDefenseUpdater allDefenseUpdater = new AllDefenseUpdater();
@@ -109,6 +110,7 @@ public class MainGameState : MonoBehaviour
             DontDestroyOnLoad(gameObject);
             gameState = this;
 
+            allPlanetsUpdater.init();
             allShipsUpdater.init();
             allPersonnelUpdater.init();
             allDefenseUpdater.init();
@@ -264,14 +266,16 @@ public class MainGameState : MonoBehaviour
         // Randomly pick starting sector and planet:
         StarSector homeSector = galaxy.sectors[Random.Range(0, galaxy.sectors.Count)];
         homePlanet = homeSector.planets[Random.Range(0, homeSector.planets.Count)];
-        homePlanet.loyalty = 0.4f;
+        //homePlanet.loyalty = 0.4f;
+        homePlanet.loyalty = 0.7f;// TODO: delete
         initPlanetUnits(homePlanet);
         homePlanet.energyCapacity = 5;
 
         // Init standard set of intro units
         homePlanet.factories.Add(new Factory(FactoryType.ctorYard));
+        homePlanet.factories.Add(new Factory(FactoryType.shipYard));// TODO: delete
         homePlanet.defenses.Add(new Defense(DefenseType.planetaryShield));
-        homePlanet.personnelsOnSurface.Add(new Personnel(PersonnelType.Soldiers, Team.TeamB));
+        //homePlanet.personnelsOnSurface.Add(new Personnel(PersonnelType.Soldiers, Team.TeamB)); TODO: uncomment
 
         gameState.sectorForDetail = homeSector;
         gameState.planetForDetail = homePlanet;
@@ -300,12 +304,16 @@ public class MainGameState : MonoBehaviour
     {
         planet.shipsInOrbit = new List<Ship>();
         planet.shipsInTransit = new List<Ship>();
+        planet.shipsToDeploy = new List<Ship>();
         planet.personnelsOnSurface = new List<Personnel>();
         planet.personnelsInTransit = new List<Personnel>();
+        planet.personnelsToDeploy = new List<Personnel>();
         planet.factories = new List<Factory>();
         planet.factoriesInTransit = new List<Factory>();
+        planet.factoriesToDeploy = new List<Factory>();
         planet.defenses = new List<Defense>();
         planet.defensesInTransit = new List<Defense>();
+        planet.defensesToDeploy = new List<Defense>();
     }
 
     private void initPlanet(Planet planet)

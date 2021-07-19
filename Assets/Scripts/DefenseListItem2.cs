@@ -33,7 +33,6 @@ public class DefenseListItem2 : MonoBehaviour
     {
         float fullHealth = ((DefenseType)defense.type).fullHealth;
         float healthPercent = defense.health / fullHealth;
-        Debug.Log("DefenseListItem defense.health:"+ defense.health+ " fullHealth:"+ fullHealth+ " healthPercent:"+ healthPercent);
         healthBars.setValue(healthPercent);
     }
 }

@@ -4,6 +4,7 @@ using UnityEngine.SceneManagement;
 using UnityEngine.Events;
 using System.Linq;
 using TMPro;
+using System.Collections.Generic;
 
 [System.Serializable]
 public class ShowShipContentsEvent2 : UnityEvent<Ship>
@@ -134,7 +135,9 @@ public class PlanetDetail2 : BladeFadeScene
 
         // Factories
         planet.factories.Sort((a, b) => a.type.name.CompareTo(b.type.name));
-        foreach (Factory factory in planet.factories.Concat(planet.factoriesInTransit))
+        List<Factory> allFactories = planet.factories.Concat(planet.factoriesInTransit).ToList<Factory>();
+        //Debug.Log("allFactories:" + allFactories.Count);
+        foreach (Factory factory in allFactories)
         {
             newObj = (GameObject)Instantiate(factoryListItemPrefab, infrastructurePanel);
             FactoryListItem2 factoryListItem = newObj.GetComponent<FactoryListItem2>();

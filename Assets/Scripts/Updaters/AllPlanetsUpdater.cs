@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using UnityEngine;
 
 public class AllPlanetsUpdater
 {
@@ -19,13 +20,11 @@ public class AllPlanetsUpdater
         {
             foreach (Planet planet in sector.planets)
             {
-                //TODO:
-                //  - When planet loyalty changes cancel all factory builds
                 // Ships
                 List<Ship> shipsArrival = new List<Ship>();
                 foreach (Ship ship in planet.shipsInTransit)
                 {
-                    if (ship.dayArrival >= MainGameState.gameState.gameTime)
+                    if (ship.dayArrival <= MainGameState.gameState.gameTime)
                     {
                         ship.dayArrival = 0;
                         shipsArrival.Add(ship);
@@ -36,13 +35,15 @@ public class AllPlanetsUpdater
                     planet.shipsInTransit.Remove(ship);
                     planet.shipsInOrbit.Add(ship);
                 }
+                planet.shipsInOrbit.AddRange(planet.shipsToDeploy);
+                planet.shipsToDeploy.Clear();
 
 
                 // Personnel
                 List<Personnel> peopleArrival = new List<Personnel>();
                 foreach (Personnel personnel in planet.personnelsInTransit)
                 {
-                    if (personnel.dayArrival >= MainGameState.gameState.gameTime)
+                    if (personnel.dayArrival <= MainGameState.gameState.gameTime)
                     {
                         personnel.dayArrival = 0;
                         peopleArrival.Add(personnel);
@@ -53,13 +54,16 @@ public class AllPlanetsUpdater
                     planet.personnelsInTransit.Remove(personnel);
                     planet.personnelsOnSurface.Add(personnel);
                 }
+                planet.personnelsOnSurface.AddRange(planet.personnelsToDeploy);
+                planet.personnelsToDeploy.Clear();
 
 
                 // Factories
                 List<Factory> factoriesArrival = new List<Factory>();
                 foreach (Factory factory in planet.factoriesInTransit)
                 {
-                    if (factory.dayArrival >= MainGameState.gameState.gameTime)
+                    Debug.Log("factory.dayArrival:"+ factory.dayArrival);
+                    if (factory.dayArrival <= MainGameState.gameState.gameTime)
                     {
                         factory.dayArrival = 0;
                         factoriesArrival.Add(factory);
@@ -70,13 +74,15 @@ public class AllPlanetsUpdater
                     planet.factoriesInTransit.Remove(factory);
                     planet.factories.Add(factory);
                 }
+                planet.factories.AddRange(planet.factoriesToDeploy);
+                planet.factoriesToDeploy.Clear();
 
 
                 // Defense
                 List<Defense> defensesArrival = new List<Defense>();
                 foreach (Defense defense in planet.defensesInTransit)
                 {
-                    if (defense.dayArrival >= MainGameState.gameState.gameTime)
+                    if (defense.dayArrival <= MainGameState.gameState.gameTime)
                     {
                         defense.dayArrival = 0;
                         defensesArrival.Add(defense);
@@ -87,6 +93,8 @@ public class AllPlanetsUpdater
                     planet.defensesInTransit.Remove(defense);
                     planet.defenses.Add(defense);
                 }
+                planet.defenses.AddRange(planet.defensesToDeploy);
+                planet.defensesToDeploy.Clear();
             }
         }
     }
