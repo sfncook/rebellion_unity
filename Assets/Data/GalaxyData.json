@@ -18,28 +18,28 @@
 			"planets": [
 				{
 					"name": "Baphauhines",
-					"sectorX": 0.22,
-					"sectorY": 0.16
+					"sectorX": 0.2,
+					"sectorY": 0.2
 				},
 				{
 					"name": "Ilrichi",
-					"sectorX": 0.28,
-					"sectorY": 0.55
+					"sectorX": 0.8,
+					"sectorY": 0.2
 				},
 				{
 					"name": "Phuitov",
-					"sectorX": 0.49,
-					"sectorY": 0.35
+					"sectorX": 0.5,
+					"sectorY": 0.5
 				},
 				{
 					"name": "Sion",
-					"sectorX": 0.8,
-					"sectorY": 0.85
+					"sectorX": 0.2,
+					"sectorY": 0.8
 				},
 				{
 					"name": "Thion",
-					"sectorX": 0.52,
-					"sectorY": 0.77
+					"sectorX": 0.8,
+					"sectorY": 0.8
 				}
 			]
 		},
@@ -87,13 +87,13 @@
 				},
 				{
 					"name": "Tranitania",
-					"sectorX": 0.35,
+					"sectorX": 0.8,
 					"sectorY": 0.2
 				},
 				{
 					"name": "Yeonus",
-					"sectorX": 0.4,
-					"sectorY": 0.75
+					"sectorX": 0.5,
+					"sectorY": 0.5
 				},
 				{
 					"name": "Zaovis",
@@ -102,8 +102,8 @@
 				},
 				{
 					"name": "Ater",
-					"sectorX": 0.55,
-					"sectorY": 0.6
+					"sectorX": 0.8,
+					"sectorY": 0.8
 				}
 			]
 		},
@@ -119,13 +119,13 @@
 				},
 				{
 					"name": "Brohavis",
-					"sectorX": 0.35,
+					"sectorX": 0.8,
 					"sectorY": 0.2
 				},
 				{
 					"name": "Crilles",
-					"sectorX": 0.4,
-					"sectorY": 0.75
+					"sectorX": 0.5,
+					"sectorY": 0.5
 				},
 				{
 					"name": "Dion",
@@ -134,8 +134,8 @@
 				},
 				{
 					"name": "Regoulia",
-					"sectorX": 0.55,
-					"sectorY": 0.6
+					"sectorX": 0.8,
+					"sectorY": 0.8
 				}
 			]
 		},
@@ -151,13 +151,13 @@
 				},
 				{
 					"name": "Doatis",
-					"sectorX": 0.35,
+					"sectorX": 0.8,
 					"sectorY": 0.2
 				},
 				{
 					"name": "Doguvis",
-					"sectorX": 0.4,
-					"sectorY": 0.75
+					"sectorX": 0.5,
+					"sectorY": 0.5
 				},
 				{
 					"name": "Nilagawa",
@@ -166,8 +166,8 @@
 				},
 				{
 					"name": "Ochiter",
-					"sectorX": 0.55,
-					"sectorY": 0.6
+					"sectorX": 0.8,
+					"sectorY": 0.8
 				}
 			]
 		},
@@ -183,13 +183,13 @@
 				},
 				{
 					"name": "Sanvides",
-					"sectorX": 0.35,
+					"sectorX": 0.8,
 					"sectorY": 0.2
 				},
 				{
 					"name": "Vebolla",
-					"sectorX": 0.4,
-					"sectorY": 0.75
+					"sectorX": 0.5,
+					"sectorY": 0.5
 				},
 				{
 					"name": "Zadus",
@@ -198,8 +198,8 @@
 				},
 				{
 					"name": "Zinov",
-					"sectorX": 0.55,
-					"sectorY": 0.6
+					"sectorX": 0.8,
+					"sectorY": 0.8
 				}
 			]
 		},
@@ -215,13 +215,13 @@
 				},
 				{
 					"name": "Sanvides",
-					"sectorX": 0.35,
+					"sectorX": 0.8,
 					"sectorY": 0.2
 				},
 				{
 					"name": "Vebolla",
-					"sectorX": 0.4,
-					"sectorY": 0.75
+					"sectorX": 0.5,
+					"sectorY": 0.5
 				},
 				{
 					"name": "Zadus",
@@ -230,8 +230,8 @@
 				},
 				{
 					"name": "Zinov",
-					"sectorX": 0.55,
-					"sectorY": 0.6
+					"sectorX": 0.8,
+					"sectorY": 0.8
 				}
 			]
 		},
@@ -247,13 +247,13 @@
 				},
 				{
 					"name": "Sanvides",
-					"sectorX": 0.35,
+					"sectorX": 0.8,
 					"sectorY": 0.2
 				},
 				{
 					"name": "Vebolla",
-					"sectorX": 0.4,
-					"sectorY": 0.75
+					"sectorX": 0.5,
+					"sectorY": 0.5
 				},
 				{
 					"name": "Zadus",
@@ -262,8 +262,8 @@
 				},
 				{
 					"name": "Zinov",
-					"sectorX": 0.55,
-					"sectorY": 0.6
+					"sectorX": 0.8,
+					"sectorY": 0.8
 				}
 			]
 		}
