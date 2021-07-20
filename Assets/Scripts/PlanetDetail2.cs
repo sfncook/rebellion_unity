@@ -67,7 +67,7 @@ public class PlanetDetail2 : BladeFadeScene
         }
         MainGameState.gameState.newGameFadeIn = false;
 
-        headerControls.setShowBackButton(MainGameState.gameState.showPlanetDetailBackButton);
+        //headerControls.setShowBackButton(MainGameState.gameState.showPlanetDetailBackButton);
 
         detailPanel.SetActive(true);
         //factoryDialog.gameObject.SetActive(false);

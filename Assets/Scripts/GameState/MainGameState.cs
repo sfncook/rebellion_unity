@@ -73,7 +73,7 @@ public class MainGameState : MonoBehaviour
     [HideInInspector]
     public bool newGameFadeIn = false;
     [HideInInspector]
-    public bool showPlanetDetailBackButton = false;
+    public bool showPlanetDetailBackButton = true;
     [HideInInspector]
     public Planet homePlanet = null;
     [HideInInspector]

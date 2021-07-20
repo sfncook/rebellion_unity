@@ -7,7 +7,7 @@ public abstract class BladeFadeScene : MonoBehaviour
 
     protected bool fadein = false;
     protected bool fadeout = false;
-    private const float FADE_DUR_SEC = 2;
+    private const float FADE_DUR_SEC = 0.5f;
 
     void Start()
     {

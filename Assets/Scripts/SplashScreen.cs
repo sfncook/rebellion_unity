@@ -20,7 +20,8 @@ public class SplashScreen : BladeFadeScene
 
     protected override void fadeOutComplete()
     {
-        SceneManager.LoadScene("Introduction Scene");
+        //SceneManager.LoadScene("Introduction Scene");
+        MainGameState.gameState.initializeNewGame();
     }
 
 }
