@@ -1,34 +1,93 @@
 using UnityEngine;
 using System.Collections.Generic;
 using System;
+using System.Linq;
 
 public class ShipUpdater : MonoBehaviour
 {
     public static void performAttackActions(Planet planet, Ship ship)
     {
-        //Debug.Log("performAttackActions");
-        List <Ship> enemyShips = new List<Ship>();
-        foreach(Ship otherShip in planet.shipsInOrbit)
+        List<AbstractUnit> potentialTargets = new List<AbstractUnit>();
+
+        List<Ship> enemyShipsInOrbit = planet.shipsInOrbit.Where(s => !s.team.Equals(ship.team)).ToList();
+        potentialTargets.AddRange(enemyShipsInOrbit);
+
+        bool hasShield = planet.defenses.Any(d => d.type.Equals(DefenseType.planetaryShield));
+        if (!hasShield)
         {
-            if(!otherShip.team.Equals(ship.team))
+            //Debug.Log("has NO shield: planet:"+planet.name+" loyalty:"+planet.loyalty+" team:"+ planet.getTeam());
+            if (!planet.getTeam().Equals(ship.team))
             {
-                enemyShips.Add(otherShip);
+                potentialTargets.AddRange(planet.defenses);
+                potentialTargets.AddRange(planet.factories);
             }
+
+            List<Personnel> enemyPersonnelOnSurface = planet.personnelsOnSurface.Where(p => !p.team.Equals(ship.team)).ToList();
+            potentialTargets.AddRange(enemyPersonnelOnSurface);
         }
 
-        if (enemyShips.Count>0)
+        if(potentialTargets.Count>0)
         {
-            Ship enemyShipToAttack = enemyShips[UnityEngine.Random.Range(0, enemyShips.Count)];
-            ShipType enemyShipType = (ShipType) enemyShipToAttack.type;
-            ShipType shipType = (ShipType)ship.type;
-            for (var i=0; i<shipType.manyAttacksPerTurn; i++)
+            string unitName = "";
+            bool destroyed = false;
+            int targetIndex = UnityEngine.Random.Range(0, potentialTargets.Count);
+            //Debug.Log("ShipUpdater targetIndex:" + targetIndex + " out of potentialTargets.Count:" + potentialTargets.Count);
+            AbstractUnit targetUnit = potentialTargets[targetIndex];
+
+            if (targetUnit is Personnel)
             {
-                float attackValue = UnityEngine.Random.Range(0.0f, (float) shipType.attackStrength);
-                float defenseValue = UnityEngine.Random.Range(0.0f, (float) enemyShipType.defenseStrength);
-                float damage = Math.Max(attackValue - defenseValue, 0);
-                enemyShipToAttack.health -= damage;
-                //Debug.Log(planet.name+" Ship damage offense:" + ship.type.name + " defense:" + enemyShipToAttack.type.name + " health:" + enemyShipToAttack.health + " damage:" + damage + " offenseTeam:" + ship.team + " defenseTeam:" + enemyShipToAttack.team);
+                Personnel targetUnitPersonnel = (Personnel)targetUnit;
+                if (targetUnitPersonnel.type == PersonnelType.Soldiers)
+                {
+                    targetUnitPersonnel.manyPeopleDead = UnityEngine.Random.Range(1, targetUnitPersonnel.manyPeople);
+                    unitName = "soldiers";
+                }
+                else
+                {
+                    targetUnitPersonnel.killed = true;
+                    if (targetUnitPersonnel.isHero())
+                    {
+                        unitName = targetUnitPersonnel.hero.moniker;
+                    }
+                    else
+                    {
+                        unitName = targetUnitPersonnel.type.name;
+                    }
+                }
             }
+            else if (targetUnit is Ship)
+            {
+                Ship targetShip = (Ship)targetUnit;
+                float damage = UnityEngine.Random.Range(1f, targetShip.health);
+                targetShip.health -= damage;
+                //Debug.Log("Ship damage:" + damage + " new health:" + targetShip.health);
+                unitName = ship.type.name;
+                if (targetShip.health <= 0)
+                {
+                    destroyed = true;
+                }
+            }
+            else if (targetUnit is Factory)
+            {
+                Factory targetFactory = (Factory)targetUnit;
+                targetFactory.destroyed = true;
+                destroyed = true;
+                unitName = targetFactory.type.name;
+            }
+            else if (targetUnit is Defense)
+            {
+                Defense targetDefense = (Defense)targetUnit;
+                int damage = UnityEngine.Random.Range(1, targetDefense.health);
+                targetDefense.health -= damage;
+                Debug.Log("Defense damage:" + damage + " new health:" + targetDefense.health);
+                if (targetDefense.health <= 0)
+                {
+                    destroyed = true;
+                }
+                unitName = targetDefense.type.name;
+            }
+
+            Debug.Log(MainGameState.gameState.gameTime + " " + (destroyed ? "Destroyed" : "Damaged") + " " + unitName + " on planet:" + planet.name);
         }
     }// performAttackActions
 }
