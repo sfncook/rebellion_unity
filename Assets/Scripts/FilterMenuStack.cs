@@ -23,8 +23,6 @@ public class FilterMenuStack : MonoBehaviour
         {
             GameObject newObj = (GameObject)Instantiate(menuItemPrefab, menuPanel);
             FilterMenuItem filterMenuItem= newObj.GetComponent<FilterMenuItem>();
-            //RectTransform rectTrans = filterMenuItem.GetComponent<RectTransform>();
-            //rectTrans.sizeDelta = new Vector2(760f, 100f);
             filterMenuItem.setFilterType(filterType);
             filterMenuItem.onClickFilterMenuItem = onClickFilterMenuItem;
         }
