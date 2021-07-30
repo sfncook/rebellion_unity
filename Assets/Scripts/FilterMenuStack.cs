@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -7,7 +6,8 @@ public class FilterMenuStack : MonoBehaviour
     public Transform menuPanel;
     public GameObject menuItemPrefab;
     public OnClickFilterMenuItem onClickFilterMenuItem;
-    public List<FilterType> filterTypes = new List<FilterType>();
+
+    private List<FilterType> filterTypes = new List<FilterType>();
 
     void Start()
     {
@@ -22,6 +22,7 @@ public class FilterMenuStack : MonoBehaviour
         foreach (FilterType filterType in filterTypes)
         {
             GameObject newObj = (GameObject)Instantiate(menuItemPrefab, menuPanel);
+            newObj.name = filterType.ToString();
             FilterMenuItem filterMenuItem= newObj.GetComponent<FilterMenuItem>();
             filterMenuItem.setFilterType(filterType);
             filterMenuItem.onClickFilterMenuItem = onClickFilterMenuItem;
@@ -32,8 +33,15 @@ public class FilterMenuStack : MonoBehaviour
     {
         foreach (Transform child in menuPanel)
         {
-            Destroy(child.gameObject);
+            UnityEngine.Object.Destroy(child.gameObject);
         }
+    }
+
+    public void setFilterTypes(List<FilterType> filterTypes)
+    {
+        this.filterTypes.Clear();
+        this.filterTypes.AddRange(filterTypes);
+        updateGrid();
     }
 
     public void show()
