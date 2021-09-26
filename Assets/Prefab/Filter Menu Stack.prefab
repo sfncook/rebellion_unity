@@ -92,7 +92,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   menuPanel: {fileID: 1509148908002211862}
   menuItemPrefab: {fileID: 251732729492933104, guid: eacfce924b65445cab04f7845f498d94, type: 3}
-  filterTypes: 
+  clickAwayPanel: {fileID: 6396592909083741980}
 --- !u!1 &2803004211012896175
 GameObject:
   m_ObjectHideFlags: 0

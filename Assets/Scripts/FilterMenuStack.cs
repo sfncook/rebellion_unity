@@ -10,7 +10,7 @@ public class FilterMenuStack : MonoBehaviour
 
     void Start()
     {
-        //hide();
+        hide();
         updateGrid();
     }
 
