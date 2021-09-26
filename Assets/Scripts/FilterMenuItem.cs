@@ -16,8 +16,21 @@ public class FilterMenuItem : MonoBehaviour
         menuItemText.text = FilterTypeHelper.filterLabels[filterType];
     }
 
-    private void OnMouseUp()
+    private void OnGUI()
     {
-        onClickFilterMenuItem(filterType);
+        if (Event.current.button == 0)
+        {
+            if (Event.current.type == EventType.MouseUp)
+            {
+                Debug.Log("FilterMenuItem.OnGUI MouseUp filterType:"+ filterType);
+                //Event.current.Use();
+                onClickFilterMenuItem(filterType);
+            }
+            else if (Event.current.type == EventType.MouseDown)
+            {
+                //Debug.Log("FilterMenuItem.OnGUI MouseDown");
+                Event.current.Use();
+            }
+        }
     }
 }

@@ -97,6 +97,8 @@ public class MainGameState : MonoBehaviour
     [HideInInspector]
     public UnityEvent<Personnel, AbstractUnit, Planet> showMissionAssignmentDialog = new UnityEvent<Personnel, AbstractUnit, Planet>();
 
+    public FilterType selectedFilterType = FilterType.PlanetsLoyalty;
+
     // Updaters
     private AllPlanetsUpdater allPlanetsUpdater = new AllPlanetsUpdater();
     private AllShipsUpdater allShipsUpdater = new AllShipsUpdater();

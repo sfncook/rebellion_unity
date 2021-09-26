@@ -11,6 +11,7 @@ public class SectorMap2 : MonoBehaviour
     public DropGameObjectOnPlanet dropGameObjectOnPlanet;
 
     private StarSector sector;
+    private FilterType lastSelectedFilterType;
 
     public void setSector(StarSector sector)
     {
@@ -21,6 +22,7 @@ public class SectorMap2 : MonoBehaviour
 
     private void updateGrid()
     {
+        lastSelectedFilterType = MainGameState.gameState.selectedFilterType;
         clearPanel();
         foreach (Planet planet in sector.planets)
         {

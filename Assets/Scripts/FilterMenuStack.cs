@@ -22,7 +22,7 @@ public class FilterMenuStack : MonoBehaviour
         {
             GameObject newObj = (GameObject)Instantiate(menuItemPrefab, menuPanel);
             newObj.name = filterType.ToString();
-            FilterMenuItem filterMenuItem= newObj.GetComponent<FilterMenuItem>();
+            FilterMenuItem filterMenuItem = newObj.GetComponent<FilterMenuItem>();
             filterMenuItem.setFilterType(filterType);
             filterMenuItem.onClickFilterMenuItem = onClickFilterMenuItem;
         }
@@ -55,7 +55,8 @@ public class FilterMenuStack : MonoBehaviour
 
     private void onClickFilterMenuItem(FilterType filterType)
     {
-
+        hide();
+        MainGameState.gameState.selectedFilterType = filterType;
     }
 
 }
