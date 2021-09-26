@@ -13,6 +13,7 @@ public class GalaxyMap : MonoBehaviour
 
     void Start()
     {
+        MainGameState.gameState.initializeNewGame();
         Galaxy galaxy = MainGameState.gameState.galaxy;
         foreach(StarSector sector in galaxy.sectors)
         {

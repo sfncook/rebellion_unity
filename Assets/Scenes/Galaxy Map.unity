@@ -342,7 +342,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7754a3ee3b5134b19a25fa40f578fe99, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  galaxyDataFile: {fileID: 0}
+  galaxyDataFile: {fileID: 4900000, guid: 5d306f1a871dd4ed68b4f6d4086f169d, type: 3}
   heroesAvailableForRecruiting: []
   gameTime: 0
   myTeam: 0

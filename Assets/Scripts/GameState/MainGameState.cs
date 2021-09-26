@@ -11,6 +11,8 @@ public class MainGameState : MonoBehaviour
     public static MainGameState gameState;
     public TextAsset galaxyDataFile;
 
+    private bool gameInitialized = false;
+
     [HideInInspector]
     public readonly Galaxy galaxy = new Galaxy();
 
@@ -258,30 +260,35 @@ public class MainGameState : MonoBehaviour
 
     public void initializeNewGame()
     {
-        loadGameFromFiles();
+        if(!gameInitialized)
+        {
+            gameInitialized = true;
 
-        // All heroes are initially available for recruiting - remove them from this list as they are recruited
-        heroesAvailableForRecruiting.AddRange(galaxy.heros);
+            loadGameFromFiles();
 
-        // Randomly pick starting sector and planet:
-        StarSector homeSector = galaxy.sectors[Random.Range(0, galaxy.sectors.Count)];
-        homePlanet = homeSector.planets[Random.Range(0, homeSector.planets.Count)];
-        //homePlanet.loyalty = 0.4f;
-        homePlanet.loyalty = 0.7f;// TODO: delete
-        initPlanetUnits(homePlanet);
-        homePlanet.energyCapacity = 5;
+            // All heroes are initially available for recruiting - remove them from this list as they are recruited
+            heroesAvailableForRecruiting.AddRange(galaxy.heros);
 
-        // Init standard set of intro units
-        homePlanet.factories.Add(new Factory(FactoryType.ctorYard));
-        homePlanet.factories.Add(new Factory(FactoryType.shipYard));// TODO: delete
-        homePlanet.defenses.Add(new Defense(DefenseType.planetaryShield));
-        //homePlanet.personnelsOnSurface.Add(new Personnel(PersonnelType.Soldiers, Team.TeamB)); TODO: uncomment
+            // Randomly pick starting sector and planet:
+            StarSector homeSector = galaxy.sectors[Random.Range(0, galaxy.sectors.Count)];
+            homePlanet = homeSector.planets[Random.Range(0, homeSector.planets.Count)];
+            //homePlanet.loyalty = 0.4f;
+            homePlanet.loyalty = 0.7f;// TODO: delete
+            initPlanetUnits(homePlanet);
+            homePlanet.energyCapacity = 5;
 
-        gameState.sectorForDetail = homeSector;
-        gameState.planetForDetail = homePlanet;
-        gameState.newGameFadeIn = true;
-        gameState.startTimerEvent.Invoke();
-        SceneManager.LoadScene("Planet Detail 2");
+            // Init standard set of intro units
+            homePlanet.factories.Add(new Factory(FactoryType.ctorYard));
+            homePlanet.factories.Add(new Factory(FactoryType.shipYard));// TODO: delete
+            homePlanet.defenses.Add(new Defense(DefenseType.planetaryShield));
+            //homePlanet.personnelsOnSurface.Add(new Personnel(PersonnelType.Soldiers, Team.TeamB)); TODO: uncomment
+
+            gameState.sectorForDetail = homeSector;
+            gameState.planetForDetail = homePlanet;
+            gameState.newGameFadeIn = true;
+            gameState.startTimerEvent.Invoke();
+            //SceneManager.LoadScene("Planet Detail 2");
+        }
     }
 
 
