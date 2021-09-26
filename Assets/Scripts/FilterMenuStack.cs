@@ -5,7 +5,6 @@ public class FilterMenuStack : MonoBehaviour
 {
     public Transform menuPanel;
     public GameObject menuItemPrefab;
-    public OnClickFilterMenuItem onClickFilterMenuItem;
 
     private List<FilterType> filterTypes = new List<FilterType>();
 
@@ -52,6 +51,11 @@ public class FilterMenuStack : MonoBehaviour
     public void hide()
     {
         gameObject.SetActive(false);
+    }
+
+    private void onClickFilterMenuItem(FilterType filterType)
+    {
+
     }
 
 }
