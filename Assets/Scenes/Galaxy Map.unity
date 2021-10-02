@@ -352,6 +352,10 @@ MonoBehaviour:
   stopTimerEvent:
     m_PersistentCalls:
       m_Calls: []
+  filterChangeEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  selectedFilterType: 0
   preDayPrepEvent:
     m_PersistentCalls:
       m_Calls: []
@@ -405,7 +409,6 @@ MonoBehaviour:
   showMissionAssignmentDialog:
     m_PersistentCalls:
       m_Calls: []
-  selectedFilterType: 0
 --- !u!4 &703704722
 Transform:
   m_ObjectHideFlags: 0
@@ -859,6 +862,14 @@ PrefabInstance:
     - target: {fileID: 8648258607294517990, guid: a83a3e668e9da4574bf53219c685b3a2, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8965249972329731682, guid: a83a3e668e9da4574bf53219c685b3a2, type: 3}
+      propertyPath: m_Size.x
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 8965249972329731682, guid: a83a3e668e9da4574bf53219c685b3a2, type: 3}
+      propertyPath: m_Size.y
+      value: 100
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a83a3e668e9da4574bf53219c685b3a2, type: 3}

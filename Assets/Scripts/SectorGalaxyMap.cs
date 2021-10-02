@@ -37,6 +37,8 @@ public class SectorGalaxyMap : DragAndDroppable
             planetRectTrans.anchorMin = new Vector2(planet.sectorX, planet.sectorY);
             planetRectTrans.anchorMax = new Vector2(planet.sectorX, planet.sectorY);
             planetRectTrans.anchoredPosition = new Vector2(0f, 0f);
+            PlanetStar planetStar = newPlanetObj.GetComponent<PlanetStar>();
+            planetStar.setPlanet(planet);
         }
     }
 

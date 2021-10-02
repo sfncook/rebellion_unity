@@ -32,8 +32,12 @@ public class MainGameState : MonoBehaviour
     [HideInInspector]
     public UnityEvent stopTimerEvent = new UnityEvent();
 
+    [HideInInspector]
+    public UnityEvent<FilterType> filterChangeEvent = new UnityEvent<FilterType>();
+    public FilterType selectedFilterType = FilterType.PlanetsLoyalty;
+
     // Game Loop Events
-                                                                // 1. - Game time is incremented
+    // 1. - Game time is incremented
     [HideInInspector]
     public UnityEvent preDayPrepEvent = new UnityEvent();       // 2. - Factory builds complete
                                                                 //    - Missions complete
@@ -97,7 +101,6 @@ public class MainGameState : MonoBehaviour
     [HideInInspector]
     public UnityEvent<Personnel, AbstractUnit, Planet> showMissionAssignmentDialog = new UnityEvent<Personnel, AbstractUnit, Planet>();
 
-    public FilterType selectedFilterType = FilterType.PlanetsLoyalty;
 
     // Updaters
     private AllPlanetsUpdater allPlanetsUpdater = new AllPlanetsUpdater();
@@ -107,6 +110,7 @@ public class MainGameState : MonoBehaviour
     private AllFactoriesUpdater allFactoriesUpdater = new AllFactoriesUpdater();
     private AllStoryLineUpdater allStoryLineUpdater = new AllStoryLineUpdater();
     private AllMissionsUpdater allMissionsUpdater = new AllMissionsUpdater();
+
 
     void Awake()
     {
@@ -163,6 +167,12 @@ public class MainGameState : MonoBehaviour
             timerSec = SEC_PER_GAMEDAY;
         }
     }// Update
+
+    public void setNewFilter(FilterType filterType)
+    {
+        selectedFilterType = filterType;
+        filterChangeEvent.Invoke(filterType);
+    }
 
     public Planet getPlanetByName(string planetName)
     {

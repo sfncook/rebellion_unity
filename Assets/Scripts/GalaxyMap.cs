@@ -11,8 +11,6 @@ public class GalaxyMap : MonoBehaviour
 
     public OnClickSector onClickSectorEvent;
 
-    private FilterType lastSelectedFilterType;
-
     void Start()
     {
         MainGameState.gameState.initializeNewGame();
@@ -33,16 +31,6 @@ public class GalaxyMap : MonoBehaviour
             sectorGalaxyMap.sectorMap = sectorMap;
             sectorGalaxyMap.galaxyMap = galaxyMap;
             sectorGalaxyMap.toGalaxyHoverPanel = toGalaxyHoverPanel;
-        }
-    }
-
-    void Update()
-    {
-        //Debug.Log("GalaxyMap Update lastSelectedFilterType:"+ lastSelectedFilterType + " MainGameState.gameState.selectedFilterType:"+ MainGameState.gameState.selectedFilterType);
-        if (lastSelectedFilterType != MainGameState.gameState.selectedFilterType)
-        {
-            Debug.Log("New filter:" + MainGameState.gameState.selectedFilterType);
-            lastSelectedFilterType = MainGameState.gameState.selectedFilterType;
         }
     }
 }
