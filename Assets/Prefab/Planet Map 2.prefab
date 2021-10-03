@@ -405,6 +405,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   canvas: {fileID: 0}
   planetNameText: {fileID: 1612417697356057251}
+  planetNameBg: {fileID: 3379713738141685519}
   planetImg: {fileID: 248704409556251428}
   planetaryShieldImg: {fileID: 7002697701316509453}
   teamAShipsInOrbitImg: {fileID: 3387123458102402115}
@@ -1880,7 +1881,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.6117647}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.5019608}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1

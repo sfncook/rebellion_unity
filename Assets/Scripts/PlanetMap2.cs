@@ -17,6 +17,7 @@ public class DropGameObjectOnPlanet : UnityEvent<GameObject, Planet>
 public class PlanetMap2 : DragAndDroppable
 {
     public TextMeshProUGUI planetNameText;
+    public Image planetNameBg;
     public Image planetImg;
     public GameObject planetaryShieldImg;
     public GameObject teamAShipsInOrbitImg;
@@ -94,6 +95,7 @@ public class PlanetMap2 : DragAndDroppable
         Color loyaltyColor = planet.getTeam().getColorForTeam();
         factoryImg.color = loyaltyColor;
         defenseImg.color = loyaltyColor;
+        planetNameBg.color = new Color(loyaltyColor.r, loyaltyColor.g, loyaltyColor.b, 0.5f);
 
         bool planetHasShipsTeamA = planet.shipsInOrbit.Exists(ship => ship.team == Team.TeamA);
         bool planetHasShipsTeamB = planet.shipsInOrbit.Exists(ship => ship.team == Team.TeamB);
