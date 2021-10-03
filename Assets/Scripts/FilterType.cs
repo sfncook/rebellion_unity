@@ -22,15 +22,15 @@ public static class FilterTypeHelper
     public static Dictionary<FilterType, String> filterLabels = new Dictionary<FilterType, String> {
         { FilterType.PlanetsLoyalty, "Planetary Loyalty"},
         { FilterType.PlanetsByName, "Find Planet By Name"},
-        { FilterType.FactoriesAvailable, "Factories Available"},
+        { FilterType.FactoriesAvailable, "Available Factories"},
         { FilterType.CtorYards, "Construction Yards"},
         { FilterType.TrainingFacs, "Training Facilities"},
         { FilterType.ShipYards, "Ship Yards"},
-        { FilterType.PersonnelAvailable, "Personnel Available"},
+        { FilterType.PersonnelAvailable, "Available Personnel"},
         { FilterType.Soldiers, "Soldiers"},
         { FilterType.Heros, "Heros"},
         { FilterType.Spies, "Spies"},
         { FilterType.Diplomats, "Diplomats"},
-        { FilterType.Ships, "Ships"}
+        { FilterType.Ships, "Available Ships"}
     };
 }
