@@ -43,7 +43,7 @@ public class FactoryListItem2 : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if(factory.isBuilding)
+        if(factory.isBuilding && MainGameState.gameState.getIsTimerRunning())
         {
             factoryIsWorkingIcon.transform.Rotate(Vector3.forward * (Time.deltaTime * 180.0f));
         }
