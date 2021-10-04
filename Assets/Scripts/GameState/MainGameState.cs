@@ -311,33 +311,10 @@ public class MainGameState : MonoBehaviour
 
             loadGameFromFiles();
 
-            // All heroes are initially available for recruiting - remove them from this list as they are recruited
-            //heroesAvailableForRecruiting.AddRange(galaxy.heros);
-
-            // Randomly pick starting sector and planet:
-            //StarSector homeSector = galaxy.sectors[Random.Range(0, galaxy.sectors.Count)];
-            //homePlanet = homeSector.planets[Random.Range(0, homeSector.planets.Count)];
-            ////homePlanet.loyalty = 0.4f;
-            //homePlanet.loyalty = 0.7f;// TODO: delete
-            //initPlanetUnits(homePlanet);
-            //homePlanet.energyCapacity = 5;
-
-            //// Init standard set of intro units
-            //homePlanet.factories.Add(new Factory(FactoryType.ctorYard));
-            //homePlanet.factories.Add(new Factory(FactoryType.shipYard));
-            //homePlanet.defenses.Add(new Defense(DefenseType.planetaryShield));
-            ////homePlanet.personnelsOnSurface.Add(new Personnel(PersonnelType.Soldiers, Team.TeamB)); TODO: uncomment
-
-            //gameState.sectorForDetail = homeSector;
-            //gameState.planetForDetail = homePlanet;
-            //gameState.newGameFadeIn = true;
-            //gameState.startTimerEvent.Invoke();
-            //SceneManager.LoadScene("Planet Detail 2");
-
             var sectorsToPickHqsFrom = galaxy.sectors.GetRange(0, galaxy.sectors.Count);
 
             // Init Team A HQ
-            var teamAHomeSector = sectorsToPickHqsFrom[Random.Range(0, galaxy.sectors.Count)];
+            var teamAHomeSector = sectorsToPickHqsFrom[Random.Range(0, sectorsToPickHqsFrom.Count)];
             sectorsToPickHqsFrom.Remove(teamAHomeSector);
             var teamAHomePlanet = teamAHomeSector.planets[Random.Range(0, teamAHomeSector.planets.Count)];
             teamAHomePlanet.personnelsOnSurface.Add(new Personnel(PersonnelType.ChosenOne, Team.TeamA));
@@ -347,10 +324,11 @@ public class MainGameState : MonoBehaviour
             teamAHomePlanet.factories.Add(new Factory(FactoryType.ctorYard));
             teamAHomePlanet.factories.Add(new Factory(FactoryType.shipYard));
             teamAHomePlanet.defenses.Add(new Defense(DefenseType.planetaryShield));
+            teamAHomePlanet.isDiscovered = true;
 
 
             // Init Team B HQ
-            var teamBHomeSector = sectorsToPickHqsFrom[Random.Range(0, galaxy.sectors.Count)];
+            var teamBHomeSector = sectorsToPickHqsFrom[Random.Range(0, sectorsToPickHqsFrom.Count)];
             sectorsToPickHqsFrom.Remove(teamBHomeSector);
             var teamBHomePlanet = teamBHomeSector.planets[Random.Range(0, teamBHomeSector.planets.Count)];
             teamBHomePlanet.shipsInOrbit.Add(new Ship(ShipType.Capitol, Team.TeamB));

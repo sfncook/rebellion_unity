@@ -13,6 +13,9 @@ public class Planet: AbstractTarget
     public int energyCapacity;
     public bool isHq = false;
 
+    // Game state visibility
+    public bool isDiscovered = false;
+
     // Mutable state:
     public float loyalty; // 0=TeamA & 1=TeamB
     public bool isInConflict = false;
