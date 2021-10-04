@@ -4,6 +4,7 @@
     public static ShipType Trireme = new ShipType("Trireme", 3, 3, 3, false, 6, 2);
     public static ShipType Quadreme = new ShipType("Quadreme", 4, 4, 4, false, 8, 3);
     public static ShipType Quintreme = new ShipType("Quintreme", 5, 5, 5, true, 10, 4);
+    public static ShipType Capitol = new ShipType("Capitol", 0, 0, 0, true, 10, 0);
 
     public readonly int personnelCapacity;
     public readonly int attackStrength;     // out of 10

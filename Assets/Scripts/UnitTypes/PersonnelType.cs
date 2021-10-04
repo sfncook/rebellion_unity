@@ -44,6 +44,18 @@ public class PersonnelType : AbstractType
         isHero: true,
         availableMissionTypes: new List<MissionType>() { MissionType.diplomacy, MissionType.espionage, MissionType.recruiting }
     );
+    public static PersonnelType ChosenOne = new PersonnelType(
+        "The Chosen One",
+        isStealth: true,
+        totalManyPeople: 1,
+        canAttack: false,
+        isHero: true,
+        defaultEspionage: 60,
+        defaultRecruiting: 50,
+        defaultDiplomacy: 20,
+        defaultVisibility: 80,
+        availableMissionTypes: new List<MissionType>() { }
+    );
 
     public readonly bool isStealth;
     public readonly bool isMultiple;

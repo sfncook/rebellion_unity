@@ -111,7 +111,7 @@ public class MainGameState : MonoBehaviour
     private AllPersonnelUpdater allPersonnelUpdater = new AllPersonnelUpdater();
     private AllDefenseUpdater allDefenseUpdater = new AllDefenseUpdater();
     private AllFactoriesUpdater allFactoriesUpdater = new AllFactoriesUpdater();
-    private AllStoryLineUpdater allStoryLineUpdater = new AllStoryLineUpdater();
+    //private AllStoryLineUpdater allStoryLineUpdater = new AllStoryLineUpdater();
     private AllMissionsUpdater allMissionsUpdater = new AllMissionsUpdater();
 
 
@@ -126,7 +126,7 @@ public class MainGameState : MonoBehaviour
             allPersonnelUpdater.init();
             allDefenseUpdater.init();
             allFactoriesUpdater.init();
-            allStoryLineUpdater.init();
+            //allStoryLineUpdater.init();
             allMissionsUpdater.init();
         }
         else if(gameState != this)
@@ -312,27 +312,54 @@ public class MainGameState : MonoBehaviour
             loadGameFromFiles();
 
             // All heroes are initially available for recruiting - remove them from this list as they are recruited
-            heroesAvailableForRecruiting.AddRange(galaxy.heros);
+            //heroesAvailableForRecruiting.AddRange(galaxy.heros);
 
             // Randomly pick starting sector and planet:
-            StarSector homeSector = galaxy.sectors[Random.Range(0, galaxy.sectors.Count)];
-            homePlanet = homeSector.planets[Random.Range(0, homeSector.planets.Count)];
-            //homePlanet.loyalty = 0.4f;
-            homePlanet.loyalty = 0.7f;// TODO: delete
-            initPlanetUnits(homePlanet);
-            homePlanet.energyCapacity = 5;
+            //StarSector homeSector = galaxy.sectors[Random.Range(0, galaxy.sectors.Count)];
+            //homePlanet = homeSector.planets[Random.Range(0, homeSector.planets.Count)];
+            ////homePlanet.loyalty = 0.4f;
+            //homePlanet.loyalty = 0.7f;// TODO: delete
+            //initPlanetUnits(homePlanet);
+            //homePlanet.energyCapacity = 5;
 
-            // Init standard set of intro units
-            homePlanet.factories.Add(new Factory(FactoryType.ctorYard));
-            homePlanet.factories.Add(new Factory(FactoryType.shipYard));// TODO: delete
-            homePlanet.defenses.Add(new Defense(DefenseType.planetaryShield));
-            //homePlanet.personnelsOnSurface.Add(new Personnel(PersonnelType.Soldiers, Team.TeamB)); TODO: uncomment
+            //// Init standard set of intro units
+            //homePlanet.factories.Add(new Factory(FactoryType.ctorYard));
+            //homePlanet.factories.Add(new Factory(FactoryType.shipYard));
+            //homePlanet.defenses.Add(new Defense(DefenseType.planetaryShield));
+            ////homePlanet.personnelsOnSurface.Add(new Personnel(PersonnelType.Soldiers, Team.TeamB)); TODO: uncomment
 
-            gameState.sectorForDetail = homeSector;
-            gameState.planetForDetail = homePlanet;
-            gameState.newGameFadeIn = true;
-            gameState.startTimerEvent.Invoke();
+            //gameState.sectorForDetail = homeSector;
+            //gameState.planetForDetail = homePlanet;
+            //gameState.newGameFadeIn = true;
+            //gameState.startTimerEvent.Invoke();
             //SceneManager.LoadScene("Planet Detail 2");
+
+            var sectorsToPickHqsFrom = galaxy.sectors.GetRange(0, galaxy.sectors.Count);
+
+            // Init Team A HQ
+            var teamAHomeSector = sectorsToPickHqsFrom[Random.Range(0, galaxy.sectors.Count)];
+            sectorsToPickHqsFrom.Remove(teamAHomeSector);
+            var teamAHomePlanet = teamAHomeSector.planets[Random.Range(0, teamAHomeSector.planets.Count)];
+            teamAHomePlanet.personnelsOnSurface.Add(new Personnel(PersonnelType.ChosenOne, Team.TeamA));
+            teamAHomePlanet.loyalty = Random.Range(0.9f, 0.999f);
+            initPlanet(teamAHomePlanet, Team.TeamA);
+            teamAHomePlanet.energyCapacity = (int)Mathf.Max(5f, teamAHomePlanet.energyCapacity);
+            teamAHomePlanet.factories.Add(new Factory(FactoryType.ctorYard));
+            teamAHomePlanet.factories.Add(new Factory(FactoryType.shipYard));
+            teamAHomePlanet.defenses.Add(new Defense(DefenseType.planetaryShield));
+
+
+            // Init Team B HQ
+            var teamBHomeSector = sectorsToPickHqsFrom[Random.Range(0, galaxy.sectors.Count)];
+            sectorsToPickHqsFrom.Remove(teamBHomeSector);
+            var teamBHomePlanet = teamBHomeSector.planets[Random.Range(0, teamBHomeSector.planets.Count)];
+            teamBHomePlanet.shipsInOrbit.Add(new Ship(ShipType.Capitol, Team.TeamB));
+            foreach(Planet planet in teamBHomeSector.planets)
+            {
+                planet.loyalty = Random.Range(0.0f, 0.7f);
+                initPlanet(planet, Team.TeamB);
+            }
+            teamBHomePlanet.loyalty = Random.Range(0.0f, 0.3f);
         }
     }
 
@@ -347,7 +374,7 @@ public class MainGameState : MonoBehaviour
             {
                 initPlanetUnits(planet);
                 planet.energyCapacity = Random.Range(0, 10);
-                initPlanet(planet);
+                planet.loyalty = Random.Range(0.45f, 0.55f);
             }
         }
     }// loadGameFromFiles
@@ -368,10 +395,8 @@ public class MainGameState : MonoBehaviour
         planet.defensesToDeploy = new List<Defense>();
     }
 
-    private void initPlanet(Planet planet)
+    private void initPlanet(Planet planet, Team team)
     {
-        // Initializing everything to enemy strength
-        Team enemyTeam = Team.TeamB;
         var shipTypes = new ShipType[] {
             ShipType.Bireme,
             ShipType.Trireme,
@@ -381,9 +406,8 @@ public class MainGameState : MonoBehaviour
 
         for (var i = 0; i < Random.Range(0, 3); i++)
         {
-            //Team team = (Random.Range(0.0f, 1.0f) >= 0.5f) ? Team.TeamA : Team.TeamB;
             int typeIndex = Random.Range(0, shipTypes.Length);
-            Ship randShip = new Ship(shipTypes[typeIndex], enemyTeam);
+            Ship randShip = new Ship(shipTypes[typeIndex], team);
             planet.shipsInOrbit.Add(randShip);
         }
 
@@ -395,24 +419,24 @@ public class MainGameState : MonoBehaviour
         };
         for (var i = 0; i < Random.Range(0, 4); i++)
         {
-            //Team team = (Random.Range(0.0f, 1.0f) >= 0.5f) ? Team.TeamA : Team.TeamB;
-            //int typeIndex = Random.Range(0, personnelTypes.Length);
-            //Personnel personnel = new Personnel(personnelTypes[typeIndex], team);
-            Personnel personnel = new Personnel(PersonnelType.Soldiers, enemyTeam);
+            Personnel personnel = new Personnel(PersonnelType.Soldiers, team);
             planet.personnelsOnSurface.Add(personnel);
         }
 
-        var factoryTypes = new FactoryType[] {
+        if(team == Team.TeamB)
+        {
+            var factoryTypes = new FactoryType[] {
             FactoryType.ctorYard,
             FactoryType.shipYard,
             FactoryType.trainingFac
         };
-        int many = Mathf.Min(Random.Range(0, 3), (planet.energyCapacity - planet.factories.Count - planet.defenses.Count));
-        for (var i = 0; i < many; i++)
-        {
-            int typeIndex = Random.Range(0, factoryTypes.Length);
-            Factory factory = new Factory(factoryTypes[typeIndex]);
-            planet.factories.Add(factory);
+            int many = Mathf.Min(Random.Range(0, 3), (planet.energyCapacity - planet.factories.Count - planet.defenses.Count));
+            for (var i = 0; i < many; i++)
+            {
+                int typeIndex = Random.Range(0, factoryTypes.Length);
+                Factory factory = new Factory(factoryTypes[typeIndex]);
+                planet.factories.Add(factory);
+            }
         }
 
         var defenseTypes = new DefenseType[] {
@@ -432,7 +456,7 @@ public class MainGameState : MonoBehaviour
             }
         }
 
-        planet.loyalty = Random.Range(0.0f, 0.999f);
+        //planet.loyalty = Random.Range(0.0f, 0.999f);
     }
 
     public static StarSector findSectorForPlanet(Planet planet)
