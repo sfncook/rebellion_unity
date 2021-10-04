@@ -29,6 +29,8 @@ public class PlanetMap2 : DragAndDroppable
     public GameObject planetaryShieldImg;
     public GameObject teamAShipsInOrbitImg;
     public GameObject teamBShipsInOrbitImg;
+    public GameObject teamAShipsInTransitImg;
+    public GameObject teamBShipsInTransitImg;
     public GameObject teamAPersonnelOnSurfaceImg;
     public GameObject teamBPersonnelOnSurfaceImg;
     public GameObject planetInConflictImg;
@@ -113,10 +115,16 @@ public class PlanetMap2 : DragAndDroppable
             planetImg.sprite = planetImgSprite;
             planetNameBg.color = new Color(loyaltyColor.r, loyaltyColor.g, loyaltyColor.b, 0.5f);
 
+            loyaltyBars.gameObject.SetActive(true);
+            resourceSquaresPanel.SetActive(true);
+
             bool planetHasShipsTeamA = planet.shipsInOrbit.Exists(ship => ship.team == Team.TeamA);
             bool planetHasShipsTeamB = planet.shipsInOrbit.Exists(ship => ship.team == Team.TeamB);
             teamAShipsInOrbitImg.gameObject.SetActive(planetHasShipsTeamA);
             teamBShipsInOrbitImg.gameObject.SetActive(planetHasShipsTeamB);
+
+            teamAShipsInTransitImg.gameObject.SetActive(planet.shipsInTransit.Exists(ship => ship.team == Team.TeamA));
+            teamBShipsInTransitImg.gameObject.SetActive(planet.shipsInTransit.Exists(ship => ship.team == Team.TeamB));
 
             bool planetHasPersonnelTeamA = planet.personnelsOnSurface.Exists(personnel => personnel.team == Team.TeamA);
             bool planetHasPersonnelTeamB = planet.personnelsOnSurface.Exists(personnel => personnel.team == Team.TeamB);
@@ -170,6 +178,9 @@ public class PlanetMap2 : DragAndDroppable
             planetaryShieldImg.gameObject.SetActive(false);
             teamAShipsInOrbitImg.gameObject.SetActive(false);
             teamBShipsInOrbitImg.gameObject.SetActive(false);
+            bool exists = planet.shipsInTransit.Exists(ship => ship.team == MainGameState.gameState.myTeam);
+            teamAShipsInTransitImg.gameObject.SetActive(planet.shipsInTransit.Exists(ship => ship.team == MainGameState.gameState.myTeam));
+            teamBShipsInTransitImg.gameObject.SetActive(false);
             teamAPersonnelOnSurfaceImg.gameObject.SetActive(false);
             teamBPersonnelOnSurfaceImg.gameObject.SetActive(false);
             planetInConflictImg.gameObject.SetActive(false);
