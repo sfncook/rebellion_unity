@@ -4,6 +4,12 @@ using System.Collections.Generic;
 
 public class PlanetUpdater : MonoBehaviour
 {
+    private readonly Dictionary<Team, int> teamToShipCount = new Dictionary<Team, int>
+    {
+        {Team.TeamA, 0},
+        {Team.TeamB, 0}
+    };
+
     public SpriteRenderer imgFactory;
     public SpriteRenderer imgDefense;
     public SpriteRenderer imgConflict;
@@ -77,11 +83,7 @@ public class PlanetUpdater : MonoBehaviour
 
         // conflict
         planet.isInConflict = false;
-        Dictionary<Team, int> teamToShipCount = new Dictionary<Team, int>
-    {
-        {Team.TeamA, 0},
-        {Team.TeamB, 0}
-    };
+
         foreach (Ship ship in planet.shipsInOrbit)
         {
             teamToShipCount[ship.team]++;

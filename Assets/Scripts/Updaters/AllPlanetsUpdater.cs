@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using System.Linq;
 
 public class AllPlanetsUpdater
 {
@@ -99,6 +100,16 @@ public class AllPlanetsUpdater
                 }
                 planet.defenses.AddRange(planet.defensesToDeploy);
                 planet.defensesToDeploy.Clear();
+
+                // Update discovery for game-state-visibility
+                if(
+                    planet.shipsInOrbit.Any(unit => unit.team == MainGameState.gameState.myTeam) ||
+                    planet.personnelsOnSurface.Any(unit => unit.team == MainGameState.gameState.myTeam)
+                )
+                {
+                    planet.isDiscovered = true;
+
+                }
             }
         }
     }
