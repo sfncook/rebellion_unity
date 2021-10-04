@@ -42,6 +42,7 @@ public class AllFactoriesUpdater
                 foreach (Factory factoryToDelete in factoriesToDelete)
                 {
                     planet.factories.Remove(factoryToDelete);
+                    MainGameState.gameState.addGameEvent("Factory destroyed:" + factoryToDelete.type.ToString() + " Plt:" + planet.name);
                 }
             }
         }

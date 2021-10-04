@@ -34,6 +34,7 @@ public class AllPlanetsUpdater
                 {
                     planet.shipsInTransit.Remove(ship);
                     planet.shipsInOrbit.Add(ship);
+                    MainGameState.gameState.addGameEvent("Ship arrived:" + ship.type.ToString() + " Plt:" + planet.name);
                 }
                 planet.shipsInOrbit.AddRange(planet.shipsToDeploy);
                 planet.shipsToDeploy.Clear();
@@ -47,6 +48,7 @@ public class AllPlanetsUpdater
                     {
                         personnel.dayArrival = 0;
                         peopleArrival.Add(personnel);
+                        MainGameState.gameState.addGameEvent("Personnel arrived:" + personnel.type.ToString() + " Plt:" + planet.name);
                     }
                 }
                 foreach (Personnel personnel in peopleArrival)
@@ -67,6 +69,7 @@ public class AllPlanetsUpdater
                     {
                         factory.dayArrival = 0;
                         factoriesArrival.Add(factory);
+                        MainGameState.gameState.addGameEvent("Factory arrived:" + factory.type.ToString() + " Plt:" + planet.name);
                     }
                 }
                 foreach (Factory factory in factoriesArrival)
@@ -92,6 +95,7 @@ public class AllPlanetsUpdater
                 {
                     planet.defensesInTransit.Remove(defense);
                     planet.defenses.Add(defense);
+                    MainGameState.gameState.addGameEvent("Defense-structure arrived:" + defense.type.ToString() + " Plt:" + planet.name);
                 }
                 planet.defenses.AddRange(planet.defensesToDeploy);
                 planet.defensesToDeploy.Clear();

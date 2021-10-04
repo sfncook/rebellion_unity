@@ -101,6 +101,9 @@ public class MainGameState : MonoBehaviour
     [HideInInspector]
     public UnityEvent<Personnel, AbstractUnit, Planet> showMissionAssignmentDialog = new UnityEvent<Personnel, AbstractUnit, Planet>();
 
+    [HideInInspector]
+    readonly SortedDictionary<int, List<string>> gameEventsByTime = new SortedDictionary<int, List<string>>();
+
 
     // Updaters
     private AllPlanetsUpdater allPlanetsUpdater = new AllPlanetsUpdater();
@@ -167,6 +170,36 @@ public class MainGameState : MonoBehaviour
             timerSec = SEC_PER_GAMEDAY;
         }
     }// Update
+
+    public void addGameEvent(string eventMessage)
+    {
+        List<string> eventMsgs;
+        try
+        {
+            eventMsgs = gameEventsByTime[gameTime];
+        }
+        catch (KeyNotFoundException)
+        {
+            eventMsgs = new List<string>();
+            gameEventsByTime[gameTime] = eventMsgs;
+        }
+        eventMsgs.Add(eventMessage);
+    }
+
+    public List<string> getEventsForTime(int gameTime)
+    {
+        List<string> eventMsgs;
+        try
+        {
+            eventMsgs = gameEventsByTime[gameTime];
+        }
+        catch (KeyNotFoundException)
+        {
+            eventMsgs = new List<string>();
+            gameEventsByTime[gameTime] = eventMsgs;
+        }
+        return eventMsgs;
+    }
 
     public void setNewFilter(FilterType filterType)
     {

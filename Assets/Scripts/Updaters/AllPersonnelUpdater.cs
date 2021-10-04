@@ -61,6 +61,7 @@ public class AllPersonnelUpdater
                 {
                     //Debug.Log(planet.name + " Personnel destroyed:" + personnelToDelete_.type.name + " team:" + personnelToDelete_.team);
                     planet.personnelsOnSurface.Remove(personnelToDelete_);
+                    MainGameState.gameState.addGameEvent("Personnel killed:" + personnelToDelete_.type.ToString() + " Plt:" + planet.name);
                 }
             }
         }

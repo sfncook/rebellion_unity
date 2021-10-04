@@ -54,6 +54,7 @@ public class AllShipsUpdater
                 {
                     //Debug.Log(planet.name+" Ship destroyed:" + shipToDelete.type.name + " team:" + shipToDelete.team);
                     planet.shipsInOrbit.Remove(shipToDelete);
+                    MainGameState.gameState.addGameEvent("Ship destroyed:" + shipToDelete.type.ToString() + " Plt:" + planet.name);
                 }
             }
         }

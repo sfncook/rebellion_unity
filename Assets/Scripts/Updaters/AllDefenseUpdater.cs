@@ -49,6 +49,7 @@ public class AllDefenseUpdater
                 foreach (Defense defenseToDelete in defensesToDelete)
                 {
                     planet.defenses.Remove(defenseToDelete);
+                    MainGameState.gameState.addGameEvent("Defense-structure destroyed:"+defenseToDelete.type.ToString()+" Plt:"+planet.name);
                 }
             }
         }
