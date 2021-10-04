@@ -413,6 +413,7 @@ MonoBehaviour:
   teamAPersonnelOnSurfaceImg: {fileID: 3083328722150826511}
   teamBPersonnelOnSurfaceImg: {fileID: 5485692432546613627}
   planetInConflictImg: {fileID: 6991110879535729978}
+  resourceSquaresPanel: {fileID: 3843672159738490927}
   factoryImg: {fileID: 3041835133599038003}
   defenseImg: {fileID: 7213731698611492856}
   loyaltyBars: {fileID: 5949912207194055325}

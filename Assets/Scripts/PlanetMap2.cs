@@ -16,6 +16,13 @@ public class DropGameObjectOnPlanet : UnityEvent<GameObject, Planet>
 
 public class PlanetMap2 : DragAndDroppable
 {
+
+    private readonly Dictionary<Team, int> teamToShipCount = new Dictionary<Team, int>
+    {
+        {Team.TeamA, 0},
+        {Team.TeamB, 0}
+    };
+
     public TextMeshProUGUI planetNameText;
     public Image planetNameBg;
     public Image planetImg;
@@ -25,6 +32,7 @@ public class PlanetMap2 : DragAndDroppable
     public GameObject teamAPersonnelOnSurfaceImg;
     public GameObject teamBPersonnelOnSurfaceImg;
     public GameObject planetInConflictImg;
+    public GameObject resourceSquaresPanel;
     public Image factoryImg;
     public Image defenseImg;
     public ValueBars loyaltyBars;
@@ -36,6 +44,9 @@ public class PlanetMap2 : DragAndDroppable
     private Planet planet;
     private bool isSelected = false;
 
+    private Sprite planetImgSprite;
+    private Sprite circleImgSprite;
+
     private void Start()
     {
         MainGameState.gameState.addListenerUiUpdateEvent(onUiUpdateEvent);
@@ -45,7 +56,8 @@ public class PlanetMap2 : DragAndDroppable
     {
         this.planet = planet;
         planetNameText.text = planet.name;
-        planetImg.sprite = Resources.Load<Sprite>("Images/Planets/" + planet.name);
+        planetImgSprite = Resources.Load<Sprite>("Images/Planets/" + planet.name);
+        circleImgSprite = Resources.Load<Sprite>("Images/circle");
         loyaltyBars.setValue(planet.loyalty);
         onUiUpdateEvent();
     }
@@ -95,60 +107,77 @@ public class PlanetMap2 : DragAndDroppable
         Color loyaltyColor = planet.getTeam().getColorForTeam();
         factoryImg.color = loyaltyColor;
         defenseImg.color = loyaltyColor;
-        planetNameBg.color = new Color(loyaltyColor.r, loyaltyColor.g, loyaltyColor.b, 0.5f);
-
-        bool planetHasShipsTeamA = planet.shipsInOrbit.Exists(ship => ship.team == Team.TeamA);
-        bool planetHasShipsTeamB = planet.shipsInOrbit.Exists(ship => ship.team == Team.TeamB);
-        teamAShipsInOrbitImg.gameObject.SetActive(planetHasShipsTeamA);
-        teamBShipsInOrbitImg.gameObject.SetActive(planetHasShipsTeamB);
-
-        bool planetHasPersonnelTeamA = planet.personnelsOnSurface.Exists(personnel => personnel.team == Team.TeamA);
-        bool planetHasPersonnelTeamB = planet.personnelsOnSurface.Exists(personnel => personnel.team == Team.TeamB);
-        teamAPersonnelOnSurfaceImg.gameObject.SetActive(planetHasPersonnelTeamA);
-        teamBPersonnelOnSurfaceImg.gameObject.SetActive(planetHasPersonnelTeamB);
-
-        factoryImg.gameObject.SetActive(planet.factories.Count > 0);
-        defenseImg.gameObject.SetActive(planet.defenses.Count > 0);
-
-        int manyFacilities = planet.factories.Count + planet.defenses.Count;
-        for (int i = 1; i <= manyFacilities; i++)
+        if(planet.isDiscovered)
         {
-            string strI = i.ToString().PadLeft(2, '0');
-            Transform energySquare = gameObject.transform.Find("Resource Squares").Find("Square" + strI);
-            energySquare.GetComponent<Image>().color = Color.blue;
-            energySquare.GetComponent<Image>().enabled = true;
+            planetImg.color = Color.white;
+            planetImg.sprite = planetImgSprite;
+            planetNameBg.color = new Color(loyaltyColor.r, loyaltyColor.g, loyaltyColor.b, 0.5f);
+
+            bool planetHasShipsTeamA = planet.shipsInOrbit.Exists(ship => ship.team == Team.TeamA);
+            bool planetHasShipsTeamB = planet.shipsInOrbit.Exists(ship => ship.team == Team.TeamB);
+            teamAShipsInOrbitImg.gameObject.SetActive(planetHasShipsTeamA);
+            teamBShipsInOrbitImg.gameObject.SetActive(planetHasShipsTeamB);
+
+            bool planetHasPersonnelTeamA = planet.personnelsOnSurface.Exists(personnel => personnel.team == Team.TeamA);
+            bool planetHasPersonnelTeamB = planet.personnelsOnSurface.Exists(personnel => personnel.team == Team.TeamB);
+            teamAPersonnelOnSurfaceImg.gameObject.SetActive(planetHasPersonnelTeamA);
+            teamBPersonnelOnSurfaceImg.gameObject.SetActive(planetHasPersonnelTeamB);
+
+            factoryImg.gameObject.SetActive(planet.factories.Count > 0);
+            defenseImg.gameObject.SetActive(planet.defenses.Count > 0);
+
+            resourceSquaresPanel.SetActive(true);
+            int manyFacilities = planet.factories.Count + planet.defenses.Count;
+            for (int i = 1; i <= manyFacilities; i++)
+            {
+                string strI = i.ToString().PadLeft(2, '0');
+                Transform energySquare = gameObject.transform.Find("Resource Squares").Find("Square" + strI);
+                energySquare.GetComponent<Image>().color = Color.blue;
+                energySquare.GetComponent<Image>().enabled = true;
+            }
+
+            for (int i = manyFacilities + 1; i <= planet.energyCapacity; i++)
+            {
+                string strI = i.ToString().PadLeft(2, '0');
+                Transform energySquare = gameObject.transform.Find("Resource Squares").Find("Square" + strI);
+                energySquare.GetComponent<Image>().color = Color.white;
+                energySquare.GetComponent<Image>().enabled = true;
+            }
+
+            for (int i = planet.energyCapacity + 1; i <= 10; i++)
+            {
+                string strI = i.ToString().PadLeft(2, '0');
+                Transform energySquare = gameObject.transform.Find("Resource Squares").Find("Square" + strI);
+                energySquare.GetComponent<Image>().enabled = false;
+            }
+
+            // conflict
+            foreach (Ship ship in planet.shipsInOrbit)
+            {
+                teamToShipCount[ship.team]++;
+            }
+            bool isInConflict = (teamToShipCount[Team.TeamA] > 0) && (teamToShipCount[Team.TeamB] > 0);
+            planetInConflictImg.gameObject.SetActive(isInConflict);
+
+            bool hasOrbitalShield = planet.defenses.Exists(defense => defense.type.Equals(DefenseType.planetaryShield));
+            planetaryShieldImg.SetActive(hasOrbitalShield);
+        } else
+        {
+            planetImg.color = new Color(0.5f, 0.5f, 0.5f, 0.9f);
+            planetImg.sprite = circleImgSprite;
+            planetNameBg.color = new Color(1f, 1f, 1f, 0.5f);
+
+            planetaryShieldImg.gameObject.SetActive(false);
+            teamAShipsInOrbitImg.gameObject.SetActive(false);
+            teamBShipsInOrbitImg.gameObject.SetActive(false);
+            teamAPersonnelOnSurfaceImg.gameObject.SetActive(false);
+            teamBPersonnelOnSurfaceImg.gameObject.SetActive(false);
+            planetInConflictImg.gameObject.SetActive(false);
+            factoryImg.gameObject.SetActive(false);
+            defenseImg.gameObject.SetActive(false);
+            loyaltyBars.gameObject.SetActive(false);
+            resourceSquaresPanel.SetActive(false);
         }
-
-        for (int i = manyFacilities + 1; i <= planet.energyCapacity; i++)
-        {
-            string strI = i.ToString().PadLeft(2, '0');
-            Transform energySquare = gameObject.transform.Find("Resource Squares").Find("Square" + strI);
-            energySquare.GetComponent<Image>().color = Color.white;
-            energySquare.GetComponent<Image>().enabled = true;
-        }
-
-        for (int i = planet.energyCapacity + 1; i <= 10; i++)
-        {
-            string strI = i.ToString().PadLeft(2, '0');
-            Transform energySquare = gameObject.transform.Find("Resource Squares").Find("Square" + strI);
-            energySquare.GetComponent<Image>().enabled = false;
-        }
-
-        // conflict
-        Dictionary<Team, int> teamToShipCount = new Dictionary<Team, int>
-        {
-            {Team.TeamA, 0},
-            {Team.TeamB, 0}
-        };
-        foreach (Ship ship in planet.shipsInOrbit)
-        {
-            teamToShipCount[ship.team]++;
-        }
-        bool isInConflict = (teamToShipCount[Team.TeamA] > 0) && (teamToShipCount[Team.TeamB] > 0);
-        planetInConflictImg.gameObject.SetActive(isInConflict);
-
-        bool hasOrbitalShield = planet.defenses.Exists(defense => defense.type.Equals(DefenseType.planetaryShield));
-        planetaryShieldImg.SetActive(hasOrbitalShield);
     }
 
     protected override void onPointEnter(GameObject pointerDrag)
