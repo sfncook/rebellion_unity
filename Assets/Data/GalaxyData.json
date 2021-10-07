@@ -209,27 +209,27 @@
 			"galaxyY": 0.55,
 			"planets": [
 				{
-					"name": "Othiunerth",
+					"name": "Leziecarro",
 					"sectorX": 0.2,
 					"sectorY": 0.2
 				},
 				{
-					"name": "Sanvides",
+					"name": "Suneiyama",
 					"sectorX": 0.8,
 					"sectorY": 0.2
 				},
 				{
-					"name": "Vebolla",
+					"name": "Allillon",
 					"sectorX": 0.5,
 					"sectorY": 0.5
 				},
 				{
-					"name": "Zadus",
+					"name": "Thaphion",
 					"sectorX": 0.2,
 					"sectorY": 0.8
 				},
 				{
-					"name": "Zinov",
+					"name": "Oilea",
 					"sectorX": 0.8,
 					"sectorY": 0.8
 				}
@@ -241,27 +241,27 @@
 			"galaxyY": 0.17,
 			"planets": [
 				{
-					"name": "Othiunerth",
+					"name": "Nuemia",
 					"sectorX": 0.2,
 					"sectorY": 0.2
 				},
 				{
-					"name": "Sanvides",
+					"name": "Vuilia",
 					"sectorX": 0.8,
 					"sectorY": 0.2
 				},
 				{
-					"name": "Vebolla",
+					"name": "Trolustea",
 					"sectorX": 0.5,
 					"sectorY": 0.5
 				},
 				{
-					"name": "Zadus",
+					"name": "Cronoe",
 					"sectorX": 0.2,
 					"sectorY": 0.8
 				},
 				{
-					"name": "Zinov",
+					"name": "9Q",
 					"sectorX": 0.8,
 					"sectorY": 0.8
 				}

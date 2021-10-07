@@ -15,11 +15,11 @@ public class TimerSpinner2 : MonoBehaviour
     {
         if (MainGameState.gameState.getIsTimerRunning())
         {
-            MainGameState.gameState.stopTimerEvent.Invoke();
+            MainGameState.gameState.stopTimer();
         }
         else
         {
-            MainGameState.gameState.startTimerEvent.Invoke();
+            MainGameState.gameState.startTimer();
         }
     }
 }

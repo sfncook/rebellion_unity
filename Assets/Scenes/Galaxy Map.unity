@@ -386,6 +386,7 @@ MonoBehaviour:
     sectorY: 0
     energyCapacity: 0
     isHq: 0
+    isDiscovered: 0
     loyalty: 0
     isInConflict: 0
   planetSelectedForDestination:
@@ -394,6 +395,7 @@ MonoBehaviour:
     sectorY: 0
     energyCapacity: 0
     isHq: 0
+    isDiscovered: 0
     loyalty: 0
     isInConflict: 0
   newGameFadeIn: 0
@@ -404,6 +406,7 @@ MonoBehaviour:
     sectorY: 0
     energyCapacity: 0
     isHq: 0
+    isDiscovered: 0
     loyalty: 0
     isInConflict: 0
   firstRecruitingTask: 1
@@ -1045,7 +1048,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7570312188977066827, guid: 0380f7cdd57564a4898b825fcf95c1a3, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0.92
+      value: 0.9
       objectReference: {fileID: 0}
     - target: {fileID: 7570312188977066827, guid: 0380f7cdd57564a4898b825fcf95c1a3, type: 3}
       propertyPath: m_AnchorMin.x

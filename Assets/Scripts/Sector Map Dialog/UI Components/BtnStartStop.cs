@@ -16,11 +16,11 @@ public class BtnStartStop : MonoBehaviour
     {
         if (gameState.getIsTimerRunning())
         {
-            gameState.stopTimerEvent.Invoke();
+            gameState.stopTimer();
         }
         else
         {
-            gameState.startTimerEvent.Invoke();
+            gameState.startTimer();
         }
     }
 

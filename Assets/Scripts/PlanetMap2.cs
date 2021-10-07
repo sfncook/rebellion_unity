@@ -109,7 +109,8 @@ public class PlanetMap2 : DragAndDroppable
         Color loyaltyColor = planet.getTeam().getColorForTeam();
         factoryImg.color = loyaltyColor;
         defenseImg.color = loyaltyColor;
-        if(planet.isDiscovered)
+        //if(planet.isDiscovered)
+        if(true)
         {
             planetImg.color = Color.white;
             planetImg.sprite = planetImgSprite;

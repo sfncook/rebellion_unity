@@ -113,6 +113,7 @@ public class MainGameState : MonoBehaviour
     private AllFactoriesUpdater allFactoriesUpdater = new AllFactoriesUpdater();
     //private AllStoryLineUpdater allStoryLineUpdater = new AllStoryLineUpdater();
     private AllMissionsUpdater allMissionsUpdater = new AllMissionsUpdater();
+    private WinLoseUpdater winLoseUpdater = new WinLoseUpdater();
 
 
     void Awake()
@@ -128,6 +129,7 @@ public class MainGameState : MonoBehaviour
             allFactoriesUpdater.init();
             //allStoryLineUpdater.init();
             allMissionsUpdater.init();
+            winLoseUpdater.init();
         }
         else if(gameState != this)
         {
@@ -338,6 +340,9 @@ public class MainGameState : MonoBehaviour
                 initPlanet(planet, Team.TeamB);
             }
             teamBHomePlanet.loyalty = Random.Range(0.0f, 0.3f);
+
+            Debug.Log("Team A:"+ teamAHomeSector.name+" "+ teamAHomePlanet.name);
+            Debug.Log("Team B:"+ teamBHomeSector.name+" "+ teamBHomePlanet.name);
         }
     }
 
@@ -528,5 +533,27 @@ public class MainGameState : MonoBehaviour
                 return;
             }
         }
+    }
+
+    public void startTimer()
+    {
+        startTimerEvent.Invoke();
+    }
+
+    public void stopTimer()
+    {
+        stopTimerEvent.Invoke();
+    }
+
+    public void playerWins()
+    {
+        Debug.Log("Player Wins!");
+        stopTimer();
+    }
+
+    public void playerLoses()
+    {
+        Debug.Log("Player Loses!");
+        stopTimer();
     }
 }

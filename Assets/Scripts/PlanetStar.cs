@@ -26,8 +26,8 @@ public class PlanetStar : MonoBehaviour
         Color starColor = new Color(0.39f, 0.82f, 1f);
         Color color = Color.white;
         float scale = 1.0f;
-
-        if (planet.isDiscovered)
+        //if (planet.isDiscovered)
+        if (true)
         {
             switch (MainGameState.gameState.selectedFilterType)
             {

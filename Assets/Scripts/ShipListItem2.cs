@@ -136,6 +136,7 @@ public class ShipListItem2 : DragAndDroppable
 
     protected override bool isDraggable()
     {
+        Debug.Log(MainGameState.gameState.myTeam+" == "+ship.team);
         return MainGameState.gameState.myTeam == ship.team;
     }
 

@@ -14,7 +14,8 @@ public class SectorMap2WholeMap : MonoBehaviour
 
     public void onClickPlanet(Planet planet)
     {
-        if(planet.isDiscovered)
+        //if(planet.isDiscovered)
+        if(true)
         {
             MainGameState.gameState.planetForDetail = planet;
             SceneManager.LoadScene("Planet Detail 2");
