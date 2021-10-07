@@ -25,7 +25,9 @@ public class WinLoseUpdater
 
                 if (
                     planet.personnelsOnSurface.Exists(unit => unit.type == PersonnelType.ChosenOne) ||
-                    planet.personnelsInTransit.Exists(unit => unit.type == PersonnelType.ChosenOne)
+                    planet.personnelsInTransit.Exists(unit => unit.type == PersonnelType.ChosenOne) ||
+                    planet.shipsInOrbit.Exists(ship => ship.personnelsOnBoard.Exists(unit => unit.type == PersonnelType.ChosenOne)) ||
+                    planet.shipsInTransit.Exists(ship => ship.personnelsOnBoard.Exists(unit => unit.type == PersonnelType.ChosenOne))
                 )
                 {
                     teamAChosenOneStillExists = true;
