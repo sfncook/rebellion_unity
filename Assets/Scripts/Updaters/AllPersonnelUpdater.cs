@@ -8,14 +8,8 @@ public class AllPersonnelUpdater
     public void init()
     {
         gameState = MainGameState.gameState;
-        gameState.addListenerAgentPlanEvent(onAgentPlanEvent);
         gameState.addListenerAgentActionEvent(onAgentActionEvent);
         gameState.addListenerPostCleanupEvent(onPostCleanupEvent);
-    }
-
-    public void onAgentPlanEvent()
-    {
-
     }
 
     // 3. - Battles takes place
