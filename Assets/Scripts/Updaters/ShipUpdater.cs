@@ -79,7 +79,7 @@ public class ShipUpdater : MonoBehaviour
                 Defense targetDefense = (Defense)targetUnit;
                 int damage = UnityEngine.Random.Range(1, targetDefense.health);
                 targetDefense.health -= damage;
-                Debug.Log("Defense damage:" + damage + " new health:" + targetDefense.health);
+                //Debug.Log("Defense damage:" + damage + " new health:" + targetDefense.health);
                 if (targetDefense.health <= 0)
                 {
                     destroyed = true;
@@ -87,7 +87,7 @@ public class ShipUpdater : MonoBehaviour
                 unitName = targetDefense.type.name;
             }
 
-            Debug.Log(MainGameState.gameState.gameTime + " " + (destroyed ? "Destroyed" : "Damaged") + " " + unitName + " on planet:" + planet.name);
+            //Debug.Log(MainGameState.gameState.gameTime + " " + (destroyed ? "Destroyed" : "Damaged") + " " + unitName + " on planet:" + planet.name);
         }
     }// performAttackActions
 }

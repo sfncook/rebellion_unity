@@ -115,6 +115,7 @@ public class MainGameState : MonoBehaviour
     //private AllStoryLineUpdater allStoryLineUpdater = new AllStoryLineUpdater();
     private AllMissionsUpdater allMissionsUpdater = new AllMissionsUpdater();
     private WinLoseUpdater winLoseUpdater = new WinLoseUpdater();
+    private AiAgentPlanUpdater aiAgentPlanUpdater = new AiAgentPlanUpdater();
 
 
     void Awake()
@@ -131,6 +132,7 @@ public class MainGameState : MonoBehaviour
             //allStoryLineUpdater.init();
             allMissionsUpdater.init();
             winLoseUpdater.init();
+            aiAgentPlanUpdater.init();
         }
         else if(gameState != this)
         {
@@ -476,6 +478,21 @@ public class MainGameState : MonoBehaviour
         return null;
     }
 
+    public static Planet findPlanetForFactory(Factory factory)
+    {
+        foreach (StarSector sector in MainGameState.gameState.galaxy.sectors)
+        {
+            foreach (Planet planet in sector.planets)
+            {
+                if(planet.factories.Find(f => f.Equals(factory)) != null)
+                {
+                    return planet;
+                }
+            }   
+        }
+        return null;
+    }
+
     public static int arrivalDay(Planet src, Planet dst)
     {
         StarSector srcSector = findSectorForPlanet(src);
@@ -556,5 +573,13 @@ public class MainGameState : MonoBehaviour
     {
         Debug.Log("Player Loses!");
         stopTimer();
+    }
+
+    public void factoryBuildOrder(Factory factory, AbstractType buildType, Planet planetDestination)
+    {
+        factory.isBuilding = true;
+        factory.buildingType = buildType;
+        factory.buildingDoneDay = gameTime + buildType.daysToBuild;
+        factory.planetDestination = planetDestination;
     }
 }

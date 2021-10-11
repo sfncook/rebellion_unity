@@ -64,7 +64,7 @@ public class EspionageMissionCompleter : MissionCompleter
                 Defense targetDefense = (Defense)targetUnit;
                 int damage = Random.Range(1, targetDefense.health);
                 targetDefense.health -= damage;
-                Debug.Log("Defense damage:" + damage + " new health:" + targetDefense.health);
+                //Debug.Log("Defense damage:" + damage + " new health:" + targetDefense.health);
                 if (targetDefense.health <= 0)
                 {
                     destroyed = true;

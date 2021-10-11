@@ -72,10 +72,7 @@ public class FactoryBuildDialog2 : MonoBehaviour
     public void onClickBuild()
     {
         AbstractType type = selectedCatalogListItem.getType();
-        factory.isBuilding = true;
-        factory.buildingType = type;
-        factory.buildingDoneDay = MainGameState.gameState.gameTime + type.daysToBuild;
-        factory.planetDestination = MainGameState.gameState.planetSelectedForDestination;
+        MainGameState.gameState.factoryBuildOrder(factory, type, MainGameState.gameState.planetSelectedForDestination);
         MainGameState.gameState.factoryForDetail = null;
         MainGameState.gameState.planetSelectedForDestination = null;
         SceneManager.LoadScene("Planet Detail 2");

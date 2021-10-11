@@ -5,6 +5,11 @@ public class AiAgentPlanUpdater
 {
     private MainGameState gameState;
 
+    // Rules sorted in ascending priority - least to most important
+    private List<Rule> rulesPrioritized = new List<Rule> {
+        new TrainingFacRule()
+    };
+
     public void init()
     {
         gameState = MainGameState.gameState;
@@ -13,6 +18,7 @@ public class AiAgentPlanUpdater
 
     public void onAgentPlanEvent()
     {
+        Debug.Log("onAgentPlanEvent rulesPrioritized.count:"+ rulesPrioritized.Count);
         // Dictionary<Unit, Action>
         // Each action, below, gets its own src code file
         // Interface method takes the shared dictionary<Unit,Action> and modifies it as-needed
@@ -35,6 +41,7 @@ public class AiAgentPlanUpdater
         //      - If we have more firepower in orbit then fight it out (scope: ind. unit)
         //      - Rescue personnel that need it (scope: planet)
         //      - Go to ship yard for healing (scope: ind. unit)
+        //      - Redistribute soldiers as-needed to other planets in sector
         // attack teamA assets
         //      - Send enough ships to capture and hold a planet (scope: sector)
         //      - Send enough personnel to capture and hold a planet (scope: sector)
@@ -52,14 +59,25 @@ public class AiAgentPlanUpdater
         //      - Training fac's keep building ships and randomly send them around the sector (scope: sector)
         //
 
-        foreach (StarSector sector in gameState.galaxy.sectors)
+        Dictionary <AbstractUnit, UnitAction> unitActions = new Dictionary<AbstractUnit, UnitAction>();
+        foreach(Rule rule in rulesPrioritized)
         {
-            foreach (Planet planet in sector.planets)
+            rule.apply(unitActions);
+        }
+
+        foreach(var kvp in unitActions)
+        {
+            AbstractUnit unit = kvp.Key;
+            UnitAction action = kvp.Value;
+
+            switch(action.unitActionType)
             {
-                foreach (Defense defense in planet.defenses)
-                {
-                    DefenseUpdater.performAttackActions(planet, defense);
-                }
+                case UnitAction.UnitActionType.TrainPersonnel:
+                    MainGameState.gameState.factoryBuildOrder((Factory) unit, action.factoryBuildType, action.targetPlanet);
+                    StarSector sector = MainGameState.findSectorForPlanet(action.targetPlanet);
+                    Planet planet = MainGameState.findPlanetForFactory((Factory)unit);
+                    Debug.Log("Start training fac build sector:"+ sector.name+" planet:"+planet.name+" deployToTarget:"+action.targetPlanet.name);
+                    break;
             }
         }
     }
