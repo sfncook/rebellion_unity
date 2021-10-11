@@ -35,6 +35,7 @@ public class AllPlanetsUpdater
                 {
                     planet.shipsInTransit.Remove(ship);
                     planet.shipsInOrbit.Add(ship);
+                    planet.setDiscoveredByTeam(ship.team);
                     MainGameState.gameState.addGameEvent("Ship arrived:" + ship.type.ToString() + " Plt:" + planet.name);
                 }
                 planet.shipsInOrbit.AddRange(planet.shipsToDeploy);
@@ -56,6 +57,7 @@ public class AllPlanetsUpdater
                 {
                     planet.personnelsInTransit.Remove(personnel);
                     planet.personnelsOnSurface.Add(personnel);
+                    planet.setDiscoveredByTeam(personnel.team);
                 }
                 planet.personnelsOnSurface.AddRange(planet.personnelsToDeploy);
                 planet.personnelsToDeploy.Clear();
@@ -100,16 +102,6 @@ public class AllPlanetsUpdater
                 }
                 planet.defenses.AddRange(planet.defensesToDeploy);
                 planet.defensesToDeploy.Clear();
-
-                // Update discovery for game-state-visibility
-                if(
-                    planet.shipsInOrbit.Any(unit => unit.team == MainGameState.gameState.myTeam) ||
-                    planet.personnelsOnSurface.Any(unit => unit.team == MainGameState.gameState.myTeam)
-                )
-                {
-                    planet.isDiscovered = true;
-
-                }
             }
         }
     }

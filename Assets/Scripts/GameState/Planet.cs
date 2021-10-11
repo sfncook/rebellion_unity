@@ -15,6 +15,8 @@ public class Planet: AbstractTarget
 
     // Game state visibility
     public bool isDiscovered = false;
+    public bool isDiscoveredByTeamA = false;
+    public bool isDiscoveredByTeamB = false;
 
     // Mutable state:
     public float loyalty; // 0=TeamA & 1=TeamB
@@ -94,6 +96,23 @@ public class Planet: AbstractTarget
         {
             Planet p = (Planet)obj;
             return p.name.Equals(name);
+        }
+    }
+
+    public bool isDiscoveredByTeam(Team team)
+    {
+        return (team == Team.TeamA && isDiscoveredByTeamA) ||
+            (team == Team.TeamB && isDiscoveredByTeamB);
+    }
+
+    public void setDiscoveredByTeam(Team team)
+    {
+        if(team == Team.TeamA)
+        {
+            isDiscoveredByTeamA = true;
+        } else
+        {
+            isDiscoveredByTeamB = true;
         }
     }
 }

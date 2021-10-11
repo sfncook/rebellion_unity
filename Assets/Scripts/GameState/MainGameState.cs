@@ -27,6 +27,7 @@ public class MainGameState : MonoBehaviour
     private bool isTimerRunning = false;
     [HideInInspector]
     public Team myTeam = Team.TeamA;
+    public Team enemyTeam = Team.TeamB;
     [HideInInspector]
     public UnityEvent startTimerEvent = new UnityEvent();
     [HideInInspector]
@@ -326,7 +327,6 @@ public class MainGameState : MonoBehaviour
             teamAHomePlanet.factories.Add(new Factory(FactoryType.ctorYard));
             teamAHomePlanet.factories.Add(new Factory(FactoryType.shipYard));
             teamAHomePlanet.defenses.Add(new Defense(DefenseType.planetaryShield));
-            teamAHomePlanet.isDiscovered = true;
 
 
             // Init Team B HQ
@@ -380,6 +380,7 @@ public class MainGameState : MonoBehaviour
 
     private void initPlanet(Planet planet, Team team)
     {
+        planet.setDiscoveredByTeam(team);
         var shipTypes = new ShipType[] {
             ShipType.Bireme,
             ShipType.Trireme,
